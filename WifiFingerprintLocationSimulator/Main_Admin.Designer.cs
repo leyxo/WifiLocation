@@ -186,7 +186,7 @@
             // 
             // ToolStripMenuItem_About
             // 
-            this.ToolStripMenuItem_About.Image = global::WifiFingerprintLocationSimulator.Properties.Resources.Icon1;
+            this.ToolStripMenuItem_About.Image = global::WifiFingerprintLocationSimulator.Properties.Resources.Icon;
             this.ToolStripMenuItem_About.Name = "ToolStripMenuItem_About";
             this.ToolStripMenuItem_About.Size = new System.Drawing.Size(216, 22);
             this.ToolStripMenuItem_About.Text = "关于 室内定位仿真平台(A)";
@@ -206,6 +206,8 @@
             // 
             // button_UserManage_Delete
             // 
+            this.button_UserManage_Delete.Image = global::WifiFingerprintLocationSimulator.Properties.Resources.button_delete;
+            this.button_UserManage_Delete.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button_UserManage_Delete.Location = new System.Drawing.Point(583, 167);
             this.button_UserManage_Delete.Name = "button_UserManage_Delete";
             this.button_UserManage_Delete.Size = new System.Drawing.Size(75, 23);
@@ -216,6 +218,8 @@
             // 
             // button_UserManage_AddUser
             // 
+            this.button_UserManage_AddUser.Image = global::WifiFingerprintLocationSimulator.Properties.Resources.button_add;
+            this.button_UserManage_AddUser.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button_UserManage_AddUser.Location = new System.Drawing.Point(583, 127);
             this.button_UserManage_AddUser.Name = "button_UserManage_AddUser";
             this.button_UserManage_AddUser.Size = new System.Drawing.Size(75, 23);
@@ -226,6 +230,8 @@
             // 
             // button_UserManage_Refresh
             // 
+            this.button_UserManage_Refresh.Image = global::WifiFingerprintLocationSimulator.Properties.Resources.button_list;
+            this.button_UserManage_Refresh.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button_UserManage_Refresh.Location = new System.Drawing.Point(583, 88);
             this.button_UserManage_Refresh.Name = "button_UserManage_Refresh";
             this.button_UserManage_Refresh.Size = new System.Drawing.Size(75, 23);

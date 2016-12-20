@@ -23,7 +23,8 @@ namespace WifiFingerprintLocationSimulator
             // 窗口初始化
             toolStripStatusLabel_Date.Text = DateTime.Now.ToString("yyyy-MM-dd");
             toolStripStatusLabel_UserName.Text = CurrentUserInfo.Name;
-
+            ToolStripMenuItem_Logout.Text += (" " + CurrentUserInfo.Name);
+            
             // 控件提示弹窗初始化
             toolTip_Graph.SetToolTip(panel_Graph, "点击以切换大图模式");
         }
@@ -1280,45 +1281,47 @@ namespace WifiFingerprintLocationSimulator
             }
         }
 
-// ***********************************************************************************
-// *点击场景切换大图模式 *************************************************************
-// ***********************************************************************************
+        // ***********************************************************************************
+        // *点击场景切换大图模式 *************************************************************
+        // ***********************************************************************************
 
         // 点击panel_Graph在两种尺寸中切换
         private void panel_Graph_Click(object sender, EventArgs e)
         {
-            tabControl_EnvironmentSettings.Visible = false;
-            if (groupBox_Graph.Location == new Point(494, 16))
+            if ("" != CurrentUserInfo.MapID)
             {
-                for (int i = 0; i <= 500; i += 10)
+                tabControl_EnvironmentSettings.Visible = false;
+                if (groupBox_Graph.Location == new Point(494, 16))
                 {
-                    groupBox_Graph.Location = new Point(500 - i, 16 - i / 30);
-                    groupBox_Graph.Size = new Size(240 + i, 422 + i / 26);
-                    panel_Graph.Size = new Size(220 + i, 400 + i/26);
-                    draw_map();
-                    draw_ap();
+                    for (int i = 0; i <= 500; i += 10)
+                    {
+                        groupBox_Graph.Location = new Point(500 - i, 16 - i / 30);
+                        groupBox_Graph.Size = new Size(240 + i, 422 + i / 26);
+                        panel_Graph.Size = new Size(220 + i, 400 + i / 26);
+                        draw_map();
+                        draw_ap();
+                    }
+                    //groupBox_Graph.Location = new Point(0, 0);
+                    //groupBox_Graph.Size = new Size(737, 441);
+                    //panel_Graph.Size = new Size(717, 419);
                 }
-                //groupBox_Graph.Location = new Point(0, 0);
-                //groupBox_Graph.Size = new Size(737, 441);
-                //panel_Graph.Size = new Size(717, 419);
-            }
-            else
-            {
-                for (int i = 480; i >= 0; i -= 10)
+                else
                 {
-                    groupBox_Graph.Location = new Point(494 - i, 16 - i / 30);
-                    groupBox_Graph.Size = new Size(240 + i, 422 + i / 26);
-                    panel_Graph.Size = new Size(220 + i, 400 + i / 26);
-                    draw_map();
-                    draw_ap();
+                    for (int i = 480; i >= 0; i -= 10)
+                    {
+                        groupBox_Graph.Location = new Point(494 - i, 16 - i / 30);
+                        groupBox_Graph.Size = new Size(240 + i, 422 + i / 26);
+                        panel_Graph.Size = new Size(220 + i, 400 + i / 26);
+                        draw_map();
+                        draw_ap();
+                    }
+                    //groupBox_Graph.Location = new Point(494, 16);
+                    //groupBox_Graph.Size = new Size(240, 422);
+                    //panel_Graph.Size = new Size(220, 400);
                 }
-                //groupBox_Graph.Location = new Point(494, 16);
-                //groupBox_Graph.Size = new Size(240, 422);
-                //panel_Graph.Size = new Size(220, 400);
+                draw();
+                tabControl_EnvironmentSettings.Visible = true;
             }
-            draw();
-            tabControl_EnvironmentSettings.Visible = true;
         }
-
     }
 }

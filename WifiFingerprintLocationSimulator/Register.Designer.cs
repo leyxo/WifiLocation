@@ -114,6 +114,7 @@
             // 
             // button_cancel
             // 
+            this.button_cancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.button_cancel.Location = new System.Drawing.Point(51, 250);
             this.button_cancel.Name = "button_cancel";
             this.button_cancel.Size = new System.Drawing.Size(75, 23);
@@ -192,8 +193,10 @@
             // 
             // Register
             // 
+            this.AcceptButton = this.button_Register;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.CancelButton = this.button_cancel;
             this.ClientSize = new System.Drawing.Size(294, 301);
             this.ControlBox = false;
             this.Controls.Add(this.label_Hint_UserPassCheck);
@@ -212,6 +215,7 @@
             this.Controls.Add(this.label_UserPass);
             this.Controls.Add(this.label_UserName);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.KeyPreview = true;
             this.Name = "Register";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "新用户注册";

@@ -75,26 +75,26 @@
             // ToolStripMenuItem_Login
             // 
             this.ToolStripMenuItem_Login.Name = "ToolStripMenuItem_Login";
-            this.ToolStripMenuItem_Login.Size = new System.Drawing.Size(152, 22);
+            this.ToolStripMenuItem_Login.Size = new System.Drawing.Size(145, 22);
             this.ToolStripMenuItem_Login.Text = "登录...";
             this.ToolStripMenuItem_Login.Click += new System.EventHandler(this.ToolStripMenuItem_Login_Click);
             // 
             // ToolStripMenuItem_Registe
             // 
             this.ToolStripMenuItem_Registe.Name = "ToolStripMenuItem_Registe";
-            this.ToolStripMenuItem_Registe.Size = new System.Drawing.Size(152, 22);
+            this.ToolStripMenuItem_Registe.Size = new System.Drawing.Size(145, 22);
             this.ToolStripMenuItem_Registe.Text = "新用户注册...";
             this.ToolStripMenuItem_Registe.Click += new System.EventHandler(this.ToolStripMenuItem_Registe_Click);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(149, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(142, 6);
             // 
             // ToolStripMenuItem_Exit
             // 
             this.ToolStripMenuItem_Exit.Name = "ToolStripMenuItem_Exit";
-            this.ToolStripMenuItem_Exit.Size = new System.Drawing.Size(152, 22);
+            this.ToolStripMenuItem_Exit.Size = new System.Drawing.Size(145, 22);
             this.ToolStripMenuItem_Exit.Text = "退出(E)";
             this.ToolStripMenuItem_Exit.Click += new System.EventHandler(this.ToolStripMenuItem_Exit_Click);
             // 
@@ -128,7 +128,7 @@
             // 
             // ToolStripMenuItem_About
             // 
-            this.ToolStripMenuItem_About.Image = global::WifiFingerprintLocationSimulator.Properties.Resources.Icon1;
+            this.ToolStripMenuItem_About.Image = global::WifiFingerprintLocationSimulator.Properties.Resources.Icon;
             this.ToolStripMenuItem_About.Name = "ToolStripMenuItem_About";
             this.ToolStripMenuItem_About.Size = new System.Drawing.Size(216, 22);
             this.ToolStripMenuItem_About.Text = "关于 室内定位仿真平台(A)";
