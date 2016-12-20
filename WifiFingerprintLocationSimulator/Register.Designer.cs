@@ -39,9 +39,11 @@
             this.button_cancel = new System.Windows.Forms.Button();
             this.textBox_UserEmail = new System.Windows.Forms.TextBox();
             this.label_UserEmail = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
+            this.label_Hint_UserEmail = new System.Windows.Forms.Label();
             this.label_UserType = new System.Windows.Forms.Label();
             this.comboBox_UserType = new System.Windows.Forms.ComboBox();
+            this.label_Hint_UserName = new System.Windows.Forms.Label();
+            this.label_Hint_UserPassCheck = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // textBox_UserPass
@@ -60,6 +62,8 @@
             this.textBox_UserName.Name = "textBox_UserName";
             this.textBox_UserName.Size = new System.Drawing.Size(100, 21);
             this.textBox_UserName.TabIndex = 1;
+            this.textBox_UserName.TextChanged += new System.EventHandler(this.textBox_UserName_TextChanged);
+            this.textBox_UserName.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox_UserName_KeyPress);
             // 
             // label_UserPass
             // 
@@ -87,6 +91,7 @@
             this.textBox_UserPassCheck.Size = new System.Drawing.Size(100, 21);
             this.textBox_UserPassCheck.TabIndex = 3;
             this.textBox_UserPassCheck.UseSystemPasswordChar = true;
+            this.textBox_UserPassCheck.TextChanged += new System.EventHandler(this.textBox_UserPassCheck_TextChanged);
             // 
             // label_UserPassCheck
             // 
@@ -102,7 +107,7 @@
             this.button_Register.Location = new System.Drawing.Point(158, 250);
             this.button_Register.Name = "button_Register";
             this.button_Register.Size = new System.Drawing.Size(75, 23);
-            this.button_Register.TabIndex = 4;
+            this.button_Register.TabIndex = 6;
             this.button_Register.Text = "注册";
             this.button_Register.UseVisualStyleBackColor = true;
             this.button_Register.Click += new System.EventHandler(this.button_Register_Click);
@@ -112,7 +117,7 @@
             this.button_cancel.Location = new System.Drawing.Point(51, 250);
             this.button_cancel.Name = "button_cancel";
             this.button_cancel.Size = new System.Drawing.Size(75, 23);
-            this.button_cancel.TabIndex = 5;
+            this.button_cancel.TabIndex = 7;
             this.button_cancel.Text = "取消";
             this.button_cancel.UseVisualStyleBackColor = true;
             this.button_cancel.Click += new System.EventHandler(this.button_cancel_Click);
@@ -123,8 +128,8 @@
             this.textBox_UserEmail.MaxLength = 20;
             this.textBox_UserEmail.Name = "textBox_UserEmail";
             this.textBox_UserEmail.Size = new System.Drawing.Size(100, 21);
-            this.textBox_UserEmail.TabIndex = 17;
-            this.textBox_UserEmail.UseSystemPasswordChar = true;
+            this.textBox_UserEmail.TabIndex = 4;
+            this.textBox_UserEmail.TextChanged += new System.EventHandler(this.textBox_UserEmail_TextChanged);
             // 
             // label_UserEmail
             // 
@@ -135,14 +140,14 @@
             this.label_UserEmail.TabIndex = 18;
             this.label_UserEmail.Text = "邮  箱：";
             // 
-            // label1
+            // label_Hint_UserEmail
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(215, 167);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(53, 12);
-            this.label1.TabIndex = 19;
-            this.label1.Text = "(可选填)";
+            this.label_Hint_UserEmail.AutoSize = true;
+            this.label_Hint_UserEmail.Location = new System.Drawing.Point(215, 167);
+            this.label_Hint_UserEmail.Name = "label_Hint_UserEmail";
+            this.label_Hint_UserEmail.Size = new System.Drawing.Size(53, 12);
+            this.label_Hint_UserEmail.TabIndex = 19;
+            this.label_Hint_UserEmail.Text = "(可选填)";
             // 
             // label_UserType
             // 
@@ -165,17 +170,37 @@
             this.comboBox_UserType.Location = new System.Drawing.Point(109, 206);
             this.comboBox_UserType.Name = "comboBox_UserType";
             this.comboBox_UserType.Size = new System.Drawing.Size(100, 20);
-            this.comboBox_UserType.TabIndex = 21;
+            this.comboBox_UserType.TabIndex = 5;
+            // 
+            // label_Hint_UserName
+            // 
+            this.label_Hint_UserName.AutoSize = true;
+            this.label_Hint_UserName.Location = new System.Drawing.Point(215, 40);
+            this.label_Hint_UserName.Name = "label_Hint_UserName";
+            this.label_Hint_UserName.Size = new System.Drawing.Size(29, 12);
+            this.label_Hint_UserName.TabIndex = 22;
+            this.label_Hint_UserName.Text = "null";
+            // 
+            // label_Hint_UserPassCheck
+            // 
+            this.label_Hint_UserPassCheck.AutoSize = true;
+            this.label_Hint_UserPassCheck.Location = new System.Drawing.Point(215, 124);
+            this.label_Hint_UserPassCheck.Name = "label_Hint_UserPassCheck";
+            this.label_Hint_UserPassCheck.Size = new System.Drawing.Size(29, 12);
+            this.label_Hint_UserPassCheck.TabIndex = 23;
+            this.label_Hint_UserPassCheck.Text = "null";
             // 
             // Register
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(284, 301);
+            this.ClientSize = new System.Drawing.Size(294, 301);
             this.ControlBox = false;
+            this.Controls.Add(this.label_Hint_UserPassCheck);
+            this.Controls.Add(this.label_Hint_UserName);
             this.Controls.Add(this.comboBox_UserType);
             this.Controls.Add(this.label_UserType);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.label_Hint_UserEmail);
             this.Controls.Add(this.textBox_UserEmail);
             this.Controls.Add(this.label_UserEmail);
             this.Controls.Add(this.button_Register);
@@ -187,11 +212,12 @@
             this.Controls.Add(this.label_UserPass);
             this.Controls.Add(this.label_UserName);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.MaximumSize = new System.Drawing.Size(300, 340);
-            this.MinimumSize = new System.Drawing.Size(300, 340);
+            this.MaximumSize = new System.Drawing.Size(310, 340);
+            this.MinimumSize = new System.Drawing.Size(310, 340);
             this.Name = "Register";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "新用户注册";
+            this.Load += new System.EventHandler(this.Register_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -209,8 +235,10 @@
         private System.Windows.Forms.Button button_cancel;
         private System.Windows.Forms.TextBox textBox_UserEmail;
         private System.Windows.Forms.Label label_UserEmail;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label_Hint_UserEmail;
         private System.Windows.Forms.Label label_UserType;
         private System.Windows.Forms.ComboBox comboBox_UserType;
+        private System.Windows.Forms.Label label_Hint_UserName;
+        private System.Windows.Forms.Label label_Hint_UserPassCheck;
     }
 }

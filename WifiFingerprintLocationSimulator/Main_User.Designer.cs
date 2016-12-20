@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main_User));
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel_DateLabel = new System.Windows.Forms.ToolStripStatusLabel();
@@ -53,6 +54,7 @@
             this.ToolStripMenuItem_About = new System.Windows.Forms.ToolStripMenuItem();
             this.panel_EnvironmentSettings = new System.Windows.Forms.Panel();
             this.groupBox_Graph = new System.Windows.Forms.GroupBox();
+            this.panel_Graph = new System.Windows.Forms.Panel();
             this.tabControl_EnvironmentSettings = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.button_map_load = new System.Windows.Forms.Button();
@@ -128,9 +130,11 @@
             this.columnHeader21 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.textBox_rss_map = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
+            this.toolTip_Graph = new System.Windows.Forms.ToolTip(this.components);
             this.statusStrip1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.panel_EnvironmentSettings.SuspendLayout();
+            this.groupBox_Graph.SuspendLayout();
             this.tabControl_EnvironmentSettings.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -317,12 +321,22 @@
             // 
             // groupBox_Graph
             // 
+            this.groupBox_Graph.Controls.Add(this.panel_Graph);
             this.groupBox_Graph.Location = new System.Drawing.Point(494, 16);
             this.groupBox_Graph.Name = "groupBox_Graph";
             this.groupBox_Graph.Size = new System.Drawing.Size(240, 422);
             this.groupBox_Graph.TabIndex = 1;
             this.groupBox_Graph.TabStop = false;
             this.groupBox_Graph.Text = "仿真场景图示";
+            // 
+            // panel_Graph
+            // 
+            this.panel_Graph.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.panel_Graph.Location = new System.Drawing.Point(10, 17);
+            this.panel_Graph.Name = "panel_Graph";
+            this.panel_Graph.Size = new System.Drawing.Size(220, 400);
+            this.panel_Graph.TabIndex = 0;
+            this.panel_Graph.Click += new System.EventHandler(this.panel_Graph_Click);
             // 
             // tabControl_EnvironmentSettings
             // 
@@ -1013,6 +1027,16 @@
             this.label5.TabIndex = 15;
             this.label5.Text = "当前地图：";
             // 
+            // toolTip_Graph
+            // 
+            this.toolTip_Graph.AutoPopDelay = 2000;
+            this.toolTip_Graph.InitialDelay = 500;
+            this.toolTip_Graph.IsBalloon = true;
+            this.toolTip_Graph.ReshowDelay = 100;
+            this.toolTip_Graph.ShowAlways = true;
+            this.toolTip_Graph.ToolTipIcon = System.Windows.Forms.ToolTipIcon.Info;
+            this.toolTip_Graph.ToolTipTitle = "缩放地图";
+            // 
             // Main_User
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -1034,6 +1058,7 @@
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.panel_EnvironmentSettings.ResumeLayout(false);
+            this.groupBox_Graph.ResumeLayout(false);
             this.tabControl_EnvironmentSettings.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
@@ -1148,5 +1173,7 @@
         private System.Windows.Forms.TextBox textBox_rss_map;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem_RSSInfo;
+        private System.Windows.Forms.Panel panel_Graph;
+        private System.Windows.Forms.ToolTip toolTip_Graph;
     }
 }

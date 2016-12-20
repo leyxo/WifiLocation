@@ -36,13 +36,15 @@
             this.label_Author = new System.Windows.Forms.Label();
             this.label_CopyRight = new System.Windows.Forms.Label();
             this.label_ProjectName = new System.Windows.Forms.Label();
+            this.pictureBox_Awful = new System.Windows.Forms.PictureBox();
             this.pictureBox_Logo = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox_Awful)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_Logo)).BeginInit();
             this.SuspendLayout();
             // 
             // button_Awful
             // 
-            this.button_Awful.Location = new System.Drawing.Point(146, 174);
+            this.button_Awful.Location = new System.Drawing.Point(197, 174);
             this.button_Awful.Name = "button_Awful";
             this.button_Awful.Size = new System.Drawing.Size(75, 23);
             this.button_Awful.TabIndex = 19;
@@ -111,6 +113,16 @@
             this.label_ProjectName.Text = "室内定位仿真平台 v1.0";
             this.label_ProjectName.Click += new System.EventHandler(this.label_ProjectName_Click);
             // 
+            // pictureBox_Awful
+            // 
+            this.pictureBox_Awful.Image = global::WifiFingerprintLocationSimulator.Properties.Resources.Awful;
+            this.pictureBox_Awful.Location = new System.Drawing.Point(146, 174);
+            this.pictureBox_Awful.Name = "pictureBox_Awful";
+            this.pictureBox_Awful.Size = new System.Drawing.Size(75, 23);
+            this.pictureBox_Awful.TabIndex = 20;
+            this.pictureBox_Awful.TabStop = false;
+            this.pictureBox_Awful.MouseEnter += new System.EventHandler(this.pictureBox_Awful_MouseEnter);
+            // 
             // pictureBox_Logo
             // 
             this.pictureBox_Logo.Image = global::WifiFingerprintLocationSimulator.Properties.Resources.Icon;
@@ -128,6 +140,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(284, 217);
             this.ControlBox = false;
+            this.Controls.Add(this.pictureBox_Awful);
             this.Controls.Add(this.button_Awful);
             this.Controls.Add(this.label_QuestionContent);
             this.Controls.Add(this.button_Gorgeous);
@@ -142,6 +155,8 @@
             this.Name = "About";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "关于";
+            this.Load += new System.EventHandler(this.About_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox_Awful)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_Logo)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -158,5 +173,6 @@
         private System.Windows.Forms.Label label_CopyRight;
         private System.Windows.Forms.Label label_ProjectName;
         private System.Windows.Forms.PictureBox pictureBox_Logo;
+        private System.Windows.Forms.PictureBox pictureBox_Awful;
     }
 }

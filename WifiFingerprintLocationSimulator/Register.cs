@@ -18,6 +18,17 @@ namespace WifiFingerprintLocationSimulator
             InitializeComponent();
         }
 
+        private void Register_Load(object sender, EventArgs e)
+        {
+            label_Hint_UserName.Text = "";
+            label_Hint_UserPassCheck.Text = "";
+            label_Hint_UserEmail.Text = "(可选填)";
+
+            label_Hint_UserEmail.ForeColor = Color.Gray;
+            label_Hint_UserPassCheck.ForeColor = Color.Gray;
+            label_Hint_UserEmail.ForeColor = Color.Gray;
+        }
+
         private void button_cancel_Click(object sender, EventArgs e)
         {
             this.Hide();
@@ -87,6 +98,57 @@ namespace WifiFingerprintLocationSimulator
                 }
             }
 
+        }
+
+        // 监测输入用户名长度(不少于6个字符)
+        private void textBox_UserName_TextChanged(object sender, EventArgs e)
+        {
+            if (textBox_UserName.TextLength < 6)
+                label_Hint_UserName.Text = "*少于6字符";
+            else
+                label_Hint_UserName.Text = "";
+        }
+
+        // 监测密码是否一致
+        private void textBox_UserPassCheck_TextChanged(object sender, EventArgs e)
+        {
+            if (textBox_UserPassCheck.Text != textBox_UserPass.Text)
+            {
+                label_Hint_UserPassCheck.Text = "*密码不一致";
+                label_Hint_UserPassCheck.ForeColor = Color.Gray;
+            }
+            else
+            {
+                label_Hint_UserPassCheck.Text = "";
+                label_Hint_UserEmail.ForeColor = Color.Gray;
+            }
+        }
+
+        // 监测邮箱内容是否为空
+        private void textBox_UserEmail_TextChanged(object sender, EventArgs e)
+        {
+            if ("" != textBox_UserEmail.Text)
+            {
+                label_Hint_UserEmail.Text = "";
+            }
+            else
+            {
+                label_Hint_UserEmail.Text = "(可选填)";
+            }
+        }
+
+// ***********************************************************************************
+// *对于textBox输入字符的限制 ********************************************************
+// ***********************************************************************************
+        private void textBox_UserName_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar != '\b')//这是允许输入退格键  
+            {
+                if ((e.KeyChar < '0') || ((e.KeyChar > '9') && (e.KeyChar < 'A')) || ((e.KeyChar > 'Z') && (e.KeyChar < 'a')) || (e.KeyChar > 'z'))//这是允许输入0-9数字  
+                {
+                    e.Handled = true;
+                }
+            }
         }
     }
 }
