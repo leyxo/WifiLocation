@@ -212,8 +212,6 @@
             this.Controls.Add(this.label_UserPass);
             this.Controls.Add(this.label_UserName);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.MaximumSize = new System.Drawing.Size(310, 340);
-            this.MinimumSize = new System.Drawing.Size(310, 340);
             this.Name = "Register";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "新用户注册";

@@ -14,3 +14,4 @@ C:\Users\leyxo\Desktop\Visual Studio Doc\WifiFingerprintLocationSimulator\WifiFi
 C:\Users\leyxo\Desktop\Visual Studio Doc\WifiFingerprintLocationSimulator\WifiFingerprintLocationSimulator\obj\Debug\WifiFingerprintLocationSimulator.Main_Admin.resources
 C:\Users\leyxo\Desktop\Visual Studio Doc\WifiFingerprintLocationSimulator\WifiFingerprintLocationSimulator\obj\Debug\WifiFingerprintLocationSimulator.Main_User.resources
 C:\Users\leyxo\Desktop\Visual Studio Doc\WifiFingerprintLocationSimulator\WifiFingerprintLocationSimulator\obj\Debug\WifiFingerprintLocationSimulator.csprojResolveAssemblyReference.cache
+C:\Users\leyxo\Desktop\Visual Studio Doc\WifiFingerprintLocationSimulator\WifiFingerprintLocationSimulator\obj\Debug\WifiFingerprintLocationSimulator.ForgotPass.resources

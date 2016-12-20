@@ -295,7 +295,7 @@ namespace WifiFingerprintLocationSimulator
             }
 
             // 绘制
-            graphics.Clear(Color.FromArgb(255, 242, 242, 242));
+            graphics.Clear(Color.FromArgb(255, 240, 240, 240));
             graphics.DrawLine(new Pen(Color.Black, 2), x1, y1, x2, y2);
             graphics.DrawLine(new Pen(Color.Black, 2), x2, y2, x3, y3);
             graphics.DrawLine(new Pen(Color.Black, 2), x3, y3, x4, y4);
@@ -473,7 +473,7 @@ namespace WifiFingerprintLocationSimulator
         private void draw_init()
         {
             Graphics graphics = panel_Graph.CreateGraphics();
-            graphics.Clear(Color.FromArgb(255, 242, 242, 242));
+            graphics.Clear(Color.FromArgb(255, 240, 240, 240));
         }
 
 // ***********************************************************************************
@@ -1287,19 +1287,38 @@ namespace WifiFingerprintLocationSimulator
         // 点击panel_Graph在两种尺寸中切换
         private void panel_Graph_Click(object sender, EventArgs e)
         {
+            tabControl_EnvironmentSettings.Visible = false;
             if (groupBox_Graph.Location == new Point(494, 16))
             {
-                groupBox_Graph.Location = new Point(0, 0);
-                groupBox_Graph.Size = new Size(737, 441);
-                panel_Graph.Size = new Size(717, 419);
+                for (int i = 0; i <= 500; i += 10)
+                {
+                    groupBox_Graph.Location = new Point(500 - i, 16 - i / 30);
+                    groupBox_Graph.Size = new Size(240 + i, 422 + i / 26);
+                    panel_Graph.Size = new Size(220 + i, 400 + i/26);
+                    draw_map();
+                    draw_ap();
+                }
+                //groupBox_Graph.Location = new Point(0, 0);
+                //groupBox_Graph.Size = new Size(737, 441);
+                //panel_Graph.Size = new Size(717, 419);
             }
             else
             {
-                groupBox_Graph.Location = new Point(494, 16);
-                groupBox_Graph.Size = new Size(240, 422);
-                panel_Graph.Size = new Size(220, 400);
+                for (int i = 480; i >= 0; i -= 10)
+                {
+                    groupBox_Graph.Location = new Point(494 - i, 16 - i / 30);
+                    groupBox_Graph.Size = new Size(240 + i, 422 + i / 26);
+                    panel_Graph.Size = new Size(220 + i, 400 + i / 26);
+                    draw_map();
+                    draw_ap();
+                }
+                //groupBox_Graph.Location = new Point(494, 16);
+                //groupBox_Graph.Size = new Size(240, 422);
+                //panel_Graph.Size = new Size(220, 400);
             }
             draw();
+            tabControl_EnvironmentSettings.Visible = true;
         }
+
     }
 }

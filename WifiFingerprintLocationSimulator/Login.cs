@@ -28,7 +28,9 @@ namespace WifiFingerprintLocationSimulator
 
         private void label_ForgetPass_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("忘记密码？我们也没有办法啊...");
+            //MessageBox.Show("忘记密码？我们也没有办法啊...");
+            ForgotPass forgotpass = new ForgotPass();
+            forgotpass.ShowDialog();
         }
 
         private void button_Back_Click(object sender, EventArgs e)

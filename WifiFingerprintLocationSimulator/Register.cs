@@ -36,6 +36,10 @@ namespace WifiFingerprintLocationSimulator
 
         private void button_Register_Click(object sender, EventArgs e)
         {
+            // 邮箱格式正则表达式
+            string email = textBox_UserEmail.Text;
+            string emailStr = @"([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,5})+";
+
             if (textBox_UserName.Text == "")
                 MessageBox.Show("用户名不能为空");
             else if (textBox_UserPass.Text == "")
@@ -46,6 +50,8 @@ namespace WifiFingerprintLocationSimulator
                 MessageBox.Show("请选择新用户类型");
             else if (textBox_UserPass.Text != textBox_UserPassCheck.Text)
                 MessageBox.Show("密码有误！");
+            else if (email != "" && !(System.Text.RegularExpressions.Regex.IsMatch(email, emailStr)))
+                MessageBox.Show("邮箱格式不正确", "提示");
             else if ((CurrentUserInfo.Type != "admin") && (comboBox_UserType.Text == "系统管理员"))
                 MessageBox.Show("您是普通用户，无权限注册系统管理员用户", "提示");
             else
@@ -100,11 +106,11 @@ namespace WifiFingerprintLocationSimulator
 
         }
 
-        // 监测输入用户名长度(不少于6个字符)
+        // 监测输入用户名长度(不少于5个字符)
         private void textBox_UserName_TextChanged(object sender, EventArgs e)
         {
-            if (textBox_UserName.TextLength < 6)
-                label_Hint_UserName.Text = "*少于6字符";
+            if (textBox_UserName.TextLength < 5)
+                label_Hint_UserName.Text = "*少于5字符";
             else
                 label_Hint_UserName.Text = "";
         }
@@ -150,5 +156,6 @@ namespace WifiFingerprintLocationSimulator
                 }
             }
         }
+
     }
 }
