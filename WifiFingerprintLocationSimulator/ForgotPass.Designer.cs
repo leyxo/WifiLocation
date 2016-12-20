@@ -75,6 +75,7 @@
             // 
             // button_cancel
             // 
+            this.button_cancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.button_cancel.Location = new System.Drawing.Point(55, 221);
             this.button_cancel.Name = "button_cancel";
             this.button_cancel.Size = new System.Drawing.Size(75, 23);
@@ -176,8 +177,10 @@
             // 
             // ForgotPass
             // 
+            this.AcceptButton = this.button_Register;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.CancelButton = this.button_cancel;
             this.ClientSize = new System.Drawing.Size(294, 281);
             this.Controls.Add(this.label_Note);
             this.Controls.Add(this.button_Send);
@@ -194,6 +197,7 @@
             this.Controls.Add(this.label_UserPass);
             this.Controls.Add(this.label_UserName);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.KeyPreview = true;
             this.MaximizeBox = false;
             this.MaximumSize = new System.Drawing.Size(310, 320);
             this.MinimizeBox = false;

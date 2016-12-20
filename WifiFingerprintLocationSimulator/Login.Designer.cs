@@ -90,6 +90,7 @@
             // 
             // button_Back
             // 
+            this.button_Back.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.button_Back.Location = new System.Drawing.Point(51, 176);
             this.button_Back.Name = "button_Back";
             this.button_Back.Size = new System.Drawing.Size(75, 23);
@@ -147,8 +148,10 @@
             // 
             // Login
             // 
+            this.AcceptButton = this.button_Login;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.CancelButton = this.button_Back;
             this.ClientSize = new System.Drawing.Size(284, 241);
             this.ControlBox = false;
             this.Controls.Add(this.label_ForgetPass);
@@ -162,9 +165,11 @@
             this.Controls.Add(this.button_Login);
             this.Controls.Add(this.button_Back);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.KeyPreview = true;
             this.MaximumSize = new System.Drawing.Size(300, 280);
             this.MinimumSize = new System.Drawing.Size(300, 280);
             this.Name = "Login";
+            this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "登录";
             this.ResumeLayout(false);

@@ -37,8 +37,8 @@
             this.toolStripStatusLabel_UserName = new System.Windows.Forms.ToolStripStatusLabel();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.toolStripMenuItem_System = new System.Windows.Forms.ToolStripMenuItem();
-            this.ToolStripMenuItem_Login = new System.Windows.Forms.ToolStripMenuItem();
-            this.ToolStripMenuItem_Registe = new System.Windows.Forms.ToolStripMenuItem();
+            this.ToolStripMenuItem_UserInfo = new System.Windows.Forms.ToolStripMenuItem();
+            this.ToolStripMenuItem_Logout = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.ToolStripMenuItem_Exit = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem_EnvironmentSettings = new System.Windows.Forms.ToolStripMenuItem();
@@ -51,23 +51,17 @@
             this.toolStripMenuItem_Menu_Help = new System.Windows.Forms.ToolStripMenuItem();
             this.ToolStripMenuItem_Help = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-            this.ToolStripMenuItem_About = new System.Windows.Forms.ToolStripMenuItem();
             this.panel_EnvironmentSettings = new System.Windows.Forms.Panel();
             this.groupBox_Graph = new System.Windows.Forms.GroupBox();
             this.panel_Graph = new System.Windows.Forms.Panel();
             this.tabControl_EnvironmentSettings = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.button_map_load = new System.Windows.Forms.Button();
-            this.button_map_refresh = new System.Windows.Forms.Button();
             this.listView_map = new System.Windows.Forms.ListView();
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.button_map_delete = new System.Windows.Forms.Button();
-            this.button_map_modify = new System.Windows.Forms.Button();
-            this.button_map_add = new System.Windows.Forms.Button();
             this.textBox_map_height = new System.Windows.Forms.TextBox();
             this.label_map_height = new System.Windows.Forms.Label();
             this.textBox_map_width = new System.Windows.Forms.TextBox();
@@ -88,11 +82,6 @@
             this.label_ap_sendpower = new System.Windows.Forms.Label();
             this.textBox_ap_sendgain = new System.Windows.Forms.TextBox();
             this.label_ap_sendgain = new System.Windows.Forms.Label();
-            this.button_ap_deleteall = new System.Windows.Forms.Button();
-            this.button_ap_refresh = new System.Windows.Forms.Button();
-            this.button_ap_delete = new System.Windows.Forms.Button();
-            this.button_ap_modify = new System.Windows.Forms.Button();
-            this.button_ap_add = new System.Windows.Forms.Button();
             this.listView_ap = new System.Windows.Forms.ListView();
             this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader7 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -109,8 +98,6 @@
             this.label3 = new System.Windows.Forms.Label();
             this.textBox_fp_receivegain = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.button_fp_refresh = new System.Windows.Forms.Button();
-            this.button_fp_autoadd = new System.Windows.Forms.Button();
             this.textBox_fp_map = new System.Windows.Forms.TextBox();
             this.label_fp_map = new System.Windows.Forms.Label();
             this.listView_fp = new System.Windows.Forms.ListView();
@@ -120,8 +107,6 @@
             this.columnHeader15 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader16 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.tabPage4 = new System.Windows.Forms.TabPage();
-            this.button_rss_generate = new System.Windows.Forms.Button();
-            this.button_rss_refresh = new System.Windows.Forms.Button();
             this.listView_rss = new System.Windows.Forms.ListView();
             this.columnHeader17 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader18 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -131,6 +116,21 @@
             this.textBox_rss_map = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.toolTip_Graph = new System.Windows.Forms.ToolTip(this.components);
+            this.button_map_load = new System.Windows.Forms.Button();
+            this.button_map_refresh = new System.Windows.Forms.Button();
+            this.button_map_delete = new System.Windows.Forms.Button();
+            this.button_map_modify = new System.Windows.Forms.Button();
+            this.button_map_add = new System.Windows.Forms.Button();
+            this.button_ap_modify = new System.Windows.Forms.Button();
+            this.button_ap_deleteall = new System.Windows.Forms.Button();
+            this.button_ap_refresh = new System.Windows.Forms.Button();
+            this.button_ap_delete = new System.Windows.Forms.Button();
+            this.button_ap_add = new System.Windows.Forms.Button();
+            this.button_fp_autoadd = new System.Windows.Forms.Button();
+            this.button_fp_refresh = new System.Windows.Forms.Button();
+            this.button_rss_generate = new System.Windows.Forms.Button();
+            this.button_rss_refresh = new System.Windows.Forms.Button();
+            this.ToolStripMenuItem_About = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.panel_EnvironmentSettings.SuspendLayout();
@@ -196,26 +196,26 @@
             // toolStripMenuItem_System
             // 
             this.toolStripMenuItem_System.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.ToolStripMenuItem_Login,
-            this.ToolStripMenuItem_Registe,
+            this.ToolStripMenuItem_UserInfo,
+            this.ToolStripMenuItem_Logout,
             this.toolStripSeparator1,
             this.ToolStripMenuItem_Exit});
             this.toolStripMenuItem_System.Name = "toolStripMenuItem_System";
             this.toolStripMenuItem_System.Size = new System.Drawing.Size(59, 21);
             this.toolStripMenuItem_System.Text = "系统(S)";
             // 
-            // ToolStripMenuItem_Login
+            // ToolStripMenuItem_UserInfo
             // 
-            this.ToolStripMenuItem_Login.Name = "ToolStripMenuItem_Login";
-            this.ToolStripMenuItem_Login.Size = new System.Drawing.Size(133, 22);
-            this.ToolStripMenuItem_Login.Text = "个人信息...";
+            this.ToolStripMenuItem_UserInfo.Name = "ToolStripMenuItem_UserInfo";
+            this.ToolStripMenuItem_UserInfo.Size = new System.Drawing.Size(133, 22);
+            this.ToolStripMenuItem_UserInfo.Text = "个人信息...";
             // 
-            // ToolStripMenuItem_Registe
+            // ToolStripMenuItem_Logout
             // 
-            this.ToolStripMenuItem_Registe.Name = "ToolStripMenuItem_Registe";
-            this.ToolStripMenuItem_Registe.Size = new System.Drawing.Size(133, 22);
-            this.ToolStripMenuItem_Registe.Text = "注销";
-            this.ToolStripMenuItem_Registe.Click += new System.EventHandler(this.ToolStripMenuItem_Registe_Click);
+            this.ToolStripMenuItem_Logout.Name = "ToolStripMenuItem_Logout";
+            this.ToolStripMenuItem_Logout.Size = new System.Drawing.Size(133, 22);
+            this.ToolStripMenuItem_Logout.Text = "注销";
+            this.ToolStripMenuItem_Logout.Click += new System.EventHandler(this.ToolStripMenuItem_Registe_Click);
             // 
             // toolStripSeparator1
             // 
@@ -302,14 +302,6 @@
             this.toolStripSeparator2.Name = "toolStripSeparator2";
             this.toolStripSeparator2.Size = new System.Drawing.Size(213, 6);
             // 
-            // ToolStripMenuItem_About
-            // 
-            this.ToolStripMenuItem_About.Image = global::WifiFingerprintLocationSimulator.Properties.Resources.Icon1;
-            this.ToolStripMenuItem_About.Name = "ToolStripMenuItem_About";
-            this.ToolStripMenuItem_About.Size = new System.Drawing.Size(216, 22);
-            this.ToolStripMenuItem_About.Text = "关于 室内定位仿真平台(A)";
-            this.ToolStripMenuItem_About.Click += new System.EventHandler(this.ToolStripMenuItem_About_Click);
-            // 
             // panel_EnvironmentSettings
             // 
             this.panel_EnvironmentSettings.Controls.Add(this.groupBox_Graph);
@@ -374,26 +366,6 @@
             this.tabPage1.Text = "场景配置";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
-            // button_map_load
-            // 
-            this.button_map_load.Location = new System.Drawing.Point(269, 88);
-            this.button_map_load.Name = "button_map_load";
-            this.button_map_load.Size = new System.Drawing.Size(75, 23);
-            this.button_map_load.TabIndex = 8;
-            this.button_map_load.Text = "载入地图";
-            this.button_map_load.UseVisualStyleBackColor = true;
-            this.button_map_load.Click += new System.EventHandler(this.button_map_load_Click);
-            // 
-            // button_map_refresh
-            // 
-            this.button_map_refresh.Location = new System.Drawing.Point(385, 88);
-            this.button_map_refresh.Name = "button_map_refresh";
-            this.button_map_refresh.Size = new System.Drawing.Size(75, 23);
-            this.button_map_refresh.TabIndex = 9;
-            this.button_map_refresh.Text = "刷新列表";
-            this.button_map_refresh.UseVisualStyleBackColor = true;
-            this.button_map_refresh.Click += new System.EventHandler(this.button_map_refresh_Click);
-            // 
             // listView_map
             // 
             this.listView_map.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
@@ -436,37 +408,6 @@
             // 
             this.columnHeader5.Text = "修改日期";
             this.columnHeader5.Width = 130;
-            // 
-            // button_map_delete
-            // 
-            this.button_map_delete.Location = new System.Drawing.Point(183, 88);
-            this.button_map_delete.Name = "button_map_delete";
-            this.button_map_delete.Size = new System.Drawing.Size(75, 23);
-            this.button_map_delete.TabIndex = 7;
-            this.button_map_delete.Text = "删除地图";
-            this.button_map_delete.UseVisualStyleBackColor = true;
-            this.button_map_delete.Click += new System.EventHandler(this.button_map_delete_Click);
-            // 
-            // button_map_modify
-            // 
-            this.button_map_modify.Location = new System.Drawing.Point(97, 88);
-            this.button_map_modify.Name = "button_map_modify";
-            this.button_map_modify.Size = new System.Drawing.Size(75, 23);
-            this.button_map_modify.TabIndex = 6;
-            this.button_map_modify.Text = "修改地图";
-            this.button_map_modify.UseVisualStyleBackColor = true;
-            this.button_map_modify.EnabledChanged += new System.EventHandler(this.button_map_modify_EnabledChanged);
-            this.button_map_modify.Click += new System.EventHandler(this.button_map_modify_Click);
-            // 
-            // button_map_add
-            // 
-            this.button_map_add.Location = new System.Drawing.Point(12, 88);
-            this.button_map_add.Name = "button_map_add";
-            this.button_map_add.Size = new System.Drawing.Size(75, 23);
-            this.button_map_add.TabIndex = 5;
-            this.button_map_add.Text = "添加地图";
-            this.button_map_add.UseVisualStyleBackColor = true;
-            this.button_map_add.Click += new System.EventHandler(this.button_map_add_Click);
             // 
             // textBox_map_height
             // 
@@ -547,10 +488,10 @@
             this.tabPage2.Controls.Add(this.label_ap_sendpower);
             this.tabPage2.Controls.Add(this.textBox_ap_sendgain);
             this.tabPage2.Controls.Add(this.label_ap_sendgain);
+            this.tabPage2.Controls.Add(this.button_ap_modify);
             this.tabPage2.Controls.Add(this.button_ap_deleteall);
             this.tabPage2.Controls.Add(this.button_ap_refresh);
             this.tabPage2.Controls.Add(this.button_ap_delete);
-            this.tabPage2.Controls.Add(this.button_ap_modify);
             this.tabPage2.Controls.Add(this.button_ap_add);
             this.tabPage2.Controls.Add(this.listView_ap);
             this.tabPage2.Controls.Add(this.textBox_ap_map);
@@ -658,56 +599,6 @@
             this.label_ap_sendgain.TabIndex = 19;
             this.label_ap_sendgain.Text = "发送增益：";
             // 
-            // button_ap_deleteall
-            // 
-            this.button_ap_deleteall.Location = new System.Drawing.Point(269, 88);
-            this.button_ap_deleteall.Name = "button_ap_deleteall";
-            this.button_ap_deleteall.Size = new System.Drawing.Size(75, 23);
-            this.button_ap_deleteall.TabIndex = 8;
-            this.button_ap_deleteall.Text = "清空AP节点";
-            this.button_ap_deleteall.UseVisualStyleBackColor = true;
-            this.button_ap_deleteall.Click += new System.EventHandler(this.button_ap_deleteall_Click);
-            // 
-            // button_ap_refresh
-            // 
-            this.button_ap_refresh.Location = new System.Drawing.Point(385, 88);
-            this.button_ap_refresh.Name = "button_ap_refresh";
-            this.button_ap_refresh.Size = new System.Drawing.Size(75, 23);
-            this.button_ap_refresh.TabIndex = 9;
-            this.button_ap_refresh.Text = "刷新列表";
-            this.button_ap_refresh.UseVisualStyleBackColor = true;
-            this.button_ap_refresh.Click += new System.EventHandler(this.button_ap_refresh_Click);
-            // 
-            // button_ap_delete
-            // 
-            this.button_ap_delete.Location = new System.Drawing.Point(183, 88);
-            this.button_ap_delete.Name = "button_ap_delete";
-            this.button_ap_delete.Size = new System.Drawing.Size(75, 23);
-            this.button_ap_delete.TabIndex = 7;
-            this.button_ap_delete.Text = "删除节点";
-            this.button_ap_delete.UseVisualStyleBackColor = true;
-            this.button_ap_delete.Click += new System.EventHandler(this.button_ap_delete_Click);
-            // 
-            // button_ap_modify
-            // 
-            this.button_ap_modify.Location = new System.Drawing.Point(97, 88);
-            this.button_ap_modify.Name = "button_ap_modify";
-            this.button_ap_modify.Size = new System.Drawing.Size(75, 23);
-            this.button_ap_modify.TabIndex = 6;
-            this.button_ap_modify.Text = "修改节点";
-            this.button_ap_modify.UseVisualStyleBackColor = true;
-            this.button_ap_modify.Click += new System.EventHandler(this.button_ap_modify_Click);
-            // 
-            // button_ap_add
-            // 
-            this.button_ap_add.Location = new System.Drawing.Point(12, 88);
-            this.button_ap_add.Name = "button_ap_add";
-            this.button_ap_add.Size = new System.Drawing.Size(75, 23);
-            this.button_ap_add.TabIndex = 5;
-            this.button_ap_add.Text = "添加AP节点";
-            this.button_ap_add.UseVisualStyleBackColor = true;
-            this.button_ap_add.Click += new System.EventHandler(this.button_ap_add_Click);
-            // 
             // listView_ap
             // 
             this.listView_ap.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
@@ -786,10 +677,10 @@
             this.tabPage3.Controls.Add(this.label3);
             this.tabPage3.Controls.Add(this.textBox_fp_receivegain);
             this.tabPage3.Controls.Add(this.label4);
-            this.tabPage3.Controls.Add(this.button_fp_refresh);
-            this.tabPage3.Controls.Add(this.button_fp_autoadd);
             this.tabPage3.Controls.Add(this.textBox_fp_map);
             this.tabPage3.Controls.Add(this.label_fp_map);
+            this.tabPage3.Controls.Add(this.button_fp_autoadd);
+            this.tabPage3.Controls.Add(this.button_fp_refresh);
             this.tabPage3.Controls.Add(this.listView_fp);
             this.tabPage3.Location = new System.Drawing.Point(4, 22);
             this.tabPage3.Name = "tabPage3";
@@ -849,26 +740,6 @@
             this.label4.Size = new System.Drawing.Size(65, 12);
             this.label4.TabIndex = 31;
             this.label4.Text = "接收增益：";
-            // 
-            // button_fp_refresh
-            // 
-            this.button_fp_refresh.Location = new System.Drawing.Point(385, 88);
-            this.button_fp_refresh.Name = "button_fp_refresh";
-            this.button_fp_refresh.Size = new System.Drawing.Size(75, 23);
-            this.button_fp_refresh.TabIndex = 16;
-            this.button_fp_refresh.Text = "刷新列表";
-            this.button_fp_refresh.UseVisualStyleBackColor = true;
-            this.button_fp_refresh.Click += new System.EventHandler(this.button_fp_refresh_Click);
-            // 
-            // button_fp_autoadd
-            // 
-            this.button_fp_autoadd.Location = new System.Drawing.Point(12, 88);
-            this.button_fp_autoadd.Name = "button_fp_autoadd";
-            this.button_fp_autoadd.Size = new System.Drawing.Size(75, 23);
-            this.button_fp_autoadd.TabIndex = 15;
-            this.button_fp_autoadd.Text = "生成节点库";
-            this.button_fp_autoadd.UseVisualStyleBackColor = true;
-            this.button_fp_autoadd.Click += new System.EventHandler(this.button_fp_autoadd_Click);
             // 
             // textBox_fp_map
             // 
@@ -946,26 +817,6 @@
             this.tabPage4.Text = "RSS信息";
             this.tabPage4.UseVisualStyleBackColor = true;
             // 
-            // button_rss_generate
-            // 
-            this.button_rss_generate.Location = new System.Drawing.Point(12, 88);
-            this.button_rss_generate.Name = "button_rss_generate";
-            this.button_rss_generate.Size = new System.Drawing.Size(75, 23);
-            this.button_rss_generate.TabIndex = 19;
-            this.button_rss_generate.Text = "生成RSS库";
-            this.button_rss_generate.UseVisualStyleBackColor = true;
-            this.button_rss_generate.Click += new System.EventHandler(this.button_rss_generate_Click);
-            // 
-            // button_rss_refresh
-            // 
-            this.button_rss_refresh.Location = new System.Drawing.Point(385, 88);
-            this.button_rss_refresh.Name = "button_rss_refresh";
-            this.button_rss_refresh.Size = new System.Drawing.Size(75, 23);
-            this.button_rss_refresh.TabIndex = 18;
-            this.button_rss_refresh.Text = "刷新列表";
-            this.button_rss_refresh.UseVisualStyleBackColor = true;
-            this.button_rss_refresh.Click += new System.EventHandler(this.button_rss_refresh_Click);
-            // 
             // listView_rss
             // 
             this.listView_rss.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
@@ -1037,6 +888,183 @@
             this.toolTip_Graph.ToolTipIcon = System.Windows.Forms.ToolTipIcon.Info;
             this.toolTip_Graph.ToolTipTitle = "缩放地图";
             // 
+            // button_map_load
+            // 
+            this.button_map_load.Image = global::WifiFingerprintLocationSimulator.Properties.Resources.button_map_load;
+            this.button_map_load.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button_map_load.Location = new System.Drawing.Point(269, 88);
+            this.button_map_load.Name = "button_map_load";
+            this.button_map_load.Size = new System.Drawing.Size(75, 23);
+            this.button_map_load.TabIndex = 8;
+            this.button_map_load.Text = "  载入地图";
+            this.button_map_load.UseVisualStyleBackColor = true;
+            this.button_map_load.Click += new System.EventHandler(this.button_map_load_Click);
+            // 
+            // button_map_refresh
+            // 
+            this.button_map_refresh.Image = global::WifiFingerprintLocationSimulator.Properties.Resources.button_list;
+            this.button_map_refresh.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button_map_refresh.Location = new System.Drawing.Point(385, 88);
+            this.button_map_refresh.Name = "button_map_refresh";
+            this.button_map_refresh.Size = new System.Drawing.Size(75, 23);
+            this.button_map_refresh.TabIndex = 9;
+            this.button_map_refresh.Text = "  刷新列表";
+            this.button_map_refresh.UseVisualStyleBackColor = true;
+            this.button_map_refresh.Click += new System.EventHandler(this.button_map_refresh_Click);
+            // 
+            // button_map_delete
+            // 
+            this.button_map_delete.Image = global::WifiFingerprintLocationSimulator.Properties.Resources.button_delete;
+            this.button_map_delete.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button_map_delete.Location = new System.Drawing.Point(183, 88);
+            this.button_map_delete.Name = "button_map_delete";
+            this.button_map_delete.Size = new System.Drawing.Size(75, 23);
+            this.button_map_delete.TabIndex = 7;
+            this.button_map_delete.Text = "  删除地图";
+            this.button_map_delete.UseVisualStyleBackColor = true;
+            this.button_map_delete.Click += new System.EventHandler(this.button_map_delete_Click);
+            // 
+            // button_map_modify
+            // 
+            this.button_map_modify.Image = global::WifiFingerprintLocationSimulator.Properties.Resources.button_edit;
+            this.button_map_modify.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button_map_modify.Location = new System.Drawing.Point(97, 88);
+            this.button_map_modify.Name = "button_map_modify";
+            this.button_map_modify.Size = new System.Drawing.Size(75, 23);
+            this.button_map_modify.TabIndex = 6;
+            this.button_map_modify.Text = "  修改地图";
+            this.button_map_modify.UseVisualStyleBackColor = true;
+            this.button_map_modify.EnabledChanged += new System.EventHandler(this.button_map_modify_EnabledChanged);
+            this.button_map_modify.Click += new System.EventHandler(this.button_map_modify_Click);
+            // 
+            // button_map_add
+            // 
+            this.button_map_add.Image = global::WifiFingerprintLocationSimulator.Properties.Resources.button_add;
+            this.button_map_add.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button_map_add.Location = new System.Drawing.Point(12, 88);
+            this.button_map_add.Name = "button_map_add";
+            this.button_map_add.Size = new System.Drawing.Size(75, 23);
+            this.button_map_add.TabIndex = 5;
+            this.button_map_add.Text = "  添加地图";
+            this.button_map_add.UseVisualStyleBackColor = true;
+            this.button_map_add.Click += new System.EventHandler(this.button_map_add_Click);
+            // 
+            // button_ap_modify
+            // 
+            this.button_ap_modify.Image = global::WifiFingerprintLocationSimulator.Properties.Resources.button_edit;
+            this.button_ap_modify.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button_ap_modify.Location = new System.Drawing.Point(97, 88);
+            this.button_ap_modify.Name = "button_ap_modify";
+            this.button_ap_modify.Size = new System.Drawing.Size(75, 23);
+            this.button_ap_modify.TabIndex = 6;
+            this.button_ap_modify.Text = "  修改节点";
+            this.button_ap_modify.UseVisualStyleBackColor = true;
+            this.button_ap_modify.Click += new System.EventHandler(this.button_ap_modify_Click);
+            // 
+            // button_ap_deleteall
+            // 
+            this.button_ap_deleteall.Image = global::WifiFingerprintLocationSimulator.Properties.Resources.button_delete_all;
+            this.button_ap_deleteall.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button_ap_deleteall.Location = new System.Drawing.Point(269, 88);
+            this.button_ap_deleteall.Name = "button_ap_deleteall";
+            this.button_ap_deleteall.Size = new System.Drawing.Size(75, 23);
+            this.button_ap_deleteall.TabIndex = 8;
+            this.button_ap_deleteall.Text = "  清空节点";
+            this.button_ap_deleteall.UseVisualStyleBackColor = true;
+            this.button_ap_deleteall.Click += new System.EventHandler(this.button_ap_deleteall_Click);
+            // 
+            // button_ap_refresh
+            // 
+            this.button_ap_refresh.Image = global::WifiFingerprintLocationSimulator.Properties.Resources.button_list;
+            this.button_ap_refresh.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button_ap_refresh.Location = new System.Drawing.Point(385, 88);
+            this.button_ap_refresh.Name = "button_ap_refresh";
+            this.button_ap_refresh.Size = new System.Drawing.Size(75, 23);
+            this.button_ap_refresh.TabIndex = 9;
+            this.button_ap_refresh.Text = "  刷新列表";
+            this.button_ap_refresh.UseVisualStyleBackColor = true;
+            this.button_ap_refresh.Click += new System.EventHandler(this.button_ap_refresh_Click);
+            // 
+            // button_ap_delete
+            // 
+            this.button_ap_delete.Image = global::WifiFingerprintLocationSimulator.Properties.Resources.button_delete;
+            this.button_ap_delete.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button_ap_delete.Location = new System.Drawing.Point(183, 88);
+            this.button_ap_delete.Name = "button_ap_delete";
+            this.button_ap_delete.Size = new System.Drawing.Size(75, 23);
+            this.button_ap_delete.TabIndex = 7;
+            this.button_ap_delete.Text = "  删除节点";
+            this.button_ap_delete.UseVisualStyleBackColor = true;
+            this.button_ap_delete.Click += new System.EventHandler(this.button_ap_delete_Click);
+            // 
+            // button_ap_add
+            // 
+            this.button_ap_add.Image = global::WifiFingerprintLocationSimulator.Properties.Resources.button_add;
+            this.button_ap_add.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button_ap_add.Location = new System.Drawing.Point(12, 88);
+            this.button_ap_add.Name = "button_ap_add";
+            this.button_ap_add.Size = new System.Drawing.Size(75, 23);
+            this.button_ap_add.TabIndex = 5;
+            this.button_ap_add.Text = "  添加节点";
+            this.button_ap_add.UseVisualStyleBackColor = true;
+            this.button_ap_add.Click += new System.EventHandler(this.button_ap_add_Click);
+            // 
+            // button_fp_autoadd
+            // 
+            this.button_fp_autoadd.Image = global::WifiFingerprintLocationSimulator.Properties.Resources.button_generate;
+            this.button_fp_autoadd.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button_fp_autoadd.Location = new System.Drawing.Point(12, 88);
+            this.button_fp_autoadd.Name = "button_fp_autoadd";
+            this.button_fp_autoadd.Size = new System.Drawing.Size(75, 23);
+            this.button_fp_autoadd.TabIndex = 15;
+            this.button_fp_autoadd.Text = "  生成节点";
+            this.button_fp_autoadd.UseVisualStyleBackColor = true;
+            this.button_fp_autoadd.Click += new System.EventHandler(this.button_fp_autoadd_Click);
+            // 
+            // button_fp_refresh
+            // 
+            this.button_fp_refresh.Image = global::WifiFingerprintLocationSimulator.Properties.Resources.button_list;
+            this.button_fp_refresh.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button_fp_refresh.Location = new System.Drawing.Point(385, 88);
+            this.button_fp_refresh.Name = "button_fp_refresh";
+            this.button_fp_refresh.Size = new System.Drawing.Size(75, 23);
+            this.button_fp_refresh.TabIndex = 16;
+            this.button_fp_refresh.Text = "  刷新列表";
+            this.button_fp_refresh.UseVisualStyleBackColor = true;
+            this.button_fp_refresh.Click += new System.EventHandler(this.button_fp_refresh_Click);
+            // 
+            // button_rss_generate
+            // 
+            this.button_rss_generate.Image = global::WifiFingerprintLocationSimulator.Properties.Resources.button_generate;
+            this.button_rss_generate.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button_rss_generate.Location = new System.Drawing.Point(12, 88);
+            this.button_rss_generate.Name = "button_rss_generate";
+            this.button_rss_generate.Size = new System.Drawing.Size(75, 23);
+            this.button_rss_generate.TabIndex = 19;
+            this.button_rss_generate.Text = "  生成RSS";
+            this.button_rss_generate.UseVisualStyleBackColor = true;
+            this.button_rss_generate.Click += new System.EventHandler(this.button_rss_generate_Click);
+            // 
+            // button_rss_refresh
+            // 
+            this.button_rss_refresh.Image = global::WifiFingerprintLocationSimulator.Properties.Resources.button_list;
+            this.button_rss_refresh.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button_rss_refresh.Location = new System.Drawing.Point(385, 88);
+            this.button_rss_refresh.Name = "button_rss_refresh";
+            this.button_rss_refresh.Size = new System.Drawing.Size(75, 23);
+            this.button_rss_refresh.TabIndex = 18;
+            this.button_rss_refresh.Text = "  刷新列表";
+            this.button_rss_refresh.UseVisualStyleBackColor = true;
+            this.button_rss_refresh.Click += new System.EventHandler(this.button_rss_refresh_Click);
+            // 
+            // ToolStripMenuItem_About
+            // 
+            this.ToolStripMenuItem_About.Image = global::WifiFingerprintLocationSimulator.Properties.Resources.Icon;
+            this.ToolStripMenuItem_About.Name = "ToolStripMenuItem_About";
+            this.ToolStripMenuItem_About.Size = new System.Drawing.Size(216, 22);
+            this.ToolStripMenuItem_About.Text = "关于 室内定位仿真平台(A)";
+            this.ToolStripMenuItem_About.Click += new System.EventHandler(this.ToolStripMenuItem_About_Click);
+            // 
             // Main_User
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -1081,8 +1109,8 @@
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel_UserName;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem_System;
-        private System.Windows.Forms.ToolStripMenuItem ToolStripMenuItem_Login;
-        private System.Windows.Forms.ToolStripMenuItem ToolStripMenuItem_Registe;
+        private System.Windows.Forms.ToolStripMenuItem ToolStripMenuItem_UserInfo;
+        private System.Windows.Forms.ToolStripMenuItem ToolStripMenuItem_Logout;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripMenuItem ToolStripMenuItem_Exit;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem_Simulate;
