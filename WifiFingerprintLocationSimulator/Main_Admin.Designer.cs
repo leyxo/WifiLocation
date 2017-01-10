@@ -40,8 +40,6 @@
             this.ToolStripMenuItem_Registe = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.ToolStripMenuItem_Exit = new System.Windows.Forms.ToolStripMenuItem();
-            this.ToolStripMenuItem_Menu_UserManage = new System.Windows.Forms.ToolStripMenuItem();
-            this.ToolStripMenuItem_UserManage = new System.Windows.Forms.ToolStripMenuItem();
             this.ToolStripMenuItem_Menu_Help = new System.Windows.Forms.ToolStripMenuItem();
             this.ToolStripMenuItem_Help = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
@@ -56,10 +54,19 @@
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.button_Log_Clean = new System.Windows.Forms.Button();
+            this.button_Log_Export = new System.Windows.Forms.Button();
+            this.textBox_Log = new System.Windows.Forms.TextBox();
             this.statusStrip1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.panel_UserInfoManage.SuspendLayout();
-            this.groupBox1.SuspendLayout();
+            this.tabControl1.SuspendLayout();
+            this.tabPage1.SuspendLayout();
+            this.tabPage3.SuspendLayout();
             this.SuspendLayout();
             // 
             // statusStrip1
@@ -103,7 +110,6 @@
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.ToolStripMenuItem_Menu_System,
-            this.ToolStripMenuItem_Menu_UserManage,
             this.ToolStripMenuItem_Menu_Help});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
@@ -147,21 +153,6 @@
             this.ToolStripMenuItem_Exit.Text = "退出(E)";
             this.ToolStripMenuItem_Exit.Click += new System.EventHandler(this.ToolStripMenuItem_Exit_Click);
             // 
-            // ToolStripMenuItem_Menu_UserManage
-            // 
-            this.ToolStripMenuItem_Menu_UserManage.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.ToolStripMenuItem_UserManage});
-            this.ToolStripMenuItem_Menu_UserManage.Name = "ToolStripMenuItem_Menu_UserManage";
-            this.ToolStripMenuItem_Menu_UserManage.Size = new System.Drawing.Size(85, 21);
-            this.ToolStripMenuItem_Menu_UserManage.Text = "用户管理(U)";
-            // 
-            // ToolStripMenuItem_UserManage
-            // 
-            this.ToolStripMenuItem_UserManage.Name = "ToolStripMenuItem_UserManage";
-            this.ToolStripMenuItem_UserManage.Size = new System.Drawing.Size(148, 22);
-            this.ToolStripMenuItem_UserManage.Text = "用户信息查询";
-            this.ToolStripMenuItem_UserManage.Click += new System.EventHandler(this.ToolStripMenuItem_UserManage_Click);
-            // 
             // ToolStripMenuItem_Menu_Help
             // 
             this.ToolStripMenuItem_Menu_Help.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -195,24 +186,21 @@
             // panel_UserInfoManage
             // 
             this.panel_UserInfoManage.BackColor = System.Drawing.Color.Transparent;
-            this.panel_UserInfoManage.Controls.Add(this.button_UserManage_Delete);
-            this.panel_UserInfoManage.Controls.Add(this.button_UserManage_AddUser);
-            this.panel_UserInfoManage.Controls.Add(this.button_UserManage_Refresh);
             this.panel_UserInfoManage.Controls.Add(this.groupBox1);
-            this.panel_UserInfoManage.Location = new System.Drawing.Point(23, 44);
+            this.panel_UserInfoManage.Location = new System.Drawing.Point(0, 179);
             this.panel_UserInfoManage.Name = "panel_UserInfoManage";
-            this.panel_UserInfoManage.Size = new System.Drawing.Size(700, 400);
+            this.panel_UserInfoManage.Size = new System.Drawing.Size(0, 0);
             this.panel_UserInfoManage.TabIndex = 5;
             // 
             // button_UserManage_Delete
             // 
             this.button_UserManage_Delete.Image = global::WifiFingerprintLocationSimulator.Properties.Resources.button_delete;
             this.button_UserManage_Delete.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button_UserManage_Delete.Location = new System.Drawing.Point(583, 167);
+            this.button_UserManage_Delete.Location = new System.Drawing.Point(625, 123);
             this.button_UserManage_Delete.Name = "button_UserManage_Delete";
             this.button_UserManage_Delete.Size = new System.Drawing.Size(75, 23);
             this.button_UserManage_Delete.TabIndex = 4;
-            this.button_UserManage_Delete.Text = "删除";
+            this.button_UserManage_Delete.Text = "  删除";
             this.button_UserManage_Delete.UseVisualStyleBackColor = true;
             this.button_UserManage_Delete.Click += new System.EventHandler(this.button_UserManage_Delete_Click);
             // 
@@ -220,11 +208,11 @@
             // 
             this.button_UserManage_AddUser.Image = global::WifiFingerprintLocationSimulator.Properties.Resources.button_add;
             this.button_UserManage_AddUser.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button_UserManage_AddUser.Location = new System.Drawing.Point(583, 127);
+            this.button_UserManage_AddUser.Location = new System.Drawing.Point(625, 83);
             this.button_UserManage_AddUser.Name = "button_UserManage_AddUser";
             this.button_UserManage_AddUser.Size = new System.Drawing.Size(75, 23);
             this.button_UserManage_AddUser.TabIndex = 3;
-            this.button_UserManage_AddUser.Text = "新增";
+            this.button_UserManage_AddUser.Text = "  新增";
             this.button_UserManage_AddUser.UseVisualStyleBackColor = true;
             this.button_UserManage_AddUser.Click += new System.EventHandler(this.button_UserManage_AddUser_Click);
             // 
@@ -232,17 +220,16 @@
             // 
             this.button_UserManage_Refresh.Image = global::WifiFingerprintLocationSimulator.Properties.Resources.button_list;
             this.button_UserManage_Refresh.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button_UserManage_Refresh.Location = new System.Drawing.Point(583, 88);
+            this.button_UserManage_Refresh.Location = new System.Drawing.Point(625, 44);
             this.button_UserManage_Refresh.Name = "button_UserManage_Refresh";
             this.button_UserManage_Refresh.Size = new System.Drawing.Size(75, 23);
             this.button_UserManage_Refresh.TabIndex = 2;
-            this.button_UserManage_Refresh.Text = "刷新";
+            this.button_UserManage_Refresh.Text = "  刷新";
             this.button_UserManage_Refresh.UseVisualStyleBackColor = true;
             this.button_UserManage_Refresh.Click += new System.EventHandler(this.button_UserManage_Refresh_Click);
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.listView_UserInfo);
             this.groupBox1.Location = new System.Drawing.Point(36, 24);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(511, 373);
@@ -258,10 +245,10 @@
             this.columnHeader3,
             this.columnHeader4});
             this.listView_UserInfo.FullRowSelect = true;
-            this.listView_UserInfo.Location = new System.Drawing.Point(32, 34);
+            this.listView_UserInfo.Location = new System.Drawing.Point(12, 15);
             this.listView_UserInfo.MultiSelect = false;
             this.listView_UserInfo.Name = "listView_UserInfo";
-            this.listView_UserInfo.Size = new System.Drawing.Size(440, 317);
+            this.listView_UserInfo.Size = new System.Drawing.Size(563, 386);
             this.listView_UserInfo.TabIndex = 0;
             this.listView_UserInfo.UseCompatibleStateImageBehavior = false;
             this.listView_UserInfo.View = System.Windows.Forms.View.Details;
@@ -288,11 +275,91 @@
             this.columnHeader4.Text = "邮箱";
             this.columnHeader4.Width = 117;
             // 
+            // tabControl1
+            // 
+            this.tabControl1.Controls.Add(this.tabPage1);
+            this.tabControl1.Controls.Add(this.tabPage2);
+            this.tabControl1.Controls.Add(this.tabPage3);
+            this.tabControl1.Location = new System.Drawing.Point(12, 39);
+            this.tabControl1.Name = "tabControl1";
+            this.tabControl1.SelectedIndex = 0;
+            this.tabControl1.Size = new System.Drawing.Size(747, 441);
+            this.tabControl1.TabIndex = 6;
+            // 
+            // tabPage1
+            // 
+            this.tabPage1.Controls.Add(this.button_UserManage_Delete);
+            this.tabPage1.Controls.Add(this.listView_UserInfo);
+            this.tabPage1.Controls.Add(this.button_UserManage_AddUser);
+            this.tabPage1.Controls.Add(this.button_UserManage_Refresh);
+            this.tabPage1.Location = new System.Drawing.Point(4, 22);
+            this.tabPage1.Name = "tabPage1";
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage1.Size = new System.Drawing.Size(739, 415);
+            this.tabPage1.TabIndex = 0;
+            this.tabPage1.Text = "用户信息管理";
+            this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // tabPage2
+            // 
+            this.tabPage2.Location = new System.Drawing.Point(4, 22);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage2.Size = new System.Drawing.Size(739, 415);
+            this.tabPage2.TabIndex = 1;
+            this.tabPage2.Text = "实验设置";
+            this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // tabPage3
+            // 
+            this.tabPage3.Controls.Add(this.textBox_Log);
+            this.tabPage3.Controls.Add(this.button_Log_Clean);
+            this.tabPage3.Controls.Add(this.button_Log_Export);
+            this.tabPage3.Location = new System.Drawing.Point(4, 22);
+            this.tabPage3.Name = "tabPage3";
+            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage3.Size = new System.Drawing.Size(739, 415);
+            this.tabPage3.TabIndex = 2;
+            this.tabPage3.Text = "系统日志";
+            this.tabPage3.UseVisualStyleBackColor = true;
+            // 
+            // button_Log_Clean
+            // 
+            this.button_Log_Clean.Image = global::WifiFingerprintLocationSimulator.Properties.Resources.button_delete_all;
+            this.button_Log_Clean.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button_Log_Clean.Location = new System.Drawing.Point(625, 83);
+            this.button_Log_Clean.Name = "button_Log_Clean";
+            this.button_Log_Clean.Size = new System.Drawing.Size(75, 23);
+            this.button_Log_Clean.TabIndex = 5;
+            this.button_Log_Clean.Text = "  清空";
+            this.button_Log_Clean.UseVisualStyleBackColor = true;
+            // 
+            // button_Log_Export
+            // 
+            this.button_Log_Export.Image = global::WifiFingerprintLocationSimulator.Properties.Resources.button_generate;
+            this.button_Log_Export.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button_Log_Export.Location = new System.Drawing.Point(625, 44);
+            this.button_Log_Export.Name = "button_Log_Export";
+            this.button_Log_Export.Size = new System.Drawing.Size(75, 23);
+            this.button_Log_Export.TabIndex = 4;
+            this.button_Log_Export.Text = "  导出";
+            this.button_Log_Export.UseVisualStyleBackColor = true;
+            // 
+            // textBox_Log
+            // 
+            this.textBox_Log.Location = new System.Drawing.Point(12, 15);
+            this.textBox_Log.Multiline = true;
+            this.textBox_Log.Name = "textBox_Log";
+            this.textBox_Log.ReadOnly = true;
+            this.textBox_Log.Size = new System.Drawing.Size(563, 386);
+            this.textBox_Log.TabIndex = 6;
+            // 
             // Main_Admin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(771, 505);
+            this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.panel_UserInfoManage);
             this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.statusStrip1);
@@ -308,7 +375,10 @@
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.panel_UserInfoManage.ResumeLayout(false);
-            this.groupBox1.ResumeLayout(false);
+            this.tabControl1.ResumeLayout(false);
+            this.tabPage1.ResumeLayout(false);
+            this.tabPage3.ResumeLayout(false);
+            this.tabPage3.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -326,12 +396,10 @@
         private System.Windows.Forms.ToolStripMenuItem ToolStripMenuItem_Registe;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripMenuItem ToolStripMenuItem_Exit;
-        private System.Windows.Forms.ToolStripMenuItem ToolStripMenuItem_Menu_UserManage;
         private System.Windows.Forms.ToolStripMenuItem ToolStripMenuItem_Menu_Help;
         private System.Windows.Forms.ToolStripMenuItem ToolStripMenuItem_Help;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
         private System.Windows.Forms.ToolStripMenuItem ToolStripMenuItem_About;
-        private System.Windows.Forms.ToolStripMenuItem ToolStripMenuItem_UserManage;
         private System.Windows.Forms.Panel panel_UserInfoManage;
         private System.Windows.Forms.Button button_UserManage_Delete;
         private System.Windows.Forms.Button button_UserManage_AddUser;
@@ -342,5 +410,12 @@
         private System.Windows.Forms.ColumnHeader columnHeader2;
         private System.Windows.Forms.ColumnHeader columnHeader3;
         private System.Windows.Forms.ColumnHeader columnHeader4;
+        private System.Windows.Forms.TabControl tabControl1;
+        private System.Windows.Forms.TabPage tabPage1;
+        private System.Windows.Forms.TabPage tabPage2;
+        private System.Windows.Forms.TabPage tabPage3;
+        private System.Windows.Forms.TextBox textBox_Log;
+        private System.Windows.Forms.Button button_Log_Clean;
+        private System.Windows.Forms.Button button_Log_Export;
     }
 }

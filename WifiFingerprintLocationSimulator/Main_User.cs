@@ -24,9 +24,22 @@ namespace WifiFingerprintLocationSimulator
             toolStripStatusLabel_Date.Text = DateTime.Now.ToString("yyyy-MM-dd");
             toolStripStatusLabel_UserName.Text = CurrentUserInfo.Name;
             ToolStripMenuItem_Logout.Text += (" " + CurrentUserInfo.Name);
-            
+
+            // 各Panel初始化
+            panel_EnvironmentSettings.Location = new Point(12, 39);
+            panel_Simulate.Location = new Point(12, 39);
+            panel_Simulate.Hide();
+            panel_EnvironmentSettings.Show();
+            panel_EnvironmentSettings.BringToFront();
+
             // 控件提示弹窗初始化
             toolTip_Graph.SetToolTip(panel_Graph, "点击以切换大图模式");
+
+            // CurrentUserInfo初始化
+            CurrentUserInfo.Panel = "EnvironmentSettings";
+
+            // 对一些功能的禁用
+            button_ap_modify.Visible = false;
         }
 
         private void ToolStripMenuItem_Exit_Click(object sender, EventArgs e)
@@ -62,38 +75,71 @@ namespace WifiFingerprintLocationSimulator
                 Application.OpenForms["Main"].Show();
                 this.Hide();
 
+                // 清空当前登录信息
                 CurrentUserInfo.Name = "";
                 CurrentUserInfo.Type = "";
+                CurrentUserInfo.MapID = "";
+                CurrentUserInfo.MapWidth = 0;
+                CurrentUserInfo.MapHeight = 0;
+                CurrentUserInfo.ApID = "";
+                CurrentUserInfo.Panel = "";
             }
         }
 
         private void toolStripMenuItem_MapManage_Click(object sender, EventArgs e)
         {
+            CurrentUserInfo.Panel = "EnvironmentSettings";
             panel_EnvironmentSettings.Show();
             panel_EnvironmentSettings.BringToFront();
             tabControl_EnvironmentSettings.SelectedIndex = 0;
+            button_map_refresh_Click(new object(), new EventArgs());
         }
 
         private void toolStripMenuItem_APManage_Click(object sender, EventArgs e)
         {
+            CurrentUserInfo.Panel = "EnvironmentSettings";
             panel_EnvironmentSettings.Show();
             panel_EnvironmentSettings.BringToFront();
             tabControl_EnvironmentSettings.SelectedIndex = 1;
+            button_ap_refresh_Click(new object(), new EventArgs());
         }
 
         private void toolStripMenuItem_FPManage_Click(object sender, EventArgs e)
         {
+            CurrentUserInfo.Panel = "EnvironmentSettings";
             panel_EnvironmentSettings.Show();
             panel_EnvironmentSettings.BringToFront();
             tabControl_EnvironmentSettings.SelectedIndex = 2;
+            button_fp_refresh_Click(new object(), new EventArgs());
         }
 
         private void toolStripMenuItem_RSSInfo_Click(object sender, EventArgs e)
         {
+            CurrentUserInfo.Panel = "EnvironmentSettings";
             panel_EnvironmentSettings.Show();
             panel_EnvironmentSettings.BringToFront();
             tabControl_EnvironmentSettings.SelectedIndex = 3;
+            button_rss_refresh_Click(new object(), new EventArgs());
         }
+
+        private void toolStripMenuItem_SimuTrial_Click(object sender, EventArgs e)
+        {
+            CurrentUserInfo.Panel = "Simulate";
+            panel_Simulate.Show();
+            panel_Simulate.BringToFront();
+            tabControl_Simulate.SelectedIndex = 0;
+            draws();
+        }
+
+        private void toolStripMenuItem_SimuStart_Click(object sender, EventArgs e)
+        {
+            CurrentUserInfo.Panel = "Simulate";
+            panel_Simulate.Show();
+            panel_Simulate.BringToFront();
+            tabControl_Simulate.SelectedIndex = 1;
+            draws();
+        }
+
 
 // ***********************************************************************************
 // *对于正整数数据的textBox输入限制 **************************************************
@@ -195,6 +241,22 @@ namespace WifiFingerprintLocationSimulator
             }
         }
 
+        private void textBox_ap_receiverefer_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar != '\b')//这是允许输入退格键  
+            {
+                int len = textBox_ap_sendgain.Text.Length;
+                if (len < 1 && e.KeyChar == '0')
+                {
+                    e.Handled = true;
+                }
+                else if ((e.KeyChar < '0') || (e.KeyChar > '9'))//这是允许输入0-9数字  
+                {
+                    e.Handled = true;
+                }
+            }
+        }
+
         private void textBox_fp_distance_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (e.KeyChar != '\b')//这是允许输入退格键  
@@ -227,13 +289,48 @@ namespace WifiFingerprintLocationSimulator
             }
         }
 
+        private void textBox_simu_point_x_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar != '\b')//这是允许输入退格键  
+            {
+                int len = textBox_simu_point_x.Text.Length;
+                if (len < 1 && e.KeyChar == '0')
+                {
+                    e.Handled = true;
+                }
+                else if ((e.KeyChar < '0') || (e.KeyChar > '9'))//这是允许输入0-9数字  
+                {
+                    e.Handled = true;
+                }
+            }
+        }
+
+        private void textBox_simu_point_y_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar != '\b')//这是允许输入退格键  
+            {
+                int len = textBox_simu_point_y.Text.Length;
+                if (len < 1 && e.KeyChar == '0')
+                {
+                    e.Handled = true;
+                }
+                else if ((e.KeyChar < '0') || (e.KeyChar > '9'))//这是允许输入0-9数字  
+                {
+                    e.Handled = true;
+                }
+            }
+        }
+
 // ***********************************************************************************
 // *图像绘制(位于panel_Graph) ********************************************************
 // ***********************************************************************************
 
-        // 图像绘制
+        // 图像绘制：
+
+        // 配置图像绘制
         // 被场景配置的载入按钮、AP和FP的刷新按钮调用
         // CurrentUserInfo中有地图时绘制地图，信息为空时绘制空白背景
+        // 包含draw_map()，draw_ap()，draw_fp()
         private void draw()
         {
             if (CurrentUserInfo.MapID != "")
@@ -247,6 +344,25 @@ namespace WifiFingerprintLocationSimulator
                 draw_init();
             }
         }
+
+        // 实验图像绘制
+        // 包含draw_map()，darw_init()，draw_real()
+        private void draws()
+        {
+            if (CurrentUserInfo.MapID != "")
+            {
+                draw_map();
+                draw_real();
+                draw_simu();
+            }
+            else
+            {
+                draw_init();
+            }
+        }
+
+
+        // 图像绘制子模块：
 
         // 图像绘制-绘制地图
         private void draw_map()
@@ -300,7 +416,10 @@ namespace WifiFingerprintLocationSimulator
             graphics.DrawLine(new Pen(Color.Black, 2), x1, y1, x2, y2);
             graphics.DrawLine(new Pen(Color.Black, 2), x2, y2, x3, y3);
             graphics.DrawLine(new Pen(Color.Black, 2), x3, y3, x4, y4);
-            graphics.DrawLine(new Pen(Color.Black, 2), x4, y4, x1, y1);            
+            graphics.DrawLine(new Pen(Color.Black, 2), x4, y4, x1, y1);
+
+            // 绘制场景图片
+            //graphics.DrawImage(global::WifiFingerprintLocationSimulator.Properties.Resources._800400, x1, y1, x2-x1, y3-y2);
         }
 
         // 图像绘制-绘制AP
@@ -353,7 +472,7 @@ namespace WifiFingerprintLocationSimulator
             try
             {
                 // SQL
-                string sql = "select ap_x, ap_y from ap_info where map_id ='" + CurrentUserInfo.MapID + "'";
+                string sql = "select ap_isrefer, ap_x, ap_y from ap_info where map_id ='" + CurrentUserInfo.MapID + "'";
 
                 // DataRead Process
                 MySqlConnection conn = new MySqlConnection(MySqlHelper.Conn);
@@ -365,21 +484,37 @@ namespace WifiFingerprintLocationSimulator
                 {
                     float ap_x = (float)Convert.ToInt32(sdr.GetString(sdr.GetOrdinal("ap_x")));
                     float ap_y = (float)Convert.ToInt32(sdr.GetString(sdr.GetOrdinal("ap_y")));
+                    string ap_isrefer = sdr.GetString(sdr.GetOrdinal("ap_isrefer"));
 
                     // 计算点实际坐标
                     x = ap_x * (x2 - x1) / CurrentUserInfo.MapWidth + x1;
                     y = ap_y * (y3 - y2) / CurrentUserInfo.MapHeight + y1;
 
                     // 绘制AP节点
-                    Rectangle rect = new Rectangle((int)x-4, (int)y-4, 8, 8);
-                    graphics.DrawEllipse(new Pen(Color.Blue), rect);
-                    graphics.FillEllipse(new SolidBrush(Color.Black), rect);
-                    Rectangle rect2 = new Rectangle((int)x - 8, (int)y - 8, 16, 16);
-                    graphics.DrawEllipse(new Pen(Color.Black), rect2);
-                    Rectangle rect3 = new Rectangle((int)x - 20, (int)y - 20, 40, 40);
-                    graphics.DrawEllipse(new Pen(Color.LightGray), rect3);
-                    Rectangle rect4 = new Rectangle((int)x - 50, (int)y - 50, 100, 100);
-                    graphics.DrawEllipse(new Pen(Color.LightGray), rect4);
+                    if ("是" == ap_isrefer) // 参考节点
+                    {
+                        Rectangle rect = new Rectangle((int)x - 4, (int)y - 4, 8, 8);
+                        graphics.DrawEllipse(new Pen(Color.Blue), rect);
+                        graphics.FillEllipse(new SolidBrush(Color.Red), rect);
+                        Rectangle rect2 = new Rectangle((int)x - 8, (int)y - 8, 16, 16);
+                        graphics.DrawEllipse(new Pen(Color.Red), rect2);
+                        Rectangle rect3 = new Rectangle((int)x - 20, (int)y - 20, 40, 40);
+                        graphics.DrawEllipse(new Pen(Color.MediumVioletRed), rect3);
+                        Rectangle rect4 = new Rectangle((int)x - 50, (int)y - 50, 100, 100);
+                        graphics.DrawEllipse(new Pen(Color.PaleVioletRed), rect4);
+                    }
+                    else // 其他节点
+                    {
+                        Rectangle rect = new Rectangle((int)x - 4, (int)y - 4, 8, 8);
+                        graphics.DrawEllipse(new Pen(Color.Blue), rect);
+                        graphics.FillEllipse(new SolidBrush(Color.Black), rect);
+                        Rectangle rect2 = new Rectangle((int)x - 8, (int)y - 8, 16, 16);
+                        graphics.DrawEllipse(new Pen(Color.Black), rect2);
+                        Rectangle rect3 = new Rectangle((int)x - 20, (int)y - 20, 40, 40);
+                        graphics.DrawEllipse(new Pen(Color.LightGray), rect3);
+                        Rectangle rect4 = new Rectangle((int)x - 50, (int)y - 50, 100, 100);
+                        graphics.DrawEllipse(new Pen(Color.LightGray), rect4);
+                    }
                 }
                 conn.Close();
             }
@@ -456,7 +591,7 @@ namespace WifiFingerprintLocationSimulator
                     x = fp_x * (x2 - x1) / CurrentUserInfo.MapWidth + x1;
                     y = fp_y * (y3 - y2) / CurrentUserInfo.MapHeight + y1;
 
-                    // 绘制AP节点
+                    // 绘制FP节点
                     Rectangle rect = new Rectangle((int)x - 1, (int)y - 1, 2, 2);
                     graphics.DrawEllipse(new Pen(Color.DarkGreen), rect);
                     graphics.FillEllipse(new SolidBrush(Color.Black), rect);
@@ -475,6 +610,106 @@ namespace WifiFingerprintLocationSimulator
         {
             Graphics graphics = panel_Graph.CreateGraphics();
             graphics.Clear(Color.FromArgb(255, 240, 240, 240));
+        }
+
+        // 图像绘制-绘制实际路线
+        private void draw_real()
+        {
+            Graphics graphics = panel_Graph.CreateGraphics();
+
+            // 定义点
+            float x = 0;
+            float y = 0;
+            float x1 = 0;
+            float y1 = 0;
+            float x2 = 0;
+            float y2 = 0;
+            float x3 = 0;
+            float y3 = 0;
+            float x4 = 0;
+            float y4 = 0;
+
+            // 确定矩形四个顶点坐标
+            if ((float)CurrentUserInfo.MapHeight / (float)CurrentUserInfo.MapWidth > (float)panel_Graph.Height / (float)panel_Graph.Width)
+            {
+                // 地图特别高 上下顶格
+                y1 = 0;
+                y2 = 0;
+                y3 = panel_Graph.Height;
+                y4 = panel_Graph.Height;
+
+                float x0 = (float)panel_Graph.Height * (float)CurrentUserInfo.MapWidth / (float)CurrentUserInfo.MapHeight;
+                x1 = (float)panel_Graph.Width / 2 - x0 / 2;
+                x2 = (float)panel_Graph.Width / 2 + x0 / 2;
+                x3 = (float)panel_Graph.Width / 2 + x0 / 2;
+                x4 = (float)panel_Graph.Width / 2 - x0 / 2;
+            }
+            else
+            {
+                // 地图特别宽 左右顶格
+                x1 = 0;
+                x2 = panel_Graph.Width;
+                x3 = panel_Graph.Width;
+                x4 = 0;
+
+                float y0 = (float)panel_Graph.Width * (float)CurrentUserInfo.MapHeight / (float)CurrentUserInfo.MapWidth;
+                y1 = (float)panel_Graph.Height / 2 - y0 / 2;
+                y2 = (float)panel_Graph.Height / 2 - y0 / 2;
+                y3 = (float)panel_Graph.Height / 2 + y0 / 2;
+                y4 = (float)panel_Graph.Height / 2 + y0 / 2;
+            }
+
+            try
+            {
+                // SQL
+                string sql = "select real_x, real_y from simu_info where map_id ='" + CurrentUserInfo.MapID + "'";
+
+                // DataRead Process
+                MySqlConnection conn = new MySqlConnection(MySqlHelper.Conn);
+                conn.Open();
+                MySqlCommand cmd = conn.CreateCommand();
+                cmd.CommandText = sql;
+                MySqlDataReader sdr = cmd.ExecuteReader();
+
+                // 暂存上一顶点
+                float lastpoint_x = 0;
+                float lastpoint_y = 0;
+
+                while (sdr.Read())
+                {
+                    float real_x = (float)Convert.ToInt32(sdr.GetString(sdr.GetOrdinal("real_x")));
+                    float real_y = (float)Convert.ToInt32(sdr.GetString(sdr.GetOrdinal("real_y")));
+
+                    // 计算点实际坐标
+                    x = real_x * (x2 - x1) / CurrentUserInfo.MapWidth + x1;
+                    y = real_y * (y3 - y2) / CurrentUserInfo.MapHeight + y1;
+
+                    // 绘制实验坐标点
+                    Rectangle rect = new Rectangle((int)x - 2, (int)y - 2, 4, 4);
+                    graphics.DrawEllipse(new Pen(Color.DarkGreen), rect);
+                    graphics.FillEllipse(new SolidBrush(Color.Black), rect);
+
+                    if (0 != lastpoint_x)
+                    {
+                        // 绘制实验路径
+                        graphics.DrawLine(new Pen(Color.Red, 1), x, y, lastpoint_x, lastpoint_y);
+                    }
+
+                    lastpoint_x = x;
+                    lastpoint_y = y;
+                }
+                conn.Close();
+            }
+            catch
+            {
+                MessageBox.Show("Error !");
+            }
+        }
+
+        // 图像绘制-绘制仿真路线
+        private void draw_simu()
+        {
+
         }
 
 // ***********************************************************************************
@@ -597,6 +832,9 @@ namespace WifiFingerprintLocationSimulator
             // 清空该地图RSS数据
             rss_delete();
 
+            // 清空地图实验数据
+            simu_delete();
+
             // 清空地图数据 (一定要最后进行，之前需要用到CurrentUserInfo信息)
             map_delete();
 
@@ -622,6 +860,14 @@ namespace WifiFingerprintLocationSimulator
             textBox_fp_distance.Text = "";
             textBox_fp_receivegain.Text = "";
 
+            textBox_simu_lastpoint_x.Text = "";
+            textBox_simu_lastpoint_y.Text = "";
+            textBox_simu_mapsize_x.Text = "";
+            textBox_simu_mapsize_y.Text = "";
+            textBox_simu_point_x.Text = "";
+            textBox_simu_point_y.Text = "";
+
+
             // 执行一遍刷新
             button_ap_refresh_Click(new object(), new EventArgs());
             button_fp_refresh_Click(new object(), new EventArgs());
@@ -640,6 +886,8 @@ namespace WifiFingerprintLocationSimulator
             textBox_map_width.Text = listView_map.SelectedItems[0].SubItems[1].Text;
             textBox_map_height.Text = listView_map.SelectedItems[0].SubItems[2].Text;
             textBox_map_note.Text = listView_map.SelectedItems[0].SubItems[3].Text;
+            textBox_simu_mapsize_x.Text = listView_map.SelectedItems[0].SubItems[1].Text;
+            textBox_simu_mapsize_y.Text = listView_map.SelectedItems[0].SubItems[2].Text;
 
             // 清空其余textView
             textBox_ap_x.Text = "";
@@ -680,6 +928,8 @@ namespace WifiFingerprintLocationSimulator
             button_fp_refresh_Click(new object(), new EventArgs());
             // 载入RSS信息列表
             button_rss_refresh_Click(new object(), new EventArgs());
+            // 载入实验数据列表
+            button_simu_refresh_Click(new object(), new EventArgs());
 
             // 地图绘制
             draw();
@@ -850,19 +1100,32 @@ namespace WifiFingerprintLocationSimulator
 
                     while (sdr.Read())
                     {
+                        string ap_isrefer = "";
+                        string ap_receiverefer = "";
+
                         string ap_id = sdr.GetString(sdr.GetOrdinal("ap_id"));
+                        if (!sdr.IsDBNull(sdr.GetOrdinal("ap_isrefer")))
+                        {
+                            ap_isrefer = sdr.GetString(sdr.GetOrdinal("ap_isrefer"));
+                        }
                         string ap_x = sdr.GetString(sdr.GetOrdinal("ap_x"));
                         string ap_y = sdr.GetString(sdr.GetOrdinal("ap_y"));
                         string ap_sendpower = sdr.GetString(sdr.GetOrdinal("ap_sendpower"));
                         string ap_sendgain = sdr.GetString(sdr.GetOrdinal("ap_sendgain"));
+                        if (!sdr.IsDBNull(sdr.GetOrdinal("ap_receiverefer")))
+                        {
+                            ap_receiverefer = sdr.GetString(sdr.GetOrdinal("ap_receiverefer"));
+                        }
                         string reg_date = sdr.GetString(sdr.GetOrdinal("reg_date"));
 
 
                         ListViewItem item = new ListViewItem(ap_id);
+                        item.SubItems.Add(ap_isrefer);
                         item.SubItems.Add(ap_x);
                         item.SubItems.Add(ap_y);
                         item.SubItems.Add(ap_sendpower);
                         item.SubItems.Add(ap_sendgain);
+                        item.SubItems.Add(ap_receiverefer);
                         item.SubItems.Add(reg_date);
                         listView_ap.Items.Add(item);
                     }
@@ -907,10 +1170,19 @@ namespace WifiFingerprintLocationSimulator
         // 环境配置-AP节点配置 listView双击 载入ap节点信息
         private void listView_ap_ItemActivate(object sender, EventArgs e)
         {
-            textBox_ap_x.Text = listView_ap.SelectedItems[0].SubItems[1].Text;
-            textBox_ap_y.Text = listView_ap.SelectedItems[0].SubItems[2].Text;
-            textBox_ap_sendpower.Text = listView_ap.SelectedItems[0].SubItems[3].Text;
-            textBox_ap_sendgain.Text = listView_ap.SelectedItems[0].SubItems[4].Text;
+            if ("" == listView_ap.SelectedItems[0].SubItems[1].Text)
+            {
+                checkBox_ap_isrefer.CheckState = CheckState.Unchecked;
+            }
+            else
+            {
+                checkBox_ap_isrefer.CheckState = CheckState.Checked;
+            }
+            textBox_ap_x.Text = listView_ap.SelectedItems[0].SubItems[2].Text;
+            textBox_ap_y.Text = listView_ap.SelectedItems[0].SubItems[3].Text;
+            textBox_ap_sendpower.Text = listView_ap.SelectedItems[0].SubItems[4].Text;
+            textBox_ap_sendgain.Text = listView_ap.SelectedItems[0].SubItems[5].Text;
+            textBox_ap_receiverefer.Text = listView_ap.SelectedItems[0].SubItems[6].Text;
             CurrentUserInfo.ApID = listView_ap.SelectedItems[0].SubItems[0].Text;
 
             button_ap_refresh_Click(new object(), new EventArgs());
@@ -940,33 +1212,83 @@ namespace WifiFingerprintLocationSimulator
                 MessageBox.Show("请输入AP节点发送增益");
             else if (Convert.ToInt32(textBox_ap_x.Text) < 0 || Convert.ToInt32(textBox_ap_x.Text) > CurrentUserInfo.MapWidth || Convert.ToInt32(textBox_ap_y.Text) < 0 || Convert.ToInt32(textBox_ap_y.Text) > CurrentUserInfo.MapHeight)
                 MessageBox.Show("请输入地图范围内的坐标值(0<x<" + CurrentUserInfo.MapWidth + ", 0<y<" + CurrentUserInfo.MapHeight + ")");
+            else if (checkBox_ap_isrefer.CheckState == CheckState.Unchecked &&  textBox_ap_receiverefer.Text == "")
+                MessageBox.Show("请输入节点接收参考节点的信号强度");
             else
             {
-                //try
+                // ***参考节点***
+                if (CheckState.Checked == checkBox_ap_isrefer.CheckState)
                 {
-                    // SQL
-                    string sql = "insert into ap_info (map_id, ap_x, ap_y, ap_sendpower, ap_sendgain, reg_date) values('"+ CurrentUserInfo.MapID + "','" + textBox_ap_x.Text + "','" + textBox_ap_y.Text + "','" + textBox_ap_sendpower.Text + "','" + textBox_ap_sendgain.Text + "','" + DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss") + "')";
-                    
-                    // DataRead Process
-                    MySqlConnection conn = new MySqlConnection(MySqlHelper.Conn);
-                    conn.Open();
-                    MySqlCommand cmd = new MySqlCommand(sql, conn);
-                    int i = 0;
-                    i = cmd.ExecuteNonQuery();
+                    //try
+                    {
+                        // SQL
+                        string sql = "insert into ap_info (ap_isrefer, map_id, ap_x, ap_y, ap_sendpower, ap_sendgain, reg_date) values('" + "是" + "','" + CurrentUserInfo.MapID + "','" + textBox_ap_x.Text + "','" + textBox_ap_y.Text + "','" + textBox_ap_sendpower.Text + "','" + textBox_ap_sendgain.Text + "','" + DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss") + "')";
+                        string sql_check = "select * from ap_info where map_id = '" + CurrentUserInfo.MapID + "' and ap_isrefer = '" + "是" + "'";
 
-                    if (i > 0)
-                    {
-                        MessageBox.Show("节点数据添加成功!");
+                        // DataRead Process
+                        MySqlConnection conn = new MySqlConnection(MySqlHelper.Conn);
+                        MySqlConnection conn_check = new MySqlConnection(MySqlHelper.Conn);
+                        conn.Open();
+                        conn_check.Open();
+                        MySqlCommand cmd = new MySqlCommand(sql, conn);
+                        MySqlCommand cmd_check = new MySqlCommand(sql_check, conn_check); // 检查是否已有参考节点
+
+                        MySqlDataReader sdr = cmd_check.ExecuteReader();
+                        if (!sdr.Read()) // 数据库中无参考节点
+                        {
+                            int i = 0;
+                            i = cmd.ExecuteNonQuery();
+
+                            if (i > 0)
+                            {
+                                MessageBox.Show("参考节点添加成功!");
+                            }
+                            else
+                            {
+                                MessageBox.Show("添加失败！");
+                            }
+                        }
+                        else
+                        {
+                            MessageBox.Show("已经添加了一个参考节点！");
+                        }
+
+                        conn.Close();
                     }
-                    else
+                    //catch
                     {
-                        MessageBox.Show("添加失败！");
+                    //    MessageBox.Show("Error !");
                     }
-                    conn.Close();
                 }
-                //catch
+                // ***其他节点***
+                else
                 {
-                //    MessageBox.Show("Error !");
+                    try
+                    {
+                        // SQL
+                        string sql = "insert into ap_info (map_id, ap_x, ap_y, ap_sendpower, ap_sendgain, ap_receiverefer, reg_date) values('" + CurrentUserInfo.MapID + "','" + textBox_ap_x.Text + "','" + textBox_ap_y.Text + "','" + textBox_ap_sendpower.Text + "','" + textBox_ap_sendgain.Text + "','" + textBox_ap_receiverefer.Text + "','" + DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss") + "')";
+
+                        // DataRead Process
+                        MySqlConnection conn = new MySqlConnection(MySqlHelper.Conn);
+                        conn.Open();
+                        MySqlCommand cmd = new MySqlCommand(sql, conn);
+                        int i = 0;
+                        i = cmd.ExecuteNonQuery();
+
+                        if (i > 0)
+                        {
+                            MessageBox.Show("节点添加成功!");
+                        }
+                        else
+                        {
+                            MessageBox.Show("添加失败！");
+                        }
+                        conn.Close();
+                    }
+                    catch
+                    {
+                        MessageBox.Show("Error !");
+                    }
                 }
 
                 button_ap_refresh_Click(new object(), new EventArgs());
@@ -1071,9 +1393,25 @@ namespace WifiFingerprintLocationSimulator
             }
         }
 
-// ***********************************************************************************
-// *环境配置-指纹节点配置 ************************************************************
-// ***********************************************************************************
+        // 环境配置-AP节点配置 是否参考节点CheckBox
+        private void checkBox_ap_isrefer_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkBox_ap_isrefer.CheckState == CheckState.Unchecked)
+            {
+                textBox_ap_receiverefer.Enabled = true;
+                checkBox_ap_isrefer.Text = "否";
+            }
+            else
+            {
+                textBox_ap_receiverefer.Enabled = false;
+                textBox_ap_receiverefer.Text = "";
+                checkBox_ap_isrefer.Text = "是";
+            }
+        }
+
+        // ***********************************************************************************
+        // *环境配置-指纹节点配置 ************************************************************
+        // ***********************************************************************************
 
         // 环境配置-指纹节点配置 刷新按钮
         private void button_fp_refresh_Click(object sender, EventArgs e)
@@ -1246,6 +1584,9 @@ namespace WifiFingerprintLocationSimulator
                 {
                     MessageBox.Show("Error !");
                 }
+
+                // 地图绘制
+                draw();
             }
             else
             {
@@ -1281,47 +1622,312 @@ namespace WifiFingerprintLocationSimulator
             }
         }
 
-        // ***********************************************************************************
-        // *点击场景切换大图模式 *************************************************************
-        // ***********************************************************************************
+// ***********************************************************************************
+// *仿真实验-路线设置 ****************************************************************
+// ***********************************************************************************
+
+        // 路线设置-添加顶点按钮
+        private void button_simu_add_Click(object sender, EventArgs e)
+        {
+            if ("" == textBox_simu_point_x.Text || "" == textBox_simu_point_y.Text)
+                MessageBox.Show("请输入完整的路径顶点信息!");
+            else if (Convert.ToInt32(textBox_simu_point_x.Text) < 0 || Convert.ToInt32(textBox_simu_point_x.Text) > CurrentUserInfo.MapWidth || Convert.ToInt32(textBox_simu_point_y.Text) < 0 || Convert.ToInt32(textBox_simu_point_y.Text) > CurrentUserInfo.MapHeight)
+                MessageBox.Show("请输入地图范围内的坐标值(0<x<" + CurrentUserInfo.MapWidth + ", 0<y<" + CurrentUserInfo.MapHeight + ")");
+            // 输入顶点坐标数据有效
+            else
+            {
+                // 有上一坐标，则生成区间点数据
+                if ("" != textBox_simu_lastpoint_x.Text)
+                {
+                    // 此段路径两顶点坐标
+                    int x_last = Convert.ToInt32(textBox_simu_lastpoint_x.Text);
+                    int y_last = Convert.ToInt32(textBox_simu_lastpoint_y.Text);
+                    int x = Convert.ToInt32(textBox_simu_point_x.Text);
+                    int y = Convert.ToInt32(textBox_simu_point_y.Text);
+
+                    // 路径距离
+                    double distance = Math.Pow((x - x_last) * (x - x_last) + (y - y_last) * (y - y_last), 0.5);
+
+                    // 生成的段中间点数(切分的段数-1)
+                    int segment = (int)distance / 100;
+
+                    // 生成路径节点坐标数组
+                    for (int i = 1; i <= segment + 1; i ++)
+                    {
+                        // 新节点坐标
+                        int x_new = 0;
+                        int y_new = 0;
+
+                        // 最后一个点应为输入的端点，或分段为0
+                        if (i == segment + 1 || 0 == segment)
+                        {
+                            x_new = x;
+                            y_new = y;
+                        }
+                        // 正常求解点坐标
+                        else
+                        {
+                            x_new = x_last + (x - x_last) / segment * i;
+                            y_new = y_last + (y - y_last) / segment * i;
+                        }
+
+                        // 如果最后一个中间点距离顶点太近，则不添加该点
+                        if (i <= segment && Math.Pow((x - x_new) * (x - x_new) + (y - y_new) * (y - y_new), 0.5) <= 50)
+                        {
+                            continue;
+                        }
+
+                        try
+                        {
+                            // SQL
+                            string sql = "insert into simu_info (map_id, real_x, real_y, reg_date) values('" + CurrentUserInfo.MapID + "'," + x_new + "," + y_new + ",'" + DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss") + "')";
+
+                            // DataRead Process
+                            MySqlConnection conn = new MySqlConnection(MySqlHelper.Conn);
+                            conn.Open();
+                            MySqlCommand cmd = new MySqlCommand(sql, conn);
+                            int k = 0;
+                            k = cmd.ExecuteNonQuery();
+
+                            if (k < 0)
+                            {
+                                MessageBox.Show("添加失败！");
+                            }
+                            conn.Close();
+                        }
+                        catch
+                        {
+                            MessageBox.Show("Error !");
+                        }
+                    }
+                }
+                // 没有上一坐标(无实验数据)，则仅创建一个新的点
+                else
+                {
+                    try
+                    {
+                        // SQL
+                        string sql = "insert into simu_info (map_id, real_x, real_y, reg_date) values('" + CurrentUserInfo.MapID + "','" + textBox_simu_point_x.Text + "','" + textBox_simu_point_y.Text + "','" + DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss") + "')";
+
+                        // DataRead Process
+                        MySqlConnection conn = new MySqlConnection(MySqlHelper.Conn);
+                        conn.Open();
+                        MySqlCommand cmd = new MySqlCommand(sql, conn);
+                        int i = 0;
+                        i = cmd.ExecuteNonQuery();
+
+                        if (i < 0)
+                        {
+                            MessageBox.Show("添加失败！");
+                        }
+                        conn.Close();
+                    }
+                    catch
+                    {
+                        MessageBox.Show("Error !");
+                    }
+                }
+
+                // 替换上一顶点数据
+                textBox_simu_lastpoint_x.Text = textBox_simu_point_x.Text;
+                textBox_simu_lastpoint_y.Text = textBox_simu_point_y.Text;
+                textBox_simu_point_x.Text = "";
+                textBox_simu_point_y.Text = "";
+
+                // 刷新
+                button_simu_refresh_Click(new object(), new EventArgs());
+            }
+        }
+
+        // 路线设置-清空实验数据(当前地图)
+        private void simu_delete()
+        {
+            try
+            {
+                // SQL
+                string sql = "delete from simu_info where map_id = '" + CurrentUserInfo.MapID + "'";
+
+                // DataRead Process
+                MySqlConnection conn = new MySqlConnection(MySqlHelper.Conn);
+                conn.Open();
+                MySqlCommand cmd = new MySqlCommand(sql, conn);
+
+                int i = 0;
+                i = cmd.ExecuteNonQuery();
+
+                conn.Close();
+                button_simu_refresh_Click(new object(), new EventArgs());
+
+            }
+            catch
+            {
+                MessageBox.Show("Error !");
+            }
+        }
+
+        // 路线设置-清空路线按钮
+        private void button_simu_deleteall_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("确定要清空地图 " + textBox_map_name.Text + " 的仿真数据?", "提示", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            {
+                simu_delete();
+                textBox_simu_lastpoint_x.Text = "";
+                textBox_simu_lastpoint_y.Text = "";
+                textBox_simu_point_x.Text = "";
+                textBox_simu_point_y.Text = "";
+
+                MessageBox.Show("实验数据已删除!");
+            }
+        }
+
+        // 路线设置-刷新列表按钮
+        private void button_simu_refresh_Click(object sender, EventArgs e)
+        {
+            if (CurrentUserInfo.MapID != "")
+            {
+                //try
+                {
+                    // SQL
+                    string sql = "select * from simu_info where map_id ='" + CurrentUserInfo.MapID + "'";
+
+                    // DataRead Process
+                    MySqlConnection conn = new MySqlConnection(MySqlHelper.Conn);
+                    conn.Open();
+                    MySqlCommand cmd = conn.CreateCommand();
+                    cmd.CommandText = sql;
+
+                    MySqlDataReader sdr = cmd.ExecuteReader();
+
+                    listView_simu.Items.Clear();
+
+                    while (sdr.Read())
+                    {
+                        string simu_x = "";
+                        string simu_y = "";
+
+                        string simu_id = sdr.GetString(sdr.GetOrdinal("simu_id"));
+                        string real_x = sdr.GetString(sdr.GetOrdinal("real_x"));
+                        string real_y = sdr.GetString(sdr.GetOrdinal("real_y"));
+                        if (!sdr.IsDBNull(sdr.GetOrdinal("simu_x")))
+                        {
+                            simu_x = sdr.GetString(sdr.GetOrdinal("simu_x"));
+                        }
+                        if (!sdr.IsDBNull(sdr.GetOrdinal("simu_y")))
+                        {
+                            simu_y = sdr.GetString(sdr.GetOrdinal("simu_y"));
+                        }
+                        string reg_date = sdr.GetString(sdr.GetOrdinal("reg_date"));
+
+                        ListViewItem item = new ListViewItem(simu_id);
+                        item.SubItems.Add(real_x);
+                        item.SubItems.Add(real_y);
+                        item.SubItems.Add(simu_x);
+                        item.SubItems.Add(simu_y);
+                        item.SubItems.Add(reg_date);
+                        listView_simu.Items.Add(item);
+
+                        // 填入上一坐标，此法始终保持上一坐标填写内容为当前最后一个坐标
+                        textBox_simu_lastpoint_x.Text = real_x;
+                        textBox_simu_lastpoint_y.Text = real_y;
+                    }
+                    conn.Close();
+                }
+                //catch
+                {
+                //    MessageBox.Show("Error !");
+                }
+
+                // 地图绘制
+                draws();
+            }
+            else
+            {
+                listView_simu.Items.Clear();
+            }
+        }
+
+// ***********************************************************************************
+// *仿真实验-路线设置 ****************************************************************
+// ***********************************************************************************
+
+        // 仿真实验-开始仿真按钮
+        private void button_simu_start_Click(object sender, EventArgs e)
+        {
+
+        }
+
+// ***********************************************************************************
+// *点击场景切换大图模式 *************************************************************
+// ***********************************************************************************
 
         // 点击panel_Graph在两种尺寸中切换
+        // 用CurrentUserInfo.Panel区分当前所处Panel
         private void panel_Graph_Click(object sender, EventArgs e)
         {
             if ("" != CurrentUserInfo.MapID)
             {
                 tabControl_EnvironmentSettings.Visible = false;
+                panel_Simulate.Visible = false;
                 if (groupBox_Graph.Location == new Point(494, 16))
                 {
-                    for (int i = 0; i <= 500; i += 10)
+                    if ("local" == MySqlHelper.ConnStatus) // 本地连接，显示动画
                     {
-                        groupBox_Graph.Location = new Point(500 - i, 16 - i / 30);
-                        groupBox_Graph.Size = new Size(240 + i, 422 + i / 26);
-                        panel_Graph.Size = new Size(220 + i, 400 + i / 26);
-                        draw_map();
-                        draw_ap();
+                        for (int i = 0; i <= 500; i += 10)
+                        {
+                            groupBox_Graph.Location = new Point(500 - i, 16 - i / 30);
+                            groupBox_Graph.Size = new Size(240 + i, 422 + i / 26);
+                            panel_Graph.Size = new Size(220 + i, 400 + i / 26);
+                            if ("EnvironmentSettings" == CurrentUserInfo.Panel)
+                            {
+                                draw_map();
+                                draw_ap();
+                            }
+                        }
                     }
-                    //groupBox_Graph.Location = new Point(0, 0);
-                    //groupBox_Graph.Size = new Size(737, 441);
-                    //panel_Graph.Size = new Size(717, 419);
+                    else
+                    {
+                        groupBox_Graph.Location = new Point(0, 0);
+                        groupBox_Graph.Size = new Size(737, 441);
+                        panel_Graph.Size = new Size(717, 419);
+                    }
                 }
                 else
                 {
-                    for (int i = 480; i >= 0; i -= 10)
+                    if ("local" == MySqlHelper.ConnStatus) // 本地连接，显示动画
                     {
-                        groupBox_Graph.Location = new Point(494 - i, 16 - i / 30);
-                        groupBox_Graph.Size = new Size(240 + i, 422 + i / 26);
-                        panel_Graph.Size = new Size(220 + i, 400 + i / 26);
-                        draw_map();
-                        draw_ap();
+                        for (int i = 480; i >= 0; i -= 10)
+                        {
+                            groupBox_Graph.Location = new Point(494 - i, 16 - i / 30);
+                            groupBox_Graph.Size = new Size(240 + i, 422 + i / 26);
+                            panel_Graph.Size = new Size(220 + i, 400 + i / 26);
+                            if ("EnvironmentSettings" == CurrentUserInfo.Panel)
+                            {
+                                draw_map();
+                                draw_ap();
+                            }
+                        }
                     }
-                    //groupBox_Graph.Location = new Point(494, 16);
-                    //groupBox_Graph.Size = new Size(240, 422);
-                    //panel_Graph.Size = new Size(220, 400);
+                    else
+                    {
+                        groupBox_Graph.Location = new Point(494, 16);
+                        groupBox_Graph.Size = new Size(240, 422);
+                        panel_Graph.Size = new Size(220, 400);
+                    }
+
+                    panel_Simulate.Visible = true;
+                    tabControl_EnvironmentSettings.Visible = true;
                 }
-                draw();
-                tabControl_EnvironmentSettings.Visible = true;
+                if ("EnvironmentSettings" == CurrentUserInfo.Panel)
+                {
+                    draw();
+                }
+                else if ("Simulate" == CurrentUserInfo.Panel)
+                {
+                    draws();
+                }
             }
         }
+
+        
     }
 }

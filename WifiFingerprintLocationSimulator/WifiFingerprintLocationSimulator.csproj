@@ -191,8 +191,15 @@
     <None Include="Resources\button_delete.bmp" />
     <None Include="Resources\button_add.bmp" />
     <None Include="Resources\Awful.png" />
-    <None Include="Resources\icons_set_new.png" />
-    <None Include="Resources\icons_set_refresh.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\button_start.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\button_matlab.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\800400.bmp" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
