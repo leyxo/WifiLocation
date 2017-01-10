@@ -47,7 +47,8 @@
             this.toolStripMenuItem_FPManage = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem_RSSInfo = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem_Simulate = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem_Analysis = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem_SimuTrial = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem_SimuStart = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem_Menu_Help = new System.Windows.Forms.ToolStripMenuItem();
             this.ToolStripMenuItem_Help = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
@@ -56,6 +57,8 @@
             this.panel_Graph = new System.Windows.Forms.Panel();
             this.tabControl_EnvironmentSettings = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.label_map_cm_height = new System.Windows.Forms.Label();
+            this.label_map_cm_width = new System.Windows.Forms.Label();
             this.listView_map = new System.Windows.Forms.ListView();
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -95,9 +98,9 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.textBox_fp_distance = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
+            this.label_fp_distance = new System.Windows.Forms.Label();
             this.textBox_fp_receivegain = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
+            this.label_fp_receivegain = new System.Windows.Forms.Label();
             this.textBox_fp_map = new System.Windows.Forms.TextBox();
             this.label_fp_map = new System.Windows.Forms.Label();
             this.listView_fp = new System.Windows.Forms.ListView();
@@ -114,8 +117,42 @@
             this.columnHeader20 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader21 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.textBox_rss_map = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
+            this.label_rss_map = new System.Windows.Forms.Label();
             this.toolTip_Graph = new System.Windows.Forms.ToolTip(this.components);
+            this.panel_Simulate = new System.Windows.Forms.Panel();
+            this.panel_simu_info = new System.Windows.Forms.Panel();
+            this.listView_simu = new System.Windows.Forms.ListView();
+            this.columnHeader22 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader23 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader24 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader25 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader26 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader27 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.tabControl_Simulate = new System.Windows.Forms.TabControl();
+            this.tabPage5 = new System.Windows.Forms.TabPage();
+            this.label_simu_point_cm = new System.Windows.Forms.Label();
+            this.label_simu_point_point = new System.Windows.Forms.Label();
+            this.textBox_simu_point_y = new System.Windows.Forms.TextBox();
+            this.textBox_simu_point_x = new System.Windows.Forms.TextBox();
+            this.label_simu_point = new System.Windows.Forms.Label();
+            this.label_simu_mapsize_cm = new System.Windows.Forms.Label();
+            this.label_simu_mapsize_point = new System.Windows.Forms.Label();
+            this.textBox_simu_mapsize_y = new System.Windows.Forms.TextBox();
+            this.textBox_simu_mapsize_x = new System.Windows.Forms.TextBox();
+            this.label_simu_mapsize = new System.Windows.Forms.Label();
+            this.tabPage6 = new System.Windows.Forms.TabPage();
+            this.label_simu_algorithm = new System.Windows.Forms.Label();
+            this.comboBox_simu_algorithm = new System.Windows.Forms.ComboBox();
+            this.label_simu_lastpoint_cm = new System.Windows.Forms.Label();
+            this.label_simu_lastpoint_point = new System.Windows.Forms.Label();
+            this.textBox_simu_lastpoint_y = new System.Windows.Forms.TextBox();
+            this.textBox_simu_lastpoint_x = new System.Windows.Forms.TextBox();
+            this.label_simu_lastpoint = new System.Windows.Forms.Label();
+            this.button_simu_deleteall = new System.Windows.Forms.Button();
+            this.button_simu_refresh = new System.Windows.Forms.Button();
+            this.button_simu_add = new System.Windows.Forms.Button();
+            this.button_simu_matlab = new System.Windows.Forms.Button();
+            this.button_simu_start = new System.Windows.Forms.Button();
             this.button_map_load = new System.Windows.Forms.Button();
             this.button_map_refresh = new System.Windows.Forms.Button();
             this.button_map_delete = new System.Windows.Forms.Button();
@@ -131,6 +168,13 @@
             this.button_rss_generate = new System.Windows.Forms.Button();
             this.button_rss_refresh = new System.Windows.Forms.Button();
             this.ToolStripMenuItem_About = new System.Windows.Forms.ToolStripMenuItem();
+            this.columnHeader28 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader29 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.label_ap_db_receiverefer = new System.Windows.Forms.Label();
+            this.textBox_ap_receiverefer = new System.Windows.Forms.TextBox();
+            this.label_ap_receiverefer = new System.Windows.Forms.Label();
+            this.label_ap_isrefer = new System.Windows.Forms.Label();
+            this.checkBox_ap_isrefer = new System.Windows.Forms.CheckBox();
             this.statusStrip1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.panel_EnvironmentSettings.SuspendLayout();
@@ -140,6 +184,11 @@
             this.tabPage2.SuspendLayout();
             this.tabPage3.SuspendLayout();
             this.tabPage4.SuspendLayout();
+            this.panel_Simulate.SuspendLayout();
+            this.panel_simu_info.SuspendLayout();
+            this.tabControl_Simulate.SuspendLayout();
+            this.tabPage5.SuspendLayout();
+            this.tabPage6.SuspendLayout();
             this.SuspendLayout();
             // 
             // statusStrip1
@@ -185,7 +234,6 @@
             this.toolStripMenuItem_System,
             this.toolStripMenuItem_EnvironmentSettings,
             this.toolStripMenuItem_Simulate,
-            this.toolStripMenuItem_Analysis,
             this.toolStripMenuItem_Menu_Help});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
@@ -207,25 +255,25 @@
             // ToolStripMenuItem_UserInfo
             // 
             this.ToolStripMenuItem_UserInfo.Name = "ToolStripMenuItem_UserInfo";
-            this.ToolStripMenuItem_UserInfo.Size = new System.Drawing.Size(133, 22);
+            this.ToolStripMenuItem_UserInfo.Size = new System.Drawing.Size(152, 22);
             this.ToolStripMenuItem_UserInfo.Text = "个人信息...";
             // 
             // ToolStripMenuItem_Logout
             // 
             this.ToolStripMenuItem_Logout.Name = "ToolStripMenuItem_Logout";
-            this.ToolStripMenuItem_Logout.Size = new System.Drawing.Size(133, 22);
+            this.ToolStripMenuItem_Logout.Size = new System.Drawing.Size(152, 22);
             this.ToolStripMenuItem_Logout.Text = "注销";
             this.ToolStripMenuItem_Logout.Click += new System.EventHandler(this.ToolStripMenuItem_Registe_Click);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(130, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(149, 6);
             // 
             // ToolStripMenuItem_Exit
             // 
             this.ToolStripMenuItem_Exit.Name = "ToolStripMenuItem_Exit";
-            this.ToolStripMenuItem_Exit.Size = new System.Drawing.Size(133, 22);
+            this.ToolStripMenuItem_Exit.Size = new System.Drawing.Size(152, 22);
             this.ToolStripMenuItem_Exit.Text = "退出(E)";
             this.ToolStripMenuItem_Exit.Click += new System.EventHandler(this.ToolStripMenuItem_Exit_Click);
             // 
@@ -243,42 +291,53 @@
             // toolStripMenuItem_MapManage
             // 
             this.toolStripMenuItem_MapManage.Name = "toolStripMenuItem_MapManage";
-            this.toolStripMenuItem_MapManage.Size = new System.Drawing.Size(148, 22);
+            this.toolStripMenuItem_MapManage.Size = new System.Drawing.Size(152, 22);
             this.toolStripMenuItem_MapManage.Text = "场景配置";
             this.toolStripMenuItem_MapManage.Click += new System.EventHandler(this.toolStripMenuItem_MapManage_Click);
             // 
             // toolStripMenuItem_APManage
             // 
             this.toolStripMenuItem_APManage.Name = "toolStripMenuItem_APManage";
-            this.toolStripMenuItem_APManage.Size = new System.Drawing.Size(148, 22);
+            this.toolStripMenuItem_APManage.Size = new System.Drawing.Size(152, 22);
             this.toolStripMenuItem_APManage.Text = "AP节点配置";
             this.toolStripMenuItem_APManage.Click += new System.EventHandler(this.toolStripMenuItem_APManage_Click);
             // 
             // toolStripMenuItem_FPManage
             // 
             this.toolStripMenuItem_FPManage.Name = "toolStripMenuItem_FPManage";
-            this.toolStripMenuItem_FPManage.Size = new System.Drawing.Size(148, 22);
+            this.toolStripMenuItem_FPManage.Size = new System.Drawing.Size(152, 22);
             this.toolStripMenuItem_FPManage.Text = "指纹节点配置";
             this.toolStripMenuItem_FPManage.Click += new System.EventHandler(this.toolStripMenuItem_FPManage_Click);
             // 
             // toolStripMenuItem_RSSInfo
             // 
             this.toolStripMenuItem_RSSInfo.Name = "toolStripMenuItem_RSSInfo";
-            this.toolStripMenuItem_RSSInfo.Size = new System.Drawing.Size(148, 22);
+            this.toolStripMenuItem_RSSInfo.Size = new System.Drawing.Size(152, 22);
             this.toolStripMenuItem_RSSInfo.Text = "RSS信息";
             this.toolStripMenuItem_RSSInfo.Click += new System.EventHandler(this.toolStripMenuItem_RSSInfo_Click);
             // 
             // toolStripMenuItem_Simulate
             // 
+            this.toolStripMenuItem_Simulate.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripMenuItem_SimuTrial,
+            this.toolStripMenuItem_SimuStart});
             this.toolStripMenuItem_Simulate.Name = "toolStripMenuItem_Simulate";
             this.toolStripMenuItem_Simulate.Size = new System.Drawing.Size(83, 21);
             this.toolStripMenuItem_Simulate.Text = "仿真实验(S)";
             // 
-            // toolStripMenuItem_Analysis
+            // toolStripMenuItem_SimuTrial
             // 
-            this.toolStripMenuItem_Analysis.Name = "toolStripMenuItem_Analysis";
-            this.toolStripMenuItem_Analysis.Size = new System.Drawing.Size(84, 21);
-            this.toolStripMenuItem_Analysis.Text = "数据分析(A)";
+            this.toolStripMenuItem_SimuTrial.Name = "toolStripMenuItem_SimuTrial";
+            this.toolStripMenuItem_SimuTrial.Size = new System.Drawing.Size(152, 22);
+            this.toolStripMenuItem_SimuTrial.Text = "路线设置";
+            this.toolStripMenuItem_SimuTrial.Click += new System.EventHandler(this.toolStripMenuItem_SimuTrial_Click);
+            // 
+            // toolStripMenuItem_SimuStart
+            // 
+            this.toolStripMenuItem_SimuStart.Name = "toolStripMenuItem_SimuStart";
+            this.toolStripMenuItem_SimuStart.Size = new System.Drawing.Size(152, 22);
+            this.toolStripMenuItem_SimuStart.Text = "开始实验";
+            this.toolStripMenuItem_SimuStart.Click += new System.EventHandler(this.toolStripMenuItem_SimuStart_Click);
             // 
             // toolStripMenuItem_Menu_Help
             // 
@@ -306,7 +365,7 @@
             // 
             this.panel_EnvironmentSettings.Controls.Add(this.groupBox_Graph);
             this.panel_EnvironmentSettings.Controls.Add(this.tabControl_EnvironmentSettings);
-            this.panel_EnvironmentSettings.Location = new System.Drawing.Point(12, 39);
+            this.panel_EnvironmentSettings.Location = new System.Drawing.Point(276, 39);
             this.panel_EnvironmentSettings.Name = "panel_EnvironmentSettings";
             this.panel_EnvironmentSettings.Size = new System.Drawing.Size(747, 441);
             this.panel_EnvironmentSettings.TabIndex = 4;
@@ -344,6 +403,8 @@
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.label_map_cm_height);
+            this.tabPage1.Controls.Add(this.label_map_cm_width);
             this.tabPage1.Controls.Add(this.button_map_load);
             this.tabPage1.Controls.Add(this.button_map_refresh);
             this.tabPage1.Controls.Add(this.listView_map);
@@ -365,6 +426,24 @@
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "场景配置";
             this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // label_map_cm_height
+            // 
+            this.label_map_cm_height.AutoSize = true;
+            this.label_map_cm_height.Location = new System.Drawing.Point(440, 54);
+            this.label_map_cm_height.Name = "label_map_cm_height";
+            this.label_map_cm_height.Size = new System.Drawing.Size(17, 12);
+            this.label_map_cm_height.TabIndex = 13;
+            this.label_map_cm_height.Text = "cm";
+            // 
+            // label_map_cm_width
+            // 
+            this.label_map_cm_width.AutoSize = true;
+            this.label_map_cm_width.Location = new System.Drawing.Point(440, 19);
+            this.label_map_cm_width.Name = "label_map_cm_width";
+            this.label_map_cm_width.Size = new System.Drawing.Size(17, 12);
+            this.label_map_cm_width.TabIndex = 12;
+            this.label_map_cm_width.Text = "cm";
             // 
             // listView_map
             // 
@@ -411,7 +490,7 @@
             // 
             // textBox_map_height
             // 
-            this.textBox_map_height.Location = new System.Drawing.Point(390, 14);
+            this.textBox_map_height.Location = new System.Drawing.Point(365, 49);
             this.textBox_map_height.Name = "textBox_map_height";
             this.textBox_map_height.Size = new System.Drawing.Size(70, 21);
             this.textBox_map_height.TabIndex = 3;
@@ -420,15 +499,15 @@
             // label_map_height
             // 
             this.label_map_height.AutoSize = true;
-            this.label_map_height.Location = new System.Drawing.Point(328, 17);
+            this.label_map_height.Location = new System.Drawing.Point(327, 52);
             this.label_map_height.Name = "label_map_height";
-            this.label_map_height.Size = new System.Drawing.Size(65, 12);
+            this.label_map_height.Size = new System.Drawing.Size(41, 12);
             this.label_map_height.TabIndex = 6;
-            this.label_map_height.Text = "高度(cm)：";
+            this.label_map_height.Text = "高度：";
             // 
             // textBox_map_width
             // 
-            this.textBox_map_width.Location = new System.Drawing.Point(246, 14);
+            this.textBox_map_width.Location = new System.Drawing.Point(365, 14);
             this.textBox_map_width.Name = "textBox_map_width";
             this.textBox_map_width.Size = new System.Drawing.Size(70, 21);
             this.textBox_map_width.TabIndex = 2;
@@ -437,17 +516,17 @@
             // label_map_width
             // 
             this.label_map_width.AutoSize = true;
-            this.label_map_width.Location = new System.Drawing.Point(184, 17);
+            this.label_map_width.Location = new System.Drawing.Point(327, 17);
             this.label_map_width.Name = "label_map_width";
-            this.label_map_width.Size = new System.Drawing.Size(65, 12);
+            this.label_map_width.Size = new System.Drawing.Size(41, 12);
             this.label_map_width.TabIndex = 4;
-            this.label_map_width.Text = "宽度(cm)：";
+            this.label_map_width.Text = "宽度：";
             // 
             // textBox_map_note
             // 
             this.textBox_map_note.Location = new System.Drawing.Point(72, 49);
             this.textBox_map_note.Name = "textBox_map_note";
-            this.textBox_map_note.Size = new System.Drawing.Size(388, 21);
+            this.textBox_map_note.Size = new System.Drawing.Size(127, 21);
             this.textBox_map_note.TabIndex = 4;
             // 
             // label_map_note
@@ -463,7 +542,7 @@
             // 
             this.textBox_map_name.Location = new System.Drawing.Point(72, 14);
             this.textBox_map_name.Name = "textBox_map_name";
-            this.textBox_map_name.Size = new System.Drawing.Size(100, 21);
+            this.textBox_map_name.Size = new System.Drawing.Size(127, 21);
             this.textBox_map_name.TabIndex = 1;
             // 
             // label_map_name
@@ -477,6 +556,11 @@
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.checkBox_ap_isrefer);
+            this.tabPage2.Controls.Add(this.label_ap_isrefer);
+            this.tabPage2.Controls.Add(this.label_ap_db_receiverefer);
+            this.tabPage2.Controls.Add(this.textBox_ap_receiverefer);
+            this.tabPage2.Controls.Add(this.label_ap_receiverefer);
             this.tabPage2.Controls.Add(this.label_ap_cm);
             this.tabPage2.Controls.Add(this.label_ap_db);
             this.tabPage2.Controls.Add(this.label_ap_dbm);
@@ -570,7 +654,7 @@
             this.textBox_ap_sendpower.Location = new System.Drawing.Point(365, 14);
             this.textBox_ap_sendpower.Name = "textBox_ap_sendpower";
             this.textBox_ap_sendpower.Size = new System.Drawing.Size(70, 21);
-            this.textBox_ap_sendpower.TabIndex = 3;
+            this.textBox_ap_sendpower.TabIndex = 4;
             this.textBox_ap_sendpower.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox_ap_sendpower_KeyPress);
             // 
             // label_ap_sendpower
@@ -587,7 +671,7 @@
             this.textBox_ap_sendgain.Location = new System.Drawing.Point(365, 49);
             this.textBox_ap_sendgain.Name = "textBox_ap_sendgain";
             this.textBox_ap_sendgain.Size = new System.Drawing.Size(70, 21);
-            this.textBox_ap_sendgain.TabIndex = 4;
+            this.textBox_ap_sendgain.TabIndex = 5;
             this.textBox_ap_sendgain.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox_ap_sendgain_KeyPress);
             // 
             // label_ap_sendgain
@@ -603,16 +687,18 @@
             // 
             this.listView_ap.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeader6,
+            this.columnHeader29,
             this.columnHeader7,
             this.columnHeader8,
             this.columnHeader9,
             this.columnHeader10,
+            this.columnHeader28,
             this.columnHeader11});
             this.listView_ap.FullRowSelect = true;
-            this.listView_ap.Location = new System.Drawing.Point(12, 131);
+            this.listView_ap.Location = new System.Drawing.Point(12, 164);
             this.listView_ap.MultiSelect = false;
             this.listView_ap.Name = "listView_ap";
-            this.listView_ap.Size = new System.Drawing.Size(448, 267);
+            this.listView_ap.Size = new System.Drawing.Size(448, 234);
             this.listView_ap.TabIndex = 10;
             this.listView_ap.UseCompatibleStateImageBehavior = false;
             this.listView_ap.View = System.Windows.Forms.View.Details;
@@ -637,13 +723,12 @@
             // 
             // columnHeader9
             // 
-            this.columnHeader9.Text = "发送功率(dBm)";
-            this.columnHeader9.Width = 90;
+            this.columnHeader9.Text = "发送功率";
             // 
             // columnHeader10
             // 
-            this.columnHeader10.Text = "发送增益(dB)";
-            this.columnHeader10.Width = 84;
+            this.columnHeader10.Text = "发送增益";
+            this.columnHeader10.Width = 61;
             // 
             // columnHeader11
             // 
@@ -674,9 +759,9 @@
             this.tabPage3.Controls.Add(this.label1);
             this.tabPage3.Controls.Add(this.label2);
             this.tabPage3.Controls.Add(this.textBox_fp_distance);
-            this.tabPage3.Controls.Add(this.label3);
+            this.tabPage3.Controls.Add(this.label_fp_distance);
             this.tabPage3.Controls.Add(this.textBox_fp_receivegain);
-            this.tabPage3.Controls.Add(this.label4);
+            this.tabPage3.Controls.Add(this.label_fp_receivegain);
             this.tabPage3.Controls.Add(this.textBox_fp_map);
             this.tabPage3.Controls.Add(this.label_fp_map);
             this.tabPage3.Controls.Add(this.button_fp_autoadd);
@@ -715,14 +800,14 @@
             this.textBox_fp_distance.TabIndex = 29;
             this.textBox_fp_distance.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox_fp_distance_KeyPress);
             // 
-            // label3
+            // label_fp_distance
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(303, 17);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(65, 12);
-            this.label3.TabIndex = 32;
-            this.label3.Text = "节点间距：";
+            this.label_fp_distance.AutoSize = true;
+            this.label_fp_distance.Location = new System.Drawing.Point(303, 17);
+            this.label_fp_distance.Name = "label_fp_distance";
+            this.label_fp_distance.Size = new System.Drawing.Size(65, 12);
+            this.label_fp_distance.TabIndex = 32;
+            this.label_fp_distance.Text = "节点间距：";
             // 
             // textBox_fp_receivegain
             // 
@@ -732,14 +817,14 @@
             this.textBox_fp_receivegain.TabIndex = 30;
             this.textBox_fp_receivegain.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox_fp_receivegain_KeyPress);
             // 
-            // label4
+            // label_fp_receivegain
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(303, 52);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(65, 12);
-            this.label4.TabIndex = 31;
-            this.label4.Text = "接收增益：";
+            this.label_fp_receivegain.AutoSize = true;
+            this.label_fp_receivegain.Location = new System.Drawing.Point(303, 52);
+            this.label_fp_receivegain.Name = "label_fp_receivegain";
+            this.label_fp_receivegain.Size = new System.Drawing.Size(65, 12);
+            this.label_fp_receivegain.TabIndex = 31;
+            this.label_fp_receivegain.Text = "接收增益：";
             // 
             // textBox_fp_map
             // 
@@ -808,7 +893,7 @@
             this.tabPage4.Controls.Add(this.button_rss_refresh);
             this.tabPage4.Controls.Add(this.listView_rss);
             this.tabPage4.Controls.Add(this.textBox_rss_map);
-            this.tabPage4.Controls.Add(this.label5);
+            this.tabPage4.Controls.Add(this.label_rss_map);
             this.tabPage4.Location = new System.Drawing.Point(4, 22);
             this.tabPage4.Name = "tabPage4";
             this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
@@ -869,14 +954,14 @@
             this.textBox_rss_map.TabIndex = 16;
             this.textBox_rss_map.TabStop = false;
             // 
-            // label5
+            // label_rss_map
             // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(10, 17);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(65, 12);
-            this.label5.TabIndex = 15;
-            this.label5.Text = "当前地图：";
+            this.label_rss_map.AutoSize = true;
+            this.label_rss_map.Location = new System.Drawing.Point(10, 17);
+            this.label_rss_map.Name = "label_rss_map";
+            this.label_rss_map.Size = new System.Drawing.Size(65, 12);
+            this.label_rss_map.TabIndex = 15;
+            this.label_rss_map.Text = "当前地图：";
             // 
             // toolTip_Graph
             // 
@@ -887,6 +972,336 @@
             this.toolTip_Graph.ShowAlways = true;
             this.toolTip_Graph.ToolTipIcon = System.Windows.Forms.ToolTipIcon.Info;
             this.toolTip_Graph.ToolTipTitle = "缩放地图";
+            // 
+            // panel_Simulate
+            // 
+            this.panel_Simulate.Controls.Add(this.panel_simu_info);
+            this.panel_Simulate.Controls.Add(this.tabControl_Simulate);
+            this.panel_Simulate.Location = new System.Drawing.Point(12, 256);
+            this.panel_Simulate.Name = "panel_Simulate";
+            this.panel_Simulate.Size = new System.Drawing.Size(485, 441);
+            this.panel_Simulate.TabIndex = 5;
+            // 
+            // panel_simu_info
+            // 
+            this.panel_simu_info.BackColor = System.Drawing.Color.White;
+            this.panel_simu_info.Controls.Add(this.listView_simu);
+            this.panel_simu_info.Location = new System.Drawing.Point(7, 153);
+            this.panel_simu_info.Name = "panel_simu_info";
+            this.panel_simu_info.Size = new System.Drawing.Size(463, 274);
+            this.panel_simu_info.TabIndex = 1;
+            // 
+            // listView_simu
+            // 
+            this.listView_simu.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader22,
+            this.columnHeader23,
+            this.columnHeader24,
+            this.columnHeader25,
+            this.columnHeader26,
+            this.columnHeader27});
+            this.listView_simu.FullRowSelect = true;
+            this.listView_simu.Location = new System.Drawing.Point(11, 3);
+            this.listView_simu.MultiSelect = false;
+            this.listView_simu.Name = "listView_simu";
+            this.listView_simu.Size = new System.Drawing.Size(448, 267);
+            this.listView_simu.TabIndex = 16;
+            this.listView_simu.UseCompatibleStateImageBehavior = false;
+            this.listView_simu.View = System.Windows.Forms.View.Details;
+            // 
+            // columnHeader22
+            // 
+            this.columnHeader22.Text = "编号";
+            this.columnHeader22.Width = 42;
+            // 
+            // columnHeader23
+            // 
+            this.columnHeader23.Text = "实际x坐标";
+            this.columnHeader23.Width = 66;
+            // 
+            // columnHeader24
+            // 
+            this.columnHeader24.Text = "实际y坐标";
+            this.columnHeader24.Width = 66;
+            // 
+            // columnHeader25
+            // 
+            this.columnHeader25.Text = "定位x坐标";
+            this.columnHeader25.Width = 66;
+            // 
+            // columnHeader26
+            // 
+            this.columnHeader26.Text = "定位y坐标";
+            this.columnHeader26.Width = 67;
+            // 
+            // columnHeader27
+            // 
+            this.columnHeader27.Text = "修改日期";
+            this.columnHeader27.Width = 128;
+            // 
+            // tabControl_Simulate
+            // 
+            this.tabControl_Simulate.Controls.Add(this.tabPage5);
+            this.tabControl_Simulate.Controls.Add(this.tabPage6);
+            this.tabControl_Simulate.Location = new System.Drawing.Point(3, 3);
+            this.tabControl_Simulate.Name = "tabControl_Simulate";
+            this.tabControl_Simulate.SelectedIndex = 0;
+            this.tabControl_Simulate.Size = new System.Drawing.Size(484, 435);
+            this.tabControl_Simulate.TabIndex = 0;
+            // 
+            // tabPage5
+            // 
+            this.tabPage5.Controls.Add(this.label_simu_lastpoint_cm);
+            this.tabPage5.Controls.Add(this.label_simu_lastpoint_point);
+            this.tabPage5.Controls.Add(this.textBox_simu_lastpoint_y);
+            this.tabPage5.Controls.Add(this.textBox_simu_lastpoint_x);
+            this.tabPage5.Controls.Add(this.label_simu_lastpoint);
+            this.tabPage5.Controls.Add(this.label_simu_point_cm);
+            this.tabPage5.Controls.Add(this.label_simu_point_point);
+            this.tabPage5.Controls.Add(this.textBox_simu_point_y);
+            this.tabPage5.Controls.Add(this.textBox_simu_point_x);
+            this.tabPage5.Controls.Add(this.label_simu_point);
+            this.tabPage5.Controls.Add(this.label_simu_mapsize_cm);
+            this.tabPage5.Controls.Add(this.label_simu_mapsize_point);
+            this.tabPage5.Controls.Add(this.textBox_simu_mapsize_y);
+            this.tabPage5.Controls.Add(this.textBox_simu_mapsize_x);
+            this.tabPage5.Controls.Add(this.label_simu_mapsize);
+            this.tabPage5.Controls.Add(this.button_simu_deleteall);
+            this.tabPage5.Controls.Add(this.button_simu_refresh);
+            this.tabPage5.Controls.Add(this.button_simu_add);
+            this.tabPage5.Location = new System.Drawing.Point(4, 22);
+            this.tabPage5.Name = "tabPage5";
+            this.tabPage5.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage5.Size = new System.Drawing.Size(476, 409);
+            this.tabPage5.TabIndex = 0;
+            this.tabPage5.Text = "路线设置";
+            this.tabPage5.UseVisualStyleBackColor = true;
+            // 
+            // label_simu_point_cm
+            // 
+            this.label_simu_point_cm.AutoSize = true;
+            this.label_simu_point_cm.Location = new System.Drawing.Point(205, 54);
+            this.label_simu_point_cm.Name = "label_simu_point_cm";
+            this.label_simu_point_cm.Size = new System.Drawing.Size(17, 12);
+            this.label_simu_point_cm.TabIndex = 39;
+            this.label_simu_point_cm.Text = "cm";
+            // 
+            // label_simu_point_point
+            // 
+            this.label_simu_point_point.AutoSize = true;
+            this.label_simu_point_point.Location = new System.Drawing.Point(131, 57);
+            this.label_simu_point_point.Name = "label_simu_point_point";
+            this.label_simu_point_point.Size = new System.Drawing.Size(11, 12);
+            this.label_simu_point_point.TabIndex = 38;
+            this.label_simu_point_point.Text = ",";
+            // 
+            // textBox_simu_point_y
+            // 
+            this.textBox_simu_point_y.Location = new System.Drawing.Point(143, 49);
+            this.textBox_simu_point_y.Name = "textBox_simu_point_y";
+            this.textBox_simu_point_y.Size = new System.Drawing.Size(56, 21);
+            this.textBox_simu_point_y.TabIndex = 2;
+            this.textBox_simu_point_y.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox_simu_point_y_KeyPress);
+            // 
+            // textBox_simu_point_x
+            // 
+            this.textBox_simu_point_x.Location = new System.Drawing.Point(72, 49);
+            this.textBox_simu_point_x.Name = "textBox_simu_point_x";
+            this.textBox_simu_point_x.Size = new System.Drawing.Size(56, 21);
+            this.textBox_simu_point_x.TabIndex = 1;
+            this.textBox_simu_point_x.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox_simu_point_x_KeyPress);
+            // 
+            // label_simu_point
+            // 
+            this.label_simu_point.AutoSize = true;
+            this.label_simu_point.Location = new System.Drawing.Point(10, 52);
+            this.label_simu_point.Name = "label_simu_point";
+            this.label_simu_point.Size = new System.Drawing.Size(65, 12);
+            this.label_simu_point.TabIndex = 37;
+            this.label_simu_point.Text = "顶点坐标：";
+            // 
+            // label_simu_mapsize_cm
+            // 
+            this.label_simu_mapsize_cm.AutoSize = true;
+            this.label_simu_mapsize_cm.Location = new System.Drawing.Point(449, 18);
+            this.label_simu_mapsize_cm.Name = "label_simu_mapsize_cm";
+            this.label_simu_mapsize_cm.Size = new System.Drawing.Size(17, 12);
+            this.label_simu_mapsize_cm.TabIndex = 34;
+            this.label_simu_mapsize_cm.Text = "cm";
+            // 
+            // label_simu_mapsize_point
+            // 
+            this.label_simu_mapsize_point.AutoSize = true;
+            this.label_simu_mapsize_point.Location = new System.Drawing.Point(375, 21);
+            this.label_simu_mapsize_point.Name = "label_simu_mapsize_point";
+            this.label_simu_mapsize_point.Size = new System.Drawing.Size(11, 12);
+            this.label_simu_mapsize_point.TabIndex = 33;
+            this.label_simu_mapsize_point.Text = ",";
+            // 
+            // textBox_simu_mapsize_y
+            // 
+            this.textBox_simu_mapsize_y.Location = new System.Drawing.Point(387, 13);
+            this.textBox_simu_mapsize_y.Name = "textBox_simu_mapsize_y";
+            this.textBox_simu_mapsize_y.ReadOnly = true;
+            this.textBox_simu_mapsize_y.Size = new System.Drawing.Size(56, 21);
+            this.textBox_simu_mapsize_y.TabIndex = 31;
+            // 
+            // textBox_simu_mapsize_x
+            // 
+            this.textBox_simu_mapsize_x.Location = new System.Drawing.Point(316, 13);
+            this.textBox_simu_mapsize_x.Name = "textBox_simu_mapsize_x";
+            this.textBox_simu_mapsize_x.ReadOnly = true;
+            this.textBox_simu_mapsize_x.Size = new System.Drawing.Size(56, 21);
+            this.textBox_simu_mapsize_x.TabIndex = 30;
+            // 
+            // label_simu_mapsize
+            // 
+            this.label_simu_mapsize.AutoSize = true;
+            this.label_simu_mapsize.Location = new System.Drawing.Point(254, 16);
+            this.label_simu_mapsize.Name = "label_simu_mapsize";
+            this.label_simu_mapsize.Size = new System.Drawing.Size(65, 12);
+            this.label_simu_mapsize.TabIndex = 32;
+            this.label_simu_mapsize.Text = "地图尺寸：";
+            // 
+            // tabPage6
+            // 
+            this.tabPage6.Controls.Add(this.button_simu_matlab);
+            this.tabPage6.Controls.Add(this.button_simu_start);
+            this.tabPage6.Controls.Add(this.comboBox_simu_algorithm);
+            this.tabPage6.Controls.Add(this.label_simu_algorithm);
+            this.tabPage6.Location = new System.Drawing.Point(4, 22);
+            this.tabPage6.Name = "tabPage6";
+            this.tabPage6.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage6.Size = new System.Drawing.Size(476, 409);
+            this.tabPage6.TabIndex = 1;
+            this.tabPage6.Text = "仿真实验";
+            this.tabPage6.UseVisualStyleBackColor = true;
+            // 
+            // label_simu_algorithm
+            // 
+            this.label_simu_algorithm.AutoSize = true;
+            this.label_simu_algorithm.Location = new System.Drawing.Point(10, 16);
+            this.label_simu_algorithm.Name = "label_simu_algorithm";
+            this.label_simu_algorithm.Size = new System.Drawing.Size(65, 12);
+            this.label_simu_algorithm.TabIndex = 33;
+            this.label_simu_algorithm.Text = "选择算法：";
+            // 
+            // comboBox_simu_algorithm
+            // 
+            this.comboBox_simu_algorithm.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox_simu_algorithm.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.comboBox_simu_algorithm.FormattingEnabled = true;
+            this.comboBox_simu_algorithm.Items.AddRange(new object[] {
+            "NN",
+            "KNN",
+            "WKNN",
+            "贝叶斯概率"});
+            this.comboBox_simu_algorithm.Location = new System.Drawing.Point(72, 13);
+            this.comboBox_simu_algorithm.Name = "comboBox_simu_algorithm";
+            this.comboBox_simu_algorithm.Size = new System.Drawing.Size(98, 20);
+            this.comboBox_simu_algorithm.TabIndex = 34;
+            // 
+            // label_simu_lastpoint_cm
+            // 
+            this.label_simu_lastpoint_cm.AutoSize = true;
+            this.label_simu_lastpoint_cm.Location = new System.Drawing.Point(205, 18);
+            this.label_simu_lastpoint_cm.Name = "label_simu_lastpoint_cm";
+            this.label_simu_lastpoint_cm.Size = new System.Drawing.Size(17, 12);
+            this.label_simu_lastpoint_cm.TabIndex = 44;
+            this.label_simu_lastpoint_cm.Text = "cm";
+            // 
+            // label_simu_lastpoint_point
+            // 
+            this.label_simu_lastpoint_point.AutoSize = true;
+            this.label_simu_lastpoint_point.Location = new System.Drawing.Point(131, 21);
+            this.label_simu_lastpoint_point.Name = "label_simu_lastpoint_point";
+            this.label_simu_lastpoint_point.Size = new System.Drawing.Size(11, 12);
+            this.label_simu_lastpoint_point.TabIndex = 43;
+            this.label_simu_lastpoint_point.Text = ",";
+            // 
+            // textBox_simu_lastpoint_y
+            // 
+            this.textBox_simu_lastpoint_y.Location = new System.Drawing.Point(143, 13);
+            this.textBox_simu_lastpoint_y.Name = "textBox_simu_lastpoint_y";
+            this.textBox_simu_lastpoint_y.ReadOnly = true;
+            this.textBox_simu_lastpoint_y.Size = new System.Drawing.Size(56, 21);
+            this.textBox_simu_lastpoint_y.TabIndex = 41;
+            // 
+            // textBox_simu_lastpoint_x
+            // 
+            this.textBox_simu_lastpoint_x.Location = new System.Drawing.Point(72, 13);
+            this.textBox_simu_lastpoint_x.Name = "textBox_simu_lastpoint_x";
+            this.textBox_simu_lastpoint_x.ReadOnly = true;
+            this.textBox_simu_lastpoint_x.Size = new System.Drawing.Size(56, 21);
+            this.textBox_simu_lastpoint_x.TabIndex = 40;
+            // 
+            // label_simu_lastpoint
+            // 
+            this.label_simu_lastpoint.AutoSize = true;
+            this.label_simu_lastpoint.Location = new System.Drawing.Point(10, 16);
+            this.label_simu_lastpoint.Name = "label_simu_lastpoint";
+            this.label_simu_lastpoint.Size = new System.Drawing.Size(65, 12);
+            this.label_simu_lastpoint.TabIndex = 42;
+            this.label_simu_lastpoint.Text = "上一顶点：";
+            // 
+            // button_simu_deleteall
+            // 
+            this.button_simu_deleteall.Image = global::WifiFingerprintLocationSimulator.Properties.Resources.button_delete_all;
+            this.button_simu_deleteall.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button_simu_deleteall.Location = new System.Drawing.Point(103, 88);
+            this.button_simu_deleteall.Name = "button_simu_deleteall";
+            this.button_simu_deleteall.Size = new System.Drawing.Size(75, 23);
+            this.button_simu_deleteall.TabIndex = 4;
+            this.button_simu_deleteall.Text = "  清空路线";
+            this.button_simu_deleteall.UseVisualStyleBackColor = true;
+            this.button_simu_deleteall.Click += new System.EventHandler(this.button_simu_deleteall_Click);
+            // 
+            // button_simu_refresh
+            // 
+            this.button_simu_refresh.Image = global::WifiFingerprintLocationSimulator.Properties.Resources.button_list;
+            this.button_simu_refresh.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button_simu_refresh.Location = new System.Drawing.Point(385, 88);
+            this.button_simu_refresh.Name = "button_simu_refresh";
+            this.button_simu_refresh.Size = new System.Drawing.Size(75, 23);
+            this.button_simu_refresh.TabIndex = 5;
+            this.button_simu_refresh.Text = "  刷新列表";
+            this.button_simu_refresh.UseVisualStyleBackColor = true;
+            this.button_simu_refresh.Click += new System.EventHandler(this.button_simu_refresh_Click);
+            // 
+            // button_simu_add
+            // 
+            this.button_simu_add.Image = global::WifiFingerprintLocationSimulator.Properties.Resources.button_add;
+            this.button_simu_add.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button_simu_add.Location = new System.Drawing.Point(12, 88);
+            this.button_simu_add.Name = "button_simu_add";
+            this.button_simu_add.Size = new System.Drawing.Size(75, 23);
+            this.button_simu_add.TabIndex = 3;
+            this.button_simu_add.Text = "  添加顶点";
+            this.button_simu_add.UseVisualStyleBackColor = true;
+            this.button_simu_add.Click += new System.EventHandler(this.button_simu_add_Click);
+            // 
+            // button_simu_matlab
+            // 
+            this.button_simu_matlab.Image = global::WifiFingerprintLocationSimulator.Properties.Resources.button_matlab;
+            this.button_simu_matlab.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button_simu_matlab.Location = new System.Drawing.Point(103, 88);
+            this.button_simu_matlab.Name = "button_simu_matlab";
+            this.button_simu_matlab.Size = new System.Drawing.Size(142, 23);
+            this.button_simu_matlab.TabIndex = 36;
+            this.button_simu_matlab.Text = "  MatLab™数据分析";
+            this.button_simu_matlab.UseVisualStyleBackColor = true;
+            // 
+            // button_simu_start
+            // 
+            this.button_simu_start.Image = global::WifiFingerprintLocationSimulator.Properties.Resources.button_start;
+            this.button_simu_start.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button_simu_start.Location = new System.Drawing.Point(12, 88);
+            this.button_simu_start.Name = "button_simu_start";
+            this.button_simu_start.Size = new System.Drawing.Size(75, 23);
+            this.button_simu_start.TabIndex = 35;
+            this.button_simu_start.Text = "  开始仿真";
+            this.button_simu_start.UseVisualStyleBackColor = true;
+            this.button_simu_start.Click += new System.EventHandler(this.button_simu_start_Click);
             // 
             // button_map_load
             // 
@@ -953,10 +1368,10 @@
             // 
             this.button_ap_modify.Image = global::WifiFingerprintLocationSimulator.Properties.Resources.button_edit;
             this.button_ap_modify.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button_ap_modify.Location = new System.Drawing.Point(97, 88);
+            this.button_ap_modify.Location = new System.Drawing.Point(97, 122);
             this.button_ap_modify.Name = "button_ap_modify";
             this.button_ap_modify.Size = new System.Drawing.Size(75, 23);
-            this.button_ap_modify.TabIndex = 6;
+            this.button_ap_modify.TabIndex = 8;
             this.button_ap_modify.Text = "  修改节点";
             this.button_ap_modify.UseVisualStyleBackColor = true;
             this.button_ap_modify.Click += new System.EventHandler(this.button_ap_modify_Click);
@@ -965,10 +1380,10 @@
             // 
             this.button_ap_deleteall.Image = global::WifiFingerprintLocationSimulator.Properties.Resources.button_delete_all;
             this.button_ap_deleteall.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button_ap_deleteall.Location = new System.Drawing.Point(269, 88);
+            this.button_ap_deleteall.Location = new System.Drawing.Point(269, 122);
             this.button_ap_deleteall.Name = "button_ap_deleteall";
             this.button_ap_deleteall.Size = new System.Drawing.Size(75, 23);
-            this.button_ap_deleteall.TabIndex = 8;
+            this.button_ap_deleteall.TabIndex = 10;
             this.button_ap_deleteall.Text = "  清空节点";
             this.button_ap_deleteall.UseVisualStyleBackColor = true;
             this.button_ap_deleteall.Click += new System.EventHandler(this.button_ap_deleteall_Click);
@@ -977,10 +1392,10 @@
             // 
             this.button_ap_refresh.Image = global::WifiFingerprintLocationSimulator.Properties.Resources.button_list;
             this.button_ap_refresh.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button_ap_refresh.Location = new System.Drawing.Point(385, 88);
+            this.button_ap_refresh.Location = new System.Drawing.Point(385, 122);
             this.button_ap_refresh.Name = "button_ap_refresh";
             this.button_ap_refresh.Size = new System.Drawing.Size(75, 23);
-            this.button_ap_refresh.TabIndex = 9;
+            this.button_ap_refresh.TabIndex = 11;
             this.button_ap_refresh.Text = "  刷新列表";
             this.button_ap_refresh.UseVisualStyleBackColor = true;
             this.button_ap_refresh.Click += new System.EventHandler(this.button_ap_refresh_Click);
@@ -989,10 +1404,10 @@
             // 
             this.button_ap_delete.Image = global::WifiFingerprintLocationSimulator.Properties.Resources.button_delete;
             this.button_ap_delete.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button_ap_delete.Location = new System.Drawing.Point(183, 88);
+            this.button_ap_delete.Location = new System.Drawing.Point(183, 122);
             this.button_ap_delete.Name = "button_ap_delete";
             this.button_ap_delete.Size = new System.Drawing.Size(75, 23);
-            this.button_ap_delete.TabIndex = 7;
+            this.button_ap_delete.TabIndex = 9;
             this.button_ap_delete.Text = "  删除节点";
             this.button_ap_delete.UseVisualStyleBackColor = true;
             this.button_ap_delete.Click += new System.EventHandler(this.button_ap_delete_Click);
@@ -1001,10 +1416,10 @@
             // 
             this.button_ap_add.Image = global::WifiFingerprintLocationSimulator.Properties.Resources.button_add;
             this.button_ap_add.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button_ap_add.Location = new System.Drawing.Point(12, 88);
+            this.button_ap_add.Location = new System.Drawing.Point(12, 122);
             this.button_ap_add.Name = "button_ap_add";
             this.button_ap_add.Size = new System.Drawing.Size(75, 23);
-            this.button_ap_add.TabIndex = 5;
+            this.button_ap_add.TabIndex = 7;
             this.button_ap_add.Text = "  添加节点";
             this.button_ap_add.UseVisualStyleBackColor = true;
             this.button_ap_add.Click += new System.EventHandler(this.button_ap_add_Click);
@@ -1065,11 +1480,68 @@
             this.ToolStripMenuItem_About.Text = "关于 室内定位仿真平台(A)";
             this.ToolStripMenuItem_About.Click += new System.EventHandler(this.ToolStripMenuItem_About_Click);
             // 
+            // columnHeader28
+            // 
+            this.columnHeader28.Text = "接收参考节点";
+            this.columnHeader28.Width = 84;
+            // 
+            // columnHeader29
+            // 
+            this.columnHeader29.Text = "参考";
+            this.columnHeader29.Width = 36;
+            // 
+            // label_ap_db_receiverefer
+            // 
+            this.label_ap_db_receiverefer.AutoSize = true;
+            this.label_ap_db_receiverefer.Location = new System.Drawing.Point(440, 89);
+            this.label_ap_db_receiverefer.Name = "label_ap_db_receiverefer";
+            this.label_ap_db_receiverefer.Size = new System.Drawing.Size(23, 12);
+            this.label_ap_db_receiverefer.TabIndex = 32;
+            this.label_ap_db_receiverefer.Text = "dBm";
+            // 
+            // textBox_ap_receiverefer
+            // 
+            this.textBox_ap_receiverefer.Location = new System.Drawing.Point(365, 84);
+            this.textBox_ap_receiverefer.Name = "textBox_ap_receiverefer";
+            this.textBox_ap_receiverefer.Size = new System.Drawing.Size(70, 21);
+            this.textBox_ap_receiverefer.TabIndex = 6;
+            this.textBox_ap_receiverefer.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox_ap_receiverefer_KeyPress);
+            // 
+            // label_ap_receiverefer
+            // 
+            this.label_ap_receiverefer.AutoSize = true;
+            this.label_ap_receiverefer.Location = new System.Drawing.Point(231, 88);
+            this.label_ap_receiverefer.Name = "label_ap_receiverefer";
+            this.label_ap_receiverefer.Size = new System.Drawing.Size(137, 12);
+            this.label_ap_receiverefer.TabIndex = 31;
+            this.label_ap_receiverefer.Text = "接收参考节点信号强度：";
+            // 
+            // label_ap_isrefer
+            // 
+            this.label_ap_isrefer.AutoSize = true;
+            this.label_ap_isrefer.Location = new System.Drawing.Point(10, 89);
+            this.label_ap_isrefer.Name = "label_ap_isrefer";
+            this.label_ap_isrefer.Size = new System.Drawing.Size(65, 12);
+            this.label_ap_isrefer.TabIndex = 33;
+            this.label_ap_isrefer.Text = "参考节点：";
+            // 
+            // checkBox_ap_isrefer
+            // 
+            this.checkBox_ap_isrefer.AutoSize = true;
+            this.checkBox_ap_isrefer.Location = new System.Drawing.Point(72, 88);
+            this.checkBox_ap_isrefer.Name = "checkBox_ap_isrefer";
+            this.checkBox_ap_isrefer.Size = new System.Drawing.Size(36, 16);
+            this.checkBox_ap_isrefer.TabIndex = 3;
+            this.checkBox_ap_isrefer.Text = "否";
+            this.checkBox_ap_isrefer.UseVisualStyleBackColor = true;
+            this.checkBox_ap_isrefer.CheckedChanged += new System.EventHandler(this.checkBox_ap_isrefer_CheckedChanged);
+            // 
             // Main_User
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(771, 505);
+            this.Controls.Add(this.panel_Simulate);
             this.Controls.Add(this.panel_EnvironmentSettings);
             this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.statusStrip1);
@@ -1096,6 +1568,13 @@
             this.tabPage3.PerformLayout();
             this.tabPage4.ResumeLayout(false);
             this.tabPage4.PerformLayout();
+            this.panel_Simulate.ResumeLayout(false);
+            this.panel_simu_info.ResumeLayout(false);
+            this.tabControl_Simulate.ResumeLayout(false);
+            this.tabPage5.ResumeLayout(false);
+            this.tabPage5.PerformLayout();
+            this.tabPage6.ResumeLayout(false);
+            this.tabPage6.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1119,7 +1598,6 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
         private System.Windows.Forms.ToolStripMenuItem ToolStripMenuItem_About;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem_EnvironmentSettings;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem_Analysis;
         private System.Windows.Forms.Panel panel_EnvironmentSettings;
         private System.Windows.Forms.TabControl tabControl_EnvironmentSettings;
         private System.Windows.Forms.TabPage tabPage1;
@@ -1185,9 +1663,9 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox textBox_fp_distance;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label_fp_distance;
         private System.Windows.Forms.TextBox textBox_fp_receivegain;
-        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label_fp_receivegain;
         private System.Windows.Forms.Button button_fp_refresh;
         private System.Windows.Forms.Button button_fp_autoadd;
         private System.Windows.Forms.Button button_rss_generate;
@@ -1199,9 +1677,54 @@
         private System.Windows.Forms.ColumnHeader columnHeader20;
         private System.Windows.Forms.ColumnHeader columnHeader21;
         private System.Windows.Forms.TextBox textBox_rss_map;
-        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label_rss_map;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem_RSSInfo;
         private System.Windows.Forms.Panel panel_Graph;
         private System.Windows.Forms.ToolTip toolTip_Graph;
+        private System.Windows.Forms.Label label_map_cm_height;
+        private System.Windows.Forms.Label label_map_cm_width;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem_SimuTrial;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem_SimuStart;
+        private System.Windows.Forms.Panel panel_Simulate;
+        private System.Windows.Forms.TabControl tabControl_Simulate;
+        private System.Windows.Forms.TabPage tabPage5;
+        private System.Windows.Forms.TabPage tabPage6;
+        private System.Windows.Forms.Panel panel_simu_info;
+        private System.Windows.Forms.ListView listView_simu;
+        private System.Windows.Forms.ColumnHeader columnHeader22;
+        private System.Windows.Forms.ColumnHeader columnHeader23;
+        private System.Windows.Forms.ColumnHeader columnHeader24;
+        private System.Windows.Forms.ColumnHeader columnHeader25;
+        private System.Windows.Forms.ColumnHeader columnHeader26;
+        private System.Windows.Forms.ColumnHeader columnHeader27;
+        private System.Windows.Forms.Label label_simu_point_cm;
+        private System.Windows.Forms.Label label_simu_point_point;
+        private System.Windows.Forms.TextBox textBox_simu_point_y;
+        private System.Windows.Forms.TextBox textBox_simu_point_x;
+        private System.Windows.Forms.Label label_simu_point;
+        private System.Windows.Forms.Label label_simu_mapsize_cm;
+        private System.Windows.Forms.Label label_simu_mapsize_point;
+        private System.Windows.Forms.TextBox textBox_simu_mapsize_y;
+        private System.Windows.Forms.TextBox textBox_simu_mapsize_x;
+        private System.Windows.Forms.Label label_simu_mapsize;
+        private System.Windows.Forms.Button button_simu_deleteall;
+        private System.Windows.Forms.Button button_simu_refresh;
+        private System.Windows.Forms.Button button_simu_add;
+        private System.Windows.Forms.Label label_simu_algorithm;
+        private System.Windows.Forms.ComboBox comboBox_simu_algorithm;
+        private System.Windows.Forms.Button button_simu_start;
+        private System.Windows.Forms.Label label_simu_lastpoint_cm;
+        private System.Windows.Forms.Label label_simu_lastpoint_point;
+        private System.Windows.Forms.TextBox textBox_simu_lastpoint_y;
+        private System.Windows.Forms.TextBox textBox_simu_lastpoint_x;
+        private System.Windows.Forms.Label label_simu_lastpoint;
+        private System.Windows.Forms.Button button_simu_matlab;
+        private System.Windows.Forms.CheckBox checkBox_ap_isrefer;
+        private System.Windows.Forms.Label label_ap_isrefer;
+        private System.Windows.Forms.Label label_ap_db_receiverefer;
+        private System.Windows.Forms.TextBox textBox_ap_receiverefer;
+        private System.Windows.Forms.Label label_ap_receiverefer;
+        private System.Windows.Forms.ColumnHeader columnHeader29;
+        private System.Windows.Forms.ColumnHeader columnHeader28;
     }
 }

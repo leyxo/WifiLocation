@@ -18,6 +18,8 @@ namespace WifiFingerprintLocationSimulator
     {
         //数据库连接字符串
         public static string Conn = "Database='test';Data Source='127.0.0.1';User Id='root';Password='951006';charset='utf8';pooling=true";
+        //public static string Conn = "Database='wifilocation';Data Source='107.174.66.67';User Id='leyxo';Password='951006';charset='utf8';pooling=true";
+        public static string ConnStatus = "local"; // 连接状态(在线(非'local')或本地数据库('local'))，用以确定动画效果等一些数据库信息获取的频率
 
         // 用于缓存参数的HASH表
         private static Hashtable parmCache = Hashtable.Synchronized(new Hashtable());

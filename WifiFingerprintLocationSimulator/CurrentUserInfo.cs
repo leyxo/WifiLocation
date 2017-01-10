@@ -19,5 +19,8 @@ namespace WifiFingerprintLocationSimulator
 
         // 当前载入AP节点信息
         public static string ApID = "";// 当前载入AP节点ID
+
+        // 当前所在Panel，用于区分放大显示图示时的显示内容
+        public static string Panel = "";// EnvironmentSettings或Simulate
     }
 }

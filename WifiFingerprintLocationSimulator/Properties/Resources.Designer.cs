@@ -63,6 +63,16 @@ namespace WifiFingerprintLocationSimulator.Properties {
         /// <summary>
         ///   查找 System.Drawing.Bitmap 类型的本地化资源。
         /// </summary>
+        internal static System.Drawing.Bitmap _800400 {
+            get {
+                object obj = ResourceManager.GetObject("800400", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
         internal static System.Drawing.Bitmap Awful {
             get {
                 object obj = ResourceManager.GetObject("Awful", resourceCulture);
@@ -163,9 +173,29 @@ namespace WifiFingerprintLocationSimulator.Properties {
         /// <summary>
         ///   查找 System.Drawing.Bitmap 类型的本地化资源。
         /// </summary>
+        internal static System.Drawing.Bitmap button_matlab {
+            get {
+                object obj = ResourceManager.GetObject("button_matlab", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
         internal static System.Drawing.Bitmap button_profile {
             get {
                 object obj = ResourceManager.GetObject("button_profile", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        internal static System.Drawing.Bitmap button_start {
+            get {
+                object obj = ResourceManager.GetObject("button_start", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

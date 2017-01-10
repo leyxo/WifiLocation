@@ -123,7 +123,6 @@
             // comboBox_UserType
             // 
             this.comboBox_UserType.BackColor = System.Drawing.SystemColors.Window;
-            this.comboBox_UserType.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.comboBox_UserType.FormattingEnabled = true;
             this.comboBox_UserType.Items.AddRange(new object[] {
             "用户",

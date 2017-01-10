@@ -137,8 +137,8 @@ namespace WifiFingerprintLocationSimulator
         private void send_email()
         {
             DateTime dt = DateTime.Now;
-            var emailAcount = System.Text.Encoding.Default.GetString(Convert.FromBase64String("d2lmaWxvY2F0aW9uLnNlcnZpQHFxLmNvbQ==")); // wifilocation.servi@qq.com
-            var emailPassword = System.Text.Encoding.Default.GetString(Convert.FromBase64String("U2hpbmVpZGluZ3dlaQ==")); // Shineidingwei
+            var emailAcount = "wifilocation.servi@qq.com"; // System.Text.Encoding.Default.GetString(Convert.FromBase64String("d2lmaWxvY2F0aW9uLnNlcnZpQHFxLmNvbQ==")); // wifilocation.servi@qq.com "d2lmaWxvY2F0aW9uLnNlcnZpQHFxLmNvbQ=="
+            var emailPassword = "alivzyvfkuyfdbgi"; // System.Text.Encoding.Default.GetString(Convert.FromBase64String("U2hpbmVpZGluZ3dlaQ==")); // Shineidingwei "U2hpbmVpZGluZ3dlaQ=="
             var reciver = forgotInfo.Email;
             var content = "您的验证码是: " + forgotInfo.Code + "\n\n您的账号正在进行密码修改，请确认是您本人进行操作! \n\n室内定位仿真平台 ver1.0\n" + dt.ToString("yyyy/MM/dd HH:mm:ss");
             MailMessage message = new MailMessage();
