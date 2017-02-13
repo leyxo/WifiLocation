@@ -8,6 +8,7 @@ namespace WifiFingerprintLocationSimulator
 {
     public abstract class CurrentUserInfo
     {
+        // 当前用户信息
         public static int Id = 0;
         public static string Name = "";
         public static string Type = ""; // "user", "admin"
@@ -22,5 +23,9 @@ namespace WifiFingerprintLocationSimulator
 
         // 当前所在Panel，用于区分放大显示图示时的显示内容
         public static string Panel = "";// EnvironmentSettings或Simulate
+
+        // 当前环境设置选项
+        public static bool settings_showCoord = true; // 显示坐标轴
+        public static bool settings_showAPRadio = true; // 显示AP节点辐射图示
     }
 }

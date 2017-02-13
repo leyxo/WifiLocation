@@ -8,6 +8,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Threading;
+using MathWorks.MATLAB.NET.Arrays;
+using MathWorks.MATLAB.NET.Utility;
+using LocationAlgorithm;
 
 namespace WifiFingerprintLocationSimulator
 {
@@ -40,6 +44,13 @@ namespace WifiFingerprintLocationSimulator
 
             // 对一些功能的禁用
             button_ap_modify.Visible = false;
+
+        }
+
+        private void ToolStripMenuItem_Settings_Click(object sender, EventArgs e)
+        {
+            Settings settings = new Settings();
+            settings.ShowDialog();
         }
 
         private void ToolStripMenuItem_Exit_Click(object sender, EventArgs e)
@@ -48,7 +59,8 @@ namespace WifiFingerprintLocationSimulator
             {
                 try
                 {
-                    Environment.Exit(0);
+                    Application.Exit();
+                    //Environment.Exit(0);
                 }
                 catch
                 {
@@ -250,6 +262,10 @@ namespace WifiFingerprintLocationSimulator
                 {
                     e.Handled = true;
                 }
+                else if (e.KeyChar == '-')
+                {
+                    e.Handled = false;
+                }
                 else if ((e.KeyChar < '0') || (e.KeyChar > '9'))//这是允许输入0-9数字  
                 {
                     e.Handled = true;
@@ -411,12 +427,26 @@ namespace WifiFingerprintLocationSimulator
                 y4 = (float)panel_Graph.Height / 2 + y / 2;
             }
 
-            // 绘制
+            // 绘制边框
             graphics.Clear(Color.FromArgb(255, 240, 240, 240));
             graphics.DrawLine(new Pen(Color.Black, 2), x1, y1, x2, y2);
             graphics.DrawLine(new Pen(Color.Black, 2), x2, y2, x3, y3);
             graphics.DrawLine(new Pen(Color.Black, 2), x3, y3, x4, y4);
             graphics.DrawLine(new Pen(Color.Black, 2), x4, y4, x1, y1);
+
+            // 绘制坐标轴
+            if (true == CurrentUserInfo.settings_showCoord)
+            {
+                Font font = new Font("宋体", 10, FontStyle.Regular);
+                Brush bush = new SolidBrush(Color.DarkGray);
+                graphics.DrawString("0", font, bush, x1 + 2, y1 + 2);
+                graphics.DrawString((CurrentUserInfo.MapWidth / 2).ToString(), font, bush, x1 + (x2 - x1) / 2 - 10, y1 + 2);
+                graphics.DrawString(CurrentUserInfo.MapWidth.ToString(), font, bush, x2 - 30, y1 + 2);
+                graphics.DrawString("x", font, bush, x2 - 12, y1 - 15);
+                graphics.DrawString((CurrentUserInfo.MapHeight / 2).ToString(), font, bush, x1 + 2, y1 + (y4 - y1) / 2 - 5);
+                graphics.DrawString(CurrentUserInfo.MapHeight.ToString(), font, bush, x1 + 2, y4 - 14);
+                graphics.DrawString("y", font, bush, x1 + 2, y4);
+            }
 
             // 绘制场景图片
             //graphics.DrawImage(global::WifiFingerprintLocationSimulator.Properties.Resources._800400, x1, y1, x2-x1, y3-y2);
@@ -496,24 +526,30 @@ namespace WifiFingerprintLocationSimulator
                         Rectangle rect = new Rectangle((int)x - 4, (int)y - 4, 8, 8);
                         graphics.DrawEllipse(new Pen(Color.Blue), rect);
                         graphics.FillEllipse(new SolidBrush(Color.Red), rect);
-                        Rectangle rect2 = new Rectangle((int)x - 8, (int)y - 8, 16, 16);
-                        graphics.DrawEllipse(new Pen(Color.Red), rect2);
-                        Rectangle rect3 = new Rectangle((int)x - 20, (int)y - 20, 40, 40);
-                        graphics.DrawEllipse(new Pen(Color.MediumVioletRed), rect3);
-                        Rectangle rect4 = new Rectangle((int)x - 50, (int)y - 50, 100, 100);
-                        graphics.DrawEllipse(new Pen(Color.PaleVioletRed), rect4);
+                        if (true == CurrentUserInfo.settings_showAPRadio)
+                        {
+                            Rectangle rect2 = new Rectangle((int)x - 8, (int)y - 8, 16, 16);
+                            graphics.DrawEllipse(new Pen(Color.Red), rect2);
+                            Rectangle rect3 = new Rectangle((int)x - 20, (int)y - 20, 40, 40);
+                            graphics.DrawEllipse(new Pen(Color.MediumVioletRed), rect3);
+                            Rectangle rect4 = new Rectangle((int)x - 50, (int)y - 50, 100, 100);
+                            graphics.DrawEllipse(new Pen(Color.PaleVioletRed), rect4);
+                        }
                     }
                     else // 其他节点
                     {
                         Rectangle rect = new Rectangle((int)x - 4, (int)y - 4, 8, 8);
                         graphics.DrawEllipse(new Pen(Color.Blue), rect);
                         graphics.FillEllipse(new SolidBrush(Color.Black), rect);
-                        Rectangle rect2 = new Rectangle((int)x - 8, (int)y - 8, 16, 16);
-                        graphics.DrawEllipse(new Pen(Color.Black), rect2);
-                        Rectangle rect3 = new Rectangle((int)x - 20, (int)y - 20, 40, 40);
-                        graphics.DrawEllipse(new Pen(Color.LightGray), rect3);
-                        Rectangle rect4 = new Rectangle((int)x - 50, (int)y - 50, 100, 100);
-                        graphics.DrawEllipse(new Pen(Color.LightGray), rect4);
+                        if (true == CurrentUserInfo.settings_showAPRadio)
+                        {
+                            Rectangle rect2 = new Rectangle((int)x - 8, (int)y - 8, 16, 16);
+                            graphics.DrawEllipse(new Pen(Color.Black), rect2);
+                            Rectangle rect3 = new Rectangle((int)x - 20, (int)y - 20, 40, 40);
+                            graphics.DrawEllipse(new Pen(Color.LightGray), rect3);
+                            Rectangle rect4 = new Rectangle((int)x - 50, (int)y - 50, 100, 100);
+                            graphics.DrawEllipse(new Pen(Color.LightGray), rect4);
+                        }
                     }
                 }
                 conn.Close();
@@ -1783,6 +1819,10 @@ namespace WifiFingerprintLocationSimulator
         // 路线设置-刷新列表按钮
         private void button_simu_refresh_Click(object sender, EventArgs e)
         {
+            // 清空上一坐标
+            textBox_simu_lastpoint_x.Text = "";
+            textBox_simu_lastpoint_y.Text = "";
+
             if (CurrentUserInfo.MapID != "")
             {
                 //try
@@ -1856,9 +1896,115 @@ namespace WifiFingerprintLocationSimulator
 
         }
 
-// ***********************************************************************************
-// *点击场景切换大图模式 *************************************************************
-// ***********************************************************************************
+        // 仿真实验-MatLab数据分析按钮
+        private void button_simu_matlab_Click(object sender, EventArgs e)
+        {
+            // 显示进度条
+            Thread thread_code_process = new Thread(new ThreadStart(processer));
+            thread_code_process.Start();
+
+            // 待传入数据参数***************************************************
+            // ***MAP***
+            int Map_X = CurrentUserInfo.MapWidth;
+            int Map_Y = CurrentUserInfo.MapHeight;
+            // ***AP***
+            int AP_Num = listView_ap.Items.Count;           // AP节点个数         
+            double[] APx = new double[AP_Num];                    // AP节点横坐标
+            double[] APy = new double[AP_Num];                    // AP节点纵坐标          
+            int[] AP_Power = new int[AP_Num];           // AP节点发送功率
+            int[] AP_Gain = new int[AP_Num];            // AP节点发送增益
+            int[] AP_ReceiveRefer = new int[AP_Num - 1];// 非参考AP接收参考AP信号强度
+            // ***FP*** 
+            int FP_Num = listView_fp.Items.Count;           // 指纹节点个数
+            double[] FPx = new double[FP_Num];                    // FP节点横坐标
+            double[] FPy = new double[FP_Num];                    // FP节点纵坐标
+            int FP_Gain = 0;                                // FP节点接收增益
+            // ***路线***
+            int Simu_Num = listView_simu.Items.Count;       // 路线节点个数
+            double[] Realx = new double[Simu_Num];                // 路径节点横坐标
+            double[] Realy = new double[Simu_Num];                // 路径节点纵坐标
+
+            // 获取数据
+            for (int i = 0; i < AP_Num; i ++) {
+                APx[i] = Convert.ToDouble(listView_ap.Items[i].SubItems[2].Text)/100;
+                APy[i] = Convert.ToDouble(listView_ap.Items[i].SubItems[3].Text)/100;
+                AP_Power[i] = Convert.ToInt32(listView_ap.Items[i].SubItems[4].Text);
+                AP_Gain[i] = Convert.ToInt32(listView_ap.Items[i].SubItems[5].Text);
+            }
+            for (int i = 0; i < FP_Num; i++)
+            {
+                FPx[i] = Convert.ToDouble(listView_fp.Items[i].SubItems[1].Text)/100;
+                FPy[i] = Convert.ToDouble(listView_fp.Items[i].SubItems[2].Text)/100;
+                FP_Gain = Convert.ToInt32(listView_fp.Items[i].SubItems[3].Text);
+            }
+            for (int i = 0; i < Simu_Num; i++) {
+                Realx[i] = Convert.ToDouble(listView_simu.Items[i].SubItems[1].Text)/100;
+                Realy[i] = Convert.ToDouble(listView_simu.Items[i].SubItems[2].Text)/100;
+            }
+            int j = 0;
+            for (int i = 0; i < AP_Num; i++)
+            {
+                if ("是" != listView_ap.Items[i].SubItems[1].Text)
+                {
+                    AP_ReceiveRefer[j] = Convert.ToInt32(listView_ap.Items[i].SubItems[6].Text);
+                    j++;
+                }
+            }
+            // *****************************************************************
+
+
+            // 传入matlab
+            try
+            {
+                MWArray Map_Xd = (float)Map_X/100;
+                MWArray Map_Yd = (float)Map_Y/100;
+                MWArray AP_Numd = AP_Num;
+                MWNumericArray APxd = APx;
+                MWNumericArray APyd = APy;
+                MWNumericArray AP_Powerd = AP_Power;
+                MWNumericArray AP_Gaind = AP_Gain;
+                MWNumericArray AP_ReceiveReferd = AP_ReceiveRefer;
+                MWArray FP_Numd = FP_Num;
+                MWNumericArray FPxd = FPx;
+                MWNumericArray FPyd = FPy;
+                MWArray FP_Gaind = FP_Gain;
+                MWArray Simu_Numd = Simu_Num;
+                MWNumericArray Realxd = Realx;
+                MWNumericArray Realyd = Realy;
+
+                LocationAlgorithm.LocationAlgorithm l = new LocationAlgorithm.LocationAlgorithm();
+                l.main(Map_Xd, Map_Yd, AP_Numd, APxd, APyd, AP_Powerd, AP_Gaind, AP_ReceiveReferd, FP_Numd, FPxd, FPyd, FP_Gaind, Simu_Numd, Realxd, Realyd);
+
+                //整数示例
+                //MWArray a = (MWNumericArray)new int[] { System.Convert.ToInt16(2) };
+                //MWArray b = (MWNumericArray)new int[] { System.Convert.ToInt16(3) };
+                //MWNumericArray c = (MWNumericArray)c1.drawtest(a, b);
+                //MessageBox.Show(c.ToString());
+                
+                //数组示例
+                //MWNumericArray aa = new int [2, 2] { { 1, 2 }, { 3, 4 } };
+                //MWNumericArray bb = new int [2, 2] { { 5, 6 }, { 7, 8 } };
+                //MWArray cc;
+                //cc = c1.drawtest((MWArray)aa, (MWArray)bb);
+                //MessageBox.Show(cc[1][2].ToString());
+            }
+            catch (System.FormatException)
+            {
+
+            }
+        }
+
+        // 仿真实验-MatLab数据分析-进度条
+        private void processer()
+        {
+            ProgBar progBar = new ProgBar();
+            progBar.ShowDialog();
+        }
+
+       
+        // ***********************************************************************************
+        // *点击场景切换大图模式 *************************************************************
+        // ***********************************************************************************
 
         // 点击panel_Graph在两种尺寸中切换
         // 用CurrentUserInfo.Panel区分当前所处Panel
@@ -1877,11 +2023,12 @@ namespace WifiFingerprintLocationSimulator
                             groupBox_Graph.Location = new Point(500 - i, 16 - i / 30);
                             groupBox_Graph.Size = new Size(240 + i, 422 + i / 26);
                             panel_Graph.Size = new Size(220 + i, 400 + i / 26);
-                            if ("EnvironmentSettings" == CurrentUserInfo.Panel)
+                            //if ("EnvironmentSettings" == CurrentUserInfo.Panel)
                             {
-                                draw_map();
-                                draw_ap();
+                                
+                                //draw_ap();
                             }
+                            draw_map();
                         }
                     }
                     else
@@ -1900,11 +2047,12 @@ namespace WifiFingerprintLocationSimulator
                             groupBox_Graph.Location = new Point(494 - i, 16 - i / 30);
                             groupBox_Graph.Size = new Size(240 + i, 422 + i / 26);
                             panel_Graph.Size = new Size(220 + i, 400 + i / 26);
-                            if ("EnvironmentSettings" == CurrentUserInfo.Panel)
+                            //if ("EnvironmentSettings" == CurrentUserInfo.Panel)
                             {
-                                draw_map();
-                                draw_ap();
+                                
+                                //draw_ap();
                             }
+                            draw_map();
                         }
                     }
                     else
