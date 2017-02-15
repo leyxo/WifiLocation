@@ -1,6 +1,10 @@
-function main(Map_Xd, Map_Yd, AP_Numd, APxd, APyd, ap_powerd, ap_gaind, ap_rssd, FP_Numd, FPxd, FPyd, fp_gaind, Simu_Numd, Realxd, Realyd)
+function main(Taskd, Algod, Map_Xd, Map_Yd, AP_Numd, APxd, APyd, ap_powerd, ap_gaind, ap_rssd, FP_Numd, FPxd, FPyd, fp_gaind, Simu_Numd, Realxd, Realyd)
 
-%************Map X & Y ****************
+%***************ÊµÑéÄÚÈİ****************
+Task = Taskd;           %1;             %1:·ÂÕæÊµÑé 2:CDFÇúÏß
+%*****************Ëã·¨******************
+Algo = Algod;           %0;             %0:ËùÓĞËã·¨ 1:NN 2:KNN 3:WKNN 4:±´Ò¶Ë¹
+%***************µØÍ¼³ß´ç****************
 Mapx = Map_Xd;
 Mapy = Map_Yd;
 %************AP½Úµã¸öÊıÓë×ø±ê***********
@@ -23,6 +27,9 @@ index = 1;
 loss_d1 = 32.44+20*log10(2400)+20*log10(1/1000);
 for i=1:1:AP_Num-2        %Â·¾¶ËğºÄÖ¸ÊıÓëFAF×ÔÊÊÓ¦
     for j=i+1:1:AP_Num-1
+        if(DIS(j)==DIS(i))
+            continue;
+        end
         n=(ap_rss(i)-ap_rss(j))/(10*log10(DIS(j)/DIS(i)));
         Nn=Nn+n;
         faf=loss_d1-ap_rss(j)-10*n*log10(DIS(j));
@@ -51,6 +58,9 @@ Simu_Num = Simu_Numd;   %200;               %·ÂÕæÂ·¾¶½ÚµãÊı£¨Á¬½ÓC#AP½ÚµãÅäÖÃÖĞÂ
 Realx = Realxd;         %zeros(1,Simu_Num); %Â·¾¶½ÚµãºáÖá×ø±ê£¨Á¬½ÓC#AP½ÚµãÅäÖÃÖĞÂ·Ïß½Úµã£©
 Realy = Realyd;         %zeros(1,Simu_Num); %Â·¾¶½Úµã×İÖá×ø±ê£¨Á¬½ÓC#AP½ÚµãÅäÖÃÖĞÂ·Ïß½Úµã£©
 
+
+%% »æÖÆCDFÇúÏß
+if(Task)
 nn_cdf=zeros(1,21);
 knn2_cdf=zeros(1,21);
 knn3_cdf=zeros(1,21);
@@ -182,6 +192,21 @@ end
 %fprintf('bayes=%f\n',bayes_sum/Simu_Num);
 
 
+figure(2);
+plot(base_array,nn_cdf/Simu_Num,'g<-');    %cdfÇúÏß£¨°ÑÉú³ÉµÄÇúÏßÍ¼Ç¶ÈëC#£©
+hold on
+plot(base_array,knn2_cdf/Simu_Num,'b*-');
+hold on
+plot(base_array,wknn2_cdf/Simu_Num,'r+-');
+hold on
+plot(base_array,bayes_cdf/Simu_Num,'co-');
+hold on
+legend('nn','knn3','wknn3','bayes');
+xlabel('Error distance(m)')
+ylabel('Cumulative distribution function')
+title('CDF Comparison')
+
+%% »æÖÆ·ÂÕæÂ·Ïß
 figure(1);
 %ÏŞÖÆ×ø±êÖá·¶Î§
 %axis([0 Mapx 0 Mapy]);
@@ -248,19 +273,4 @@ hold on;
 H7L = plot(loc_point_4(:,1), loc_point_4(:,2), 'co-');
 
 box on;
-legend([H1(1),H2(1),H3(1),H4(1),H5(1),H6(1),H7(1)],'Êı¾İ¿â²ÉÑùµã','APÎ»ÖÃ','ÕæÊµÎ»ÖÃ','NN¶¨Î»Î»ÖÃ','KNN3¶¨Î»Î»ÖÃ','WKNN3¶¨Î»Î»ÖÃ','±´Ò¶Ë¹Ëã·¨¶¨Î»Î»ÖÃ')
-
-
-figure(2);
-plot(base_array,nn_cdf/Simu_Num,'g<-');    %cdfÇúÏß£¨°ÑÉú³ÉµÄÇúÏßÍ¼Ç¶ÈëC#£©
-hold on
-plot(base_array,knn2_cdf/Simu_Num,'b*-');
-hold on
-plot(base_array,wknn2_cdf/Simu_Num,'r+-');
-hold on
-plot(base_array,bayes_cdf/Simu_Num,'co-');
-hold on
-legend('nn','knn3','wknn3','bayes');
-xlabel('Error distance(m)')
-ylabel('Cumulative distribution function')
-title('CDF Comparison')
+legend([H1(1),H2(1),H3(1),H4(1),H5(1),H6(1),H7(1)],'Êı¾İ¿â²ÉÑùµã','AP½ÚµãÎ»ÖÃ','ÕæÊµÂ·Ïß','NN¶¨Î»Â·¾¶','KNN3Â·¾¶','WKNN3Â·¾¶','±´Ò¶Ë¹Ëã·¨Â·¾¶')

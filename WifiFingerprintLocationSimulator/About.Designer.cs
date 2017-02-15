@@ -44,7 +44,7 @@
             // 
             // button_Awful
             // 
-            this.button_Awful.Location = new System.Drawing.Point(197, 174);
+            this.button_Awful.Location = new System.Drawing.Point(155, 174);
             this.button_Awful.Name = "button_Awful";
             this.button_Awful.Size = new System.Drawing.Size(75, 23);
             this.button_Awful.TabIndex = 19;
@@ -88,9 +88,9 @@
             this.label_Author.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.label_Author.Location = new System.Drawing.Point(94, 73);
             this.label_Author.Name = "label_Author";
-            this.label_Author.Size = new System.Drawing.Size(107, 12);
+            this.label_Author.Size = new System.Drawing.Size(35, 12);
             this.label_Author.TabIndex = 15;
-            this.label_Author.Text = "梁尔越 2013201109";
+            this.label_Author.Text = "$作者";
             // 
             // label_CopyRight
             // 
@@ -98,9 +98,9 @@
             this.label_CopyRight.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.label_CopyRight.Location = new System.Drawing.Point(94, 50);
             this.label_CopyRight.Name = "label_CopyRight";
-            this.label_CopyRight.Size = new System.Drawing.Size(185, 12);
+            this.label_CopyRight.Size = new System.Drawing.Size(59, 12);
             this.label_CopyRight.TabIndex = 14;
-            this.label_CopyRight.Text = "Copyright by Mike Liang (2016)";
+            this.label_CopyRight.Text = "$版权信息";
             // 
             // label_ProjectName
             // 
@@ -108,9 +108,9 @@
             this.label_ProjectName.Cursor = System.Windows.Forms.Cursors.Help;
             this.label_ProjectName.Location = new System.Drawing.Point(94, 28);
             this.label_ProjectName.Name = "label_ProjectName";
-            this.label_ProjectName.Size = new System.Drawing.Size(131, 12);
+            this.label_ProjectName.Size = new System.Drawing.Size(113, 12);
             this.label_ProjectName.TabIndex = 13;
-            this.label_ProjectName.Text = "室内定位仿真平台 v1.0";
+            this.label_ProjectName.Text = "$程序名    $版本号";
             this.label_ProjectName.Click += new System.EventHandler(this.label_ProjectName_Click);
             // 
             // pictureBox_Awful

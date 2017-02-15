@@ -80,6 +80,9 @@ namespace WifiFingerprintLocationSimulator
                     main_admin.Show();
                 else if (CurrentUserInfo.Type == "user")
                     main_user.Show();
+
+                // Log
+                LogHelper.generateLog(CurrentUserInfo.Name + " 登录");
             }
             else
                 MessageBox.Show("对不起，你输入的账号或者密码错误！");

@@ -20,6 +20,9 @@ namespace WifiFingerprintLocationSimulator
         private void About_Load(object sender, EventArgs e)
         {
             button_Awful.Visible = false;
+            label_ProjectName.Text = "室内定位仿真平台 v" + System.Reflection.Assembly.GetExecutingAssembly().GetName().Version.ToString();
+            label_CopyRight.Text = "Copyright © 2017 Mike Liang.";
+            label_Author.Text = "梁尔越 2013201109";
         }
 
         private void button_Gorgeous_Click(object sender, EventArgs e)

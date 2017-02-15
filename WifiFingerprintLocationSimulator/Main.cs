@@ -33,7 +33,9 @@ namespace WifiFingerprintLocationSimulator
 
         private void ToolStripMenuItem_Exit_Click(object sender, EventArgs e)
         {
-            Environment.Exit(0);
+            // Log
+            LogHelper.generateLog("退出系统");
+            Application.Exit();
         }
 
         private void ToolStripMenuItem_Help_Click(object sender, EventArgs e)

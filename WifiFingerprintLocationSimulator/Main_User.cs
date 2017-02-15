@@ -57,6 +57,9 @@ namespace WifiFingerprintLocationSimulator
         {
             if (MessageBox.Show("确定要退出系统?", "提示", MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
+                // Log
+                LogHelper.generateLog(CurrentUserInfo.Name + " 注销并退出系统");
+
                 try
                 {
                     Application.Exit();
@@ -87,6 +90,9 @@ namespace WifiFingerprintLocationSimulator
                 Application.OpenForms["Main"].Show();
                 this.Hide();
 
+                // Log
+                LogHelper.generateLog(CurrentUserInfo.Name + " 已注销");
+
                 // 清空当前登录信息
                 CurrentUserInfo.Name = "";
                 CurrentUserInfo.Type = "";
@@ -104,7 +110,7 @@ namespace WifiFingerprintLocationSimulator
             panel_EnvironmentSettings.Show();
             panel_EnvironmentSettings.BringToFront();
             tabControl_EnvironmentSettings.SelectedIndex = 0;
-            button_map_refresh_Click(new object(), new EventArgs());
+            draw();
         }
 
         private void toolStripMenuItem_APManage_Click(object sender, EventArgs e)
@@ -113,7 +119,7 @@ namespace WifiFingerprintLocationSimulator
             panel_EnvironmentSettings.Show();
             panel_EnvironmentSettings.BringToFront();
             tabControl_EnvironmentSettings.SelectedIndex = 1;
-            button_ap_refresh_Click(new object(), new EventArgs());
+            draw();
         }
 
         private void toolStripMenuItem_FPManage_Click(object sender, EventArgs e)
@@ -122,7 +128,7 @@ namespace WifiFingerprintLocationSimulator
             panel_EnvironmentSettings.Show();
             panel_EnvironmentSettings.BringToFront();
             tabControl_EnvironmentSettings.SelectedIndex = 2;
-            button_fp_refresh_Click(new object(), new EventArgs());
+            draw();
         }
 
         private void toolStripMenuItem_RSSInfo_Click(object sender, EventArgs e)
@@ -131,7 +137,7 @@ namespace WifiFingerprintLocationSimulator
             panel_EnvironmentSettings.Show();
             panel_EnvironmentSettings.BringToFront();
             tabControl_EnvironmentSettings.SelectedIndex = 3;
-            button_rss_refresh_Click(new object(), new EventArgs());
+            draw();
         }
 
         private void toolStripMenuItem_SimuTrial_Click(object sender, EventArgs e)
@@ -804,7 +810,11 @@ namespace WifiFingerprintLocationSimulator
             }
 
             // 地图绘制
-            draw();
+            // 如果是通过载入地图进入的，则跳过绘制地图过程
+            if (sender.ToString() != "System.Object")
+            {
+                draw();
+            }
         }
 
         // 环境配置-场景配置 listView选中时激活按钮
@@ -859,6 +869,9 @@ namespace WifiFingerprintLocationSimulator
         // 环境配置-场景配置 删除按钮
         private void button_map_delete_Click(object sender, EventArgs e)
         {
+            // Log
+            LogHelper.generateLog("[场景配置] " + CurrentUserInfo.Name + " 删除了地图 " + textBox_map_name.Text + "及其实验数据");
+
             // 清空该地图AP数据
             ap_delete();
 
@@ -950,6 +963,9 @@ namespace WifiFingerprintLocationSimulator
                 CurrentUserInfo.MapWidth = Convert.ToInt32(sdr.GetString(sdr.GetOrdinal("map_width")));
                 CurrentUserInfo.MapHeight = Convert.ToInt32(sdr.GetString(sdr.GetOrdinal("map_height")));
                 conn.Close();
+
+                // Log
+                LogHelper.generateLog("[场景配置] " + "地图 " + textBox_map_name.Text + " 已载入");
                 //MessageBox.Show("载入成功！");
             }
             catch
@@ -1016,6 +1032,9 @@ namespace WifiFingerprintLocationSimulator
 
                         if (i > 0)
                         {
+                            // Log
+                            LogHelper.generateLog("[场景配置] " + CurrentUserInfo.Name + " 添加了地图 " + textBox_map_name.Text);
+
                             MessageBox.Show("地图 " + textBox_map_name.Text + " 添加成功!");
                         }
                         else
@@ -1076,6 +1095,9 @@ namespace WifiFingerprintLocationSimulator
                             fp_delete();
                             rss_delete();
 
+                            // Log
+                            LogHelper.generateLog("[场景配置] " + CurrentUserInfo.Name + " 修改了地图 " + textBox_map_name.Text + "的数据");
+
                             MessageBox.Show("地图 " + textBox_map_name.Text + " 数据已更新! 实验数据已清除!");
                             CurrentUserInfo.MapWidth = Convert.ToInt32(textBox_map_width.Text);
                             CurrentUserInfo.MapHeight = Convert.ToInt32(textBox_map_height.Text);
@@ -1083,6 +1105,9 @@ namespace WifiFingerprintLocationSimulator
                         // 仅修改备注
                         else
                         {
+                            // Log
+                            LogHelper.generateLog("[场景配置] " + CurrentUserInfo.Name + " 修改了地图 " + textBox_map_name.Text + "的备注信息");
+
                             MessageBox.Show("地图 " + textBox_map_name.Text + " 备注信息修改成功!");
                         }
                     }
@@ -1173,7 +1198,11 @@ namespace WifiFingerprintLocationSimulator
                 }
 
                 // 地图绘制
-                draw();
+                // 如果是通过载入地图进入的，则跳过绘制地图过程
+                if (sender.ToString() != "System.Object")
+                {
+                    draw();
+                }
             }
             else
             {
@@ -1231,6 +1260,10 @@ namespace WifiFingerprintLocationSimulator
             if (MessageBox.Show("确定要删除地图 " + textBox_map_name.Text + " 的所有AP节点数据?", "提示", MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
                 ap_delete();
+
+                // Log
+                LogHelper.generateLog("[AP节点配置] " + CurrentUserInfo.Name + " 清空了地图 " + textBox_map_name.Text + " 的所有节点");
+
                 MessageBox.Show("所有节点已删除!");
             }
         }
@@ -1277,6 +1310,9 @@ namespace WifiFingerprintLocationSimulator
 
                             if (i > 0)
                             {
+                                // Log
+                                LogHelper.generateLog("[AP节点配置] " + CurrentUserInfo.Name + " 在地图 " + textBox_map_name.Text + " 中增加了参考节点");
+
                                 MessageBox.Show("参考节点添加成功!");
                             }
                             else
@@ -1313,6 +1349,8 @@ namespace WifiFingerprintLocationSimulator
 
                         if (i > 0)
                         {
+                            // Log
+                            LogHelper.generateLog("[AP节点配置] " + CurrentUserInfo.Name + " 在地图 " + textBox_map_name.Text + " 中增加了一个节点");
                             MessageBox.Show("节点添加成功!");
                         }
                         else
@@ -1377,6 +1415,8 @@ namespace WifiFingerprintLocationSimulator
 
                     if (i > 0)
                     {
+                        // Log
+                        LogHelper.generateLog("[AP节点配置] " + CurrentUserInfo.Name + " 在地图 " + textBox_map_name.Text + " 中删除了节点" + listView_ap.SelectedItems[0].SubItems[0].Text);
                         MessageBox.Show("节点已删除!");
                     }
                     else
@@ -1412,6 +1452,8 @@ namespace WifiFingerprintLocationSimulator
 
                 if (i > 0)
                 {
+                    // Log
+                    LogHelper.generateLog("[AP节点配置] " + CurrentUserInfo.Name + " 在地图 " + textBox_map_name.Text + " 中修改了节点" + CurrentUserInfo.ApID);
                     MessageBox.Show("节点 " + CurrentUserInfo.ApID + " 数据已更新!");
                 }
                 else
@@ -1445,9 +1487,9 @@ namespace WifiFingerprintLocationSimulator
             }
         }
 
-        // ***********************************************************************************
-        // *环境配置-指纹节点配置 ************************************************************
-        // ***********************************************************************************
+// ***********************************************************************************
+// *环境配置-指纹节点配置 ************************************************************
+// ***********************************************************************************
 
         // 环境配置-指纹节点配置 刷新按钮
         private void button_fp_refresh_Click(object sender, EventArgs e)
@@ -1493,7 +1535,11 @@ namespace WifiFingerprintLocationSimulator
                 }
 
                 // 地图绘制
-                draw();
+                // 如果是通过载入地图进入的，则跳过绘制地图过程
+                if (sender.ToString() != "System.Object")
+                {
+                    draw();
+                }
             }
             else
             {
@@ -1535,6 +1581,9 @@ namespace WifiFingerprintLocationSimulator
 
                             if (k > 0)
                             {
+                                // Log
+                                LogHelper.generateLog("[指纹节点配置] " + CurrentUserInfo.Name + " 在地图 " + textBox_map_name.Text + " 中生成了指纹节点");
+
                                 //  MessageBox.Show("已自动生成指纹节点!");
                             }
                             else
@@ -1622,7 +1671,11 @@ namespace WifiFingerprintLocationSimulator
                 }
 
                 // 地图绘制
-                draw();
+                // 如果是通过载入地图进入的，则跳过绘制地图过程
+                if (sender.ToString() != "System.Object")
+                {
+                    draw();
+                }
             }
             else
             {
@@ -1770,6 +1823,9 @@ namespace WifiFingerprintLocationSimulator
                 textBox_simu_point_x.Text = "";
                 textBox_simu_point_y.Text = "";
 
+                // Log
+                LogHelper.generateLog("[路线设置] " + CurrentUserInfo.Name + " 在地图 " + textBox_map_name.Text + " 中添加了路线顶点(" + textBox_simu_mapsize_x + "," + textBox_simu_lastpoint_y + ")");
+
                 // 刷新
                 button_simu_refresh_Click(new object(), new EventArgs());
             }
@@ -1811,6 +1867,9 @@ namespace WifiFingerprintLocationSimulator
                 textBox_simu_lastpoint_y.Text = "";
                 textBox_simu_point_x.Text = "";
                 textBox_simu_point_y.Text = "";
+
+                // Log
+                LogHelper.generateLog("[AP节点配置] " + CurrentUserInfo.Name + " 在地图 " + textBox_map_name.Text + " 中清空了仿真路线");
 
                 MessageBox.Show("实验数据已删除!");
             }
@@ -1878,7 +1937,11 @@ namespace WifiFingerprintLocationSimulator
                 }
 
                 // 地图绘制
-                draws();
+                // 如果是通过载入地图进入的，则跳过绘制地图过程
+                if (sender.ToString() != "System.Object")
+                {
+                    draws();
+                }
             }
             else
             {
@@ -1887,17 +1950,45 @@ namespace WifiFingerprintLocationSimulator
         }
 
 // ***********************************************************************************
-// *仿真实验-路线设置 ****************************************************************
+// *仿真实验-仿真实验 ****************************************************************
 // ***********************************************************************************
 
         // 仿真实验-开始仿真按钮
         private void button_simu_start_Click(object sender, EventArgs e)
         {
+            int Algod = 0;
+            if ("所有算法" == comboBox_simu_algorithm.Text || "" == comboBox_simu_algorithm.Text)
+                Algod = 0;
+            else if ("NN" == comboBox_simu_algorithm.Text)
+                Algod = 1;
+            else if ("KNN" == comboBox_simu_algorithm.Text)
+                Algod = 2;
+            else if ("WKNN" == comboBox_simu_algorithm.Text)
+                Algod = 3;
+            else if ("贝叶斯概率" == comboBox_simu_algorithm.Text)
+                Algod = 4;
+
+            // Log
+            LogHelper.generateLog("[仿真实验] " + CurrentUserInfo.Name + " 在地图 " + textBox_map_name.Text + " 中开始进行仿真(" + comboBox_simu_algorithm.Text + ")");
+
+            usingMatLabFunction(1, Algod);
 
         }
 
         // 仿真实验-MatLab数据分析按钮
         private void button_simu_matlab_Click(object sender, EventArgs e)
+        {
+            // Log
+            LogHelper.generateLog("[仿真实验] " + CurrentUserInfo.Name + " 在地图 " + textBox_map_name.Text + " 中开始进行MatLab数据分析(" + comboBox_simu_algorithm.Text + ")");
+
+            usingMatLabFunction(2);
+        }
+
+        // 调用MatLab的main函数
+        // 参数列表:
+        // Task 1:仿真实验 2:CDF曲线
+        // Algo 0:所有算法 1:NN 2:KNN 3:WKNN 4:贝叶斯
+        private void usingMatLabFunction(int Task, int Algo = 0)
         {
             // 显示进度条
             Thread thread_code_process = new Thread(new ThreadStart(processer));
@@ -1909,37 +2000,39 @@ namespace WifiFingerprintLocationSimulator
             int Map_Y = CurrentUserInfo.MapHeight;
             // ***AP***
             int AP_Num = listView_ap.Items.Count;           // AP节点个数         
-            double[] APx = new double[AP_Num];                    // AP节点横坐标
-            double[] APy = new double[AP_Num];                    // AP节点纵坐标          
-            int[] AP_Power = new int[AP_Num];           // AP节点发送功率
-            int[] AP_Gain = new int[AP_Num];            // AP节点发送增益
-            int[] AP_ReceiveRefer = new int[AP_Num - 1];// 非参考AP接收参考AP信号强度
+            double[] APx = new double[AP_Num];              // AP节点横坐标
+            double[] APy = new double[AP_Num];              // AP节点纵坐标          
+            int[] AP_Power = new int[AP_Num];               // AP节点发送功率
+            int[] AP_Gain = new int[AP_Num];                // AP节点发送增益
+            int[] AP_ReceiveRefer = new int[AP_Num - 1];    // 非参考AP接收参考AP信号强度
             // ***FP*** 
             int FP_Num = listView_fp.Items.Count;           // 指纹节点个数
-            double[] FPx = new double[FP_Num];                    // FP节点横坐标
-            double[] FPy = new double[FP_Num];                    // FP节点纵坐标
+            double[] FPx = new double[FP_Num];              // FP节点横坐标
+            double[] FPy = new double[FP_Num];              // FP节点纵坐标
             int FP_Gain = 0;                                // FP节点接收增益
             // ***路线***
             int Simu_Num = listView_simu.Items.Count;       // 路线节点个数
-            double[] Realx = new double[Simu_Num];                // 路径节点横坐标
-            double[] Realy = new double[Simu_Num];                // 路径节点纵坐标
+            double[] Realx = new double[Simu_Num];          // 路径节点横坐标
+            double[] Realy = new double[Simu_Num];          // 路径节点纵坐标
 
             // 获取数据
-            for (int i = 0; i < AP_Num; i ++) {
-                APx[i] = Convert.ToDouble(listView_ap.Items[i].SubItems[2].Text)/100;
-                APy[i] = Convert.ToDouble(listView_ap.Items[i].SubItems[3].Text)/100;
+            for (int i = 0; i < AP_Num; i++)
+            {
+                APx[i] = Convert.ToDouble(listView_ap.Items[i].SubItems[2].Text) / 100;
+                APy[i] = Convert.ToDouble(listView_ap.Items[i].SubItems[3].Text) / 100;
                 AP_Power[i] = Convert.ToInt32(listView_ap.Items[i].SubItems[4].Text);
                 AP_Gain[i] = Convert.ToInt32(listView_ap.Items[i].SubItems[5].Text);
             }
             for (int i = 0; i < FP_Num; i++)
             {
-                FPx[i] = Convert.ToDouble(listView_fp.Items[i].SubItems[1].Text)/100;
-                FPy[i] = Convert.ToDouble(listView_fp.Items[i].SubItems[2].Text)/100;
+                FPx[i] = Convert.ToDouble(listView_fp.Items[i].SubItems[1].Text) / 100;
+                FPy[i] = Convert.ToDouble(listView_fp.Items[i].SubItems[2].Text) / 100;
                 FP_Gain = Convert.ToInt32(listView_fp.Items[i].SubItems[3].Text);
             }
-            for (int i = 0; i < Simu_Num; i++) {
-                Realx[i] = Convert.ToDouble(listView_simu.Items[i].SubItems[1].Text)/100;
-                Realy[i] = Convert.ToDouble(listView_simu.Items[i].SubItems[2].Text)/100;
+            for (int i = 0; i < Simu_Num; i++)
+            {
+                Realx[i] = Convert.ToDouble(listView_simu.Items[i].SubItems[1].Text) / 100;
+                Realy[i] = Convert.ToDouble(listView_simu.Items[i].SubItems[2].Text) / 100;
             }
             int j = 0;
             for (int i = 0; i < AP_Num; i++)
@@ -1956,8 +2049,10 @@ namespace WifiFingerprintLocationSimulator
             // 传入matlab
             try
             {
-                MWArray Map_Xd = (float)Map_X/100;
-                MWArray Map_Yd = (float)Map_Y/100;
+                MWArray Taskd = Task;
+                MWArray Algod = Algo;
+                MWArray Map_Xd = (float)Map_X / 100;
+                MWArray Map_Yd = (float)Map_Y / 100;
                 MWArray AP_Numd = AP_Num;
                 MWNumericArray APxd = APx;
                 MWNumericArray APyd = APy;
@@ -1973,20 +2068,7 @@ namespace WifiFingerprintLocationSimulator
                 MWNumericArray Realyd = Realy;
 
                 LocationAlgorithm.LocationAlgorithm l = new LocationAlgorithm.LocationAlgorithm();
-                l.main(Map_Xd, Map_Yd, AP_Numd, APxd, APyd, AP_Powerd, AP_Gaind, AP_ReceiveReferd, FP_Numd, FPxd, FPyd, FP_Gaind, Simu_Numd, Realxd, Realyd);
-
-                //整数示例
-                //MWArray a = (MWNumericArray)new int[] { System.Convert.ToInt16(2) };
-                //MWArray b = (MWNumericArray)new int[] { System.Convert.ToInt16(3) };
-                //MWNumericArray c = (MWNumericArray)c1.drawtest(a, b);
-                //MessageBox.Show(c.ToString());
-                
-                //数组示例
-                //MWNumericArray aa = new int [2, 2] { { 1, 2 }, { 3, 4 } };
-                //MWNumericArray bb = new int [2, 2] { { 5, 6 }, { 7, 8 } };
-                //MWArray cc;
-                //cc = c1.drawtest((MWArray)aa, (MWArray)bb);
-                //MessageBox.Show(cc[1][2].ToString());
+                l.main(Taskd, Algod, Map_Xd, Map_Yd, AP_Numd, APxd, APyd, AP_Powerd, AP_Gaind, AP_ReceiveReferd, FP_Numd, FPxd, FPyd, FP_Gaind, Simu_Numd, Realxd, Realyd);
             }
             catch (System.FormatException)
             {
@@ -1997,14 +2079,18 @@ namespace WifiFingerprintLocationSimulator
         // 仿真实验-MatLab数据分析-进度条
         private void processer()
         {
-            ProgBar progBar = new ProgBar();
+            int FP_Num = listView_fp.Items.Count;           // 指纹节点个数
+            int Simu_Num = listView_simu.Items.Count;       // 路线节点个数
+            int amount = FP_Num * Simu_Num;                 // 数量级
+
+            ProgBar progBar = new ProgBar(amount);
             progBar.ShowDialog();
         }
 
        
-        // ***********************************************************************************
-        // *点击场景切换大图模式 *************************************************************
-        // ***********************************************************************************
+// ***********************************************************************************
+// *点击场景切换大图模式 *************************************************************
+// ***********************************************************************************
 
         // 点击panel_Graph在两种尺寸中切换
         // 用CurrentUserInfo.Panel区分当前所处Panel
@@ -2076,6 +2162,5 @@ namespace WifiFingerprintLocationSimulator
             }
         }
 
-        
     }
 }

@@ -83,6 +83,9 @@ namespace WifiFingerprintLocationSimulator
 
                         if (i > 0)
                         {
+                            // Log
+                            LogHelper.generateLog("[新用户注册] " + comboBox_UserType.Text + " " + textBox_UserName.Text + " 注册成功");
+
                             MessageBox.Show("用户 " + textBox_UserName.Text + " 注册成功!");
                             this.Hide();
                         }

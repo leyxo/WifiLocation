@@ -97,6 +97,9 @@ namespace WifiFingerprintLocationSimulator
                         // 发送包含验证码的邮件
                         send_email();
 
+                        // Log
+                        LogHelper.generateLog("[忘记密码] 向用户 " + textBox_UserName.Text + " 发送了一封验证邮件");
+
                         // 在新线程中处理60s计数操作
                         Thread thread_code_process = new Thread(new ThreadStart(code_process));
                         thread_code_process.Start();
@@ -140,7 +143,7 @@ namespace WifiFingerprintLocationSimulator
             var emailAcount = "wifilocation.servi@qq.com"; // System.Text.Encoding.Default.GetString(Convert.FromBase64String("d2lmaWxvY2F0aW9uLnNlcnZpQHFxLmNvbQ==")); // wifilocation.servi@qq.com "d2lmaWxvY2F0aW9uLnNlcnZpQHFxLmNvbQ=="
             var emailPassword = "alivzyvfkuyfdbgi"; // System.Text.Encoding.Default.GetString(Convert.FromBase64String("U2hpbmVpZGluZ3dlaQ==")); // Shineidingwei "U2hpbmVpZGluZ3dlaQ=="
             var reciver = forgotInfo.Email;
-            var content = "您的验证码是: " + forgotInfo.Code + "\n\n您的账号正在进行密码修改，请确认是您本人进行操作! \n\n室内定位仿真平台 ver1.0\n" + dt.ToString("yyyy/MM/dd HH:mm:ss");
+            var content = "您的验证码是: " + forgotInfo.Code + "\n\n您的账号正在进行密码修改，请确认是您本人进行操作! \n\n室内定位仿真平台 ver" + System.Reflection.Assembly.GetExecutingAssembly().GetName().Version.ToString() + "\n" + dt.ToString("yyyy/MM/dd HH:mm:ss");
             MailMessage message = new MailMessage();
             //设置发件人,发件人需要与设置的邮件发送服务器的邮箱一致
             MailAddress fromAddr = new MailAddress(emailAcount);
@@ -161,7 +164,7 @@ namespace WifiFingerprintLocationSimulator
             client.Send(message);
         }
 
-        // 注册按钮
+        // 提交按钮
         private void button_Register_Click(object sender, EventArgs e)
         {
             if (textBox_Code.Text != forgotInfo.Code)
@@ -189,6 +192,9 @@ namespace WifiFingerprintLocationSimulator
 
                     if (i > 0)
                     {
+                        // Log
+                        LogHelper.generateLog("[忘记密码] 用户 " + textBox_UserName.Text + " 重置密码成功");
+
                         MessageBox.Show("密码重置成功!");
                         this.Close();
                     }

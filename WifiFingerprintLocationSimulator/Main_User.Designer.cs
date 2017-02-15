@@ -48,9 +48,11 @@
             this.toolStripMenuItem_RSSInfo = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem_Simulate = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem_SimuTrial = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem_SimuStart = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem_Menu_Help = new System.Windows.Forms.ToolStripMenuItem();
             this.ToolStripMenuItem_Help = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.ToolStripMenuItem_About = new System.Windows.Forms.ToolStripMenuItem();
             this.panel_EnvironmentSettings = new System.Windows.Forms.Panel();
             this.groupBox_Graph = new System.Windows.Forms.GroupBox();
             this.panel_Graph = new System.Windows.Forms.Panel();
@@ -58,12 +60,17 @@
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.label_map_cm_height = new System.Windows.Forms.Label();
             this.label_map_cm_width = new System.Windows.Forms.Label();
+            this.button_map_load = new System.Windows.Forms.Button();
+            this.button_map_refresh = new System.Windows.Forms.Button();
             this.listView_map = new System.Windows.Forms.ListView();
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.button_map_delete = new System.Windows.Forms.Button();
+            this.button_map_modify = new System.Windows.Forms.Button();
+            this.button_map_add = new System.Windows.Forms.Button();
             this.textBox_map_height = new System.Windows.Forms.TextBox();
             this.label_map_height = new System.Windows.Forms.Label();
             this.textBox_map_width = new System.Windows.Forms.TextBox();
@@ -89,6 +96,11 @@
             this.label_ap_sendpower = new System.Windows.Forms.Label();
             this.textBox_ap_sendgain = new System.Windows.Forms.TextBox();
             this.label_ap_sendgain = new System.Windows.Forms.Label();
+            this.button_ap_modify = new System.Windows.Forms.Button();
+            this.button_ap_deleteall = new System.Windows.Forms.Button();
+            this.button_ap_refresh = new System.Windows.Forms.Button();
+            this.button_ap_delete = new System.Windows.Forms.Button();
+            this.button_ap_add = new System.Windows.Forms.Button();
             this.listView_ap = new System.Windows.Forms.ListView();
             this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader29 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -109,6 +121,8 @@
             this.label_fp_receivegain = new System.Windows.Forms.Label();
             this.textBox_fp_map = new System.Windows.Forms.TextBox();
             this.label_fp_map = new System.Windows.Forms.Label();
+            this.button_fp_autoadd = new System.Windows.Forms.Button();
+            this.button_fp_refresh = new System.Windows.Forms.Button();
             this.listView_fp = new System.Windows.Forms.ListView();
             this.columnHeader12 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader13 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -116,6 +130,8 @@
             this.columnHeader15 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader16 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.button_rss_generate = new System.Windows.Forms.Button();
+            this.button_rss_refresh = new System.Windows.Forms.Button();
             this.listView_rss = new System.Windows.Forms.ListView();
             this.columnHeader17 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader18 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -151,30 +167,14 @@
             this.textBox_simu_mapsize_y = new System.Windows.Forms.TextBox();
             this.textBox_simu_mapsize_x = new System.Windows.Forms.TextBox();
             this.label_simu_mapsize = new System.Windows.Forms.Label();
-            this.tabPage6 = new System.Windows.Forms.TabPage();
-            this.comboBox_simu_algorithm = new System.Windows.Forms.ComboBox();
-            this.label_simu_algorithm = new System.Windows.Forms.Label();
             this.button_simu_deleteall = new System.Windows.Forms.Button();
             this.button_simu_refresh = new System.Windows.Forms.Button();
             this.button_simu_add = new System.Windows.Forms.Button();
+            this.tabPage6 = new System.Windows.Forms.TabPage();
             this.button_simu_matlab = new System.Windows.Forms.Button();
             this.button_simu_start = new System.Windows.Forms.Button();
-            this.button_map_load = new System.Windows.Forms.Button();
-            this.button_map_refresh = new System.Windows.Forms.Button();
-            this.button_map_delete = new System.Windows.Forms.Button();
-            this.button_map_modify = new System.Windows.Forms.Button();
-            this.button_map_add = new System.Windows.Forms.Button();
-            this.button_ap_modify = new System.Windows.Forms.Button();
-            this.button_ap_deleteall = new System.Windows.Forms.Button();
-            this.button_ap_refresh = new System.Windows.Forms.Button();
-            this.button_ap_delete = new System.Windows.Forms.Button();
-            this.button_ap_add = new System.Windows.Forms.Button();
-            this.button_fp_autoadd = new System.Windows.Forms.Button();
-            this.button_fp_refresh = new System.Windows.Forms.Button();
-            this.button_rss_generate = new System.Windows.Forms.Button();
-            this.button_rss_refresh = new System.Windows.Forms.Button();
-            this.toolStripMenuItem_SimuStart = new System.Windows.Forms.ToolStripMenuItem();
-            this.ToolStripMenuItem_About = new System.Windows.Forms.ToolStripMenuItem();
+            this.comboBox_simu_algorithm = new System.Windows.Forms.ComboBox();
+            this.label_simu_algorithm = new System.Windows.Forms.Label();
             this.statusStrip1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.panel_EnvironmentSettings.SuspendLayout();
@@ -334,6 +334,14 @@
             this.toolStripMenuItem_SimuTrial.Text = "路线设置";
             this.toolStripMenuItem_SimuTrial.Click += new System.EventHandler(this.toolStripMenuItem_SimuTrial_Click);
             // 
+            // toolStripMenuItem_SimuStart
+            // 
+            this.toolStripMenuItem_SimuStart.Image = global::WifiFingerprintLocationSimulator.Properties.Resources.button_start;
+            this.toolStripMenuItem_SimuStart.Name = "toolStripMenuItem_SimuStart";
+            this.toolStripMenuItem_SimuStart.Size = new System.Drawing.Size(124, 22);
+            this.toolStripMenuItem_SimuStart.Text = "开始实验";
+            this.toolStripMenuItem_SimuStart.Click += new System.EventHandler(this.toolStripMenuItem_SimuStart_Click);
+            // 
             // toolStripMenuItem_Menu_Help
             // 
             this.toolStripMenuItem_Menu_Help.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -355,6 +363,14 @@
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
             this.toolStripSeparator2.Size = new System.Drawing.Size(213, 6);
+            // 
+            // ToolStripMenuItem_About
+            // 
+            this.ToolStripMenuItem_About.Image = global::WifiFingerprintLocationSimulator.Properties.Resources.Icon;
+            this.ToolStripMenuItem_About.Name = "ToolStripMenuItem_About";
+            this.ToolStripMenuItem_About.Size = new System.Drawing.Size(216, 22);
+            this.ToolStripMenuItem_About.Text = "关于 室内定位仿真平台(A)";
+            this.ToolStripMenuItem_About.Click += new System.EventHandler(this.ToolStripMenuItem_About_Click);
             // 
             // panel_EnvironmentSettings
             // 
@@ -440,6 +456,30 @@
             this.label_map_cm_width.TabIndex = 12;
             this.label_map_cm_width.Text = "cm";
             // 
+            // button_map_load
+            // 
+            this.button_map_load.Image = global::WifiFingerprintLocationSimulator.Properties.Resources.button_map_load;
+            this.button_map_load.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button_map_load.Location = new System.Drawing.Point(269, 88);
+            this.button_map_load.Name = "button_map_load";
+            this.button_map_load.Size = new System.Drawing.Size(75, 23);
+            this.button_map_load.TabIndex = 8;
+            this.button_map_load.Text = "  载入地图";
+            this.button_map_load.UseVisualStyleBackColor = true;
+            this.button_map_load.Click += new System.EventHandler(this.button_map_load_Click);
+            // 
+            // button_map_refresh
+            // 
+            this.button_map_refresh.Image = global::WifiFingerprintLocationSimulator.Properties.Resources.button_list;
+            this.button_map_refresh.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button_map_refresh.Location = new System.Drawing.Point(385, 88);
+            this.button_map_refresh.Name = "button_map_refresh";
+            this.button_map_refresh.Size = new System.Drawing.Size(75, 23);
+            this.button_map_refresh.TabIndex = 9;
+            this.button_map_refresh.Text = "  刷新";
+            this.button_map_refresh.UseVisualStyleBackColor = true;
+            this.button_map_refresh.Click += new System.EventHandler(this.button_map_refresh_Click);
+            // 
             // listView_map
             // 
             this.listView_map.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
@@ -482,6 +522,43 @@
             // 
             this.columnHeader5.Text = "修改日期";
             this.columnHeader5.Width = 130;
+            // 
+            // button_map_delete
+            // 
+            this.button_map_delete.Image = global::WifiFingerprintLocationSimulator.Properties.Resources.button_delete;
+            this.button_map_delete.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button_map_delete.Location = new System.Drawing.Point(183, 88);
+            this.button_map_delete.Name = "button_map_delete";
+            this.button_map_delete.Size = new System.Drawing.Size(75, 23);
+            this.button_map_delete.TabIndex = 7;
+            this.button_map_delete.Text = "  删除地图";
+            this.button_map_delete.UseVisualStyleBackColor = true;
+            this.button_map_delete.Click += new System.EventHandler(this.button_map_delete_Click);
+            // 
+            // button_map_modify
+            // 
+            this.button_map_modify.Image = global::WifiFingerprintLocationSimulator.Properties.Resources.button_edit;
+            this.button_map_modify.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button_map_modify.Location = new System.Drawing.Point(97, 88);
+            this.button_map_modify.Name = "button_map_modify";
+            this.button_map_modify.Size = new System.Drawing.Size(75, 23);
+            this.button_map_modify.TabIndex = 6;
+            this.button_map_modify.Text = "  修改地图";
+            this.button_map_modify.UseVisualStyleBackColor = true;
+            this.button_map_modify.EnabledChanged += new System.EventHandler(this.button_map_modify_EnabledChanged);
+            this.button_map_modify.Click += new System.EventHandler(this.button_map_modify_Click);
+            // 
+            // button_map_add
+            // 
+            this.button_map_add.Image = global::WifiFingerprintLocationSimulator.Properties.Resources.button_add;
+            this.button_map_add.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button_map_add.Location = new System.Drawing.Point(12, 88);
+            this.button_map_add.Name = "button_map_add";
+            this.button_map_add.Size = new System.Drawing.Size(75, 23);
+            this.button_map_add.TabIndex = 5;
+            this.button_map_add.Text = "  添加地图";
+            this.button_map_add.UseVisualStyleBackColor = true;
+            this.button_map_add.Click += new System.EventHandler(this.button_map_add_Click);
             // 
             // textBox_map_height
             // 
@@ -724,6 +801,66 @@
             this.label_ap_sendgain.TabIndex = 19;
             this.label_ap_sendgain.Text = "发送增益：";
             // 
+            // button_ap_modify
+            // 
+            this.button_ap_modify.Image = global::WifiFingerprintLocationSimulator.Properties.Resources.button_edit;
+            this.button_ap_modify.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button_ap_modify.Location = new System.Drawing.Point(97, 122);
+            this.button_ap_modify.Name = "button_ap_modify";
+            this.button_ap_modify.Size = new System.Drawing.Size(75, 23);
+            this.button_ap_modify.TabIndex = 8;
+            this.button_ap_modify.Text = "  修改节点";
+            this.button_ap_modify.UseVisualStyleBackColor = true;
+            this.button_ap_modify.Click += new System.EventHandler(this.button_ap_modify_Click);
+            // 
+            // button_ap_deleteall
+            // 
+            this.button_ap_deleteall.Image = global::WifiFingerprintLocationSimulator.Properties.Resources.button_delete_all;
+            this.button_ap_deleteall.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button_ap_deleteall.Location = new System.Drawing.Point(269, 122);
+            this.button_ap_deleteall.Name = "button_ap_deleteall";
+            this.button_ap_deleteall.Size = new System.Drawing.Size(75, 23);
+            this.button_ap_deleteall.TabIndex = 10;
+            this.button_ap_deleteall.Text = "  清空节点";
+            this.button_ap_deleteall.UseVisualStyleBackColor = true;
+            this.button_ap_deleteall.Click += new System.EventHandler(this.button_ap_deleteall_Click);
+            // 
+            // button_ap_refresh
+            // 
+            this.button_ap_refresh.Image = global::WifiFingerprintLocationSimulator.Properties.Resources.button_list;
+            this.button_ap_refresh.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button_ap_refresh.Location = new System.Drawing.Point(385, 122);
+            this.button_ap_refresh.Name = "button_ap_refresh";
+            this.button_ap_refresh.Size = new System.Drawing.Size(75, 23);
+            this.button_ap_refresh.TabIndex = 11;
+            this.button_ap_refresh.Text = "  刷新";
+            this.button_ap_refresh.UseVisualStyleBackColor = true;
+            this.button_ap_refresh.Click += new System.EventHandler(this.button_ap_refresh_Click);
+            // 
+            // button_ap_delete
+            // 
+            this.button_ap_delete.Image = global::WifiFingerprintLocationSimulator.Properties.Resources.button_delete;
+            this.button_ap_delete.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button_ap_delete.Location = new System.Drawing.Point(183, 122);
+            this.button_ap_delete.Name = "button_ap_delete";
+            this.button_ap_delete.Size = new System.Drawing.Size(75, 23);
+            this.button_ap_delete.TabIndex = 9;
+            this.button_ap_delete.Text = "  删除节点";
+            this.button_ap_delete.UseVisualStyleBackColor = true;
+            this.button_ap_delete.Click += new System.EventHandler(this.button_ap_delete_Click);
+            // 
+            // button_ap_add
+            // 
+            this.button_ap_add.Image = global::WifiFingerprintLocationSimulator.Properties.Resources.button_add;
+            this.button_ap_add.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button_ap_add.Location = new System.Drawing.Point(12, 122);
+            this.button_ap_add.Name = "button_ap_add";
+            this.button_ap_add.Size = new System.Drawing.Size(75, 23);
+            this.button_ap_add.TabIndex = 7;
+            this.button_ap_add.Text = "  添加节点";
+            this.button_ap_add.UseVisualStyleBackColor = true;
+            this.button_ap_add.Click += new System.EventHandler(this.button_ap_add_Click);
+            // 
             // listView_ap
             // 
             this.listView_ap.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
@@ -896,6 +1033,30 @@
             this.label_fp_map.TabIndex = 13;
             this.label_fp_map.Text = "当前地图：";
             // 
+            // button_fp_autoadd
+            // 
+            this.button_fp_autoadd.Image = global::WifiFingerprintLocationSimulator.Properties.Resources.button_generate;
+            this.button_fp_autoadd.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button_fp_autoadd.Location = new System.Drawing.Point(12, 88);
+            this.button_fp_autoadd.Name = "button_fp_autoadd";
+            this.button_fp_autoadd.Size = new System.Drawing.Size(75, 23);
+            this.button_fp_autoadd.TabIndex = 15;
+            this.button_fp_autoadd.Text = "  自动生成";
+            this.button_fp_autoadd.UseVisualStyleBackColor = true;
+            this.button_fp_autoadd.Click += new System.EventHandler(this.button_fp_autoadd_Click);
+            // 
+            // button_fp_refresh
+            // 
+            this.button_fp_refresh.Image = global::WifiFingerprintLocationSimulator.Properties.Resources.button_list;
+            this.button_fp_refresh.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button_fp_refresh.Location = new System.Drawing.Point(385, 88);
+            this.button_fp_refresh.Name = "button_fp_refresh";
+            this.button_fp_refresh.Size = new System.Drawing.Size(75, 23);
+            this.button_fp_refresh.TabIndex = 16;
+            this.button_fp_refresh.Text = "  刷新";
+            this.button_fp_refresh.UseVisualStyleBackColor = true;
+            this.button_fp_refresh.Click += new System.EventHandler(this.button_fp_refresh_Click);
+            // 
             // listView_fp
             // 
             this.listView_fp.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
@@ -952,6 +1113,30 @@
             this.tabPage4.TabIndex = 3;
             this.tabPage4.Text = "RSS信息";
             this.tabPage4.UseVisualStyleBackColor = true;
+            // 
+            // button_rss_generate
+            // 
+            this.button_rss_generate.Image = global::WifiFingerprintLocationSimulator.Properties.Resources.button_generate;
+            this.button_rss_generate.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button_rss_generate.Location = new System.Drawing.Point(12, 88);
+            this.button_rss_generate.Name = "button_rss_generate";
+            this.button_rss_generate.Size = new System.Drawing.Size(75, 23);
+            this.button_rss_generate.TabIndex = 19;
+            this.button_rss_generate.Text = "  生成RSS";
+            this.button_rss_generate.UseVisualStyleBackColor = true;
+            this.button_rss_generate.Click += new System.EventHandler(this.button_rss_generate_Click);
+            // 
+            // button_rss_refresh
+            // 
+            this.button_rss_refresh.Image = global::WifiFingerprintLocationSimulator.Properties.Resources.button_list;
+            this.button_rss_refresh.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button_rss_refresh.Location = new System.Drawing.Point(385, 88);
+            this.button_rss_refresh.Name = "button_rss_refresh";
+            this.button_rss_refresh.Size = new System.Drawing.Size(75, 23);
+            this.button_rss_refresh.TabIndex = 18;
+            this.button_rss_refresh.Text = "  刷新";
+            this.button_rss_refresh.UseVisualStyleBackColor = true;
+            this.button_rss_refresh.Click += new System.EventHandler(this.button_rss_refresh_Click);
             // 
             // listView_rss
             // 
@@ -1257,44 +1442,6 @@
             this.label_simu_mapsize.TabIndex = 32;
             this.label_simu_mapsize.Text = "地图尺寸：";
             // 
-            // tabPage6
-            // 
-            this.tabPage6.Controls.Add(this.button_simu_matlab);
-            this.tabPage6.Controls.Add(this.button_simu_start);
-            this.tabPage6.Controls.Add(this.comboBox_simu_algorithm);
-            this.tabPage6.Controls.Add(this.label_simu_algorithm);
-            this.tabPage6.Location = new System.Drawing.Point(4, 22);
-            this.tabPage6.Name = "tabPage6";
-            this.tabPage6.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage6.Size = new System.Drawing.Size(476, 409);
-            this.tabPage6.TabIndex = 1;
-            this.tabPage6.Text = "仿真实验";
-            this.tabPage6.UseVisualStyleBackColor = true;
-            // 
-            // comboBox_simu_algorithm
-            // 
-            this.comboBox_simu_algorithm.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox_simu_algorithm.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.comboBox_simu_algorithm.FormattingEnabled = true;
-            this.comboBox_simu_algorithm.Items.AddRange(new object[] {
-            "NN",
-            "KNN",
-            "WKNN",
-            "贝叶斯概率"});
-            this.comboBox_simu_algorithm.Location = new System.Drawing.Point(72, 13);
-            this.comboBox_simu_algorithm.Name = "comboBox_simu_algorithm";
-            this.comboBox_simu_algorithm.Size = new System.Drawing.Size(98, 20);
-            this.comboBox_simu_algorithm.TabIndex = 34;
-            // 
-            // label_simu_algorithm
-            // 
-            this.label_simu_algorithm.AutoSize = true;
-            this.label_simu_algorithm.Location = new System.Drawing.Point(10, 16);
-            this.label_simu_algorithm.Name = "label_simu_algorithm";
-            this.label_simu_algorithm.Size = new System.Drawing.Size(65, 12);
-            this.label_simu_algorithm.TabIndex = 33;
-            this.label_simu_algorithm.Text = "选择算法：";
-            // 
             // button_simu_deleteall
             // 
             this.button_simu_deleteall.Image = global::WifiFingerprintLocationSimulator.Properties.Resources.button_delete_all;
@@ -1331,6 +1478,20 @@
             this.button_simu_add.UseVisualStyleBackColor = true;
             this.button_simu_add.Click += new System.EventHandler(this.button_simu_add_Click);
             // 
+            // tabPage6
+            // 
+            this.tabPage6.Controls.Add(this.button_simu_matlab);
+            this.tabPage6.Controls.Add(this.button_simu_start);
+            this.tabPage6.Controls.Add(this.comboBox_simu_algorithm);
+            this.tabPage6.Controls.Add(this.label_simu_algorithm);
+            this.tabPage6.Location = new System.Drawing.Point(4, 22);
+            this.tabPage6.Name = "tabPage6";
+            this.tabPage6.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage6.Size = new System.Drawing.Size(476, 409);
+            this.tabPage6.TabIndex = 1;
+            this.tabPage6.Text = "仿真实验";
+            this.tabPage6.UseVisualStyleBackColor = true;
+            // 
             // button_simu_matlab
             // 
             this.button_simu_matlab.Image = global::WifiFingerprintLocationSimulator.Properties.Resources.button_matlab;
@@ -1355,190 +1516,30 @@
             this.button_simu_start.UseVisualStyleBackColor = true;
             this.button_simu_start.Click += new System.EventHandler(this.button_simu_start_Click);
             // 
-            // button_map_load
+            // comboBox_simu_algorithm
             // 
-            this.button_map_load.Image = global::WifiFingerprintLocationSimulator.Properties.Resources.button_map_load;
-            this.button_map_load.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button_map_load.Location = new System.Drawing.Point(269, 88);
-            this.button_map_load.Name = "button_map_load";
-            this.button_map_load.Size = new System.Drawing.Size(75, 23);
-            this.button_map_load.TabIndex = 8;
-            this.button_map_load.Text = "  载入地图";
-            this.button_map_load.UseVisualStyleBackColor = true;
-            this.button_map_load.Click += new System.EventHandler(this.button_map_load_Click);
+            this.comboBox_simu_algorithm.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox_simu_algorithm.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.comboBox_simu_algorithm.FormattingEnabled = true;
+            this.comboBox_simu_algorithm.Items.AddRange(new object[] {
+            "所有算法",
+            "NN",
+            "KNN",
+            "WKNN",
+            "贝叶斯概率"});
+            this.comboBox_simu_algorithm.Location = new System.Drawing.Point(72, 13);
+            this.comboBox_simu_algorithm.Name = "comboBox_simu_algorithm";
+            this.comboBox_simu_algorithm.Size = new System.Drawing.Size(98, 20);
+            this.comboBox_simu_algorithm.TabIndex = 34;
             // 
-            // button_map_refresh
+            // label_simu_algorithm
             // 
-            this.button_map_refresh.Image = global::WifiFingerprintLocationSimulator.Properties.Resources.button_list;
-            this.button_map_refresh.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button_map_refresh.Location = new System.Drawing.Point(385, 88);
-            this.button_map_refresh.Name = "button_map_refresh";
-            this.button_map_refresh.Size = new System.Drawing.Size(75, 23);
-            this.button_map_refresh.TabIndex = 9;
-            this.button_map_refresh.Text = "  刷新";
-            this.button_map_refresh.UseVisualStyleBackColor = true;
-            this.button_map_refresh.Click += new System.EventHandler(this.button_map_refresh_Click);
-            // 
-            // button_map_delete
-            // 
-            this.button_map_delete.Image = global::WifiFingerprintLocationSimulator.Properties.Resources.button_delete;
-            this.button_map_delete.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button_map_delete.Location = new System.Drawing.Point(183, 88);
-            this.button_map_delete.Name = "button_map_delete";
-            this.button_map_delete.Size = new System.Drawing.Size(75, 23);
-            this.button_map_delete.TabIndex = 7;
-            this.button_map_delete.Text = "  删除地图";
-            this.button_map_delete.UseVisualStyleBackColor = true;
-            this.button_map_delete.Click += new System.EventHandler(this.button_map_delete_Click);
-            // 
-            // button_map_modify
-            // 
-            this.button_map_modify.Image = global::WifiFingerprintLocationSimulator.Properties.Resources.button_edit;
-            this.button_map_modify.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button_map_modify.Location = new System.Drawing.Point(97, 88);
-            this.button_map_modify.Name = "button_map_modify";
-            this.button_map_modify.Size = new System.Drawing.Size(75, 23);
-            this.button_map_modify.TabIndex = 6;
-            this.button_map_modify.Text = "  修改地图";
-            this.button_map_modify.UseVisualStyleBackColor = true;
-            this.button_map_modify.EnabledChanged += new System.EventHandler(this.button_map_modify_EnabledChanged);
-            this.button_map_modify.Click += new System.EventHandler(this.button_map_modify_Click);
-            // 
-            // button_map_add
-            // 
-            this.button_map_add.Image = global::WifiFingerprintLocationSimulator.Properties.Resources.button_add;
-            this.button_map_add.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button_map_add.Location = new System.Drawing.Point(12, 88);
-            this.button_map_add.Name = "button_map_add";
-            this.button_map_add.Size = new System.Drawing.Size(75, 23);
-            this.button_map_add.TabIndex = 5;
-            this.button_map_add.Text = "  添加地图";
-            this.button_map_add.UseVisualStyleBackColor = true;
-            this.button_map_add.Click += new System.EventHandler(this.button_map_add_Click);
-            // 
-            // button_ap_modify
-            // 
-            this.button_ap_modify.Image = global::WifiFingerprintLocationSimulator.Properties.Resources.button_edit;
-            this.button_ap_modify.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button_ap_modify.Location = new System.Drawing.Point(97, 122);
-            this.button_ap_modify.Name = "button_ap_modify";
-            this.button_ap_modify.Size = new System.Drawing.Size(75, 23);
-            this.button_ap_modify.TabIndex = 8;
-            this.button_ap_modify.Text = "  修改节点";
-            this.button_ap_modify.UseVisualStyleBackColor = true;
-            this.button_ap_modify.Click += new System.EventHandler(this.button_ap_modify_Click);
-            // 
-            // button_ap_deleteall
-            // 
-            this.button_ap_deleteall.Image = global::WifiFingerprintLocationSimulator.Properties.Resources.button_delete_all;
-            this.button_ap_deleteall.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button_ap_deleteall.Location = new System.Drawing.Point(269, 122);
-            this.button_ap_deleteall.Name = "button_ap_deleteall";
-            this.button_ap_deleteall.Size = new System.Drawing.Size(75, 23);
-            this.button_ap_deleteall.TabIndex = 10;
-            this.button_ap_deleteall.Text = "  清空节点";
-            this.button_ap_deleteall.UseVisualStyleBackColor = true;
-            this.button_ap_deleteall.Click += new System.EventHandler(this.button_ap_deleteall_Click);
-            // 
-            // button_ap_refresh
-            // 
-            this.button_ap_refresh.Image = global::WifiFingerprintLocationSimulator.Properties.Resources.button_list;
-            this.button_ap_refresh.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button_ap_refresh.Location = new System.Drawing.Point(385, 122);
-            this.button_ap_refresh.Name = "button_ap_refresh";
-            this.button_ap_refresh.Size = new System.Drawing.Size(75, 23);
-            this.button_ap_refresh.TabIndex = 11;
-            this.button_ap_refresh.Text = "  刷新";
-            this.button_ap_refresh.UseVisualStyleBackColor = true;
-            this.button_ap_refresh.Click += new System.EventHandler(this.button_ap_refresh_Click);
-            // 
-            // button_ap_delete
-            // 
-            this.button_ap_delete.Image = global::WifiFingerprintLocationSimulator.Properties.Resources.button_delete;
-            this.button_ap_delete.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button_ap_delete.Location = new System.Drawing.Point(183, 122);
-            this.button_ap_delete.Name = "button_ap_delete";
-            this.button_ap_delete.Size = new System.Drawing.Size(75, 23);
-            this.button_ap_delete.TabIndex = 9;
-            this.button_ap_delete.Text = "  删除节点";
-            this.button_ap_delete.UseVisualStyleBackColor = true;
-            this.button_ap_delete.Click += new System.EventHandler(this.button_ap_delete_Click);
-            // 
-            // button_ap_add
-            // 
-            this.button_ap_add.Image = global::WifiFingerprintLocationSimulator.Properties.Resources.button_add;
-            this.button_ap_add.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button_ap_add.Location = new System.Drawing.Point(12, 122);
-            this.button_ap_add.Name = "button_ap_add";
-            this.button_ap_add.Size = new System.Drawing.Size(75, 23);
-            this.button_ap_add.TabIndex = 7;
-            this.button_ap_add.Text = "  添加节点";
-            this.button_ap_add.UseVisualStyleBackColor = true;
-            this.button_ap_add.Click += new System.EventHandler(this.button_ap_add_Click);
-            // 
-            // button_fp_autoadd
-            // 
-            this.button_fp_autoadd.Image = global::WifiFingerprintLocationSimulator.Properties.Resources.button_generate;
-            this.button_fp_autoadd.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button_fp_autoadd.Location = new System.Drawing.Point(12, 88);
-            this.button_fp_autoadd.Name = "button_fp_autoadd";
-            this.button_fp_autoadd.Size = new System.Drawing.Size(75, 23);
-            this.button_fp_autoadd.TabIndex = 15;
-            this.button_fp_autoadd.Text = "  自动生成";
-            this.button_fp_autoadd.UseVisualStyleBackColor = true;
-            this.button_fp_autoadd.Click += new System.EventHandler(this.button_fp_autoadd_Click);
-            // 
-            // button_fp_refresh
-            // 
-            this.button_fp_refresh.Image = global::WifiFingerprintLocationSimulator.Properties.Resources.button_list;
-            this.button_fp_refresh.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button_fp_refresh.Location = new System.Drawing.Point(385, 88);
-            this.button_fp_refresh.Name = "button_fp_refresh";
-            this.button_fp_refresh.Size = new System.Drawing.Size(75, 23);
-            this.button_fp_refresh.TabIndex = 16;
-            this.button_fp_refresh.Text = "  刷新";
-            this.button_fp_refresh.UseVisualStyleBackColor = true;
-            this.button_fp_refresh.Click += new System.EventHandler(this.button_fp_refresh_Click);
-            // 
-            // button_rss_generate
-            // 
-            this.button_rss_generate.Image = global::WifiFingerprintLocationSimulator.Properties.Resources.button_generate;
-            this.button_rss_generate.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button_rss_generate.Location = new System.Drawing.Point(12, 88);
-            this.button_rss_generate.Name = "button_rss_generate";
-            this.button_rss_generate.Size = new System.Drawing.Size(75, 23);
-            this.button_rss_generate.TabIndex = 19;
-            this.button_rss_generate.Text = "  生成RSS";
-            this.button_rss_generate.UseVisualStyleBackColor = true;
-            this.button_rss_generate.Click += new System.EventHandler(this.button_rss_generate_Click);
-            // 
-            // button_rss_refresh
-            // 
-            this.button_rss_refresh.Image = global::WifiFingerprintLocationSimulator.Properties.Resources.button_list;
-            this.button_rss_refresh.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button_rss_refresh.Location = new System.Drawing.Point(385, 88);
-            this.button_rss_refresh.Name = "button_rss_refresh";
-            this.button_rss_refresh.Size = new System.Drawing.Size(75, 23);
-            this.button_rss_refresh.TabIndex = 18;
-            this.button_rss_refresh.Text = "  刷新";
-            this.button_rss_refresh.UseVisualStyleBackColor = true;
-            this.button_rss_refresh.Click += new System.EventHandler(this.button_rss_refresh_Click);
-            // 
-            // toolStripMenuItem_SimuStart
-            // 
-            this.toolStripMenuItem_SimuStart.Image = global::WifiFingerprintLocationSimulator.Properties.Resources.button_start;
-            this.toolStripMenuItem_SimuStart.Name = "toolStripMenuItem_SimuStart";
-            this.toolStripMenuItem_SimuStart.Size = new System.Drawing.Size(124, 22);
-            this.toolStripMenuItem_SimuStart.Text = "开始实验";
-            this.toolStripMenuItem_SimuStart.Click += new System.EventHandler(this.toolStripMenuItem_SimuStart_Click);
-            // 
-            // ToolStripMenuItem_About
-            // 
-            this.ToolStripMenuItem_About.Image = global::WifiFingerprintLocationSimulator.Properties.Resources.Icon;
-            this.ToolStripMenuItem_About.Name = "ToolStripMenuItem_About";
-            this.ToolStripMenuItem_About.Size = new System.Drawing.Size(216, 22);
-            this.ToolStripMenuItem_About.Text = "关于 室内定位仿真平台(A)";
-            this.ToolStripMenuItem_About.Click += new System.EventHandler(this.ToolStripMenuItem_About_Click);
+            this.label_simu_algorithm.AutoSize = true;
+            this.label_simu_algorithm.Location = new System.Drawing.Point(10, 16);
+            this.label_simu_algorithm.Name = "label_simu_algorithm";
+            this.label_simu_algorithm.Size = new System.Drawing.Size(65, 12);
+            this.label_simu_algorithm.TabIndex = 33;
+            this.label_simu_algorithm.Text = "选择算法：";
             // 
             // Main_User
             // 

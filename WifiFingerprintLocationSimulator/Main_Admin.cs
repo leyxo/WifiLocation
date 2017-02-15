@@ -20,16 +20,23 @@ namespace WifiFingerprintLocationSimulator
 
         private void Main_Admin_Load(object sender, EventArgs e)
         {
-            //窗口初始化
+            // 窗口初始化
             toolStripStatusLabel_Date.Text = DateTime.Now.ToString("yyyy-MM-dd");
             toolStripStatusLabel_UserName.Text = CurrentUserInfo.Name;
+
+            // Log初始化
+            label_LogPath.Text = "当前日志文件路径:" + LogHelper.logPath;
+            button_Log_Refresh_Click(new object(), new EventArgs());
+
         }
 
         private void ToolStripMenuItem_Exit_Click(object sender, EventArgs e)
         {
             if (MessageBox.Show("确定要退出系统?", "提示", MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
-                Environment.Exit(0);
+                // Log
+                LogHelper.generateLog(CurrentUserInfo.Name + " 注销并退出系统");
+                Application.Exit();
             }
         }
 
@@ -48,6 +55,9 @@ namespace WifiFingerprintLocationSimulator
         {
             if (MessageBox.Show("确定要注销当前用户?", "提示", MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
+                // Log
+                LogHelper.generateLog(CurrentUserInfo.Name + " 已注销");
+
                 Application.OpenForms["Main"].Show();
                 this.Hide();
 
@@ -177,6 +187,22 @@ namespace WifiFingerprintLocationSimulator
             {
                 button_UserManage_Delete.Enabled = false;
             }
+        }
+
+        // 日志 - 清空
+        private void button_Log_Clean_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("确定要清空系统日志?", "提示", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            {
+                System.IO.File.WriteAllText(LogHelper.logPath, "");
+                button_Log_Refresh_Click(new object(), new EventArgs());
+            }
+        }
+
+        // 日志 - 刷新
+        private void button_Log_Refresh_Click(object sender, EventArgs e)
+        {
+            textBox_Log.Text = System.IO.File.ReadAllText(LogHelper.logPath);
         }
     }
 }
