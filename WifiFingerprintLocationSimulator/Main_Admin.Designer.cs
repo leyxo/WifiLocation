@@ -46,21 +46,22 @@
             this.panel_UserInfoManage = new System.Windows.Forms.Panel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.button_Log_Export = new System.Windows.Forms.Button();
-            this.button_Log_Clean = new System.Windows.Forms.Button();
-            this.textBox_Log = new System.Windows.Forms.TextBox();
-            this.label_LogPath = new System.Windows.Forms.Label();
             this.button_Log_Refresh = new System.Windows.Forms.Button();
+            this.label_LogPath = new System.Windows.Forms.Label();
+            this.textBox_Log = new System.Windows.Forms.TextBox();
+            this.button_Log_Clean = new System.Windows.Forms.Button();
+            this.button_Log_Export = new System.Windows.Forms.Button();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.button_UserManage_Refresh = new System.Windows.Forms.Button();
-            this.button_UserManage_AddUser = new System.Windows.Forms.Button();
+            this.button_UserManage_Delete = new System.Windows.Forms.Button();
             this.listView_UserInfo = new System.Windows.Forms.ListView();
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.button_UserManage_Delete = new System.Windows.Forms.Button();
+            this.button_UserManage_AddUser = new System.Windows.Forms.Button();
+            this.button_UserManage_Refresh = new System.Windows.Forms.Button();
             this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.label_LogPath_Label = new System.Windows.Forms.Label();
             this.statusStrip1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.panel_UserInfoManage.SuspendLayout();
@@ -130,19 +131,19 @@
             // ToolStripMenuItem_Registe
             // 
             this.ToolStripMenuItem_Registe.Name = "ToolStripMenuItem_Registe";
-            this.ToolStripMenuItem_Registe.Size = new System.Drawing.Size(152, 22);
+            this.ToolStripMenuItem_Registe.Size = new System.Drawing.Size(115, 22);
             this.ToolStripMenuItem_Registe.Text = "注销";
             this.ToolStripMenuItem_Registe.Click += new System.EventHandler(this.ToolStripMenuItem_Registe_Click);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(149, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(112, 6);
             // 
             // ToolStripMenuItem_Exit
             // 
             this.ToolStripMenuItem_Exit.Name = "ToolStripMenuItem_Exit";
-            this.ToolStripMenuItem_Exit.Size = new System.Drawing.Size(152, 22);
+            this.ToolStripMenuItem_Exit.Size = new System.Drawing.Size(115, 22);
             this.ToolStripMenuItem_Exit.Text = "退出(E)";
             this.ToolStripMenuItem_Exit.Click += new System.EventHandler(this.ToolStripMenuItem_Exit_Click);
             // 
@@ -196,6 +197,7 @@
             // 
             // tabPage3
             // 
+            this.tabPage3.Controls.Add(this.label_LogPath_Label);
             this.tabPage3.Controls.Add(this.button_Log_Refresh);
             this.tabPage3.Controls.Add(this.label_LogPath);
             this.tabPage3.Controls.Add(this.textBox_Log);
@@ -209,16 +211,41 @@
             this.tabPage3.Text = "系统日志";
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
-            // button_Log_Export
+            // button_Log_Refresh
             // 
-            this.button_Log_Export.Image = global::WifiFingerprintLocationSimulator.Properties.Resources.button_generate;
-            this.button_Log_Export.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button_Log_Export.Location = new System.Drawing.Point(625, 44);
-            this.button_Log_Export.Name = "button_Log_Export";
-            this.button_Log_Export.Size = new System.Drawing.Size(75, 23);
-            this.button_Log_Export.TabIndex = 4;
-            this.button_Log_Export.Text = "  导出";
-            this.button_Log_Export.UseVisualStyleBackColor = true;
+            this.button_Log_Refresh.Image = global::WifiFingerprintLocationSimulator.Properties.Resources.button_list;
+            this.button_Log_Refresh.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button_Log_Refresh.Location = new System.Drawing.Point(625, 123);
+            this.button_Log_Refresh.Name = "button_Log_Refresh";
+            this.button_Log_Refresh.Size = new System.Drawing.Size(75, 23);
+            this.button_Log_Refresh.TabIndex = 8;
+            this.button_Log_Refresh.Text = "  刷新";
+            this.button_Log_Refresh.UseVisualStyleBackColor = true;
+            this.button_Log_Refresh.Click += new System.EventHandler(this.button_Log_Refresh_Click);
+            // 
+            // label_LogPath
+            // 
+            this.label_LogPath.AutoSize = true;
+            this.label_LogPath.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.label_LogPath.Location = new System.Drawing.Point(125, 392);
+            this.label_LogPath.Name = "label_LogPath";
+            this.label_LogPath.Size = new System.Drawing.Size(107, 12);
+            this.label_LogPath.TabIndex = 7;
+            this.label_LogPath.Text = "$当前日志文件路径";
+            this.label_LogPath.Click += new System.EventHandler(this.label_LogPath_Click);
+            this.label_LogPath.MouseEnter += new System.EventHandler(this.label_LogPath_MouseEnter);
+            this.label_LogPath.MouseLeave += new System.EventHandler(this.label_LogPath_MouseLeave);
+            // 
+            // textBox_Log
+            // 
+            this.textBox_Log.Location = new System.Drawing.Point(12, 15);
+            this.textBox_Log.Multiline = true;
+            this.textBox_Log.Name = "textBox_Log";
+            this.textBox_Log.ReadOnly = true;
+            this.textBox_Log.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.textBox_Log.Size = new System.Drawing.Size(563, 368);
+            this.textBox_Log.TabIndex = 6;
+            this.textBox_Log.WordWrap = false;
             // 
             // button_Log_Clean
             // 
@@ -232,37 +259,17 @@
             this.button_Log_Clean.UseVisualStyleBackColor = true;
             this.button_Log_Clean.Click += new System.EventHandler(this.button_Log_Clean_Click);
             // 
-            // textBox_Log
+            // button_Log_Export
             // 
-            this.textBox_Log.Location = new System.Drawing.Point(12, 15);
-            this.textBox_Log.Multiline = true;
-            this.textBox_Log.Name = "textBox_Log";
-            this.textBox_Log.ReadOnly = true;
-            this.textBox_Log.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.textBox_Log.Size = new System.Drawing.Size(563, 368);
-            this.textBox_Log.TabIndex = 6;
-            this.textBox_Log.WordWrap = false;
-            // 
-            // label_LogPath
-            // 
-            this.label_LogPath.AutoSize = true;
-            this.label_LogPath.Location = new System.Drawing.Point(12, 392);
-            this.label_LogPath.Name = "label_LogPath";
-            this.label_LogPath.Size = new System.Drawing.Size(107, 12);
-            this.label_LogPath.TabIndex = 7;
-            this.label_LogPath.Text = "$当前日志文件路径";
-            // 
-            // button_Log_Refresh
-            // 
-            this.button_Log_Refresh.Image = global::WifiFingerprintLocationSimulator.Properties.Resources.button_list;
-            this.button_Log_Refresh.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button_Log_Refresh.Location = new System.Drawing.Point(625, 123);
-            this.button_Log_Refresh.Name = "button_Log_Refresh";
-            this.button_Log_Refresh.Size = new System.Drawing.Size(75, 23);
-            this.button_Log_Refresh.TabIndex = 8;
-            this.button_Log_Refresh.Text = "  刷新";
-            this.button_Log_Refresh.UseVisualStyleBackColor = true;
-            this.button_Log_Refresh.Click += new System.EventHandler(this.button_Log_Refresh_Click);
+            this.button_Log_Export.Image = global::WifiFingerprintLocationSimulator.Properties.Resources.button_generate;
+            this.button_Log_Export.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button_Log_Export.Location = new System.Drawing.Point(625, 44);
+            this.button_Log_Export.Name = "button_Log_Export";
+            this.button_Log_Export.Size = new System.Drawing.Size(75, 23);
+            this.button_Log_Export.TabIndex = 4;
+            this.button_Log_Export.Text = "  导出";
+            this.button_Log_Export.UseVisualStyleBackColor = true;
+            this.button_Log_Export.Click += new System.EventHandler(this.button_Log_Export_Click);
             // 
             // tabPage1
             // 
@@ -278,29 +285,17 @@
             this.tabPage1.Text = "用户信息管理";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
-            // button_UserManage_Refresh
+            // button_UserManage_Delete
             // 
-            this.button_UserManage_Refresh.Image = global::WifiFingerprintLocationSimulator.Properties.Resources.button_list;
-            this.button_UserManage_Refresh.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button_UserManage_Refresh.Location = new System.Drawing.Point(625, 44);
-            this.button_UserManage_Refresh.Name = "button_UserManage_Refresh";
-            this.button_UserManage_Refresh.Size = new System.Drawing.Size(75, 23);
-            this.button_UserManage_Refresh.TabIndex = 2;
-            this.button_UserManage_Refresh.Text = "  刷新";
-            this.button_UserManage_Refresh.UseVisualStyleBackColor = true;
-            this.button_UserManage_Refresh.Click += new System.EventHandler(this.button_UserManage_Refresh_Click);
-            // 
-            // button_UserManage_AddUser
-            // 
-            this.button_UserManage_AddUser.Image = global::WifiFingerprintLocationSimulator.Properties.Resources.button_add;
-            this.button_UserManage_AddUser.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button_UserManage_AddUser.Location = new System.Drawing.Point(625, 83);
-            this.button_UserManage_AddUser.Name = "button_UserManage_AddUser";
-            this.button_UserManage_AddUser.Size = new System.Drawing.Size(75, 23);
-            this.button_UserManage_AddUser.TabIndex = 3;
-            this.button_UserManage_AddUser.Text = "  新增";
-            this.button_UserManage_AddUser.UseVisualStyleBackColor = true;
-            this.button_UserManage_AddUser.Click += new System.EventHandler(this.button_UserManage_AddUser_Click);
+            this.button_UserManage_Delete.Image = global::WifiFingerprintLocationSimulator.Properties.Resources.button_delete;
+            this.button_UserManage_Delete.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button_UserManage_Delete.Location = new System.Drawing.Point(625, 123);
+            this.button_UserManage_Delete.Name = "button_UserManage_Delete";
+            this.button_UserManage_Delete.Size = new System.Drawing.Size(75, 23);
+            this.button_UserManage_Delete.TabIndex = 4;
+            this.button_UserManage_Delete.Text = "  删除";
+            this.button_UserManage_Delete.UseVisualStyleBackColor = true;
+            this.button_UserManage_Delete.Click += new System.EventHandler(this.button_UserManage_Delete_Click);
             // 
             // listView_UserInfo
             // 
@@ -340,17 +335,29 @@
             this.columnHeader4.Text = "邮箱";
             this.columnHeader4.Width = 197;
             // 
-            // button_UserManage_Delete
+            // button_UserManage_AddUser
             // 
-            this.button_UserManage_Delete.Image = global::WifiFingerprintLocationSimulator.Properties.Resources.button_delete;
-            this.button_UserManage_Delete.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button_UserManage_Delete.Location = new System.Drawing.Point(625, 123);
-            this.button_UserManage_Delete.Name = "button_UserManage_Delete";
-            this.button_UserManage_Delete.Size = new System.Drawing.Size(75, 23);
-            this.button_UserManage_Delete.TabIndex = 4;
-            this.button_UserManage_Delete.Text = "  删除";
-            this.button_UserManage_Delete.UseVisualStyleBackColor = true;
-            this.button_UserManage_Delete.Click += new System.EventHandler(this.button_UserManage_Delete_Click);
+            this.button_UserManage_AddUser.Image = global::WifiFingerprintLocationSimulator.Properties.Resources.button_add;
+            this.button_UserManage_AddUser.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button_UserManage_AddUser.Location = new System.Drawing.Point(625, 83);
+            this.button_UserManage_AddUser.Name = "button_UserManage_AddUser";
+            this.button_UserManage_AddUser.Size = new System.Drawing.Size(75, 23);
+            this.button_UserManage_AddUser.TabIndex = 3;
+            this.button_UserManage_AddUser.Text = "  新增";
+            this.button_UserManage_AddUser.UseVisualStyleBackColor = true;
+            this.button_UserManage_AddUser.Click += new System.EventHandler(this.button_UserManage_AddUser_Click);
+            // 
+            // button_UserManage_Refresh
+            // 
+            this.button_UserManage_Refresh.Image = global::WifiFingerprintLocationSimulator.Properties.Resources.button_list;
+            this.button_UserManage_Refresh.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button_UserManage_Refresh.Location = new System.Drawing.Point(625, 44);
+            this.button_UserManage_Refresh.Name = "button_UserManage_Refresh";
+            this.button_UserManage_Refresh.Size = new System.Drawing.Size(75, 23);
+            this.button_UserManage_Refresh.TabIndex = 2;
+            this.button_UserManage_Refresh.Text = "  刷新";
+            this.button_UserManage_Refresh.UseVisualStyleBackColor = true;
+            this.button_UserManage_Refresh.Click += new System.EventHandler(this.button_UserManage_Refresh_Click);
             // 
             // tabControl1
             // 
@@ -361,6 +368,15 @@
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(747, 441);
             this.tabControl1.TabIndex = 6;
+            // 
+            // label_LogPath_Label
+            // 
+            this.label_LogPath_Label.AutoSize = true;
+            this.label_LogPath_Label.Location = new System.Drawing.Point(13, 392);
+            this.label_LogPath_Label.Name = "label_LogPath_Label";
+            this.label_LogPath_Label.Size = new System.Drawing.Size(113, 12);
+            this.label_LogPath_Label.TabIndex = 9;
+            this.label_LogPath_Label.Text = "当前日志文件路径：";
             // 
             // Main_Admin
             // 
@@ -425,5 +441,6 @@
         private System.Windows.Forms.Button button_UserManage_AddUser;
         private System.Windows.Forms.Button button_UserManage_Refresh;
         private System.Windows.Forms.TabControl tabControl1;
+        private System.Windows.Forms.Label label_LogPath_Label;
     }
 }

@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -25,7 +26,7 @@ namespace WifiFingerprintLocationSimulator
             toolStripStatusLabel_UserName.Text = CurrentUserInfo.Name;
 
             // Log初始化
-            label_LogPath.Text = "当前日志文件路径:" + LogHelper.logPath;
+            label_LogPath.Text = LogHelper.logPath;
             button_Log_Refresh_Click(new object(), new EventArgs());
 
         }
@@ -42,7 +43,7 @@ namespace WifiFingerprintLocationSimulator
 
         private void ToolStripMenuItem_Help_Click(object sender, EventArgs e)
         {
-            System.Diagnostics.Process.Start("http://leyxo.site");
+            System.Diagnostics.Process.Start("iexplore.exe", "http://leyxo.site");
         }
 
         private void ToolStripMenuItem_About_Click(object sender, EventArgs e)
@@ -203,6 +204,37 @@ namespace WifiFingerprintLocationSimulator
         private void button_Log_Refresh_Click(object sender, EventArgs e)
         {
             textBox_Log.Text = System.IO.File.ReadAllText(LogHelper.logPath);
+        }
+
+        // 日志 - 导出
+        private void button_Log_Export_Click(object sender, EventArgs e)
+        {
+            SaveFileDialog saveFileDialog = new SaveFileDialog();
+            saveFileDialog.Filter = "日志文件(*.log)|*.log";
+            if (saveFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                StreamWriter sw = new StreamWriter(saveFileDialog.FileName, true);
+                //向创建的文件中写入内容
+                sw.WriteLine(textBox_Log.Text);
+                //关闭当前文件写入流
+                sw.Close();
+            }
+        }
+
+        // 点击路径打开文件夹
+        private void label_LogPath_Click(object sender, EventArgs e)
+        {
+            System.Diagnostics.Process.Start("Explorer.exe", LogHelper.logPathFolder);
+        }
+
+        private void label_LogPath_MouseEnter(object sender, EventArgs e)
+        {
+            label_LogPath.ForeColor = Color.Blue;
+        }
+
+        private void label_LogPath_MouseLeave(object sender, EventArgs e)
+        {
+            label_LogPath.ForeColor = Color.Black;
         }
     }
 }

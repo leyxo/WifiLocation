@@ -9,6 +9,7 @@ namespace WifiFingerprintLocationSimulator
     {
         private static string logData;
         public static string logPath = "C:\\Users\\Public\\WifiLocation.log";
+        public static string logPathFolder = "C:\\Users\\Public\\";
 
         public static void generateLog(string log)
         {

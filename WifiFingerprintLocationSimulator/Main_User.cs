@@ -74,7 +74,7 @@ namespace WifiFingerprintLocationSimulator
 
         private void ToolStripMenuItem_Help_Click(object sender, EventArgs e)
         {
-            System.Diagnostics.Process.Start("http://leyxo.site");
+            System.Diagnostics.Process.Start("iexplore.exe", "http://leyxo.site");
         }
 
         private void ToolStripMenuItem_About_Click(object sender, EventArgs e)
