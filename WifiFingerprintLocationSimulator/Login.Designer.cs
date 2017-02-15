@@ -123,6 +123,7 @@
             // comboBox_UserType
             // 
             this.comboBox_UserType.BackColor = System.Drawing.SystemColors.Window;
+            this.comboBox_UserType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox_UserType.FormattingEnabled = true;
             this.comboBox_UserType.Items.AddRange(new object[] {
             "用户",
@@ -131,7 +132,6 @@
             this.comboBox_UserType.Name = "comboBox_UserType";
             this.comboBox_UserType.Size = new System.Drawing.Size(100, 20);
             this.comboBox_UserType.TabIndex = 3;
-            this.comboBox_UserType.Text = "用户";
             // 
             // label_ForgetPass
             // 

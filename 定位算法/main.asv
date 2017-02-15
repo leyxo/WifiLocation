@@ -60,7 +60,7 @@ Realy = Realyd;         %zeros(1,Simu_Num); %Â·¾¶½Úµã×İÖá×ø±ê£¨Á¬½ÓC#AP½ÚµãÅäÖÃÖ
 
 
 %% »æÖÆCDFÇúÏß
-if(Task)
+if(2 == Task)
 nn_cdf=zeros(1,21);
 knn2_cdf=zeros(1,21);
 knn3_cdf=zeros(1,21);
@@ -85,103 +85,119 @@ bayes_sum=0;
 
 
 for i=1:1:Simu_Num
-%while (i<Simu_Num)
-%    noise=randn;
-   noise=normrnd(0,0);
-
-    loc_point=FingerLocFun(APx,APy,FPx,FPy,fp_power,ap_power,ap_gain,fp_gain,Realx(i),Realy(i),noise,N,FAF,loss_d1,1,1);     %µ÷ÓÃNN¶¨Î»Ëã·¨
-    error=sqrt((loc_point(1)-Realx(i))*(loc_point(1)-Realx(i))+(loc_point(2)-Realy(i))*(loc_point(2)-Realy(i)));
-    for k=1:1:21
-        if (error<base_array(k))
-            nn_cdf(k)=nn_cdf(k)+1;
-           %nn_cdf(k)=nn_cdf(k)+error;
-           %fprintf('nn_cdf=%f\n',nn_cdf(k));
+    noise=normrnd(0,0);
+     
+    if(0 == Algo || 1 == Algo)
+        %µ÷ÓÃNN¶¨Î»Ëã·¨
+        loc_point=FingerLocFun(APx,APy,FPx,FPy,fp_power,ap_power,ap_gain,fp_gain,Realx(i),Realy(i),noise,N,FAF,loss_d1,1,1);
+        error=sqrt((loc_point(1)-Realx(i))*(loc_point(1)-Realx(i))+(loc_point(2)-Realy(i))*(loc_point(2)-Realy(i)));
+        for k=1:1:21
+            if (error<base_array(k))
+                nn_cdf(k)=nn_cdf(k)+1;
+                %nn_cdf(k)=nn_cdf(k)+error;
+                %fprintf('nn_cdf=%f\n',nn_cdf(k));
+            end
         end
+        nn_sum=nn_sum+error;
     end
-    nn_sum=nn_sum+error;
-
-    loc_point=FingerLocFun(APx,APy,FPx,FPy,fp_power,ap_power,ap_gain,fp_gain,Realx(i),Realy(i),noise,N,FAF,loss_d1,2,2);     %µ÷ÓÃknn¶¨Î»Ëã·¨£¬kÈ¡2
-    error=sqrt((loc_point(1)-Realx(i))*(loc_point(1)-Realx(i))+(loc_point(2)-Realy(i))*(loc_point(2)-Realy(i)));
-    for k=1:1:21
-        if (error<base_array(k))
-            knn2_cdf(k)=knn2_cdf(k)+1;
-        end
-    end
-    knn2_sum=knn2_sum+error;
     
-    loc_point=FingerLocFun(APx,APy,FPx,FPy,fp_power,ap_power,ap_gain,fp_gain,Realx(i),Realy(i),noise,N,FAF,loss_d1,2,3);        %µ÷ÓÃknn¶¨Î»Ëã·¨£¬kÈ¡3
-    error=sqrt((loc_point(1)-Realx(i))*(loc_point(1)-Realx(i))+(loc_point(2)-Realy(i))*(loc_point(2)-Realy(i)));
-    for k=1:1:21
-        if (error<base_array(k))
-            knn3_cdf(k)=knn3_cdf(k)+1;
-        end
-    end
-    knn3_sum=knn3_sum+error;
+    if(0 == Algo || 2 == Algo)
+        %µ÷ÓÃknn¶¨Î»Ëã·¨£¬kÈ¡2
+        %loc_point=FingerLocFun(APx,APy,FPx,FPy,fp_power,ap_power,ap_gain,fp_gain,Realx(i),Realy(i),noise,N,FAF,loss_d1,2,2);
+        %error=sqrt((loc_point(1)-Realx(i))*(loc_point(1)-Realx(i))+(loc_point(2)-Realy(i))*(loc_point(2)-Realy(i)));
+        %for k=1:1:21
+        %    if (error<base_array(k))
+        %        knn2_cdf(k)=knn2_cdf(k)+1;
+        %    end
+        %end
+        %knn2_sum=knn2_sum+error;
     
-    loc_point=FingerLocFun(APx,APy,FPx,FPy,fp_power,ap_power,ap_gain,fp_gain,Realx(i),Realy(i),noise,N,FAF,loss_d1,2,4);         %µ÷ÓÃknn¶¨Î»Ëã·¨£¬kÈ¡4
-    error=sqrt((loc_point(1)-Realx(i))*(loc_point(1)-Realx(i))+(loc_point(2)-Realy(i))*(loc_point(2)-Realy(i)));
-    for k=1:1:21
-        if (error<base_array(k))
-            knn4_cdf(k)=knn4_cdf(k)+1;
-            %knn4_cdf(k)=knn4_cdf(k)+error;
-           % fprintf('knn4_cdf=%f\n',knn4_cdf(k));
+        %µ÷ÓÃknn¶¨Î»Ëã·¨£¬kÈ¡3
+        loc_point=FingerLocFun(APx,APy,FPx,FPy,fp_power,ap_power,ap_gain,fp_gain,Realx(i),Realy(i),noise,N,FAF,loss_d1,2,3);        
+        error=sqrt((loc_point(1)-Realx(i))*(loc_point(1)-Realx(i))+(loc_point(2)-Realy(i))*(loc_point(2)-Realy(i)));
+        for k=1:1:21
+            if (error<base_array(k))
+                knn3_cdf(k)=knn3_cdf(k)+1;
+            end
         end
-    end
-    knn4_sum=knn4_sum+error;
+        knn3_sum=knn3_sum+error;
     
-    loc_point=FingerLocFun(APx,APy,FPx,FPy,fp_power,ap_power,ap_gain,fp_gain,Realx(i),Realy(i),noise,N,FAF,loss_d1,3,2);           %µ÷ÓÃwknn¶¨Î»Ëã·¨£¬kÈ¡2
-    error=sqrt((loc_point(1)-Realx(i))*(loc_point(1)-Realx(i))+(loc_point(2)-Realy(i))*(loc_point(2)-Realy(i)));
-    for k=1:1:21
-        if (error<base_array(k))
-            wknn2_cdf(k)=wknn2_cdf(k)+1;
-        end
+        %µ÷ÓÃknn¶¨Î»Ëã·¨£¬kÈ¡4
+        %loc_point=FingerLocFun(APx,APy,FPx,FPy,fp_power,ap_power,ap_gain,fp_gain,Realx(i),Realy(i),noise,N,FAF,loss_d1,2,4);
+        %error=sqrt((loc_point(1)-Realx(i))*(loc_point(1)-Realx(i))+(loc_point(2)-Realy(i))*(loc_point(2)-Realy(i)));
+        %for k=1:1:21
+        %    if (error<base_array(k))
+        %        knn4_cdf(k)=knn4_cdf(k)+1;
+        %        %knn4_cdf(k)=knn4_cdf(k)+error;
+        %       % fprintf('knn4_cdf=%f\n',knn4_cdf(k));
+        %    end
+        %end
+        %knn4_sum=knn4_sum+error;
     end
-    wknn2_sum=wknn2_sum+error;
     
-    loc_point=FingerLocFun(APx,APy,FPx,FPy,fp_power,ap_power,ap_gain,fp_gain,Realx(i),Realy(i),noise,N,FAF,loss_d1,3,3);               %µ÷ÓÃwknn¶¨Î»Ëã·¨£¬kÈ¡3
-    error=sqrt((loc_point(1)-Realx(i))*(loc_point(1)-Realx(i))+(loc_point(2)-Realy(i))*(loc_point(2)-Realy(i)));
-    for k=1:1:21
-        if (error<base_array(k))
-            wknn3_cdf(k)=wknn3_cdf(k)+1;
-        end
-    end
-    wknn3_sum=wknn3_sum+error;
+    if(0 == Algo || 3 == Algo)
+        %µ÷ÓÃwknn¶¨Î»Ëã·¨£¬kÈ¡2
+        %loc_point=FingerLocFun(APx,APy,FPx,FPy,fp_power,ap_power,ap_gain,fp_gain,Realx(i),Realy(i),noise,N,FAF,loss_d1,3,2);
+        %error=sqrt((loc_point(1)-Realx(i))*(loc_point(1)-Realx(i))+(loc_point(2)-Realy(i))*(loc_point(2)-Realy(i)));
+        %for k=1:1:21
+        %    if (error<base_array(k))
+        %        wknn2_cdf(k)=wknn2_cdf(k)+1;
+        %    end
+        %end
+        %wknn2_sum=wknn2_sum+error;
     
-    loc_point=FingerLocFun(APx,APy,FPx,FPy,fp_power,ap_power,ap_gain,fp_gain,Realx(i),Realy(i),noise,N,FAF,loss_d1,3,4);                   %µ÷ÓÃwknn¶¨Î»Ëã·¨£¬kÈ¡4
-    error=sqrt((loc_point(1)-Realx(i))*(loc_point(1)-Realx(i))+(loc_point(2)-Realy(i))*(loc_point(2)-Realy(i)));
-    for k=1:1:21
-        if (error<base_array(k))
-            wknn4_cdf(k)=wknn4_cdf(k)+1;
-            %wknn4_cdf(k)=wknn4_cdf(k)+error;
-            %fprintf('wknn4_cdf=%f\n',wknn4_cdf(k));
+        %µ÷ÓÃwknn¶¨Î»Ëã·¨£¬kÈ¡3
+        loc_point=FingerLocFun(APx,APy,FPx,FPy,fp_power,ap_power,ap_gain,fp_gain,Realx(i),Realy(i),noise,N,FAF,loss_d1,3,3);
+        error=sqrt((loc_point(1)-Realx(i))*(loc_point(1)-Realx(i))+(loc_point(2)-Realy(i))*(loc_point(2)-Realy(i)));
+        for k=1:1:21
+            if (error<base_array(k))
+                wknn3_cdf(k)=wknn3_cdf(k)+1;
+            end
         end
-    end
-    wknn4_sum=wknn4_sum+error;
-      loc_point=FingerLocFun(APx,APy,FPx,FPy,fp_power,ap_power,ap_gain,fp_gain,Realx(i),Realy(i),noise,N,FAF,loss_d1,3,5);               %µ÷ÓÃwknn¶¨Î»Ëã·¨£¬kÈ¡5
-    error=sqrt((loc_point(1)-Realx(i))*(loc_point(1)-Realx(i))+(loc_point(2)-Realy(i))*(loc_point(2)-Realy(i)));
-    for k=1:1:21
-        if (error<base_array(k))
-            wknn5_cdf(k)=wknn5_cdf(k)+1;
-            %wknn4_cdf(k)=wknn4_cdf(k)+error;
-            %fprintf('wknn4_cdf=%f\n',wknn4_cdf(k));
-        end
-    end
-    wknn5_sum=wknn5_sum+error;
+        wknn3_sum=wknn3_sum+error;
     
-    loc_point=FingerLocFun(APx,APy,FPx,FPy,fp_power,ap_power,ap_gain,fp_gain,Realx(i),Realy(i),noise,N,FAF,loss_d1,4,2);                  %µ÷ÓÃ±´Ò¶Ë¹Ëã·¨
-    error=sqrt((loc_point(1)-Realx(i))*(loc_point(1)-Realx(i))+(loc_point(2)-Realy(i))*(loc_point(2)-Realy(i)));
-    for k=1:1:21
-        if (error<base_array(k))
-            bayes_cdf(k)=bayes_cdf(k)+1;
-            %bayes_cdf(k)=bayes_cdf(k)+error;
-            %fprintf('bayes_cdf=%f\n',bayes_cdf(k));s
-        end
+        %µ÷ÓÃwknn¶¨Î»Ëã·¨£¬kÈ¡4
+        %loc_point=FingerLocFun(APx,APy,FPx,FPy,fp_power,ap_power,ap_gain,fp_gain,Realx(i),Realy(i),noise,N,FAF,loss_d1,3,4);
+        %error=sqrt((loc_point(1)-Realx(i))*(loc_point(1)-Realx(i))+(loc_point(2)-Realy(i))*(loc_point(2)-Realy(i)));
+        %for k=1:1:21
+        %    if (error<base_array(k))
+        %        wknn4_cdf(k)=wknn4_cdf(k)+1;
+        %        %wknn4_cdf(k)=wknn4_cdf(k)+error;
+        %        %fprintf('wknn4_cdf=%f\n',wknn4_cdf(k));
+        %    end
+        %end
+        %wknn4_sum=wknn4_sum+error;
+    
+        %µ÷ÓÃwknn¶¨Î»Ëã·¨£¬kÈ¡5
+        %loc_point=FingerLocFun(APx,APy,FPx,FPy,fp_power,ap_power,ap_gain,fp_gain,Realx(i),Realy(i),noise,N,FAF,loss_d1,3,5);
+        %error=sqrt((loc_point(1)-Realx(i))*(loc_point(1)-Realx(i))+(loc_point(2)-Realy(i))*(loc_point(2)-Realy(i)));
+        %for k=1:1:21
+        %    if (error<base_array(k))
+        %        wknn5_cdf(k)=wknn5_cdf(k)+1;
+        %        %wknn4_cdf(k)=wknn4_cdf(k)+error;
+        %        %fprintf('wknn4_cdf=%f\n',wknn4_cdf(k));
+        %    end
+        %end
+        %wknn5_sum=wknn5_sum+error;
     end
-    bayes_sum=bayes_sum+error;
-%    i=i+1;
+    
+    if(0 == Algo || 4 == Algo)
+        %µ÷ÓÃ±´Ò¶Ë¹Ëã·¨
+        loc_point=FingerLocFun(APx,APy,FPx,FPy,fp_power,ap_power,ap_gain,fp_gain,Realx(i),Realy(i),noise,N,FAF,loss_d1,4,2);
+        error=sqrt((loc_point(1)-Realx(i))*(loc_point(1)-Realx(i))+(loc_point(2)-Realy(i))*(loc_point(2)-Realy(i)));
+        for k=1:1:21
+            if (error<base_array(k))
+                bayes_cdf(k)=bayes_cdf(k)+1;
+                %bayes_cdf(k)=bayes_cdf(k)+error;
+                %fprintf('bayes_cdf=%f\n',bayes_cdf(k));s
+            end
+        end
+        bayes_sum=bayes_sum+error;
+    end
 end
 
-%fprintf('nn=%f\n',nn_sum/Simu_Num);                             %²»Í¬Ëã·¨¶¨Î»Æ½¾ùÎó²î
+%²»Í¬Ëã·¨¶¨Î»Æ½¾ùÎó²î
+%fprintf('nn=%f\n',nn_sum/Simu_Num);
 %fprintf('knn2=%f\n',knn2_sum/Simu_Num);
 %fprintf('knn3=%f\n',knn3_sum/Simu_Num);
 %fprintf('knn4=%f\n',knn4_sum/Simu_Num);
@@ -192,22 +208,42 @@ end
 %fprintf('bayes=%f\n',bayes_sum/Simu_Num);
 
 
-figure(2);
-plot(base_array,nn_cdf/Simu_Num,'g<-');    %cdfÇúÏß£¨°ÑÉú³ÉµÄÇúÏßÍ¼Ç¶ÈëC#£©
-hold on
-plot(base_array,knn2_cdf/Simu_Num,'b*-');
-hold on
-plot(base_array,wknn2_cdf/Simu_Num,'r+-');
-hold on
-plot(base_array,bayes_cdf/Simu_Num,'co-');
-hold on
-legend('nn','knn3','wknn3','bayes');
+figure('NumberTitle', 'off', 'Name', 'CDFÇúÏßÍ¼');
+if(0 == Algo || 1 == Algo)
+    plot(base_array,nn_cdf/Simu_Num,'g<-');
+    hold on
+    legend('NN');
+end
+if(0 == Algo || 2 == Algo)
+    plot(base_array,knn3_cdf/Simu_Num,'b*-');
+    hold on
+    legend('KNN3');
+end
+if(0 == Algo || 3 == Algo)
+    plot(base_array,wknn3_cdf/Simu_Num,'r+-');
+    hold on
+    legend('WKNN3');
+end
+if(0 == Algo || 4 == Algo)
+    plot(base_array,bayes_cdf/Simu_Num,'co-');
+    hold on
+    legend('Bayes');
+end
+
+if(0 == Algo)
+    legend('nn','knn3','wknn3','bayes');
+end
+
 xlabel('Error distance(m)')
 ylabel('Cumulative distribution function')
 title('CDF Comparison')
 
+end
+
+
 %% »æÖÆ·ÂÕæÂ·Ïß
-figure(1);
+if(1 == Task)
+figure('NumberTitle', 'off', 'Name', '·ÂÕæÂ·ÏßÍ¼');
 %ÏŞÖÆ×ø±êÖá·¶Î§
 %axis([0 Mapx 0 Mapy]);
 axis equal;
@@ -218,8 +254,6 @@ ylim([0 Mapy]);
 hold on;
 set(gca,'ydir','reverse');
 hold on;
-
-
 
 H1 = plot(FPx,FPy,'b.');
 hold on;
@@ -233,30 +267,36 @@ loc_point_3 = zeros(Simu_Num, 2);
 loc_point_4 = zeros(Simu_Num, 2);
 
 for i=1:1:Simu_Num
+    noise=normrnd(0,0);
+    
     H3 = plot(Realx(i),Realy(i),'k.-');
     hold on;
     
-    loc_point=FingerLocFun(APx,APy,FPx,FPy,fp_power,ap_power,ap_gain,fp_gain,Realx(i),Realy(i),noise,N,FAF,loss_d1,1,1);             %loc_pointÎª²»Í¬Ëã·¨µÄ¶¨Î»×ø±ê£¨C#´Óloc_point»ñÈ¡¶¨Î»×ø±ê£¬»­Â·Ïß£©
-    loc_point_1(i,1) = loc_point(1); %%%
-    loc_point_1(i,2) = loc_point(2); %%%
-    H4 = plot(loc_point(1),loc_point(2),'g<-');
-    hold on;
+        %µ÷ÓÃnn¶¨Î»Ëã·¨
+        loc_point=FingerLocFun(APx,APy,FPx,FPy,fp_power,ap_power,ap_gain,fp_gain,Realx(i),Realy(i),noise,N,FAF,loss_d1,1,1);
+        loc_point_1(i,1) = loc_point(1);
+        loc_point_1(i,2) = loc_point(2);
+        H4 = plot(loc_point(1),loc_point(2),'g<-');
+        hold on;
     
-    loc_point=FingerLocFun(APx,APy,FPx,FPy,fp_power,ap_power,ap_gain,fp_gain,Realx(i),Realy(i),noise,N,FAF,loss_d1,2,3);
-    loc_point_2(i,1) = loc_point(1); %%%
-    loc_point_2(i,2) = loc_point(2); %%%
-    H5 = plot(loc_point(1),loc_point(2),'b*-');
-    hold on;
+        %µ÷ÓÃknn¶¨Î»Ëã·¨£¬kÈ¡3
+        loc_point=FingerLocFun(APx,APy,FPx,FPy,fp_power,ap_power,ap_gain,fp_gain,Realx(i),Realy(i),noise,N,FAF,loss_d1,2,3);
+        loc_point_2(i,1) = loc_point(1);
+        loc_point_2(i,2) = loc_point(2);
+        H5 = plot(loc_point(1),loc_point(2),'b*-');
+        hold on;
     
-    loc_point=FingerLocFun(APx,APy,FPx,FPy,fp_power,ap_power,ap_gain,fp_gain,Realx(i),Realy(i),noise,N,FAF,loss_d1,3,3);
-    loc_point_3(i,1) = loc_point(1); %%%
-    loc_point_3(i,2) = loc_point(2); %%%
-    H6=plot(loc_point(1),loc_point(2),'r+-');
-    hold on;
+        %µ÷ÓÃwknn¶¨Î»Ëã·¨£¬kÈ¡3
+        loc_point=FingerLocFun(APx,APy,FPx,FPy,fp_power,ap_power,ap_gain,fp_gain,Realx(i),Realy(i),noise,N,FAF,loss_d1,3,3);
+        loc_point_3(i,1) = loc_point(1);
+        loc_point_3(i,2) = loc_point(2);
+        H6=plot(loc_point(1),loc_point(2),'r+-');
+        hold on;
     
-    loc_point=FingerLocFun(APx,APy,FPx,FPy,fp_power,ap_power,ap_gain,fp_gain,Realx(i),Realy(i),noise,N,FAF,loss_d1,4,2);
-    loc_point_4(i,1) = loc_point(1); %%%
-    loc_point_4(i,2) = loc_point(2); %%%
+        %µ÷ÓÃ±´Ò¶Ë¹Ëã·¨
+        loc_point=FingerLocFun(APx,APy,FPx,FPy,fp_power,ap_power,ap_gain,fp_gain,Realx(i),Realy(i),noise,N,FAF,loss_d1,4,2);
+    loc_point_4(i,1) = loc_point(1);
+    loc_point_4(i,2) = loc_point(2);
     H7=plot(loc_point(1),loc_point(2),'co-');
     hold on;
 end
@@ -274,3 +314,5 @@ H7L = plot(loc_point_4(:,1), loc_point_4(:,2), 'co-');
 
 box on;
 legend([H1(1),H2(1),H3(1),H4(1),H5(1),H6(1),H7(1)],'Êı¾İ¿â²ÉÑùµã','AP½ÚµãÎ»ÖÃ','ÕæÊµÂ·Ïß','NN¶¨Î»Â·¾¶','KNN3Â·¾¶','WKNN3Â·¾¶','±´Ò¶Ë¹Ëã·¨Â·¾¶')
+
+end

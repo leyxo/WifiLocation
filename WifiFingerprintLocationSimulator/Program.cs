@@ -15,7 +15,7 @@ namespace WifiFingerprintLocationSimulator
         static void Main()
         {
             // Log
-            LogHelper.generateLog("********************** 进入系统 *********************");
+            LogHelper.generateLog("**************************** 进入系统 ***************************");
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);

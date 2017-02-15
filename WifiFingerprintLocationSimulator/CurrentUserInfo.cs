@@ -27,5 +27,8 @@ namespace WifiFingerprintLocationSimulator
         // 当前环境设置选项
         public static bool settings_showCoord = true; // 显示坐标轴
         public static bool settings_showAPRadio = true; // 显示AP节点辐射图示
+
+        // 临时存储调用算法，供其他线程创建的private void processer()使用
+        public static int algo = 0;
     }
 }

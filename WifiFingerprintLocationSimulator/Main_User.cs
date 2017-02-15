@@ -922,6 +922,8 @@ namespace WifiFingerprintLocationSimulator
             button_fp_refresh_Click(new object(), new EventArgs());
             button_rss_refresh_Click(new object(), new EventArgs());
             button_map_refresh_Click(new object(), new EventArgs());
+
+            draw();
         }
 
         // 环境配置-场景配置 载入按钮
@@ -1257,7 +1259,9 @@ namespace WifiFingerprintLocationSimulator
         // 环境配置-AP节点配置 清空按钮
         private void button_ap_deleteall_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show("确定要删除地图 " + textBox_map_name.Text + " 的所有AP节点数据?", "提示", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            if (textBox_map_name.Text == "")
+                MessageBox.Show("请先载入地图！");
+            else if (MessageBox.Show("确定要删除地图 " + textBox_map_name.Text + " 的所有AP节点数据?", "提示", MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
                 ap_delete();
 
@@ -1271,7 +1275,9 @@ namespace WifiFingerprintLocationSimulator
         // 环境配置-AP节点配置 添加按钮
         private void button_ap_add_Click(object sender, EventArgs e)
         {
-            if (textBox_ap_x.Text == "")
+            if(textBox_map_name.Text == "")
+                MessageBox.Show("请先载入地图！");
+            else if (textBox_ap_x.Text == "")
                 MessageBox.Show("请输入AP节点x坐标");
             else if (textBox_ap_y.Text == "")
                 MessageBox.Show("请输入AP节点y坐标");
@@ -1281,6 +1287,8 @@ namespace WifiFingerprintLocationSimulator
                 MessageBox.Show("请输入AP节点发送增益");
             else if (Convert.ToInt32(textBox_ap_x.Text) < 0 || Convert.ToInt32(textBox_ap_x.Text) > CurrentUserInfo.MapWidth || Convert.ToInt32(textBox_ap_y.Text) < 0 || Convert.ToInt32(textBox_ap_y.Text) > CurrentUserInfo.MapHeight)
                 MessageBox.Show("请输入地图范围内的坐标值(0<x<" + CurrentUserInfo.MapWidth + ", 0<y<" + CurrentUserInfo.MapHeight + ")");
+            else if (0 == listView_ap.Items.Count && CheckState.Unchecked == checkBox_ap_isrefer.CheckState)
+                MessageBox.Show("请先添加一个参考节点");
             else if (checkBox_ap_isrefer.CheckState == CheckState.Unchecked &&  textBox_ap_receiverefer.Text == "")
                 MessageBox.Show("请输入节点接收参考节点的信号强度");
             else
@@ -1398,7 +1406,10 @@ namespace WifiFingerprintLocationSimulator
         // 环境配置-AP节点配置 删除按钮
         private void button_ap_delete_Click(object sender, EventArgs e)
         {
-            try
+            if (textBox_map_name.Text == "")
+                MessageBox.Show("请先载入地图！");
+            else
+                try
             {
                 // SQL
                 string sql = "delete from ap_info where ap_id = '" + listView_ap.SelectedItems[0].SubItems[0].Text + "'";
@@ -1437,7 +1448,10 @@ namespace WifiFingerprintLocationSimulator
         // 环境配置-AP节点配置 修改按钮
         private void button_ap_modify_Click(object sender, EventArgs e)
         {
-            try
+            if (textBox_map_name.Text == "")
+                MessageBox.Show("请先载入地图！");
+            else
+                try
             {
                 // SQL
                 string sql = "update ap_info set ap_x = " + textBox_ap_x.Text + ", ap_y = " + textBox_ap_y.Text + ", ap_sendpower =" + textBox_ap_sendpower.Text + ", ap_sendgain =" + textBox_ap_sendgain.Text + ", reg_date = '" + DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss") + "' where ap_id = '" + CurrentUserInfo.ApID + "'";
@@ -1550,7 +1564,9 @@ namespace WifiFingerprintLocationSimulator
         // 环境配置-指纹节点配置 生成节点库按钮
         private void button_fp_autoadd_Click(object sender, EventArgs e)
         {
-            if (textBox_fp_distance.Text == "")
+            if (textBox_map_name.Text == "")
+                MessageBox.Show("请先载入地图！");
+            else if (textBox_fp_distance.Text == "")
                 MessageBox.Show("请输入节点间距");
             else if (textBox_fp_receivegain.Text == "")
                 MessageBox.Show("请输入接收增益");
@@ -1686,7 +1702,11 @@ namespace WifiFingerprintLocationSimulator
         // 环境配置-生成RSS库按钮
         private void button_rss_generate_Click(object sender, EventArgs e)
         {
+            if (textBox_map_name.Text == "")
+                MessageBox.Show("请先载入地图！");
+            else {
 
+            }
         }
 
         // 环境配置-指纹节点配置 清空RSS库(当前地图)
@@ -1718,7 +1738,9 @@ namespace WifiFingerprintLocationSimulator
         // 路线设置-添加顶点按钮
         private void button_simu_add_Click(object sender, EventArgs e)
         {
-            if ("" == textBox_simu_point_x.Text || "" == textBox_simu_point_y.Text)
+            if (textBox_map_name.Text == "")
+                MessageBox.Show("请先载入地图！");
+            else if ("" == textBox_simu_point_x.Text || "" == textBox_simu_point_y.Text)
                 MessageBox.Show("请输入完整的路径顶点信息!");
             else if (Convert.ToInt32(textBox_simu_point_x.Text) < 0 || Convert.ToInt32(textBox_simu_point_x.Text) > CurrentUserInfo.MapWidth || Convert.ToInt32(textBox_simu_point_y.Text) < 0 || Convert.ToInt32(textBox_simu_point_y.Text) > CurrentUserInfo.MapHeight)
                 MessageBox.Show("请输入地图范围内的坐标值(0<x<" + CurrentUserInfo.MapWidth + ", 0<y<" + CurrentUserInfo.MapHeight + ")");
@@ -1860,7 +1882,9 @@ namespace WifiFingerprintLocationSimulator
         // 路线设置-清空路线按钮
         private void button_simu_deleteall_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show("确定要清空地图 " + textBox_map_name.Text + " 的仿真数据?", "提示", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            if (textBox_map_name.Text == "")
+                MessageBox.Show("请先载入地图！");
+            else if (MessageBox.Show("确定要清空地图 " + textBox_map_name.Text + " 的仿真数据?", "提示", MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
                 simu_delete();
                 textBox_simu_lastpoint_x.Text = "";
@@ -1956,6 +1980,39 @@ namespace WifiFingerprintLocationSimulator
         // 仿真实验-开始仿真按钮
         private void button_simu_start_Click(object sender, EventArgs e)
         {
+            if (textBox_map_name.Text == "")
+                MessageBox.Show("请先载入地图！");
+            else if ("" == comboBox_simu_algorithm.Text)
+                MessageBox.Show("请选择算法!");
+            else
+            {
+                // Log
+                LogHelper.generateLog("[仿真实验] " + CurrentUserInfo.Name + " 在地图 " + textBox_map_name.Text + " 中开始进行仿真(" + comboBox_simu_algorithm.Text + ")");
+
+                usingMatLabFunction(1, getAlgoID());
+            }
+        }
+
+        // 仿真实验-MatLab数据分析按钮
+        private void button_simu_matlab_Click(object sender, EventArgs e)
+        {
+            if (textBox_map_name.Text == "")
+                MessageBox.Show("请先载入地图！");
+            else if ("" == comboBox_simu_algorithm.Text)
+                MessageBox.Show("请选择算法!");
+            else
+            {
+                // Log
+                LogHelper.generateLog("[仿真实验] " + CurrentUserInfo.Name + " 在地图 " + textBox_map_name.Text + " 中开始进行MatLab数据分析(" + comboBox_simu_algorithm.Text + ")");
+
+                usingMatLabFunction(2, getAlgoID());
+            }
+        }
+
+        // 获取所调用算法
+        // 返回值: 0:所有算法 1:NN 2:KNN 3:WKNN 4:贝叶斯
+        private int getAlgoID()
+        {
             int Algod = 0;
             if ("所有算法" == comboBox_simu_algorithm.Text || "" == comboBox_simu_algorithm.Text)
                 Algod = 0;
@@ -1968,20 +2025,8 @@ namespace WifiFingerprintLocationSimulator
             else if ("贝叶斯概率" == comboBox_simu_algorithm.Text)
                 Algod = 4;
 
-            // Log
-            LogHelper.generateLog("[仿真实验] " + CurrentUserInfo.Name + " 在地图 " + textBox_map_name.Text + " 中开始进行仿真(" + comboBox_simu_algorithm.Text + ")");
-
-            usingMatLabFunction(1, Algod);
-
-        }
-
-        // 仿真实验-MatLab数据分析按钮
-        private void button_simu_matlab_Click(object sender, EventArgs e)
-        {
-            // Log
-            LogHelper.generateLog("[仿真实验] " + CurrentUserInfo.Name + " 在地图 " + textBox_map_name.Text + " 中开始进行MatLab数据分析(" + comboBox_simu_algorithm.Text + ")");
-
-            usingMatLabFunction(2);
+            CurrentUserInfo.algo = Algod;
+            return Algod;
         }
 
         // 调用MatLab的main函数
@@ -2083,7 +2128,8 @@ namespace WifiFingerprintLocationSimulator
             int Simu_Num = listView_simu.Items.Count;       // 路线节点个数
             int amount = FP_Num * Simu_Num;                 // 数量级
 
-            ProgBar progBar = new ProgBar(amount);
+            
+            ProgBar progBar = new ProgBar(amount, CurrentUserInfo.algo);
             progBar.ShowDialog();
         }
 

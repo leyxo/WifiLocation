@@ -85,103 +85,119 @@ bayes_sum=0;
 
 
 for i=1:1:Simu_Num
-%while (i<Simu_Num)
-%    noise=randn;
-   noise=normrnd(0,0);
-
-    loc_point=FingerLocFun(APx,APy,FPx,FPy,fp_power,ap_power,ap_gain,fp_gain,Realx(i),Realy(i),noise,N,FAF,loss_d1,1,1);     %调用NN定位算法
-    error=sqrt((loc_point(1)-Realx(i))*(loc_point(1)-Realx(i))+(loc_point(2)-Realy(i))*(loc_point(2)-Realy(i)));
-    for k=1:1:21
-        if (error<base_array(k))
-            nn_cdf(k)=nn_cdf(k)+1;
-           %nn_cdf(k)=nn_cdf(k)+error;
-           %fprintf('nn_cdf=%f\n',nn_cdf(k));
+    noise=normrnd(0,0);
+     
+    if(0 == Algo || 1 == Algo)
+        %调用NN定位算法
+        loc_point=FingerLocFun(APx,APy,FPx,FPy,fp_power,ap_power,ap_gain,fp_gain,Realx(i),Realy(i),noise,N,FAF,loss_d1,1,1);
+        error=sqrt((loc_point(1)-Realx(i))*(loc_point(1)-Realx(i))+(loc_point(2)-Realy(i))*(loc_point(2)-Realy(i)));
+        for k=1:1:21
+            if (error<base_array(k))
+                nn_cdf(k)=nn_cdf(k)+1;
+                %nn_cdf(k)=nn_cdf(k)+error;
+                %fprintf('nn_cdf=%f\n',nn_cdf(k));
+            end
         end
+        nn_sum=nn_sum+error;
     end
-    nn_sum=nn_sum+error;
-
-    loc_point=FingerLocFun(APx,APy,FPx,FPy,fp_power,ap_power,ap_gain,fp_gain,Realx(i),Realy(i),noise,N,FAF,loss_d1,2,2);     %调用knn定位算法，k取2
-    error=sqrt((loc_point(1)-Realx(i))*(loc_point(1)-Realx(i))+(loc_point(2)-Realy(i))*(loc_point(2)-Realy(i)));
-    for k=1:1:21
-        if (error<base_array(k))
-            knn2_cdf(k)=knn2_cdf(k)+1;
-        end
-    end
-    knn2_sum=knn2_sum+error;
     
-    loc_point=FingerLocFun(APx,APy,FPx,FPy,fp_power,ap_power,ap_gain,fp_gain,Realx(i),Realy(i),noise,N,FAF,loss_d1,2,3);        %调用knn定位算法，k取3
-    error=sqrt((loc_point(1)-Realx(i))*(loc_point(1)-Realx(i))+(loc_point(2)-Realy(i))*(loc_point(2)-Realy(i)));
-    for k=1:1:21
-        if (error<base_array(k))
-            knn3_cdf(k)=knn3_cdf(k)+1;
-        end
-    end
-    knn3_sum=knn3_sum+error;
+    if(0 == Algo || 2 == Algo)
+        %调用knn定位算法，k取2
+        %loc_point=FingerLocFun(APx,APy,FPx,FPy,fp_power,ap_power,ap_gain,fp_gain,Realx(i),Realy(i),noise,N,FAF,loss_d1,2,2);
+        %error=sqrt((loc_point(1)-Realx(i))*(loc_point(1)-Realx(i))+(loc_point(2)-Realy(i))*(loc_point(2)-Realy(i)));
+        %for k=1:1:21
+        %    if (error<base_array(k))
+        %        knn2_cdf(k)=knn2_cdf(k)+1;
+        %    end
+        %end
+        %knn2_sum=knn2_sum+error;
     
-    loc_point=FingerLocFun(APx,APy,FPx,FPy,fp_power,ap_power,ap_gain,fp_gain,Realx(i),Realy(i),noise,N,FAF,loss_d1,2,4);         %调用knn定位算法，k取4
-    error=sqrt((loc_point(1)-Realx(i))*(loc_point(1)-Realx(i))+(loc_point(2)-Realy(i))*(loc_point(2)-Realy(i)));
-    for k=1:1:21
-        if (error<base_array(k))
-            knn4_cdf(k)=knn4_cdf(k)+1;
-            %knn4_cdf(k)=knn4_cdf(k)+error;
-           % fprintf('knn4_cdf=%f\n',knn4_cdf(k));
+        %调用knn定位算法，k取3
+        loc_point=FingerLocFun(APx,APy,FPx,FPy,fp_power,ap_power,ap_gain,fp_gain,Realx(i),Realy(i),noise,N,FAF,loss_d1,2,3);        
+        error=sqrt((loc_point(1)-Realx(i))*(loc_point(1)-Realx(i))+(loc_point(2)-Realy(i))*(loc_point(2)-Realy(i)));
+        for k=1:1:21
+            if (error<base_array(k))
+                knn3_cdf(k)=knn3_cdf(k)+1;
+            end
         end
-    end
-    knn4_sum=knn4_sum+error;
+        knn3_sum=knn3_sum+error;
     
-    loc_point=FingerLocFun(APx,APy,FPx,FPy,fp_power,ap_power,ap_gain,fp_gain,Realx(i),Realy(i),noise,N,FAF,loss_d1,3,2);           %调用wknn定位算法，k取2
-    error=sqrt((loc_point(1)-Realx(i))*(loc_point(1)-Realx(i))+(loc_point(2)-Realy(i))*(loc_point(2)-Realy(i)));
-    for k=1:1:21
-        if (error<base_array(k))
-            wknn2_cdf(k)=wknn2_cdf(k)+1;
-        end
+        %调用knn定位算法，k取4
+        %loc_point=FingerLocFun(APx,APy,FPx,FPy,fp_power,ap_power,ap_gain,fp_gain,Realx(i),Realy(i),noise,N,FAF,loss_d1,2,4);
+        %error=sqrt((loc_point(1)-Realx(i))*(loc_point(1)-Realx(i))+(loc_point(2)-Realy(i))*(loc_point(2)-Realy(i)));
+        %for k=1:1:21
+        %    if (error<base_array(k))
+        %        knn4_cdf(k)=knn4_cdf(k)+1;
+        %        %knn4_cdf(k)=knn4_cdf(k)+error;
+        %       % fprintf('knn4_cdf=%f\n',knn4_cdf(k));
+        %    end
+        %end
+        %knn4_sum=knn4_sum+error;
     end
-    wknn2_sum=wknn2_sum+error;
     
-    loc_point=FingerLocFun(APx,APy,FPx,FPy,fp_power,ap_power,ap_gain,fp_gain,Realx(i),Realy(i),noise,N,FAF,loss_d1,3,3);               %调用wknn定位算法，k取3
-    error=sqrt((loc_point(1)-Realx(i))*(loc_point(1)-Realx(i))+(loc_point(2)-Realy(i))*(loc_point(2)-Realy(i)));
-    for k=1:1:21
-        if (error<base_array(k))
-            wknn3_cdf(k)=wknn3_cdf(k)+1;
-        end
-    end
-    wknn3_sum=wknn3_sum+error;
+    if(0 == Algo || 3 == Algo)
+        %调用wknn定位算法，k取2
+        %loc_point=FingerLocFun(APx,APy,FPx,FPy,fp_power,ap_power,ap_gain,fp_gain,Realx(i),Realy(i),noise,N,FAF,loss_d1,3,2);
+        %error=sqrt((loc_point(1)-Realx(i))*(loc_point(1)-Realx(i))+(loc_point(2)-Realy(i))*(loc_point(2)-Realy(i)));
+        %for k=1:1:21
+        %    if (error<base_array(k))
+        %        wknn2_cdf(k)=wknn2_cdf(k)+1;
+        %    end
+        %end
+        %wknn2_sum=wknn2_sum+error;
     
-    loc_point=FingerLocFun(APx,APy,FPx,FPy,fp_power,ap_power,ap_gain,fp_gain,Realx(i),Realy(i),noise,N,FAF,loss_d1,3,4);                   %调用wknn定位算法，k取4
-    error=sqrt((loc_point(1)-Realx(i))*(loc_point(1)-Realx(i))+(loc_point(2)-Realy(i))*(loc_point(2)-Realy(i)));
-    for k=1:1:21
-        if (error<base_array(k))
-            wknn4_cdf(k)=wknn4_cdf(k)+1;
-            %wknn4_cdf(k)=wknn4_cdf(k)+error;
-            %fprintf('wknn4_cdf=%f\n',wknn4_cdf(k));
+        %调用wknn定位算法，k取3
+        loc_point=FingerLocFun(APx,APy,FPx,FPy,fp_power,ap_power,ap_gain,fp_gain,Realx(i),Realy(i),noise,N,FAF,loss_d1,3,3);
+        error=sqrt((loc_point(1)-Realx(i))*(loc_point(1)-Realx(i))+(loc_point(2)-Realy(i))*(loc_point(2)-Realy(i)));
+        for k=1:1:21
+            if (error<base_array(k))
+                wknn3_cdf(k)=wknn3_cdf(k)+1;
+            end
         end
-    end
-    wknn4_sum=wknn4_sum+error;
-      loc_point=FingerLocFun(APx,APy,FPx,FPy,fp_power,ap_power,ap_gain,fp_gain,Realx(i),Realy(i),noise,N,FAF,loss_d1,3,5);               %调用wknn定位算法，k取5
-    error=sqrt((loc_point(1)-Realx(i))*(loc_point(1)-Realx(i))+(loc_point(2)-Realy(i))*(loc_point(2)-Realy(i)));
-    for k=1:1:21
-        if (error<base_array(k))
-            wknn5_cdf(k)=wknn5_cdf(k)+1;
-            %wknn4_cdf(k)=wknn4_cdf(k)+error;
-            %fprintf('wknn4_cdf=%f\n',wknn4_cdf(k));
-        end
-    end
-    wknn5_sum=wknn5_sum+error;
+        wknn3_sum=wknn3_sum+error;
     
-    loc_point=FingerLocFun(APx,APy,FPx,FPy,fp_power,ap_power,ap_gain,fp_gain,Realx(i),Realy(i),noise,N,FAF,loss_d1,4,2);                  %调用贝叶斯算法
-    error=sqrt((loc_point(1)-Realx(i))*(loc_point(1)-Realx(i))+(loc_point(2)-Realy(i))*(loc_point(2)-Realy(i)));
-    for k=1:1:21
-        if (error<base_array(k))
-            bayes_cdf(k)=bayes_cdf(k)+1;
-            %bayes_cdf(k)=bayes_cdf(k)+error;
-            %fprintf('bayes_cdf=%f\n',bayes_cdf(k));s
-        end
+        %调用wknn定位算法，k取4
+        %loc_point=FingerLocFun(APx,APy,FPx,FPy,fp_power,ap_power,ap_gain,fp_gain,Realx(i),Realy(i),noise,N,FAF,loss_d1,3,4);
+        %error=sqrt((loc_point(1)-Realx(i))*(loc_point(1)-Realx(i))+(loc_point(2)-Realy(i))*(loc_point(2)-Realy(i)));
+        %for k=1:1:21
+        %    if (error<base_array(k))
+        %        wknn4_cdf(k)=wknn4_cdf(k)+1;
+        %        %wknn4_cdf(k)=wknn4_cdf(k)+error;
+        %        %fprintf('wknn4_cdf=%f\n',wknn4_cdf(k));
+        %    end
+        %end
+        %wknn4_sum=wknn4_sum+error;
+    
+        %调用wknn定位算法，k取5
+        %loc_point=FingerLocFun(APx,APy,FPx,FPy,fp_power,ap_power,ap_gain,fp_gain,Realx(i),Realy(i),noise,N,FAF,loss_d1,3,5);
+        %error=sqrt((loc_point(1)-Realx(i))*(loc_point(1)-Realx(i))+(loc_point(2)-Realy(i))*(loc_point(2)-Realy(i)));
+        %for k=1:1:21
+        %    if (error<base_array(k))
+        %        wknn5_cdf(k)=wknn5_cdf(k)+1;
+        %        %wknn4_cdf(k)=wknn4_cdf(k)+error;
+        %        %fprintf('wknn4_cdf=%f\n',wknn4_cdf(k));
+        %    end
+        %end
+        %wknn5_sum=wknn5_sum+error;
     end
-    bayes_sum=bayes_sum+error;
-%    i=i+1;
+    
+    if(0 == Algo || 4 == Algo)
+        %调用贝叶斯算法
+        loc_point=FingerLocFun(APx,APy,FPx,FPy,fp_power,ap_power,ap_gain,fp_gain,Realx(i),Realy(i),noise,N,FAF,loss_d1,4,2);
+        error=sqrt((loc_point(1)-Realx(i))*(loc_point(1)-Realx(i))+(loc_point(2)-Realy(i))*(loc_point(2)-Realy(i)));
+        for k=1:1:21
+            if (error<base_array(k))
+                bayes_cdf(k)=bayes_cdf(k)+1;
+                %bayes_cdf(k)=bayes_cdf(k)+error;
+                %fprintf('bayes_cdf=%f\n',bayes_cdf(k));s
+            end
+        end
+        bayes_sum=bayes_sum+error;
+    end
 end
 
-%fprintf('nn=%f\n',nn_sum/Simu_Num);                             %不同算法定位平均误差
+%不同算法定位平均误差
+%fprintf('nn=%f\n',nn_sum/Simu_Num);
 %fprintf('knn2=%f\n',knn2_sum/Simu_Num);
 %fprintf('knn3=%f\n',knn3_sum/Simu_Num);
 %fprintf('knn4=%f\n',knn4_sum/Simu_Num);
@@ -193,15 +209,31 @@ end
 
 
 figure('NumberTitle', 'off', 'Name', 'CDF曲线图');
-plot(base_array,nn_cdf/Simu_Num,'g<-');    %cdf曲线（把生成的曲线图嵌入C#）
-hold on
-plot(base_array,knn2_cdf/Simu_Num,'b*-');
-hold on
-plot(base_array,wknn2_cdf/Simu_Num,'r+-');
-hold on
-plot(base_array,bayes_cdf/Simu_Num,'co-');
-hold on
-legend('nn','knn3','wknn3','bayes');
+if(0 == Algo || 1 == Algo)
+    plot(base_array,nn_cdf/Simu_Num,'g<-');
+    hold on
+    legend('NN');
+end
+if(0 == Algo || 2 == Algo)
+    plot(base_array,knn3_cdf/Simu_Num,'b*-');
+    hold on
+    legend('KNN3');
+end
+if(0 == Algo || 3 == Algo)
+    plot(base_array,wknn3_cdf/Simu_Num,'r+-');
+    hold on
+    legend('WKNN3');
+end
+if(0 == Algo || 4 == Algo)
+    plot(base_array,bayes_cdf/Simu_Num,'co-');
+    hold on
+    legend('Bayes');
+end
+
+if(0 == Algo)
+    legend('nn','knn3','wknn3','bayes');
+end
+
 xlabel('Error distance(m)')
 ylabel('Cumulative distribution function')
 title('CDF Comparison')
@@ -240,43 +272,68 @@ for i=1:1:Simu_Num
     H3 = plot(Realx(i),Realy(i),'k.-');
     hold on;
     
-    loc_point=FingerLocFun(APx,APy,FPx,FPy,fp_power,ap_power,ap_gain,fp_gain,Realx(i),Realy(i),noise,N,FAF,loss_d1,1,1);             %loc_point为不同算法的定位坐标（C#从loc_point获取定位坐标，画路线）
-    loc_point_1(i,1) = loc_point(1); %%%
-    loc_point_1(i,2) = loc_point(2); %%%
-    H4 = plot(loc_point(1),loc_point(2),'g<-');
-    hold on;
+    if(0 == Algo || 1 == Algo)
+        %调用nn定位算法
+        loc_point=FingerLocFun(APx,APy,FPx,FPy,fp_power,ap_power,ap_gain,fp_gain,Realx(i),Realy(i),noise,N,FAF,loss_d1,1,1);
+        loc_point_1(i,1) = loc_point(1);
+        loc_point_1(i,2) = loc_point(2);
+        H4 = plot(loc_point(1),loc_point(2),'g<-');
+        hold on;
+        legend([H1(1),H2(1),H3(1),H4(1)],'指纹节点','AP节点','真实路线','NN定位路径');
+    end
     
-    loc_point=FingerLocFun(APx,APy,FPx,FPy,fp_power,ap_power,ap_gain,fp_gain,Realx(i),Realy(i),noise,N,FAF,loss_d1,2,3);
-    loc_point_2(i,1) = loc_point(1); %%%
-    loc_point_2(i,2) = loc_point(2); %%%
-    H5 = plot(loc_point(1),loc_point(2),'b*-');
-    hold on;
+    if(0 == Algo || 2 == Algo)
+        %调用knn定位算法，k取3
+        loc_point=FingerLocFun(APx,APy,FPx,FPy,fp_power,ap_power,ap_gain,fp_gain,Realx(i),Realy(i),noise,N,FAF,loss_d1,2,3);
+        loc_point_2(i,1) = loc_point(1);
+        loc_point_2(i,2) = loc_point(2);
+        H5 = plot(loc_point(1),loc_point(2),'b*-');
+        hold on;
+            legend([H1(1),H2(1),H3(1),H5(1)],'指纹节点','AP节点','真实路线','KNN3路径');
+    end
     
-    loc_point=FingerLocFun(APx,APy,FPx,FPy,fp_power,ap_power,ap_gain,fp_gain,Realx(i),Realy(i),noise,N,FAF,loss_d1,3,3);
-    loc_point_3(i,1) = loc_point(1); %%%
-    loc_point_3(i,2) = loc_point(2); %%%
-    H6=plot(loc_point(1),loc_point(2),'r+-');
-    hold on;
+    if(0 == Algo || 3 == Algo)
+        %调用wknn定位算法，k取3
+        loc_point=FingerLocFun(APx,APy,FPx,FPy,fp_power,ap_power,ap_gain,fp_gain,Realx(i),Realy(i),noise,N,FAF,loss_d1,3,3);
+        loc_point_3(i,1) = loc_point(1);
+        loc_point_3(i,2) = loc_point(2);
+        H6=plot(loc_point(1),loc_point(2),'r+-');
+        hold on;
+            legend([H1(1),H2(1),H3(1),H6(1)],'指纹节点','AP节点','真实路线','WKNN3路径');
+    end
     
-    loc_point=FingerLocFun(APx,APy,FPx,FPy,fp_power,ap_power,ap_gain,fp_gain,Realx(i),Realy(i),noise,N,FAF,loss_d1,4,2);
-    loc_point_4(i,1) = loc_point(1); %%%
-    loc_point_4(i,2) = loc_point(2); %%%
-    H7=plot(loc_point(1),loc_point(2),'co-');
-    hold on;
+    if(0 == Algo || 4 == Algo)
+        %调用贝叶斯算法
+        loc_point=FingerLocFun(APx,APy,FPx,FPy,fp_power,ap_power,ap_gain,fp_gain,Realx(i),Realy(i),noise,N,FAF,loss_d1,4,2);
+        loc_point_4(i,1) = loc_point(1);
+        loc_point_4(i,2) = loc_point(2);
+        H7=plot(loc_point(1),loc_point(2),'co-');
+        hold on;
+            legend([H1(1),H2(1),H3(1),H7(1)],'指纹节点','AP节点','真实路线','贝叶斯算法路径');
+    end
 end
 
 %绘制真实及仿真路线
 H3L = plot(Realx,Realy,'k.-');
 hold on;
-H4L = plot(loc_point_1(:,1), loc_point_1(:,2), 'g<-');
-hold on;
-H5L = plot(loc_point_2(:,1), loc_point_2(:,2), 'b*-');
-hold on;
-H6L = plot(loc_point_3(:,1), loc_point_3(:,2), 'r+-');
-hold on;
-H7L = plot(loc_point_4(:,1), loc_point_4(:,2), 'co-');
-
+if(0 == Algo || 1 == Algo)
+    H4L = plot(loc_point_1(:,1), loc_point_1(:,2), 'g<-');
+    hold on;
+end
+if(0 == Algo || 2 == Algo)
+    H5L = plot(loc_point_2(:,1), loc_point_2(:,2), 'b*-');
+    hold on;
+end
+if(0 == Algo || 3 == Algo)
+    H6L = plot(loc_point_3(:,1), loc_point_3(:,2), 'r+-');
+    hold on;
+end
+if(0 == Algo || 4 == Algo)
+    H7L = plot(loc_point_4(:,1), loc_point_4(:,2), 'co-');
+    hold on;
+end
 box on;
-legend([H1(1),H2(1),H3(1),H4(1),H5(1),H6(1),H7(1)],'数据库采样点','AP节点位置','真实路线','NN定位路径','KNN3路径','WKNN3路径','贝叶斯算法路径')
-
+if(0 == Algo)
+    legend([H1(1),H2(1),H3(1),H4(1),H5(1),H6(1),H7(1)],'指纹节点','AP节点','真实路线','NN定位路径','KNN3路径','WKNN3路径','贝叶斯算法路径');
+end
 end
