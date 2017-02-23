@@ -1,13 +1,7 @@
 ﻿using MySql.Data.MySqlClient;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace WifiFingerprintLocationSimulator
@@ -136,14 +130,13 @@ namespace WifiFingerprintLocationSimulator
         // 删除一条用户信息
         private void button_UserManage_Delete_Click(object sender, EventArgs e)
         {
-            string UserName = listView_UserInfo.SelectedItems[0].SubItems[0].Text;
+            string UserName = listView_UserInfo.SelectedItems[0].SubItems[1].Text;
 
             try
             {
                 // SQL
                 string sql = "delete from user_info where user_name = '" + UserName + "'";
-                string sql_map = "delete from map_info where user_id = " + Convert.ToInt32(listView_UserInfo.SelectedItems[0].Text);
-
+                
                 // DataRead Process
                 MySqlConnection conn = new MySqlConnection(MySqlHelper.Conn);
                 conn.Open();
@@ -184,7 +177,7 @@ namespace WifiFingerprintLocationSimulator
         // 选中自己时不激活删除按钮
         private void listView_UserInfo_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (listView_UserInfo.SelectedItems.Count > 0 && listView_UserInfo.SelectedItems[1].Text != CurrentUserInfo.Name + "(自己)")
+            if (listView_UserInfo.SelectedItems.Count > 0 && listView_UserInfo.SelectedItems[0].SubItems[1].Text != CurrentUserInfo.Name + "(自己)")
             {
                 button_UserManage_Delete.Enabled = true;
             }

@@ -1,16 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace WifiFingerprintLocationSimulator
 {
-    /// <summary>
-
-    ///Base64 编码/解码
-
-    /// </summary>
     class Base64
     {
         /// <summary>

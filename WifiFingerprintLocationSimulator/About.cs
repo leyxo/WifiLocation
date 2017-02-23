@@ -1,11 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace WifiFingerprintLocationSimulator
@@ -58,7 +52,7 @@ namespace WifiFingerprintLocationSimulator
 
         private void pictureBox_Logo_DoubleClick(object sender, EventArgs e)
         {
-            MessageBox.Show("这是一棵圣诞树，嗯，没什么特别的\n这也是本软件的Logo\n希望你看到它就会开心 ^.^\n(...这个Logo象征着基站 ?? )\n                                 --- Mike Liang", "恭喜你发现了这个彩蛋！");
+            MessageBox.Show("这是一棵圣诞树，嗯，没什么特别的\n这也是本软件的Logo\n希望你看到它就会开心 ^.^\n\n(...这个Logo象征着AP节点 ?? )\n                                 --- Mike Liang", "恭喜你发现了这个彩蛋！");
         }
 
         private void pictureBox_Awful_MouseEnter(object sender, EventArgs e)

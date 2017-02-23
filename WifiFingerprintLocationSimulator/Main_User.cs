@@ -1,17 +1,17 @@
 ﻿using MySql.Data.MySqlClient;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Threading;
 using MathWorks.MATLAB.NET.Arrays;
-using MathWorks.MATLAB.NET.Utility;
-using LocationAlgorithm;
+//using System.Collections.Generic;
+//using System.ComponentModel;
+//using System.Data;
+//using System.Linq;
+//using System.Text;
+//using System.Threading.Tasks;
+//using MathWorks.MATLAB.NET.Utility;
+//using LocationAlgorithm;
 
 namespace WifiFingerprintLocationSimulator
 {
@@ -93,15 +93,8 @@ namespace WifiFingerprintLocationSimulator
                 // Log
                 LogHelper.generateLog(CurrentUserInfo.Name + " 已注销");
 
-                // 清空当前登录信息
-                CurrentUserInfo.Id = 0;
-                CurrentUserInfo.Name = "";
-                CurrentUserInfo.Type = "";
-                CurrentUserInfo.MapID = "";
-                CurrentUserInfo.MapWidth = 0;
-                CurrentUserInfo.MapHeight = 0;
-                CurrentUserInfo.ApID = "";
-                CurrentUserInfo.Panel = "";
+                // 清空CurrentUserInfo信息
+                utility_clean_all_currentuserinfo();
             }
         }
 
@@ -350,10 +343,12 @@ namespace WifiFingerprintLocationSimulator
 
         // 图像绘制：
 
-        // 配置图像绘制
-        // 被场景配置的载入按钮、AP和FP的刷新按钮调用
-        // CurrentUserInfo中有地图时绘制地图，信息为空时绘制空白背景
-        // 包含draw_map()，draw_ap()，draw_fp()
+        /// <summary>
+        /// 配置图像绘制
+        /// 被场景配置的载入按钮、AP和FP的刷新按钮调用
+        /// CurrentUserInfo中有地图时绘制地图，信息为空时绘制空白背景
+        /// 包含draw_map()，draw_ap()，draw_fp()
+        /// </summary>
         private void draw()
         {
             if (CurrentUserInfo.MapID != "")
@@ -370,6 +365,10 @@ namespace WifiFingerprintLocationSimulator
 
         // 实验图像绘制
         // 包含draw_map()，darw_init()，draw_real()
+        /// <summary>
+        /// 实验图像绘制
+        /// 包含draw_map()，darw_init()，draw_real()
+        /// </summary>
         private void draws()
         {
             if (CurrentUserInfo.MapID != "")
@@ -755,6 +754,62 @@ namespace WifiFingerprintLocationSimulator
         }
 
 // ***********************************************************************************
+// *工具函数 *************************************************************************
+// ***********************************************************************************
+
+        // 清空所有textBox内的显示内容
+        private void utility_clean_all_textbox()
+        {
+            textBox_map_name.Text = "";
+            textBox_ap_map.Text = "";
+            textBox_fp_map.Text = "";
+            textBox_rss_map.Text = "";
+            textBox_map_width.Text = "";
+            textBox_map_height.Text = "";
+            textBox_map_note.Text = "";
+
+            textBox_ap_x.Text = "";
+            textBox_ap_y.Text = "";
+            textBox_ap_sendpower.Text = "";
+            textBox_ap_sendgain.Text = "";
+            textBox_ap_receiverefer.Text = "";
+            textBox_fp_distance.Text = "";
+            textBox_fp_receivegain.Text = "";
+
+            textBox_simu_lastpoint_x.Text = "";
+            textBox_simu_lastpoint_y.Text = "";
+            textBox_simu_mapsize_x.Text = "";
+            textBox_simu_mapsize_y.Text = "";
+            textBox_simu_point_x.Text = "";
+            textBox_simu_point_y.Text = "";
+        }
+
+        // 清空CurrentUserInfo信息 - 所有信息(包含以下两个)
+        private void utility_clean_all_currentuserinfo()
+        {
+            utility_clean_userdata_currentuserinfo();
+            utility_clean_mapdata_currentuserinfo();
+            CurrentUserInfo.Panel = "";
+        }
+
+        // 清空CurrentUserInfo信息 - 用户信息
+        private void utility_clean_userdata_currentuserinfo()
+        {
+            CurrentUserInfo.Id = 0;
+            CurrentUserInfo.Name = "";
+            CurrentUserInfo.Type = "";
+        }
+
+        // 清空CurrentUserInfo信息 - 仿真信息
+        private void utility_clean_mapdata_currentuserinfo()
+        {
+            CurrentUserInfo.MapID = "";
+            CurrentUserInfo.MapWidth = 0;
+            CurrentUserInfo.MapHeight = 0;
+            CurrentUserInfo.ApID = "";
+        }
+
+// ***********************************************************************************
 // *环境配置-场景配置 ****************************************************************
 // ***********************************************************************************
 
@@ -857,6 +912,10 @@ namespace WifiFingerprintLocationSimulator
                     MessageBox.Show("地图 " + MapName + " 已删除!");
 
                     conn.Close();
+
+                    // Log
+                    LogHelper.generateLog("[场景配置] " + CurrentUserInfo.Name + " 删除了地图 " + textBox_map_name.Text + "及其实验数据");
+
                     button_map_refresh_Click(new object(), new EventArgs());
                 }
             }
@@ -869,54 +928,14 @@ namespace WifiFingerprintLocationSimulator
         // 环境配置-场景配置 删除按钮
         private void button_map_delete_Click(object sender, EventArgs e)
         {
-            // Log
-            LogHelper.generateLog("[场景配置] " + CurrentUserInfo.Name + " 删除了地图 " + textBox_map_name.Text + "及其实验数据");
-
-            // 清空该地图AP数据
-            ap_delete();
-
-            // 清空该地图FP数据
-            fp_delete();
-
-            // 清空该地图RSS数据
-            rss_delete();
-
-            // 清空地图实验数据
-            simu_delete();
-
-            // 清空地图数据 (一定要最后进行，之前需要用到CurrentUserInfo信息)
+            // 清空地图数据 (DB采用级联删除)
             map_delete();
 
             // 清空CurrentUserInfo记录信息
-            CurrentUserInfo.MapID = "";
-            CurrentUserInfo.MapWidth = 0;
-            CurrentUserInfo.MapHeight = 0;
-            CurrentUserInfo.ApID = "";
+            utility_clean_mapdata_currentuserinfo();
 
             // 清空所有控件内的显示内容
-            textBox_map_name.Text = "";
-            textBox_ap_map.Text = "";
-            textBox_fp_map.Text = "";
-            textBox_rss_map.Text = "";
-            textBox_map_width.Text = "";
-            textBox_map_height.Text = "";
-            textBox_map_note.Text = "";
-
-            textBox_ap_x.Text = "";
-            textBox_ap_y.Text = "";
-            textBox_ap_sendpower.Text = "";
-            textBox_ap_sendgain.Text = "";
-            textBox_ap_receiverefer.Text = "";
-            textBox_fp_distance.Text = "";
-            textBox_fp_receivegain.Text = "";
-
-            textBox_simu_lastpoint_x.Text = "";
-            textBox_simu_lastpoint_y.Text = "";
-            textBox_simu_mapsize_x.Text = "";
-            textBox_simu_mapsize_y.Text = "";
-            textBox_simu_point_x.Text = "";
-            textBox_simu_point_y.Text = "";
-
+            utility_clean_all_textbox();
 
             // 执行一遍刷新
             button_ap_refresh_Click(new object(), new EventArgs());
@@ -1589,10 +1608,10 @@ namespace WifiFingerprintLocationSimulator
                 fp_delete();
 
                 // 生成指纹节点坐标数组
-                for (int i = Convert.ToInt32(textBox_fp_distance.Text); i < CurrentUserInfo.MapWidth; i += Convert.ToInt32(textBox_fp_distance.Text))
-                    for (int j = Convert.ToInt32(textBox_fp_distance.Text); j < CurrentUserInfo.MapHeight; j += Convert.ToInt32(textBox_fp_distance.Text))
-                    {
-                        try
+                try
+                {
+                    for (int i = Convert.ToInt32(textBox_fp_distance.Text); i < CurrentUserInfo.MapWidth; i += Convert.ToInt32(textBox_fp_distance.Text))
+                        for (int j = Convert.ToInt32(textBox_fp_distance.Text); j < CurrentUserInfo.MapHeight; j += Convert.ToInt32(textBox_fp_distance.Text))
                         {
                             // SQL
                             string sql = "insert into fp_info (map_id, fp_x, fp_y, fp_receivegain, reg_date) values('" + CurrentUserInfo.MapID + "'," + i + "," + j + ",'" + textBox_fp_receivegain.Text + "','" + DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss") + "')";
@@ -1606,9 +1625,6 @@ namespace WifiFingerprintLocationSimulator
 
                             if (k > 0)
                             {
-                                // Log
-                                LogHelper.generateLog("[指纹节点配置] " + CurrentUserInfo.Name + " 在地图 " + textBox_map_name.Text + " 中生成了指纹节点");
-
                                 //  MessageBox.Show("已自动生成指纹节点!");
                             }
                             else
@@ -1617,15 +1633,18 @@ namespace WifiFingerprintLocationSimulator
                             }
                             conn.Close();
                         }
-                        catch
-                        {
-                                MessageBox.Show("Error !");
-                        }
-                    }
 
-                // 使参数为非 new object()，触发刷新
-                object o = new Button();
-                button_fp_refresh_Click(o, new EventArgs());
+                    // Log
+                    LogHelper.generateLog("[指纹节点配置] " + CurrentUserInfo.Name + " 在地图 " + textBox_map_name.Text + " 中生成了间距为" + textBox_fp_distance.Text + "指纹节点");
+
+                    // 使参数为非 new object()，触发刷新
+                    object o = new Button();
+                    button_fp_refresh_Click(o, new EventArgs());
+                }
+                catch
+                {
+                    MessageBox.Show("Error !");
+                }
             }
         }
 
@@ -2031,8 +2050,10 @@ namespace WifiFingerprintLocationSimulator
             }
         }
 
-        // 获取所调用算法
-        // 返回值: 0:所有算法 1:NN 2:KNN 3:WKNN 4:贝叶斯
+        /// <summary>
+        /// 获取所调用算法
+        /// 返回值: 0:所有算法 1:NN 2:KNN 3:WKNN 4:贝叶斯
+        /// </summary>
         private int getAlgoID()
         {
             int Algod = 0;
@@ -2051,10 +2072,12 @@ namespace WifiFingerprintLocationSimulator
             return Algod;
         }
 
-        // 调用MatLab的main函数
-        // 参数列表:
-        // Task 1:仿真实验 2:CDF曲线
-        // Algo 0:所有算法 1:NN 2:KNN 3:WKNN 4:贝叶斯
+        /// <summary>
+        /// 调用MatLab的main函数
+        /// 参数:
+        /// Task 1:仿真实验 2:CDF曲线
+        /// Algo 0:所有算法 1:NN 2:KNN 3:WKNN 4:贝叶斯
+        /// </summary>
         private void usingMatLabFunction(int Task, int Algo = 0)
         {
             // 显示进度条
