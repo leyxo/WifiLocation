@@ -62,6 +62,7 @@ namespace WifiFingerprintLocationSimulator
                 Application.OpenForms["Main"].Show();
                 this.Hide();
 
+                CurrentUserInfo.Id = 0;
                 CurrentUserInfo.Name = "";
                 CurrentUserInfo.Type = "";
             }
@@ -81,7 +82,7 @@ namespace WifiFingerprintLocationSimulator
             try
             {
                 // SQL
-                string sql = "select user_name, user_type, reg_date, user_email from user_info";
+                string sql = "select user_id, user_name, user_type, reg_date, user_email from user_info";
 
                 // DataRead Process
                 MySqlConnection conn = new MySqlConnection(MySqlHelper.Conn);
@@ -95,6 +96,7 @@ namespace WifiFingerprintLocationSimulator
 
                 while (sdr.Read())
                 {
+                    string userID = sdr.GetString(sdr.GetOrdinal("user_id"));
                     string userName = sdr.GetString(sdr.GetOrdinal("user_name"));
                     string userType_str = sdr.GetString(sdr.GetOrdinal("user_type"));
                     string regDate = sdr.GetString(sdr.GetOrdinal("reg_date"));
@@ -109,7 +111,8 @@ namespace WifiFingerprintLocationSimulator
                     if (userName == CurrentUserInfo.Name)
                         userName += "(自己)";
 
-                    ListViewItem item = new ListViewItem(userName);
+                    ListViewItem item = new ListViewItem(userID);
+                    item.SubItems.Add(userName);
                     item.SubItems.Add(userType);
                     item.SubItems.Add(regDate);
                     item.SubItems.Add(userEmail);
@@ -139,6 +142,7 @@ namespace WifiFingerprintLocationSimulator
             {
                 // SQL
                 string sql = "delete from user_info where user_name = '" + UserName + "'";
+                string sql_map = "delete from map_info where user_id = " + Convert.ToInt32(listView_UserInfo.SelectedItems[0].Text);
 
                 // DataRead Process
                 MySqlConnection conn = new MySqlConnection(MySqlHelper.Conn);
@@ -180,7 +184,7 @@ namespace WifiFingerprintLocationSimulator
         // 选中自己时不激活删除按钮
         private void listView_UserInfo_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (listView_UserInfo.SelectedItems.Count > 0 && listView_UserInfo.SelectedItems[0].Text != CurrentUserInfo.Name + "(自己)")
+            if (listView_UserInfo.SelectedItems.Count > 0 && listView_UserInfo.SelectedItems[1].Text != CurrentUserInfo.Name + "(自己)")
             {
                 button_UserManage_Delete.Enabled = true;
             }

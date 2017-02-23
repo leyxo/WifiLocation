@@ -42,26 +42,27 @@
             this.ToolStripMenuItem_Menu_Help = new System.Windows.Forms.ToolStripMenuItem();
             this.ToolStripMenuItem_Help = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-            this.ToolStripMenuItem_About = new System.Windows.Forms.ToolStripMenuItem();
             this.panel_UserInfoManage = new System.Windows.Forms.Panel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.button_Log_Refresh = new System.Windows.Forms.Button();
+            this.label_LogPath_Label = new System.Windows.Forms.Label();
             this.label_LogPath = new System.Windows.Forms.Label();
             this.textBox_Log = new System.Windows.Forms.TextBox();
-            this.button_Log_Clean = new System.Windows.Forms.Button();
-            this.button_Log_Export = new System.Windows.Forms.Button();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.button_UserManage_Delete = new System.Windows.Forms.Button();
             this.listView_UserInfo = new System.Windows.Forms.ListView();
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.button_UserManage_Delete = new System.Windows.Forms.Button();
             this.button_UserManage_AddUser = new System.Windows.Forms.Button();
             this.button_UserManage_Refresh = new System.Windows.Forms.Button();
-            this.tabControl1 = new System.Windows.Forms.TabControl();
-            this.label_LogPath_Label = new System.Windows.Forms.Label();
+            this.button_Log_Refresh = new System.Windows.Forms.Button();
+            this.button_Log_Clean = new System.Windows.Forms.Button();
+            this.button_Log_Export = new System.Windows.Forms.Button();
+            this.ToolStripMenuItem_About = new System.Windows.Forms.ToolStripMenuItem();
+            this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.statusStrip1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.panel_UserInfoManage.SuspendLayout();
@@ -169,14 +170,6 @@
             this.toolStripSeparator2.Name = "toolStripSeparator2";
             this.toolStripSeparator2.Size = new System.Drawing.Size(213, 6);
             // 
-            // ToolStripMenuItem_About
-            // 
-            this.ToolStripMenuItem_About.Image = global::WifiFingerprintLocationSimulator.Properties.Resources.Icon;
-            this.ToolStripMenuItem_About.Name = "ToolStripMenuItem_About";
-            this.ToolStripMenuItem_About.Size = new System.Drawing.Size(216, 22);
-            this.ToolStripMenuItem_About.Text = "关于 室内定位仿真平台(A)";
-            this.ToolStripMenuItem_About.Click += new System.EventHandler(this.ToolStripMenuItem_About_Click);
-            // 
             // panel_UserInfoManage
             // 
             this.panel_UserInfoManage.BackColor = System.Drawing.Color.Transparent;
@@ -211,17 +204,14 @@
             this.tabPage3.Text = "系统日志";
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
-            // button_Log_Refresh
+            // label_LogPath_Label
             // 
-            this.button_Log_Refresh.Image = global::WifiFingerprintLocationSimulator.Properties.Resources.button_list;
-            this.button_Log_Refresh.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button_Log_Refresh.Location = new System.Drawing.Point(625, 123);
-            this.button_Log_Refresh.Name = "button_Log_Refresh";
-            this.button_Log_Refresh.Size = new System.Drawing.Size(75, 23);
-            this.button_Log_Refresh.TabIndex = 8;
-            this.button_Log_Refresh.Text = "  刷新";
-            this.button_Log_Refresh.UseVisualStyleBackColor = true;
-            this.button_Log_Refresh.Click += new System.EventHandler(this.button_Log_Refresh_Click);
+            this.label_LogPath_Label.AutoSize = true;
+            this.label_LogPath_Label.Location = new System.Drawing.Point(13, 392);
+            this.label_LogPath_Label.Name = "label_LogPath_Label";
+            this.label_LogPath_Label.Size = new System.Drawing.Size(113, 12);
+            this.label_LogPath_Label.TabIndex = 9;
+            this.label_LogPath_Label.Text = "当前日志文件路径：";
             // 
             // label_LogPath
             // 
@@ -247,30 +237,6 @@
             this.textBox_Log.TabIndex = 6;
             this.textBox_Log.WordWrap = false;
             // 
-            // button_Log_Clean
-            // 
-            this.button_Log_Clean.Image = global::WifiFingerprintLocationSimulator.Properties.Resources.button_delete_all;
-            this.button_Log_Clean.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button_Log_Clean.Location = new System.Drawing.Point(625, 83);
-            this.button_Log_Clean.Name = "button_Log_Clean";
-            this.button_Log_Clean.Size = new System.Drawing.Size(75, 23);
-            this.button_Log_Clean.TabIndex = 5;
-            this.button_Log_Clean.Text = "  清空";
-            this.button_Log_Clean.UseVisualStyleBackColor = true;
-            this.button_Log_Clean.Click += new System.EventHandler(this.button_Log_Clean_Click);
-            // 
-            // button_Log_Export
-            // 
-            this.button_Log_Export.Image = global::WifiFingerprintLocationSimulator.Properties.Resources.button_generate;
-            this.button_Log_Export.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button_Log_Export.Location = new System.Drawing.Point(625, 44);
-            this.button_Log_Export.Name = "button_Log_Export";
-            this.button_Log_Export.Size = new System.Drawing.Size(75, 23);
-            this.button_Log_Export.TabIndex = 4;
-            this.button_Log_Export.Text = "  导出";
-            this.button_Log_Export.UseVisualStyleBackColor = true;
-            this.button_Log_Export.Click += new System.EventHandler(this.button_Log_Export_Click);
-            // 
             // tabPage1
             // 
             this.tabPage1.Controls.Add(this.button_UserManage_Delete);
@@ -285,25 +251,14 @@
             this.tabPage1.Text = "用户信息管理";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
-            // button_UserManage_Delete
-            // 
-            this.button_UserManage_Delete.Image = global::WifiFingerprintLocationSimulator.Properties.Resources.button_delete;
-            this.button_UserManage_Delete.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button_UserManage_Delete.Location = new System.Drawing.Point(625, 123);
-            this.button_UserManage_Delete.Name = "button_UserManage_Delete";
-            this.button_UserManage_Delete.Size = new System.Drawing.Size(75, 23);
-            this.button_UserManage_Delete.TabIndex = 4;
-            this.button_UserManage_Delete.Text = "  删除";
-            this.button_UserManage_Delete.UseVisualStyleBackColor = true;
-            this.button_UserManage_Delete.Click += new System.EventHandler(this.button_UserManage_Delete_Click);
-            // 
             // listView_UserInfo
             // 
             this.listView_UserInfo.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeader1,
             this.columnHeader2,
             this.columnHeader3,
-            this.columnHeader4});
+            this.columnHeader4,
+            this.columnHeader5});
             this.listView_UserInfo.FullRowSelect = true;
             this.listView_UserInfo.Location = new System.Drawing.Point(12, 15);
             this.listView_UserInfo.MultiSelect = false;
@@ -317,23 +272,45 @@
             // 
             // columnHeader1
             // 
-            this.columnHeader1.Text = "姓名";
-            this.columnHeader1.Width = 107;
+            this.columnHeader1.Text = "用户ID";
+            this.columnHeader1.Width = 49;
             // 
             // columnHeader2
             // 
-            this.columnHeader2.Text = "用户类型";
-            this.columnHeader2.Width = 89;
+            this.columnHeader2.Text = "姓名";
+            this.columnHeader2.Width = 98;
             // 
             // columnHeader3
             // 
-            this.columnHeader3.Text = "注册时间";
-            this.columnHeader3.Width = 159;
+            this.columnHeader3.Text = "用户类型";
+            this.columnHeader3.Width = 89;
             // 
             // columnHeader4
             // 
-            this.columnHeader4.Text = "邮箱";
-            this.columnHeader4.Width = 197;
+            this.columnHeader4.Text = "注册时间";
+            this.columnHeader4.Width = 159;
+            // 
+            // tabControl1
+            // 
+            this.tabControl1.Controls.Add(this.tabPage1);
+            this.tabControl1.Controls.Add(this.tabPage3);
+            this.tabControl1.Location = new System.Drawing.Point(12, 39);
+            this.tabControl1.Name = "tabControl1";
+            this.tabControl1.SelectedIndex = 0;
+            this.tabControl1.Size = new System.Drawing.Size(747, 441);
+            this.tabControl1.TabIndex = 6;
+            // 
+            // button_UserManage_Delete
+            // 
+            this.button_UserManage_Delete.Image = global::WifiFingerprintLocationSimulator.Properties.Resources.button_delete;
+            this.button_UserManage_Delete.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button_UserManage_Delete.Location = new System.Drawing.Point(625, 123);
+            this.button_UserManage_Delete.Name = "button_UserManage_Delete";
+            this.button_UserManage_Delete.Size = new System.Drawing.Size(75, 23);
+            this.button_UserManage_Delete.TabIndex = 4;
+            this.button_UserManage_Delete.Text = "  删除";
+            this.button_UserManage_Delete.UseVisualStyleBackColor = true;
+            this.button_UserManage_Delete.Click += new System.EventHandler(this.button_UserManage_Delete_Click);
             // 
             // button_UserManage_AddUser
             // 
@@ -359,24 +336,54 @@
             this.button_UserManage_Refresh.UseVisualStyleBackColor = true;
             this.button_UserManage_Refresh.Click += new System.EventHandler(this.button_UserManage_Refresh_Click);
             // 
-            // tabControl1
+            // button_Log_Refresh
             // 
-            this.tabControl1.Controls.Add(this.tabPage1);
-            this.tabControl1.Controls.Add(this.tabPage3);
-            this.tabControl1.Location = new System.Drawing.Point(12, 39);
-            this.tabControl1.Name = "tabControl1";
-            this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(747, 441);
-            this.tabControl1.TabIndex = 6;
+            this.button_Log_Refresh.Image = global::WifiFingerprintLocationSimulator.Properties.Resources.button_list;
+            this.button_Log_Refresh.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button_Log_Refresh.Location = new System.Drawing.Point(625, 123);
+            this.button_Log_Refresh.Name = "button_Log_Refresh";
+            this.button_Log_Refresh.Size = new System.Drawing.Size(75, 23);
+            this.button_Log_Refresh.TabIndex = 8;
+            this.button_Log_Refresh.Text = "  刷新";
+            this.button_Log_Refresh.UseVisualStyleBackColor = true;
+            this.button_Log_Refresh.Click += new System.EventHandler(this.button_Log_Refresh_Click);
             // 
-            // label_LogPath_Label
+            // button_Log_Clean
             // 
-            this.label_LogPath_Label.AutoSize = true;
-            this.label_LogPath_Label.Location = new System.Drawing.Point(13, 392);
-            this.label_LogPath_Label.Name = "label_LogPath_Label";
-            this.label_LogPath_Label.Size = new System.Drawing.Size(113, 12);
-            this.label_LogPath_Label.TabIndex = 9;
-            this.label_LogPath_Label.Text = "当前日志文件路径：";
+            this.button_Log_Clean.Image = global::WifiFingerprintLocationSimulator.Properties.Resources.button_delete_all;
+            this.button_Log_Clean.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button_Log_Clean.Location = new System.Drawing.Point(625, 83);
+            this.button_Log_Clean.Name = "button_Log_Clean";
+            this.button_Log_Clean.Size = new System.Drawing.Size(75, 23);
+            this.button_Log_Clean.TabIndex = 5;
+            this.button_Log_Clean.Text = "  清空";
+            this.button_Log_Clean.UseVisualStyleBackColor = true;
+            this.button_Log_Clean.Click += new System.EventHandler(this.button_Log_Clean_Click);
+            // 
+            // button_Log_Export
+            // 
+            this.button_Log_Export.Image = global::WifiFingerprintLocationSimulator.Properties.Resources.button_export;
+            this.button_Log_Export.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button_Log_Export.Location = new System.Drawing.Point(625, 44);
+            this.button_Log_Export.Name = "button_Log_Export";
+            this.button_Log_Export.Size = new System.Drawing.Size(75, 23);
+            this.button_Log_Export.TabIndex = 4;
+            this.button_Log_Export.Text = "  导出";
+            this.button_Log_Export.UseVisualStyleBackColor = true;
+            this.button_Log_Export.Click += new System.EventHandler(this.button_Log_Export_Click);
+            // 
+            // ToolStripMenuItem_About
+            // 
+            this.ToolStripMenuItem_About.Image = global::WifiFingerprintLocationSimulator.Properties.Resources.Icon;
+            this.ToolStripMenuItem_About.Name = "ToolStripMenuItem_About";
+            this.ToolStripMenuItem_About.Size = new System.Drawing.Size(216, 22);
+            this.ToolStripMenuItem_About.Text = "关于 室内定位仿真平台(A)";
+            this.ToolStripMenuItem_About.Click += new System.EventHandler(this.ToolStripMenuItem_About_Click);
+            // 
+            // columnHeader5
+            // 
+            this.columnHeader5.Text = "邮箱";
+            this.columnHeader5.Width = 159;
             // 
             // Main_Admin
             // 
@@ -442,5 +449,6 @@
         private System.Windows.Forms.Button button_UserManage_Refresh;
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.Label label_LogPath_Label;
+        private System.Windows.Forms.ColumnHeader columnHeader5;
     }
 }

@@ -94,6 +94,7 @@ namespace WifiFingerprintLocationSimulator
                 LogHelper.generateLog(CurrentUserInfo.Name + " 已注销");
 
                 // 清空当前登录信息
+                CurrentUserInfo.Id = 0;
                 CurrentUserInfo.Name = "";
                 CurrentUserInfo.Type = "";
                 CurrentUserInfo.MapID = "";
@@ -382,7 +383,6 @@ namespace WifiFingerprintLocationSimulator
                 draw_init();
             }
         }
-
 
         // 图像绘制子模块：
 
@@ -774,7 +774,7 @@ namespace WifiFingerprintLocationSimulator
             try
             {
                 // SQL
-                string sql = "select map_id, map_name, map_width, map_height, map_info, reg_date from map_info";
+                string sql = "select map_id, map_name, map_width, map_height, map_info, reg_date from map_info where user_id = " + CurrentUserInfo.Id;
 
                 // DataRead Process
                 MySqlConnection conn = new MySqlConnection(MySqlHelper.Conn);
@@ -842,7 +842,7 @@ namespace WifiFingerprintLocationSimulator
             try
             {
                 // SQL
-                string sql = "delete from map_info where map_name = '" + MapName + "'";
+                string sql = "delete from map_info where map_name = '" + MapName + "' and user_id = " + CurrentUserInfo.Id;
 
                 // DataRead Process
                 MySqlConnection conn = new MySqlConnection(MySqlHelper.Conn);
@@ -906,6 +906,7 @@ namespace WifiFingerprintLocationSimulator
             textBox_ap_y.Text = "";
             textBox_ap_sendpower.Text = "";
             textBox_ap_sendgain.Text = "";
+            textBox_ap_receiverefer.Text = "";
             textBox_fp_distance.Text = "";
             textBox_fp_receivegain.Text = "";
 
@@ -952,7 +953,7 @@ namespace WifiFingerprintLocationSimulator
             try
             {
                 // SQL
-                string sql = "select * from map_info where map_name = '" + textBox_map_name.Text + "'";
+                string sql = "select * from map_info where map_name = '" + textBox_map_name.Text + "' and user_id = " + CurrentUserInfo.Id;
                
                 // DataRead Process
                 MySqlConnection conn = new MySqlConnection(MySqlHelper.Conn);
@@ -1015,8 +1016,8 @@ namespace WifiFingerprintLocationSimulator
                 try
                 {
                     // SQL
-                    string sql = "insert into map_info (map_name, map_width, map_height, map_info, reg_date) values('" + textBox_map_name.Text + "','" + textBox_map_width.Text + "','" + textBox_map_height.Text + "','" + textBox_map_note.Text + "','" + DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss") + "')";
-                    string sql_check = "select * from map_info where map_name = '" + textBox_map_name.Text + "'";
+                    string sql = "insert into map_info (map_name, map_width, map_height, map_info, reg_date, user_id) values('" + textBox_map_name.Text + "','" + textBox_map_width.Text + "','" + textBox_map_height.Text + "','" + textBox_map_note.Text + "','" + DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss") + "'," + CurrentUserInfo.Id + ")";
+                    string sql_check = "select * from map_info where map_name = '" + textBox_map_name.Text + "' and user_id = " + CurrentUserInfo.Id;
 
                     // DataRead Process
                     MySqlConnection conn = new MySqlConnection(MySqlHelper.Conn);
@@ -1252,7 +1253,9 @@ namespace WifiFingerprintLocationSimulator
             textBox_ap_receiverefer.Text = listView_ap.SelectedItems[0].SubItems[6].Text;
             CurrentUserInfo.ApID = listView_ap.SelectedItems[0].SubItems[0].Text;
 
-            button_ap_refresh_Click(new object(), new EventArgs());
+            // 使参数为非 new object()，触发刷新
+            object o = new Button();
+            button_ap_refresh_Click(o, new EventArgs());
             button_ap_modify.Enabled = true;
         }
 
@@ -1373,7 +1376,9 @@ namespace WifiFingerprintLocationSimulator
                     }
                 }
 
-                button_ap_refresh_Click(new object(), new EventArgs());
+                // 使参数为非 new object()，触发刷新
+                object o = new Button();
+                button_ap_refresh_Click(o, new EventArgs());
             }
         }
 
@@ -1394,7 +1399,9 @@ namespace WifiFingerprintLocationSimulator
                 i = cmd.ExecuteNonQuery();
 
                 conn.Close();
-                button_ap_refresh_Click(new object(), new EventArgs());
+                // 使参数为非 new object()，触发刷新
+                object o = new Button();
+                button_ap_refresh_Click(o, new EventArgs());
                 
             }
             catch
@@ -1436,7 +1443,9 @@ namespace WifiFingerprintLocationSimulator
                     }
 
                     conn.Close();
-                    button_ap_refresh_Click(new object(), new EventArgs());
+                    // 使参数为非 new object()，触发刷新
+                    object o = new Button();
+                    button_ap_refresh_Click(o, new EventArgs());
                 }
             }
             catch
@@ -1614,7 +1623,9 @@ namespace WifiFingerprintLocationSimulator
                         }
                     }
 
-                button_fp_refresh_Click(new object(), new EventArgs());
+                // 使参数为非 new object()，触发刷新
+                object o = new Button();
+                button_fp_refresh_Click(o, new EventArgs());
             }
         }
 
@@ -1638,6 +1649,10 @@ namespace WifiFingerprintLocationSimulator
             {
                 MessageBox.Show("Error !");
             }
+
+            // 使参数为非 new object()，触发刷新
+            object o = new Button();
+            button_fp_refresh_Click(o, new EventArgs());
         }
 
 // ***********************************************************************************
@@ -1729,6 +1744,9 @@ namespace WifiFingerprintLocationSimulator
             {
                 MessageBox.Show("Error !");
             }
+            // 使参数为非 new object()，触发刷新
+            object o = new Button();
+            button_rss_refresh_Click(o, new EventArgs());
         }
 
 // ***********************************************************************************
@@ -1846,10 +1864,12 @@ namespace WifiFingerprintLocationSimulator
                 textBox_simu_point_y.Text = "";
 
                 // Log
-                LogHelper.generateLog("[路线设置] " + CurrentUserInfo.Name + " 在地图 " + textBox_map_name.Text + " 中添加了路线顶点(" + textBox_simu_mapsize_x + "," + textBox_simu_lastpoint_y + ")");
+                LogHelper.generateLog("[路线设置] " + CurrentUserInfo.Name + " 在地图 " + textBox_map_name.Text + " 中添加了路线顶点(" + textBox_simu_mapsize_x.Text + "," + textBox_simu_lastpoint_y.Text + ")");
 
                 // 刷新
-                button_simu_refresh_Click(new object(), new EventArgs());
+                // 使参数为非 new object()，触发刷新
+                object o = new Button();
+                button_simu_refresh_Click(o, new EventArgs());
             }
         }
 
@@ -1870,7 +1890,9 @@ namespace WifiFingerprintLocationSimulator
                 i = cmd.ExecuteNonQuery();
 
                 conn.Close();
-                button_simu_refresh_Click(new object(), new EventArgs());
+                // 使参数为非 new object()，触发刷新
+                object o = new Button();
+                button_simu_refresh_Click(o, new EventArgs());
 
             }
             catch
@@ -2114,6 +2136,7 @@ namespace WifiFingerprintLocationSimulator
 
                 LocationAlgorithm.LocationAlgorithm l = new LocationAlgorithm.LocationAlgorithm();
                 l.main(Taskd, Algod, Map_Xd, Map_Yd, AP_Numd, APxd, APyd, AP_Powerd, AP_Gaind, AP_ReceiveReferd, FP_Numd, FPxd, FPyd, FP_Gaind, Simu_Numd, Realxd, Realyd);
+                
             }
             catch (System.FormatException)
             {
@@ -2133,7 +2156,24 @@ namespace WifiFingerprintLocationSimulator
             progBar.ShowDialog();
         }
 
-       
+        // 仿真实验-实验算法选择项发生改变
+        private void comboBox_simu_algorithm_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if ("所有算法" == comboBox_simu_algorithm.Text || "" == comboBox_simu_algorithm.Text || "NN" == comboBox_simu_algorithm.Text || "贝叶斯概率" == comboBox_simu_algorithm.Text)
+            {
+                label_simu_k.Visible = false;
+                label_simu_info.Visible = false;
+                comboBox_simu_k.Visible = false;
+            }
+            else if ("KNN" == comboBox_simu_algorithm.Text || "WKNN" == comboBox_simu_algorithm.Text)
+            {
+                label_simu_k.Visible = true;
+                label_simu_info.Visible = true;
+                comboBox_simu_k.Visible = true;
+            }
+        }
+
+
 // ***********************************************************************************
 // *点击场景切换大图模式 *************************************************************
 // ***********************************************************************************
@@ -2208,5 +2248,6 @@ namespace WifiFingerprintLocationSimulator
             }
         }
 
+        
     }
 }

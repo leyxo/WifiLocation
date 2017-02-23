@@ -27,14 +27,22 @@ namespace WifiFingerprintLocationSimulator
             // 初始化选中状态
             //
             if (true == CurrentUserInfo.settings_showCoord)
+            {
                 checkBox_showCoord.CheckState = CheckState.Checked;
+            }
             else
+            {
                 checkBox_showCoord.CheckState = CheckState.Unchecked;
+            }
             //
             if (true == CurrentUserInfo.settings_showAPRadio)
+            {
                 checkBox_showAPRadio.CheckState = CheckState.Checked;
+            }
             else
+            {
                 checkBox_showAPRadio.CheckState = CheckState.Unchecked;
+            }
         }
 
         private void button_Save_Click(object sender, EventArgs e)

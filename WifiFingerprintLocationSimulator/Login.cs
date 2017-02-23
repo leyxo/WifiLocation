@@ -66,6 +66,7 @@ namespace WifiFingerprintLocationSimulator
             {
                 CurrentUserInfo.Name = sdr.GetString(sdr.GetOrdinal("user_name")).Replace(" ", "");
                 CurrentUserInfo.Type = user_type;
+                CurrentUserInfo.Id = Convert.ToInt32(sdr.GetString(sdr.GetOrdinal("user_id")));
                 conn.Close();
 
                 MessageBox.Show("欢迎您，" + CurrentUserInfo.Name + "!", "登录成功!");

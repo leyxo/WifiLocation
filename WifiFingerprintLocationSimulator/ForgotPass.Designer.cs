@@ -169,7 +169,7 @@
             // 
             this.label_Note.AutoSize = true;
             this.label_Note.ForeColor = System.Drawing.SystemColors.AppWorkspace;
-            this.label_Note.Location = new System.Drawing.Point(48, 115);
+            this.label_Note.Location = new System.Drawing.Point(48, 122);
             this.label_Note.Name = "label_Note";
             this.label_Note.Size = new System.Drawing.Size(209, 12);
             this.label_Note.TabIndex = 35;

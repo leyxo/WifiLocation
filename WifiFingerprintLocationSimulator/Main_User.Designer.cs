@@ -171,6 +171,9 @@
             this.button_simu_refresh = new System.Windows.Forms.Button();
             this.button_simu_add = new System.Windows.Forms.Button();
             this.tabPage6 = new System.Windows.Forms.TabPage();
+            this.label_simu_info = new System.Windows.Forms.Label();
+            this.comboBox_simu_k = new System.Windows.Forms.ComboBox();
+            this.label_simu_k = new System.Windows.Forms.Label();
             this.button_simu_matlab = new System.Windows.Forms.Button();
             this.button_simu_start = new System.Windows.Forms.Button();
             this.comboBox_simu_algorithm = new System.Windows.Forms.ComboBox();
@@ -1338,6 +1341,7 @@
             this.textBox_simu_lastpoint_y.ReadOnly = true;
             this.textBox_simu_lastpoint_y.Size = new System.Drawing.Size(56, 21);
             this.textBox_simu_lastpoint_y.TabIndex = 41;
+            this.textBox_simu_lastpoint_y.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // textBox_simu_lastpoint_x
             // 
@@ -1346,6 +1350,7 @@
             this.textBox_simu_lastpoint_x.ReadOnly = true;
             this.textBox_simu_lastpoint_x.Size = new System.Drawing.Size(56, 21);
             this.textBox_simu_lastpoint_x.TabIndex = 40;
+            this.textBox_simu_lastpoint_x.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // label_simu_lastpoint
             // 
@@ -1380,6 +1385,7 @@
             this.textBox_simu_point_y.Name = "textBox_simu_point_y";
             this.textBox_simu_point_y.Size = new System.Drawing.Size(56, 21);
             this.textBox_simu_point_y.TabIndex = 2;
+            this.textBox_simu_point_y.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.textBox_simu_point_y.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox_simu_point_y_KeyPress);
             // 
             // textBox_simu_point_x
@@ -1388,6 +1394,7 @@
             this.textBox_simu_point_x.Name = "textBox_simu_point_x";
             this.textBox_simu_point_x.Size = new System.Drawing.Size(56, 21);
             this.textBox_simu_point_x.TabIndex = 1;
+            this.textBox_simu_point_x.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.textBox_simu_point_x.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox_simu_point_x_KeyPress);
             // 
             // label_simu_point
@@ -1424,6 +1431,7 @@
             this.textBox_simu_mapsize_y.ReadOnly = true;
             this.textBox_simu_mapsize_y.Size = new System.Drawing.Size(56, 21);
             this.textBox_simu_mapsize_y.TabIndex = 31;
+            this.textBox_simu_mapsize_y.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // textBox_simu_mapsize_x
             // 
@@ -1432,6 +1440,7 @@
             this.textBox_simu_mapsize_x.ReadOnly = true;
             this.textBox_simu_mapsize_x.Size = new System.Drawing.Size(56, 21);
             this.textBox_simu_mapsize_x.TabIndex = 30;
+            this.textBox_simu_mapsize_x.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // label_simu_mapsize
             // 
@@ -1480,6 +1489,9 @@
             // 
             // tabPage6
             // 
+            this.tabPage6.Controls.Add(this.label_simu_info);
+            this.tabPage6.Controls.Add(this.comboBox_simu_k);
+            this.tabPage6.Controls.Add(this.label_simu_k);
             this.tabPage6.Controls.Add(this.button_simu_matlab);
             this.tabPage6.Controls.Add(this.button_simu_start);
             this.tabPage6.Controls.Add(this.comboBox_simu_algorithm);
@@ -1491,6 +1503,43 @@
             this.tabPage6.TabIndex = 1;
             this.tabPage6.Text = "仿真实验";
             this.tabPage6.UseVisualStyleBackColor = true;
+            // 
+            // label_simu_info
+            // 
+            this.label_simu_info.AutoSize = true;
+            this.label_simu_info.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.label_simu_info.Location = new System.Drawing.Point(269, 16);
+            this.label_simu_info.Name = "label_simu_info";
+            this.label_simu_info.Size = new System.Drawing.Size(149, 12);
+            this.label_simu_info.TabIndex = 39;
+            this.label_simu_info.Text = "(仅在KNN WKNN算法中适用)";
+            this.label_simu_info.Visible = false;
+            // 
+            // comboBox_simu_k
+            // 
+            this.comboBox_simu_k.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox_simu_k.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.comboBox_simu_k.FormattingEnabled = true;
+            this.comboBox_simu_k.Items.AddRange(new object[] {
+            "2",
+            "3",
+            "4",
+            "5"});
+            this.comboBox_simu_k.Location = new System.Drawing.Point(221, 13);
+            this.comboBox_simu_k.Name = "comboBox_simu_k";
+            this.comboBox_simu_k.Size = new System.Drawing.Size(34, 20);
+            this.comboBox_simu_k.TabIndex = 38;
+            this.comboBox_simu_k.Visible = false;
+            // 
+            // label_simu_k
+            // 
+            this.label_simu_k.AutoSize = true;
+            this.label_simu_k.Location = new System.Drawing.Point(183, 16);
+            this.label_simu_k.Name = "label_simu_k";
+            this.label_simu_k.Size = new System.Drawing.Size(35, 12);
+            this.label_simu_k.TabIndex = 37;
+            this.label_simu_k.Text = "k值：";
+            this.label_simu_k.Visible = false;
             // 
             // button_simu_matlab
             // 
@@ -1531,6 +1580,7 @@
             this.comboBox_simu_algorithm.Name = "comboBox_simu_algorithm";
             this.comboBox_simu_algorithm.Size = new System.Drawing.Size(98, 20);
             this.comboBox_simu_algorithm.TabIndex = 34;
+            this.comboBox_simu_algorithm.SelectedIndexChanged += new System.EventHandler(this.comboBox_simu_algorithm_SelectedIndexChanged);
             // 
             // label_simu_algorithm
             // 
@@ -1683,7 +1733,6 @@
         private System.Windows.Forms.TextBox textBox_rss_map;
         private System.Windows.Forms.Label label_rss_map;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem_RSSInfo;
-        private System.Windows.Forms.Panel panel_Graph;
         private System.Windows.Forms.ToolTip toolTip_Graph;
         private System.Windows.Forms.Label label_map_cm_height;
         private System.Windows.Forms.Label label_map_cm_width;
@@ -1731,5 +1780,9 @@
         private System.Windows.Forms.ColumnHeader columnHeader29;
         private System.Windows.Forms.ColumnHeader columnHeader28;
         private System.Windows.Forms.ToolStripMenuItem ToolStripMenuItem_Settings;
+        private System.Windows.Forms.Label label_simu_info;
+        private System.Windows.Forms.ComboBox comboBox_simu_k;
+        private System.Windows.Forms.Label label_simu_k;
+        private System.Windows.Forms.Panel panel_Graph;
     }
 }
