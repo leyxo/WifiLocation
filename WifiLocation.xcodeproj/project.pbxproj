@@ -9,10 +9,26 @@
 /* Begin PBXBuildFile section */
 		183926CC1E65C3CE00BED84F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 183926CB1E65C3CE00BED84F /* main.m */; };
 		183926CF1E65C3CE00BED84F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 183926CE1E65C3CE00BED84F /* AppDelegate.m */; };
-		183926D21E65C3CE00BED84F /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 183926D11E65C3CE00BED84F /* ViewController.m */; };
 		183926D51E65C3CE00BED84F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 183926D31E65C3CE00BED84F /* Main.storyboard */; };
 		183926D71E65C3CE00BED84F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 183926D61E65C3CE00BED84F /* Assets.xcassets */; };
 		183926DA1E65C3CE00BED84F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 183926D81E65C3CE00BED84F /* LaunchScreen.storyboard */; };
+		183926EA1E664D5100BED84F /* MineTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 183926E91E664D5100BED84F /* MineTableViewController.m */; };
+		183926F01E664DA100BED84F /* AboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 183926EF1E664DA100BED84F /* AboutViewController.m */; };
+		183926F31E664E0E00BED84F /* HelpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 183926F21E664E0E00BED84F /* HelpViewController.m */; };
+		183926F61E664E2900BED84F /* MyInfoTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 183926F51E664E2900BED84F /* MyInfoTableViewController.m */; };
+		183926F91E6652D300BED84F /* MainTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 183926F81E6652D300BED84F /* MainTabBarController.m */; };
+		183926FC1E66588B00BED84F /* MapsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 183926FB1E66588B00BED84F /* MapsTableViewController.m */; };
+		183926FF1E66628600BED84F /* BaseNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 183926FE1E66628600BED84F /* BaseNavigationController.m */; };
+		183927031E66657100BED84F /* ConfigTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 183927021E66657100BED84F /* ConfigTableViewController.m */; };
+		183927071E66658500BED84F /* AddTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 183927061E66658500BED84F /* AddTableViewController.m */; };
+		1839270A1E666C5300BED84F /* APViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 183927091E666C5300BED84F /* APViewController.m */; };
+		1839270E1E666C7400BED84F /* FPViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1839270D1E666C7400BED84F /* FPViewController.m */; };
+		183927111E666C9000BED84F /* RouteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 183927101E666C9000BED84F /* RouteViewController.m */; };
+		183927151E667D6400BED84F /* Desktop.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 183927141E667D6400BED84F /* Desktop.jpg */; };
+		183927191E66801200BED84F /* AddAPTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 183927181E66801200BED84F /* AddAPTableViewController.m */; };
+		1839271C1E668A2200BED84F /* tabbar_mapHL@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1839271B1E668A2200BED84F /* tabbar_mapHL@2x.png */; };
+		1839271F1E668A7B00BED84F /* tabbar_meHL@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1839271D1E668A7B00BED84F /* tabbar_meHL@2x.png */; };
+		183927201E668A7B00BED84F /* tabbar_settingHL@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1839271E1E668A7B00BED84F /* tabbar_settingHL@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,12 +36,40 @@
 		183926CB1E65C3CE00BED84F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		183926CD1E65C3CE00BED84F /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		183926CE1E65C3CE00BED84F /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		183926D01E65C3CE00BED84F /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		183926D11E65C3CE00BED84F /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		183926D41E65C3CE00BED84F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		183926D61E65C3CE00BED84F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		183926D61E65C3CE00BED84F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = ../../Assets.xcassets; sourceTree = "<group>"; };
 		183926D91E65C3CE00BED84F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		183926DB1E65C3CE00BED84F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		183926E81E664D5100BED84F /* MineTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MineTableViewController.h; sourceTree = "<group>"; };
+		183926E91E664D5100BED84F /* MineTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MineTableViewController.m; sourceTree = "<group>"; };
+		183926EE1E664DA100BED84F /* AboutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutViewController.h; sourceTree = "<group>"; };
+		183926EF1E664DA100BED84F /* AboutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutViewController.m; sourceTree = "<group>"; };
+		183926F11E664E0E00BED84F /* HelpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HelpViewController.h; sourceTree = "<group>"; };
+		183926F21E664E0E00BED84F /* HelpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HelpViewController.m; sourceTree = "<group>"; };
+		183926F41E664E2900BED84F /* MyInfoTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyInfoTableViewController.h; sourceTree = "<group>"; };
+		183926F51E664E2900BED84F /* MyInfoTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyInfoTableViewController.m; sourceTree = "<group>"; };
+		183926F71E6652D300BED84F /* MainTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainTabBarController.h; sourceTree = "<group>"; };
+		183926F81E6652D300BED84F /* MainTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainTabBarController.m; sourceTree = "<group>"; };
+		183926FA1E66588B00BED84F /* MapsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapsTableViewController.h; sourceTree = "<group>"; };
+		183926FB1E66588B00BED84F /* MapsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapsTableViewController.m; sourceTree = "<group>"; };
+		183926FD1E66628600BED84F /* BaseNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseNavigationController.h; sourceTree = "<group>"; };
+		183926FE1E66628600BED84F /* BaseNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseNavigationController.m; sourceTree = "<group>"; };
+		183927011E66657100BED84F /* ConfigTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConfigTableViewController.h; sourceTree = "<group>"; };
+		183927021E66657100BED84F /* ConfigTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConfigTableViewController.m; sourceTree = "<group>"; };
+		183927051E66658500BED84F /* AddTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddTableViewController.h; sourceTree = "<group>"; };
+		183927061E66658500BED84F /* AddTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddTableViewController.m; sourceTree = "<group>"; };
+		183927081E666C5300BED84F /* APViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APViewController.h; sourceTree = "<group>"; };
+		183927091E666C5300BED84F /* APViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APViewController.m; sourceTree = "<group>"; };
+		1839270C1E666C7400BED84F /* FPViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FPViewController.h; sourceTree = "<group>"; };
+		1839270D1E666C7400BED84F /* FPViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FPViewController.m; sourceTree = "<group>"; };
+		1839270F1E666C9000BED84F /* RouteViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RouteViewController.h; sourceTree = "<group>"; };
+		183927101E666C9000BED84F /* RouteViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RouteViewController.m; sourceTree = "<group>"; };
+		183927141E667D6400BED84F /* Desktop.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Desktop.jpg; sourceTree = "<group>"; };
+		183927171E66801200BED84F /* AddAPTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddAPTableViewController.h; sourceTree = "<group>"; };
+		183927181E66801200BED84F /* AddAPTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddAPTableViewController.m; sourceTree = "<group>"; };
+		1839271B1E668A2200BED84F /* tabbar_mapHL@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tabbar_mapHL@2x.png"; sourceTree = "<group>"; };
+		1839271D1E668A7B00BED84F /* tabbar_meHL@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tabbar_meHL@2x.png"; sourceTree = "<group>"; };
+		1839271E1E668A7B00BED84F /* tabbar_settingHL@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tabbar_settingHL@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,14 +102,13 @@
 		183926C91E65C3CE00BED84F /* WifiLocation */ = {
 			isa = PBXGroup;
 			children = (
+				183926E21E65CCD800BED84F /* Model */,
+				183926E11E65CCCC00BED84F /* Controller */,
 				183926CD1E65C3CE00BED84F /* AppDelegate.h */,
 				183926CE1E65C3CE00BED84F /* AppDelegate.m */,
-				183926D01E65C3CE00BED84F /* ViewController.h */,
-				183926D11E65C3CE00BED84F /* ViewController.m */,
 				183926D31E65C3CE00BED84F /* Main.storyboard */,
-				183926D61E65C3CE00BED84F /* Assets.xcassets */,
 				183926D81E65C3CE00BED84F /* LaunchScreen.storyboard */,
-				183926DB1E65C3CE00BED84F /* Info.plist */,
+				183927121E667CEB00BED84F /* Resources */,
 				183926CA1E65C3CE00BED84F /* Supporting Files */,
 			);
 			path = WifiLocation;
@@ -74,9 +117,143 @@
 		183926CA1E65C3CE00BED84F /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				183926DB1E65C3CE00BED84F /* Info.plist */,
 				183926CB1E65C3CE00BED84F /* main.m */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		183926E11E65CCCC00BED84F /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				183926F71E6652D300BED84F /* MainTabBarController.h */,
+				183926F81E6652D300BED84F /* MainTabBarController.m */,
+				183926FD1E66628600BED84F /* BaseNavigationController.h */,
+				183926FE1E66628600BED84F /* BaseNavigationController.m */,
+				183926E61E664D0400BED84F /* Simulatior */,
+				183926E71E664D1B00BED84F /* Mine */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		183926E21E65CCD800BED84F /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		183926E61E664D0400BED84F /* Simulatior */ = {
+			isa = PBXGroup;
+			children = (
+				183926FA1E66588B00BED84F /* MapsTableViewController.h */,
+				183926FB1E66588B00BED84F /* MapsTableViewController.m */,
+				183927041E66657600BED84F /* Add */,
+				183927001E66636900BED84F /* Config */,
+			);
+			name = Simulatior;
+			path = Simulator;
+			sourceTree = "<group>";
+		};
+		183926E71E664D1B00BED84F /* Mine */ = {
+			isa = PBXGroup;
+			children = (
+				183926E81E664D5100BED84F /* MineTableViewController.h */,
+				183926E91E664D5100BED84F /* MineTableViewController.m */,
+				183926ED1E664D7400BED84F /* MyInfo */,
+				183926EC1E664D6200BED84F /* Help */,
+				183926EB1E664D5800BED84F /* About */,
+			);
+			path = Mine;
+			sourceTree = "<group>";
+		};
+		183926EB1E664D5800BED84F /* About */ = {
+			isa = PBXGroup;
+			children = (
+				183926EE1E664DA100BED84F /* AboutViewController.h */,
+				183926EF1E664DA100BED84F /* AboutViewController.m */,
+			);
+			path = About;
+			sourceTree = "<group>";
+		};
+		183926EC1E664D6200BED84F /* Help */ = {
+			isa = PBXGroup;
+			children = (
+				183926F11E664E0E00BED84F /* HelpViewController.h */,
+				183926F21E664E0E00BED84F /* HelpViewController.m */,
+			);
+			path = Help;
+			sourceTree = "<group>";
+		};
+		183926ED1E664D7400BED84F /* MyInfo */ = {
+			isa = PBXGroup;
+			children = (
+				183926F41E664E2900BED84F /* MyInfoTableViewController.h */,
+				183926F51E664E2900BED84F /* MyInfoTableViewController.m */,
+			);
+			path = MyInfo;
+			sourceTree = "<group>";
+		};
+		183927001E66636900BED84F /* Config */ = {
+			isa = PBXGroup;
+			children = (
+				183927161E667FFD00BED84F /* AddAP */,
+				183927011E66657100BED84F /* ConfigTableViewController.h */,
+				183927021E66657100BED84F /* ConfigTableViewController.m */,
+				183927081E666C5300BED84F /* APViewController.h */,
+				183927091E666C5300BED84F /* APViewController.m */,
+				1839270C1E666C7400BED84F /* FPViewController.h */,
+				1839270D1E666C7400BED84F /* FPViewController.m */,
+				1839270F1E666C9000BED84F /* RouteViewController.h */,
+				183927101E666C9000BED84F /* RouteViewController.m */,
+			);
+			path = Config;
+			sourceTree = "<group>";
+		};
+		183927041E66657600BED84F /* Add */ = {
+			isa = PBXGroup;
+			children = (
+				183927051E66658500BED84F /* AddTableViewController.h */,
+				183927061E66658500BED84F /* AddTableViewController.m */,
+			);
+			path = Add;
+			sourceTree = "<group>";
+		};
+		183927121E667CEB00BED84F /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				183927131E667CF300BED84F /* Images */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		183927131E667CF300BED84F /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				1839271A1E6689E800BED84F /* Tabbar */,
+				183927141E667D6400BED84F /* Desktop.jpg */,
+				183926D61E65C3CE00BED84F /* Assets.xcassets */,
+			);
+			path = Images;
+			sourceTree = "<group>";
+		};
+		183927161E667FFD00BED84F /* AddAP */ = {
+			isa = PBXGroup;
+			children = (
+				183927171E66801200BED84F /* AddAPTableViewController.h */,
+				183927181E66801200BED84F /* AddAPTableViewController.m */,
+			);
+			path = AddAP;
+			sourceTree = "<group>";
+		};
+		1839271A1E6689E800BED84F /* Tabbar */ = {
+			isa = PBXGroup;
+			children = (
+				1839271D1E668A7B00BED84F /* tabbar_meHL@2x.png */,
+				1839271E1E668A7B00BED84F /* tabbar_settingHL@2x.png */,
+				1839271B1E668A2200BED84F /* tabbar_mapHL@2x.png */,
+			);
+			path = Tabbar;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -110,6 +287,7 @@
 				TargetAttributes = {
 					183926C61E65C3CE00BED84F = {
 						CreatedOnToolsVersion = 8.2;
+						DevelopmentTeam = J4YMYJUA3G;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -137,8 +315,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				183927151E667D6400BED84F /* Desktop.jpg in Resources */,
 				183926DA1E65C3CE00BED84F /* LaunchScreen.storyboard in Resources */,
+				1839271C1E668A2200BED84F /* tabbar_mapHL@2x.png in Resources */,
 				183926D71E65C3CE00BED84F /* Assets.xcassets in Resources */,
+				1839271F1E668A7B00BED84F /* tabbar_meHL@2x.png in Resources */,
+				183927201E668A7B00BED84F /* tabbar_settingHL@2x.png in Resources */,
 				183926D51E65C3CE00BED84F /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -150,9 +332,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				183926D21E65C3CE00BED84F /* ViewController.m in Sources */,
+				183927031E66657100BED84F /* ConfigTableViewController.m in Sources */,
+				183926F01E664DA100BED84F /* AboutViewController.m in Sources */,
+				183927071E66658500BED84F /* AddTableViewController.m in Sources */,
+				183926FC1E66588B00BED84F /* MapsTableViewController.m in Sources */,
+				183926F91E6652D300BED84F /* MainTabBarController.m in Sources */,
+				183927191E66801200BED84F /* AddAPTableViewController.m in Sources */,
+				183926FF1E66628600BED84F /* BaseNavigationController.m in Sources */,
 				183926CF1E65C3CE00BED84F /* AppDelegate.m in Sources */,
+				183926EA1E664D5100BED84F /* MineTableViewController.m in Sources */,
+				183926F31E664E0E00BED84F /* HelpViewController.m in Sources */,
+				183927111E666C9000BED84F /* RouteViewController.m in Sources */,
+				1839270A1E666C5300BED84F /* APViewController.m in Sources */,
 				183926CC1E65C3CE00BED84F /* main.m in Sources */,
+				183926F61E664E2900BED84F /* MyInfoTableViewController.m in Sources */,
+				1839270E1E666C7400BED84F /* FPViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -270,6 +464,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = J4YMYJUA3G;
 				INFOPLIST_FILE = WifiLocation/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = LEY.WifiLocation;
@@ -281,6 +476,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = J4YMYJUA3G;
 				INFOPLIST_FILE = WifiLocation/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = LEY.WifiLocation;
