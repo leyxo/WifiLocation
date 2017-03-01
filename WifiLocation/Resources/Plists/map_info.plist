@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<dict>
+		<key>map_id</key>
+		<string>1</string>
+		<key>map_name</key>
+		<string>21B 410</string>
+		<key>map_width</key>
+		<integer>1000</integer>
+		<key>map_height</key>
+		<integer>2000</integer>
+		<key>map_info</key>
+		<string>21B大教室</string>
+		<key>user_id</key>
+		<integer>2</integer>
+	</dict>
+	<dict>
+		<key>map_id</key>
+		<string>2</string>
+		<key>map_name</key>
+		<string>21B 233</string>
+		<key>map_width</key>
+		<integer>500</integer>
+		<key>map_height</key>
+		<integer>1000</integer>
+		<key>map_info</key>
+		<string>21B小教室</string>
+		<key>user_id</key>
+		<integer>2</integer>
+	</dict>
+	<dict>
+		<key>map_id</key>
+		<string>3</string>
+		<key>map_name</key>
+		<string>new2</string>
+		<key>map_width</key>
+		<real>1000</real>
+		<key>map_height</key>
+		<integer>1000</integer>
+		<key>map_info</key>
+		<string>Pass!</string>
+		<key>user_id</key>
+		<integer>2</integer>
+	</dict>
+	<dict>
+		<key>map_id</key>
+		<string>4</string>
+		<key>map_name</key>
+		<string>new3</string>
+		<key>map_width</key>
+		<integer>9000</integer>
+		<key>map_height</key>
+		<integer>6000</integer>
+		<key>map_info</key>
+		<string>Perfect!</string>
+		<key>user_id</key>
+		<integer>2</integer>
+	</dict>
+</array>
+</plist>

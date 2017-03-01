@@ -10,4 +10,6 @@
 
 @interface MapsTableViewController : UITableViewController
 
+@property (nonatomic, retain) NSMutableArray * listData;
+
 @end

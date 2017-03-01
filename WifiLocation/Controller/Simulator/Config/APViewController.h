@@ -10,4 +10,6 @@
 
 @interface APViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
 
+@property (weak, nonatomic) IBOutlet UIImageView *imageView;
+
 @end

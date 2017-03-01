@@ -13,6 +13,7 @@
 @end
 
 @implementation AddTableViewController
+@synthesize map_name, map_info, map_width, map_height;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -110,5 +111,9 @@
    }
    else if (buttonIndex == 1) {
    }
+}
+
+- (IBAction)Save:(id)sender {
+   
 }
 @end

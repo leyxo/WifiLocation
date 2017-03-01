@@ -96,4 +96,6 @@
 }
 */
 
+- (IBAction)Generate:(id)sender {
+}
 @end

@@ -29,6 +29,8 @@
 		1839271C1E668A2200BED84F /* tabbar_mapHL@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1839271B1E668A2200BED84F /* tabbar_mapHL@2x.png */; };
 		1839271F1E668A7B00BED84F /* tabbar_meHL@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1839271D1E668A7B00BED84F /* tabbar_meHL@2x.png */; };
 		183927201E668A7B00BED84F /* tabbar_settingHL@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1839271E1E668A7B00BED84F /* tabbar_settingHL@2x.png */; };
+		183927231E66AE3500BED84F /* map_info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 183927221E66AE3500BED84F /* map_info.plist */; };
+		183927261E66B30000BED84F /* MapTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 183927251E66B30000BED84F /* MapTableViewCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -70,6 +72,9 @@
 		1839271B1E668A2200BED84F /* tabbar_mapHL@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tabbar_mapHL@2x.png"; sourceTree = "<group>"; };
 		1839271D1E668A7B00BED84F /* tabbar_meHL@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tabbar_meHL@2x.png"; sourceTree = "<group>"; };
 		1839271E1E668A7B00BED84F /* tabbar_settingHL@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tabbar_settingHL@2x.png"; sourceTree = "<group>"; };
+		183927221E66AE3500BED84F /* map_info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = map_info.plist; path = Plists/map_info.plist; sourceTree = "<group>"; };
+		183927241E66B30000BED84F /* MapTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapTableViewCell.h; sourceTree = "<group>"; };
+		183927251E66B30000BED84F /* MapTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapTableViewCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -148,6 +153,8 @@
 			children = (
 				183926FA1E66588B00BED84F /* MapsTableViewController.h */,
 				183926FB1E66588B00BED84F /* MapsTableViewController.m */,
+				183927241E66B30000BED84F /* MapTableViewCell.h */,
+				183927251E66B30000BED84F /* MapTableViewCell.m */,
 				183927041E66657600BED84F /* Add */,
 				183927001E66636900BED84F /* Config */,
 			);
@@ -222,6 +229,7 @@
 		183927121E667CEB00BED84F /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				183927211E66AE2400BED84F /* Plists */,
 				183927131E667CF300BED84F /* Images */,
 			);
 			path = Resources;
@@ -254,6 +262,14 @@
 				1839271B1E668A2200BED84F /* tabbar_mapHL@2x.png */,
 			);
 			path = Tabbar;
+			sourceTree = "<group>";
+		};
+		183927211E66AE2400BED84F /* Plists */ = {
+			isa = PBXGroup;
+			children = (
+				183927221E66AE3500BED84F /* map_info.plist */,
+			);
+			name = Plists;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -316,6 +332,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				183927151E667D6400BED84F /* Desktop.jpg in Resources */,
+				183927231E66AE3500BED84F /* map_info.plist in Resources */,
 				183926DA1E65C3CE00BED84F /* LaunchScreen.storyboard in Resources */,
 				1839271C1E668A2200BED84F /* tabbar_mapHL@2x.png in Resources */,
 				183926D71E65C3CE00BED84F /* Assets.xcassets in Resources */,
@@ -346,6 +363,7 @@
 				1839270A1E666C5300BED84F /* APViewController.m in Sources */,
 				183926CC1E65C3CE00BED84F /* main.m in Sources */,
 				183926F61E664E2900BED84F /* MyInfoTableViewController.m in Sources */,
+				183927261E66B30000BED84F /* MapTableViewCell.m in Sources */,
 				1839270E1E666C7400BED84F /* FPViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

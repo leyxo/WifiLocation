@@ -9,7 +9,12 @@
 #import <UIKit/UIKit.h>
 
 @interface AddTableViewController : UITableViewController <UIActionSheetDelegate>
+@property (weak, nonatomic) IBOutlet UITextField *map_name;
+@property (weak, nonatomic) IBOutlet UITextField *map_width;
+@property (weak, nonatomic) IBOutlet UITextField *map_height;
+@property (weak, nonatomic) IBOutlet UITextView *map_info;
 
 - (IBAction)Cancel:(id)sender;
+- (IBAction)Save:(id)sender;
 
 @end

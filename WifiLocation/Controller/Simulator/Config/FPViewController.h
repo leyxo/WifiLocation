@@ -10,4 +10,9 @@
 
 @interface FPViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
 
+@property (weak, nonatomic) IBOutlet UIImageView *imageView;
+@property (weak, nonatomic) IBOutlet UITextField *distance;
+@property (weak, nonatomic) IBOutlet UITextField *receivegain;
+
+- (IBAction)Generate:(id)sender;
 @end

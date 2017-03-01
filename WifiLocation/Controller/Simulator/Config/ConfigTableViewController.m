@@ -13,10 +13,14 @@
 @end
 
 @implementation ConfigTableViewController
+@synthesize segueMapNname, segueMapInfo, segueMapWidth, segueMapHeight;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+   
+   // 通过StoryBoard Segue传值修改title,详见MapsTableViewController.m
+   self.navigationItem.title = segueMapNname;
+   
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     
@@ -97,4 +101,19 @@
 }
 */
 
+- (IBAction)Clear:(id)sender {
+   NSString *str =[[NSString alloc] initWithFormat:@"确定要清空地图%@的所有数据?", segueMapNname];
+   
+   UIActionSheet * sheet = [[UIActionSheet alloc] initWithTitle:str  delegate:self cancelButtonTitle:@"取消" destructiveButtonTitle:@"清空数据" otherButtonTitles:nil];
+   [sheet showInView:self.view];
+}
+
+// 实现<UIActionSheetDelegate>的actionSHeet协议
+- (void)actionSheet:(UIActionSheet *)actionSheet didDismissWithButtonIndex:(NSInteger)buttonIndex {
+   if (buttonIndex == 0) {
+      NSLog(@"数据已清空");
+   }
+   else if (buttonIndex == 1) {
+   }
+}
 @end

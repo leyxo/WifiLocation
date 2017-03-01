@@ -8,6 +8,15 @@
 
 #import <UIKit/UIKit.h>
 
-@interface RouteViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
+@interface RouteViewController : UIViewController <UITableViewDelegate, UITableViewDataSource, UIActionSheetDelegate>
+
+@property (weak, nonatomic) IBOutlet UIImageView *imageView;
+@property (weak, nonatomic) IBOutlet UILabel *lastPointX;
+@property (weak, nonatomic) IBOutlet UILabel *lastPointY;
+@property (weak, nonatomic) IBOutlet UITextField *PointX;
+@property (weak, nonatomic) IBOutlet UITextField *PointY;
+
+- (IBAction)Clear:(id)sender;
+- (IBAction)Add:(id)sender;
 
 @end

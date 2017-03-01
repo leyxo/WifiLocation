@@ -8,6 +8,14 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ConfigTableViewController : UITableViewController
+@interface ConfigTableViewController : UITableViewController <UIActionSheetDelegate>
+
+// 接收segue传值
+@property (nonatomic, retain) NSString    * segueMapNname;
+@property (nonatomic, retain) NSString    * segueMapInfo;
+@property (nonatomic)         int         segueMapWidth;
+@property (nonatomic)         int         segueMapHeight;
+
+- (IBAction)Clear:(id)sender;
 
 @end

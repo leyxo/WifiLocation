@@ -96,4 +96,24 @@
 }
 */
 
+- (IBAction)Clear:(id)sender {
+//   NSString *str =[[NSString alloc] initWithFormat:@"确定要清空地图%@的所有数据?", segueMapNname];
+   
+   UIActionSheet * sheet = [[UIActionSheet alloc] initWithTitle:@"确定要清空仿真路线?"  delegate:self cancelButtonTitle:@"取消" destructiveButtonTitle:@"清空路线" otherButtonTitles:nil];
+   [sheet showInView:self.view];
+}
+
+// 实现<UIActionSheetDelegate>的actionSHeet协议
+- (void)actionSheet:(UIActionSheet *)actionSheet didDismissWithButtonIndex:(NSInteger)buttonIndex {
+   if (buttonIndex == 0) {
+      NSLog(@"数据已清空");
+   }
+   else if (buttonIndex == 1) {
+   }
+}
+
+- (IBAction)Add:(id)sender {
+   
+}
+
 @end
