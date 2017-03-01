@@ -43,4 +43,8 @@
 }
 */
 
+- (IBAction)Share:(id)sender {
+   NSString *webUrl = @"http://leyxo.site";
+   [[UIApplication sharedApplication] openURL:[NSURL URLWithString:webUrl]];
+}
 @end

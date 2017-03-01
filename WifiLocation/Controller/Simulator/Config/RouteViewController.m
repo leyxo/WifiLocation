@@ -13,6 +13,7 @@
 @end
 
 @implementation RouteViewController
+@synthesize imageView;
 
 - (void)viewDidLoad {
     [super viewDidLoad];

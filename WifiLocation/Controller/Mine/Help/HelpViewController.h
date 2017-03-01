@@ -11,4 +11,6 @@
 @interface HelpViewController : UIViewController <UIWebViewDelegate>
 @property (weak, nonatomic) IBOutlet UIWebView *webView;
 
+- (IBAction)Share:(id)sender;
+
 @end

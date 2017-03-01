@@ -13,6 +13,9 @@
 @end
 
 @implementation AddAPTableViewController
+@synthesize isrefer;
+@synthesize receivereferCell;
+@synthesize receiverefer, x, y, sendpower, sendgain;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -112,7 +115,17 @@
 }
 
 - (IBAction)Save:(id)sender {
-   
+   [self.navigationController popViewControllerAnimated:YES];
+}
+
+- (IBAction)isreferSwitch:(id)sender {
+   if(isrefer.on == YES) {
+      [receivereferCell setHidden:YES];
+      receiverefer.text = @"";
+   }
+   else {
+      [receivereferCell setHidden:NO];
+   }
 }
 
 @end

@@ -13,6 +13,7 @@
 @end
 
 @implementation FPViewController
+@synthesize imageView;
 
 - (void)viewDidLoad {
     [super viewDidLoad];

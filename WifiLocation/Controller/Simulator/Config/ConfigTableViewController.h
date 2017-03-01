@@ -9,6 +9,9 @@
 #import <UIKit/UIKit.h>
 
 @interface ConfigTableViewController : UITableViewController <UIActionSheetDelegate>
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *APNotSetup;
+@property (weak, nonatomic) IBOutlet UILabel *FPNotSetup;
+@property (weak, nonatomic) IBOutlet UILabel *RouteNotSetup;
 
 // 接收segue传值
 @property (nonatomic, retain) NSString    * segueMapNname;

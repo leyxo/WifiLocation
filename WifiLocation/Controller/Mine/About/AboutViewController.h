@@ -8,6 +8,13 @@
 
 #import <UIKit/UIKit.h>
 
-@interface AboutViewController : UIViewController
+@interface AboutViewController : UIViewController <UIAlertViewDelegate> {
+   int goodFontSize;
+   int awfulFontSize;
+}
+@property (weak, nonatomic) IBOutlet UIButton *GoodButton;
+@property (weak, nonatomic) IBOutlet UIButton *AwfulButton;
 
+- (IBAction)GoodOnClick:(id)sender;
+- (IBAction)AwfulOnClick:(id)sender;
 @end

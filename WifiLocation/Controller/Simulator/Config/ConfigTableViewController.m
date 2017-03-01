@@ -14,6 +14,7 @@
 
 @implementation ConfigTableViewController
 @synthesize segueMapNname, segueMapInfo, segueMapWidth, segueMapHeight;
+@synthesize APNotSetup, FPNotSetup, RouteNotSetup;
 
 - (void)viewDidLoad {
     [super viewDidLoad];

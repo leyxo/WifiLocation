@@ -15,8 +15,11 @@
 @property (weak, nonatomic) IBOutlet UITextField *y;
 @property (weak, nonatomic) IBOutlet UITextField *sendpower;
 @property (weak, nonatomic) IBOutlet UITextField *sendgain;
+// 处理隐藏Cell
+@property (weak, nonatomic) IBOutlet UITableViewCell *receivereferCell;
 
 - (IBAction)Cancel:(id)sender;
 - (IBAction)Save:(id)sender;
+- (IBAction)isreferSwitch:(id)sender;
 
 @end

@@ -31,6 +31,10 @@
 		183927201E668A7B00BED84F /* tabbar_settingHL@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1839271E1E668A7B00BED84F /* tabbar_settingHL@2x.png */; };
 		183927231E66AE3500BED84F /* map_info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 183927221E66AE3500BED84F /* map_info.plist */; };
 		183927261E66B30000BED84F /* MapTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 183927251E66B30000BED84F /* MapTableViewCell.m */; };
+		183927281E66F9EC00BED84F /* iTunesArtwork.png in Resources */ = {isa = PBXBuildFile; fileRef = 183927271E66F9EC00BED84F /* iTunesArtwork.png */; };
+		1839272C1E670BC300BED84F /* ChangeNameTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1839272B1E670BC300BED84F /* ChangeNameTableViewController.m */; };
+		183927301E670F7A00BED84F /* APTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1839272F1E670F7A00BED84F /* APTableViewCell.m */; };
+		183927321E67142E00BED84F /* ap_info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 183927311E67142E00BED84F /* ap_info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -75,6 +79,12 @@
 		183927221E66AE3500BED84F /* map_info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = map_info.plist; path = Plists/map_info.plist; sourceTree = "<group>"; };
 		183927241E66B30000BED84F /* MapTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapTableViewCell.h; sourceTree = "<group>"; };
 		183927251E66B30000BED84F /* MapTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapTableViewCell.m; sourceTree = "<group>"; };
+		183927271E66F9EC00BED84F /* iTunesArtwork.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iTunesArtwork.png; sourceTree = "<group>"; };
+		1839272A1E670BC300BED84F /* ChangeNameTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChangeNameTableViewController.h; sourceTree = "<group>"; };
+		1839272B1E670BC300BED84F /* ChangeNameTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChangeNameTableViewController.m; sourceTree = "<group>"; };
+		1839272E1E670F7A00BED84F /* APTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APTableViewCell.h; sourceTree = "<group>"; };
+		1839272F1E670F7A00BED84F /* APTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APTableViewCell.m; sourceTree = "<group>"; };
+		183927311E67142E00BED84F /* ap_info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = ap_info.plist; path = Plists/ap_info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -197,6 +207,7 @@
 			children = (
 				183926F41E664E2900BED84F /* MyInfoTableViewController.h */,
 				183926F51E664E2900BED84F /* MyInfoTableViewController.m */,
+				183927291E670B9200BED84F /* MyInfoSub */,
 			);
 			path = MyInfo;
 			sourceTree = "<group>";
@@ -213,6 +224,7 @@
 				1839270D1E666C7400BED84F /* FPViewController.m */,
 				1839270F1E666C9000BED84F /* RouteViewController.h */,
 				183927101E666C9000BED84F /* RouteViewController.m */,
+				1839272D1E670F5500BED84F /* Cell */,
 			);
 			path = Config;
 			sourceTree = "<group>";
@@ -238,6 +250,7 @@
 		183927131E667CF300BED84F /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				183927271E66F9EC00BED84F /* iTunesArtwork.png */,
 				1839271A1E6689E800BED84F /* Tabbar */,
 				183927141E667D6400BED84F /* Desktop.jpg */,
 				183926D61E65C3CE00BED84F /* Assets.xcassets */,
@@ -268,8 +281,27 @@
 			isa = PBXGroup;
 			children = (
 				183927221E66AE3500BED84F /* map_info.plist */,
+				183927311E67142E00BED84F /* ap_info.plist */,
 			);
 			name = Plists;
+			sourceTree = "<group>";
+		};
+		183927291E670B9200BED84F /* MyInfoSub */ = {
+			isa = PBXGroup;
+			children = (
+				1839272A1E670BC300BED84F /* ChangeNameTableViewController.h */,
+				1839272B1E670BC300BED84F /* ChangeNameTableViewController.m */,
+			);
+			path = MyInfoSub;
+			sourceTree = "<group>";
+		};
+		1839272D1E670F5500BED84F /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				1839272E1E670F7A00BED84F /* APTableViewCell.h */,
+				1839272F1E670F7A00BED84F /* APTableViewCell.m */,
+			);
+			name = Cell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -337,8 +369,10 @@
 				1839271C1E668A2200BED84F /* tabbar_mapHL@2x.png in Resources */,
 				183926D71E65C3CE00BED84F /* Assets.xcassets in Resources */,
 				1839271F1E668A7B00BED84F /* tabbar_meHL@2x.png in Resources */,
+				183927281E66F9EC00BED84F /* iTunesArtwork.png in Resources */,
 				183927201E668A7B00BED84F /* tabbar_settingHL@2x.png in Resources */,
 				183926D51E65C3CE00BED84F /* Main.storyboard in Resources */,
+				183927321E67142E00BED84F /* ap_info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -357,6 +391,7 @@
 				183927191E66801200BED84F /* AddAPTableViewController.m in Sources */,
 				183926FF1E66628600BED84F /* BaseNavigationController.m in Sources */,
 				183926CF1E65C3CE00BED84F /* AppDelegate.m in Sources */,
+				183927301E670F7A00BED84F /* APTableViewCell.m in Sources */,
 				183926EA1E664D5100BED84F /* MineTableViewController.m in Sources */,
 				183926F31E664E0E00BED84F /* HelpViewController.m in Sources */,
 				183927111E666C9000BED84F /* RouteViewController.m in Sources */,
@@ -365,6 +400,7 @@
 				183926F61E664E2900BED84F /* MyInfoTableViewController.m in Sources */,
 				183927261E66B30000BED84F /* MapTableViewCell.m in Sources */,
 				1839270E1E666C7400BED84F /* FPViewController.m in Sources */,
+				1839272C1E670BC300BED84F /* ChangeNameTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -10,6 +10,8 @@
 
 @interface APViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
 
+@property (nonatomic, retain) NSMutableArray * listData;
+
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
 
 @end
