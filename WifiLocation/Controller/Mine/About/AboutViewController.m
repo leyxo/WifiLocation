@@ -93,9 +93,14 @@
 - (void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex;{
    if(alertView.tag == 1)
    {
-      if (buttonIndex == 0 || buttonIndex == 1)
+      if (buttonIndex == 0)
+      {
+         
+      }
+      else if(buttonIndex == 1)
       {
          [self.navigationController popViewControllerAnimated:YES];
+
       }
    }
 }

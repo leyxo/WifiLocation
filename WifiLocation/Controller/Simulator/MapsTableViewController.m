@@ -9,6 +9,7 @@
 #import "MapsTableViewController.h"
 #import "MapTableViewCell.h"
 #import "ConfigTableViewController.h"
+#import "EditMapTableViewController.h"
 
 @interface MapsTableViewController ()
 
@@ -16,6 +17,7 @@
 
 @implementation MapsTableViewController
 @synthesize listData;
+@synthesize selectIndexPath;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -26,7 +28,7 @@
     // self.clearsSelectionOnViewWillAppear = NO;
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    // self.navigationItem.leftBarButtonItem = self.editButtonItem;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -68,8 +70,6 @@
    return cell;
 }
 
-
-
 // Override to support conditional editing of the table view.
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
     // Return NO if you do not want the specified item to be editable.
@@ -108,6 +108,15 @@
 */
 
 
+// 手动添加的协议，点击i详细信息按钮，通过segue跳转至编辑地图页
+- (void)tableView:(UITableView *)tableView accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath
+{
+   // 临时存储变量
+   selectIndexPath = indexPath;
+   
+   [self performSegueWithIdentifier:@"EditMap" sender:self];
+}
+
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
@@ -128,6 +137,16 @@
       
       // 这里不需要指定跳转了，因为在按扭的事件里已经有跳转的代码
       // [self.navigationController pushViewController:receive animated:YES];
+   }
+   else if ([segue.identifier isEqualToString:@"EditMap"]) {
+      // segue.destinationViewController：获取连线时所指的界面（VC）
+      EditMapTableViewController *receive = segue.destinationViewController;
+      
+      NSIndexPath *indexPath = selectIndexPath;
+      receive.segueMapNname = [[listData objectAtIndex:[indexPath row]] objectForKey:@"map_name"];
+      receive.segueMapInfo = [[listData objectAtIndex:[indexPath row]] objectForKey:@"map_info"];
+      receive.segueMapWidth = [[[listData objectAtIndex:[indexPath row]] objectForKey:@"map_width"] intValue];
+      receive.segueMapHeight = [[[listData objectAtIndex:[indexPath row]] objectForKey:@"map_height"] intValue];
    }
 }
 

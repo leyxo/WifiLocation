@@ -6,6 +6,8 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -30,11 +32,20 @@
                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="iTunesArtwork.png" translatesAutoresizingMaskIntoConstraints="NO" id="bfu-5q-iH7">
+                                <rect key="frame" x="126" y="165.5" width="122.5" height="122.5"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="bfu-5q-iH7" secondAttribute="height" multiplier="1:1" id="lMA-3g-MmL"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="0.96470588235294119" green="0.96470588235294119" blue="0.96470588235294119" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="jv3-RF-BXL" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="4CE-gv-Pzv"/>
+                            <constraint firstItem="bfu-5q-iH7" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="8zg-Vy-xnz"/>
+                            <constraint firstItem="bfu-5q-iH7" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" multiplier="1:2" constant="60" id="92t-2K-58Y"/>
                             <constraint firstItem="xb3-aO-Qok" firstAttribute="top" secondItem="jv3-RF-BXL" secondAttribute="bottom" constant="16" id="Q2Z-Ug-vKM"/>
+                            <constraint firstItem="bfu-5q-iH7" firstAttribute="width" secondItem="Ze5-6b-2t3" secondAttribute="width" multiplier="1:6" constant="60" id="ka1-em-zdd"/>
                         </constraints>
                     </view>
                 </viewController>
@@ -43,4 +54,7 @@
             <point key="canvasLocation" x="53" y="375"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="iTunesArtwork.png" width="512" height="512"/>
+    </resources>
 </document>

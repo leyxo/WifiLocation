@@ -46,15 +46,15 @@
 		<key>map_id</key>
 		<integer>2</integer>
 		<key>ap_x</key>
-		<integer>1000</integer>
+		<integer>500</integer>
 		<key>ap_y</key>
-		<integer>0</integer>
+		<integer>500</integer>
 		<key>ap_sendpower</key>
-		<integer>20</integer>
+		<integer>16</integer>
 		<key>ap_sendgain</key>
 		<integer>10</integer>
 		<key>ap_receiverefer</key>
-		<integer>40</integer>
+		<integer>36</integer>
 	</dict>
 	<dict>
 		<key>ap_id</key>
@@ -66,13 +66,13 @@
 		<key>ap_x</key>
 		<integer>1000</integer>
 		<key>ap_y</key>
-		<integer>0</integer>
+		<integer>1000</integer>
 		<key>ap_sendpower</key>
-		<integer>20</integer>
+		<integer>30</integer>
 		<key>ap_sendgain</key>
-		<integer>10</integer>
+		<integer>12</integer>
 		<key>ap_receiverefer</key>
-		<integer>40</integer>
+		<integer>68</integer>
 	</dict>
 	<dict>
 		<key>ap_id</key>
@@ -82,15 +82,15 @@
 		<key>map_id</key>
 		<integer>2</integer>
 		<key>ap_x</key>
-		<integer>1000</integer>
+		<integer>200</integer>
 		<key>ap_y</key>
-		<integer>0</integer>
+		<integer>800</integer>
 		<key>ap_sendpower</key>
-		<integer>20</integer>
+		<integer>42</integer>
 		<key>ap_sendgain</key>
-		<integer>10</integer>
+		<integer>8</integer>
 		<key>ap_receiverefer</key>
-		<integer>40</integer>
+		<integer>28</integer>
 	</dict>
 	<dict>
 		<key>ap_id</key>

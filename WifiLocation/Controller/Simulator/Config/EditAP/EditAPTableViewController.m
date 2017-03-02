@@ -1,31 +1,39 @@
 //
-//  ChangeNameTableViewController.m
+//  EditAPTableViewController.m
 //  WifiLocation
 //
-//  Created by LEY's MacBook on 17/03/01.
+//  Created by LEY's MacBook on 17/03/02.
 //  Copyright © 2017年 LEY's MacBook. All rights reserved.
 //
 
-#import "ChangeNameTableViewController.h"
+#import "EditAPTableViewController.h"
 
-@interface ChangeNameTableViewController ()
+@interface EditAPTableViewController ()
 
 @end
 
-@implementation ChangeNameTableViewController
+@implementation EditAPTableViewController
+@synthesize isreferSwitch, receiverefer, x, y, sendpower, sendgain;
+@synthesize receivereferCell;
+@synthesize ap_id;
+@synthesize segueIsreferSwitch, segueReceiverefer, segueX, segueY, segueSendpower, segueSendgain;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
-    
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
-}
+   
+   self.navigationItem.prompt = [[NSString alloc] initWithFormat:@"节点%d", ap_id];
+   
+   isreferSwitch.enabled = NO;
+   isreferSwitch.on = segueIsreferSwitch;
+   if(isreferSwitch.on == YES) {
+      [receivereferCell setHidden:YES];
+   }
 
-- (void)viewDidAppear:(BOOL)animated {
-   [self.nameTextField becomeFirstResponder];
+   x.text = [[NSString alloc] initWithFormat:@"%d", segueX];
+   y.text = [[NSString alloc] initWithFormat:@"%d", segueY];
+   sendpower.text = [[NSString alloc] initWithFormat:@"%d", segueSendpower];
+   sendgain.text = [[NSString alloc] initWithFormat:@"%d", segueSendgain];
+   receiverefer.text = [[NSString alloc] initWithFormat:@"%d", segueReceiverefer];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -36,15 +44,13 @@
 #pragma mark - Table view data source
 /*
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-#warning Incomplete implementation, return the number of sections
     return 0;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-#warning Incomplete implementation, return the number of rows
     return 0;
 }
- */
+*/
 
 /*
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -100,7 +106,23 @@
 }
 */
 
+- (IBAction)Cancel:(id)sender {
+   UIActionSheet * sheet = [[UIActionSheet alloc] initWithTitle:@"确定要放弃编辑?" delegate:self cancelButtonTitle:@"取消" destructiveButtonTitle:@"放弃" otherButtonTitles:nil];
+   [sheet showInView:self.view];
+   
+}
+
+// 实现<UIActionSheetDelegate>的actionSHeet协议
+- (void)actionSheet:(UIActionSheet *)actionSheet didDismissWithButtonIndex:(NSInteger)buttonIndex {
+   if (buttonIndex == 0) {
+      [self.navigationController popViewControllerAnimated:YES];
+   }
+   else if (buttonIndex == 1) {
+   }
+}
+
 - (IBAction)Save:(id)sender {
    [self.navigationController popViewControllerAnimated:YES];
 }
+
 @end

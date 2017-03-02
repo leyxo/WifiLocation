@@ -8,6 +8,7 @@
 
 #import "APViewController.h"
 #import "APTableViewCell.h"
+#import "EditAPTableViewController.h"
 
 @interface APViewController ()
 
@@ -16,6 +17,7 @@
 @implementation APViewController
 @synthesize imageView;
 @synthesize listData;
+@synthesize tableview;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -80,6 +82,18 @@
    return cell;
 }
 
+// 设置组title
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
+{
+   switch (section) {
+      case 0:
+         return @"AP节点数据";
+         break;
+      default:
+         break;
+   }
+   return self.title;
+}
 
 // Override to support conditional editing of the table view.
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -114,14 +128,35 @@
 }
 */
 
-/*
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
+   
+   // segue.identifier：获取连线的ID
+   if ([segue.identifier isEqualToString:@"EditAP"]) {
+      // segue.destinationViewController：获取连线时所指的界面（VC）
+      EditAPTableViewController *receive = segue.destinationViewController;
+      
+      NSIndexPath *indexPath = [self.tableview indexPathForSelectedRow];
+      
+      if([@"是" isEqual: [[[listData objectAtIndex:[indexPath row]] objectForKey:@"ap_isrefer"] description]]) {
+         receive.segueIsreferSwitch = YES;
+      }
+      else {
+         receive.segueIsreferSwitch = NO;
+      }
+
+      receive.segueReceiverefer = [[[listData objectAtIndex:[indexPath row]] objectForKey:@"ap_receiverefer"] intValue];
+      receive.segueX = [[[listData objectAtIndex:[indexPath row]] objectForKey:@"ap_x"] intValue];
+      receive.segueY = [[[listData objectAtIndex:[indexPath row]] objectForKey:@"ap_y"] intValue];
+      receive.segueSendpower = [[[listData objectAtIndex:[indexPath row]] objectForKey:@"ap_sendpower"] intValue];
+      receive.segueSendgain = [[[listData objectAtIndex:[indexPath row]] objectForKey:@"ap_sendgain"] intValue];
+      receive.ap_id = [[[listData objectAtIndex:[indexPath row]] objectForKey:@"ap_id"] intValue];
+   }
 }
-*/
+
 
 @end

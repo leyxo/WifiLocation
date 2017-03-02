@@ -12,4 +12,7 @@
 
 @property (nonatomic, retain) NSMutableArray * listData;
 
+// 临时存储选择的indexPath
+@property (nonatomic, retain) NSIndexPath * selectIndexPath;
+
 @end

@@ -1,31 +1,32 @@
 //
-//  ChangeNameTableViewController.m
+//  EditMapTableViewController.m
 //  WifiLocation
 //
-//  Created by LEY's MacBook on 17/03/01.
+//  Created by LEY's MacBook on 17/03/02.
 //  Copyright © 2017年 LEY's MacBook. All rights reserved.
 //
 
-#import "ChangeNameTableViewController.h"
+#import "EditMapTableViewController.h"
 
-@interface ChangeNameTableViewController ()
+@interface EditMapTableViewController ()
 
 @end
 
-@implementation ChangeNameTableViewController
+@implementation EditMapTableViewController
+@synthesize map_name, map_info, map_width, map_height;
+@synthesize segueMapNname, segueMapInfo, segueMapWidth, segueMapHeight;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
-    
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
-}
+   
+   self.navigationItem.prompt = segueMapNname;
+   
+   map_name.text = segueMapNname;
+   map_info.text = segueMapInfo;
+   map_width.text = [[NSString alloc] initWithFormat:@"%d", segueMapWidth];
+   map_height.text = [[NSString alloc] initWithFormat:@"%d", segueMapHeight];
 
-- (void)viewDidAppear:(BOOL)animated {
-   [self.nameTextField becomeFirstResponder];
+   [map_width becomeFirstResponder];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -36,12 +37,10 @@
 #pragma mark - Table view data source
 /*
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-#warning Incomplete implementation, return the number of sections
     return 0;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-#warning Incomplete implementation, return the number of rows
     return 0;
 }
  */
@@ -100,7 +99,23 @@
 }
 */
 
+- (IBAction)Cancel:(id)sender {
+   UIActionSheet * sheet = [[UIActionSheet alloc] initWithTitle:@"确定要放弃编辑?" delegate:self cancelButtonTitle:@"取消" destructiveButtonTitle:@"放弃" otherButtonTitles:nil];
+   [sheet showInView:self.view];
+   
+}
+
+// 实现<UIActionSheetDelegate>的actionSHeet协议
+- (void)actionSheet:(UIActionSheet *)actionSheet didDismissWithButtonIndex:(NSInteger)buttonIndex {
+   if (buttonIndex == 0) {
+      [self.navigationController popViewControllerAnimated:YES];
+   }
+   else if (buttonIndex == 1) {
+   }
+}
+
 - (IBAction)Save:(id)sender {
    [self.navigationController popViewControllerAnimated:YES];
 }
+
 @end

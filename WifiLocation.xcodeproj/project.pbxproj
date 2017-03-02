@@ -35,6 +35,10 @@
 		1839272C1E670BC300BED84F /* ChangeNameTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1839272B1E670BC300BED84F /* ChangeNameTableViewController.m */; };
 		183927301E670F7A00BED84F /* APTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1839272F1E670F7A00BED84F /* APTableViewCell.m */; };
 		183927321E67142E00BED84F /* ap_info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 183927311E67142E00BED84F /* ap_info.plist */; };
+		183927351E679C4B00BED84F /* AP_demo.png in Resources */ = {isa = PBXBuildFile; fileRef = 183927331E679C4B00BED84F /* AP_demo.png */; };
+		183927361E679C4B00BED84F /* Route_demo.png in Resources */ = {isa = PBXBuildFile; fileRef = 183927341E679C4B00BED84F /* Route_demo.png */; };
+		184A8E7C1E67F24B00CC066C /* EditMapTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 184A8E7B1E67F24B00CC066C /* EditMapTableViewController.m */; };
+		184A8E801E67FD4500CC066C /* EditAPTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 184A8E7F1E67FD4500CC066C /* EditAPTableViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -85,6 +89,12 @@
 		1839272E1E670F7A00BED84F /* APTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APTableViewCell.h; sourceTree = "<group>"; };
 		1839272F1E670F7A00BED84F /* APTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APTableViewCell.m; sourceTree = "<group>"; };
 		183927311E67142E00BED84F /* ap_info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = ap_info.plist; path = Plists/ap_info.plist; sourceTree = "<group>"; };
+		183927331E679C4B00BED84F /* AP_demo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = AP_demo.png; sourceTree = "<group>"; };
+		183927341E679C4B00BED84F /* Route_demo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Route_demo.png; sourceTree = "<group>"; };
+		184A8E7A1E67F24B00CC066C /* EditMapTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditMapTableViewController.h; sourceTree = "<group>"; };
+		184A8E7B1E67F24B00CC066C /* EditMapTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditMapTableViewController.m; sourceTree = "<group>"; };
+		184A8E7E1E67FD4500CC066C /* EditAPTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditAPTableViewController.h; sourceTree = "<group>"; };
+		184A8E7F1E67FD4500CC066C /* EditAPTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditAPTableViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -166,6 +176,7 @@
 				183927241E66B30000BED84F /* MapTableViewCell.h */,
 				183927251E66B30000BED84F /* MapTableViewCell.m */,
 				183927041E66657600BED84F /* Add */,
+				184A8E791E67F21400CC066C /* Edit */,
 				183927001E66636900BED84F /* Config */,
 			);
 			name = Simulatior;
@@ -215,7 +226,6 @@
 		183927001E66636900BED84F /* Config */ = {
 			isa = PBXGroup;
 			children = (
-				183927161E667FFD00BED84F /* AddAP */,
 				183927011E66657100BED84F /* ConfigTableViewController.h */,
 				183927021E66657100BED84F /* ConfigTableViewController.m */,
 				183927081E666C5300BED84F /* APViewController.h */,
@@ -224,6 +234,8 @@
 				1839270D1E666C7400BED84F /* FPViewController.m */,
 				1839270F1E666C9000BED84F /* RouteViewController.h */,
 				183927101E666C9000BED84F /* RouteViewController.m */,
+				183927161E667FFD00BED84F /* AddAP */,
+				184A8E7D1E67FD2000CC066C /* EditAP */,
 				1839272D1E670F5500BED84F /* Cell */,
 			);
 			path = Config;
@@ -250,6 +262,8 @@
 		183927131E667CF300BED84F /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				183927331E679C4B00BED84F /* AP_demo.png */,
+				183927341E679C4B00BED84F /* Route_demo.png */,
 				183927271E66F9EC00BED84F /* iTunesArtwork.png */,
 				1839271A1E6689E800BED84F /* Tabbar */,
 				183927141E667D6400BED84F /* Desktop.jpg */,
@@ -302,6 +316,24 @@
 				1839272F1E670F7A00BED84F /* APTableViewCell.m */,
 			);
 			name = Cell;
+			sourceTree = "<group>";
+		};
+		184A8E791E67F21400CC066C /* Edit */ = {
+			isa = PBXGroup;
+			children = (
+				184A8E7A1E67F24B00CC066C /* EditMapTableViewController.h */,
+				184A8E7B1E67F24B00CC066C /* EditMapTableViewController.m */,
+			);
+			path = Edit;
+			sourceTree = "<group>";
+		};
+		184A8E7D1E67FD2000CC066C /* EditAP */ = {
+			isa = PBXGroup;
+			children = (
+				184A8E7E1E67FD4500CC066C /* EditAPTableViewController.h */,
+				184A8E7F1E67FD4500CC066C /* EditAPTableViewController.m */,
+			);
+			path = EditAP;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -363,7 +395,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				183927361E679C4B00BED84F /* Route_demo.png in Resources */,
 				183927151E667D6400BED84F /* Desktop.jpg in Resources */,
+				183927351E679C4B00BED84F /* AP_demo.png in Resources */,
 				183927231E66AE3500BED84F /* map_info.plist in Resources */,
 				183926DA1E65C3CE00BED84F /* LaunchScreen.storyboard in Resources */,
 				1839271C1E668A2200BED84F /* tabbar_mapHL@2x.png in Resources */,
@@ -387,6 +421,7 @@
 				183926F01E664DA100BED84F /* AboutViewController.m in Sources */,
 				183927071E66658500BED84F /* AddTableViewController.m in Sources */,
 				183926FC1E66588B00BED84F /* MapsTableViewController.m in Sources */,
+				184A8E7C1E67F24B00CC066C /* EditMapTableViewController.m in Sources */,
 				183926F91E6652D300BED84F /* MainTabBarController.m in Sources */,
 				183927191E66801200BED84F /* AddAPTableViewController.m in Sources */,
 				183926FF1E66628600BED84F /* BaseNavigationController.m in Sources */,
@@ -394,6 +429,7 @@
 				183927301E670F7A00BED84F /* APTableViewCell.m in Sources */,
 				183926EA1E664D5100BED84F /* MineTableViewController.m in Sources */,
 				183926F31E664E0E00BED84F /* HelpViewController.m in Sources */,
+				184A8E801E67FD4500CC066C /* EditAPTableViewController.m in Sources */,
 				183927111E666C9000BED84F /* RouteViewController.m in Sources */,
 				1839270A1E666C5300BED84F /* APViewController.m in Sources */,
 				183926CC1E65C3CE00BED84F /* main.m in Sources */,
@@ -523,6 +559,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = LEY.WifiLocation;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -535,6 +572,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = LEY.WifiLocation;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
@@ -557,6 +595,7 @@
 				183926E01E65C3CE00BED84F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
