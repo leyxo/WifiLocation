@@ -34,6 +34,8 @@
    sendpower.text = [[NSString alloc] initWithFormat:@"%d", segueSendpower];
    sendgain.text = [[NSString alloc] initWithFormat:@"%d", segueSendgain];
    receiverefer.text = [[NSString alloc] initWithFormat:@"%d", segueReceiverefer];
+   
+   [x becomeFirstResponder];
 }
 
 - (void)didReceiveMemoryWarning {

@@ -662,10 +662,7 @@
                                             <outlet property="ap_sendpower" destination="GXZ-Az-kJc" id="uNM-WF-MF8"/>
                                             <outlet property="ap_x" destination="ZQO-Mx-fBi" id="P8w-TB-Fqu"/>
                                             <outlet property="ap_y" destination="pQY-cs-vXk" id="HiK-CM-bfe"/>
-                                            <segue destination="jMs-9b-Cla" kind="push" identifier="EditAP" id="d1z-KZ-dAY">
-                                                <segue key="commit" inheritsFrom="parent" id="d3L-60-Xrm"/>
-                                                <segue key="preview" inheritsFrom="commit" id="dxI-9A-W9s"/>
-                                            </segue>
+                                            <segue destination="jMs-9b-Cla" kind="push" identifier="EditAP" id="d1z-KZ-dAY"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -2682,13 +2679,12 @@
         <image name="tabbar_settingHL.png" width="25" height="25"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="vde-81-H03"/>
         <segue reference="sjl-co-b2z"/>
-        <segue reference="ziq-y2-dFd"/>
         <segue reference="FUV-r3-hKz"/>
         <segue reference="4vO-jo-Hj4"/>
-        <segue reference="d1z-KZ-dAY"/>
+        <segue reference="ziq-y2-dFd"/>
         <segue reference="fS5-0D-sS3"/>
+        <segue reference="vde-81-H03"/>
         <segue reference="LzW-Bh-aaN"/>
     </inferredMetricsTieBreakers>
 </document>
