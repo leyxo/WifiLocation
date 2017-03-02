@@ -25,13 +25,15 @@
    map_info.text = segueMapInfo;
    map_width.text = [[NSString alloc] initWithFormat:@"%d", segueMapWidth];
    map_height.text = [[NSString alloc] initWithFormat:@"%d", segueMapHeight];
-
-   [map_width becomeFirstResponder];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+   [map_width becomeFirstResponder];
 }
 
 #pragma mark - Table view data source

@@ -34,13 +34,15 @@
    sendpower.text = [[NSString alloc] initWithFormat:@"%d", segueSendpower];
    sendgain.text = [[NSString alloc] initWithFormat:@"%d", segueSendgain];
    receiverefer.text = [[NSString alloc] initWithFormat:@"%d", segueReceiverefer];
-   
-   [x becomeFirstResponder];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+   [x becomeFirstResponder];
 }
 
 #pragma mark - Table view data source
