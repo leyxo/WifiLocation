@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface MyInfoTableViewController : UITableViewController
+@interface MyInfoTableViewController : UITableViewController <UIActionSheetDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate>
+
+@property (weak, nonatomic) IBOutlet UIImageView *HeadImage;
 
 @end

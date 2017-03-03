@@ -7,6 +7,7 @@
 //
 
 #import "FPViewController.h"
+#import "FPTableViewCell.h"
 
 @interface FPViewController ()
 
@@ -14,15 +15,12 @@
 
 @implementation FPViewController
 @synthesize imageView;
+@synthesize listData;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
-    
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+   
+   [self initData];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -30,28 +28,54 @@
     // Dispose of any resources that can be recreated.
 }
 
+#pragma mark 加载数据
+-(void)initData{
+   
+   // 防止反复加载
+   if(listData == nil) {
+      // 初始化listView数据源数据
+      NSBundle * bundle = [NSBundle mainBundle];
+      NSString * filePath = [bundle pathForResource:@"fp_info" ofType:@"plist"];
+      NSMutableArray * data = [[NSMutableArray alloc] initWithContentsOfFile:filePath];
+      
+      listData = data;
+   }
+}
+
 #pragma mark - Table view data source
-/*
+
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-#warning Incomplete implementation, return the number of sections
-    return 0;
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-#warning Incomplete implementation, return the number of rows
-    return 0;
+    return listData.count;
 }
-*/
 
-/*
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
+    FPTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"FPCell"];
     
-    // Configure the cell...
+   cell.fp_id.text = [[[listData objectAtIndex:[indexPath row]] objectForKey:@"fp_id"] description];
+   cell.fp_x.text = [[[listData objectAtIndex:[indexPath row]] objectForKey:@"fp_x"] description];
+   cell.fp_y.text = [[[listData objectAtIndex:[indexPath row]] objectForKey:@"fp_y"] description];
+   cell.fp_receivegain.text = [[[listData objectAtIndex:[indexPath row]] objectForKey:@"fp_receivegain"] description];
     
     return cell;
 }
-*/
+
+// 设置组title
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
+{
+   switch (section) {
+      case 0:
+         return @"指纹节点数据";
+         break;
+      default:
+         break;
+   }
+   return self.title;
+}
 
 /*
 // Override to support conditional editing of the table view.

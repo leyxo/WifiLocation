@@ -1,0 +1,14 @@
+//
+//  PrefixHeader.pch
+//  WifiLocation
+//
+//  Created by LEY's MacBook on 17/03/03.
+//  Copyright © 2017年 LEY's MacBook. All rights reserved.
+//
+
+#ifndef PrefixHeader_pch
+#define PrefixHeader_pch
+
+#import "Define.h"
+
+#endif /* PrefixHeader_pch */

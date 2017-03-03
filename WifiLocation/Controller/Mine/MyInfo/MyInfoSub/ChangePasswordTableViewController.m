@@ -1,28 +1,29 @@
 //
-//  MainTabBarController.m
+//  ChangePasswordTableViewController.m
 //  WifiLocation
 //
-//  Created by LEY's MacBook on 17/03/01.
+//  Created by LEY's MacBook on 17/03/03.
 //  Copyright © 2017年 LEY's MacBook. All rights reserved.
 //
 
-#import "MainTabBarController.h"
+#import "ChangePasswordTableViewController.h"
 
-@interface MainTabBarController ()
+@interface ChangePasswordTableViewController ()
 
 @end
 
-@implementation MainTabBarController
+@implementation ChangePasswordTableViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-
-   UIColor *tabColor = [UIColor darkGrayColor];
-   [self.tabBar setTintColor:tabColor];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+   [self.passwordTextField becomeFirstResponder];
 }
 
 /*
@@ -35,4 +36,7 @@
 }
 */
 
+- (IBAction)Save:(id)sender {
+   [self.navigationController popViewControllerAnimated:YES];
+}
 @end

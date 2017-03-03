@@ -23,12 +23,6 @@
     [super viewDidLoad];
    
    [self initData];
-    
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
-    
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -65,7 +59,7 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
    APTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"APCell"];
    
-   cell.ap_id.text = [[listData objectAtIndex:[indexPath row]] objectForKey:@"ap_id"];
+   cell.ap_id.text = [[[listData objectAtIndex:[indexPath row]] objectForKey:@"ap_id"] description];
    cell.ap_x.text = [[[listData objectAtIndex:[indexPath row]] objectForKey:@"ap_x"] description];
    cell.ap_y.text = [[[listData objectAtIndex:[indexPath row]] objectForKey:@"ap_y"] description];
    cell.ap_sendpower.text = [[[listData objectAtIndex:[indexPath row]] objectForKey:@"ap_sendpower"] description];

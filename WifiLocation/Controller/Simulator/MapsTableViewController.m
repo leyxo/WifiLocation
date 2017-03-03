@@ -31,6 +31,10 @@
     // self.navigationItem.leftBarButtonItem = self.editButtonItem;
 }
 
+-(void)viewWillAppear:(BOOL)animated {
+//   [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -123,6 +127,17 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
+   
+   
+   // segue.identifier：获取连线的ID
+   // if ([segue.identifier isEqualToString:@"About"]) {
+   // segue.destinationViewController：获取连线时所指的界面（VC）
+   UIViewController *receive = segue.destinationViewController;
+   
+   // 隐藏TabBar
+   receive.hidesBottomBarWhenPushed = YES;
+   // }
+   
    
    // segue.identifier：获取连线的ID
    if ([segue.identifier isEqualToString:@"MapDetail"]) {

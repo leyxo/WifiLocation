@@ -14,5 +14,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *distance;
 @property (weak, nonatomic) IBOutlet UITextField *receivegain;
 
+@property (nonatomic, retain) NSMutableArray * listData;
+
 - (IBAction)Generate:(id)sender;
 @end

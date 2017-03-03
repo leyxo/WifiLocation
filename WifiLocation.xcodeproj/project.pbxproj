@@ -39,6 +39,10 @@
 		183927361E679C4B00BED84F /* Route_demo.png in Resources */ = {isa = PBXBuildFile; fileRef = 183927341E679C4B00BED84F /* Route_demo.png */; };
 		184A8E7C1E67F24B00CC066C /* EditMapTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 184A8E7B1E67F24B00CC066C /* EditMapTableViewController.m */; };
 		184A8E801E67FD4500CC066C /* EditAPTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 184A8E7F1E67FD4500CC066C /* EditAPTableViewController.m */; };
+		18E668541E6812CC005DA56E /* fp_info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 18E668531E6812CC005DA56E /* fp_info.plist */; };
+		18E668571E681429005DA56E /* FPTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 18E668561E681429005DA56E /* FPTableViewCell.m */; };
+		18E6685E1E695D16005DA56E /* ChangePasswordTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18E6685D1E695D16005DA56E /* ChangePasswordTableViewController.m */; };
+		93B8320B94D4BD4C670C1540 /* libPods-WifiLocation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 30B613ED484120FA3468FDC0 /* libPods-WifiLocation.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -80,7 +84,7 @@
 		1839271B1E668A2200BED84F /* tabbar_mapHL@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tabbar_mapHL@2x.png"; sourceTree = "<group>"; };
 		1839271D1E668A7B00BED84F /* tabbar_meHL@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tabbar_meHL@2x.png"; sourceTree = "<group>"; };
 		1839271E1E668A7B00BED84F /* tabbar_settingHL@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tabbar_settingHL@2x.png"; sourceTree = "<group>"; };
-		183927221E66AE3500BED84F /* map_info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = map_info.plist; path = Plists/map_info.plist; sourceTree = "<group>"; };
+		183927221E66AE3500BED84F /* map_info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = map_info.plist; sourceTree = "<group>"; };
 		183927241E66B30000BED84F /* MapTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapTableViewCell.h; sourceTree = "<group>"; };
 		183927251E66B30000BED84F /* MapTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapTableViewCell.m; sourceTree = "<group>"; };
 		183927271E66F9EC00BED84F /* iTunesArtwork.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iTunesArtwork.png; sourceTree = "<group>"; };
@@ -88,13 +92,24 @@
 		1839272B1E670BC300BED84F /* ChangeNameTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChangeNameTableViewController.m; sourceTree = "<group>"; };
 		1839272E1E670F7A00BED84F /* APTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APTableViewCell.h; sourceTree = "<group>"; };
 		1839272F1E670F7A00BED84F /* APTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APTableViewCell.m; sourceTree = "<group>"; };
-		183927311E67142E00BED84F /* ap_info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = ap_info.plist; path = Plists/ap_info.plist; sourceTree = "<group>"; };
+		183927311E67142E00BED84F /* ap_info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = ap_info.plist; sourceTree = "<group>"; };
 		183927331E679C4B00BED84F /* AP_demo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = AP_demo.png; sourceTree = "<group>"; };
 		183927341E679C4B00BED84F /* Route_demo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Route_demo.png; sourceTree = "<group>"; };
 		184A8E7A1E67F24B00CC066C /* EditMapTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditMapTableViewController.h; sourceTree = "<group>"; };
 		184A8E7B1E67F24B00CC066C /* EditMapTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditMapTableViewController.m; sourceTree = "<group>"; };
 		184A8E7E1E67FD4500CC066C /* EditAPTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditAPTableViewController.h; sourceTree = "<group>"; };
 		184A8E7F1E67FD4500CC066C /* EditAPTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditAPTableViewController.m; sourceTree = "<group>"; };
+		18E668531E6812CC005DA56E /* fp_info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = fp_info.plist; sourceTree = "<group>"; };
+		18E668551E681429005DA56E /* FPTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FPTableViewCell.h; sourceTree = "<group>"; };
+		18E668561E681429005DA56E /* FPTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FPTableViewCell.m; sourceTree = "<group>"; };
+		18E668581E684FEF005DA56E /* readme.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = readme.h; sourceTree = "<group>"; };
+		18E668591E68F415005DA56E /* Define.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Define.h; sourceTree = "<group>"; };
+		18E6685A1E68F518005DA56E /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
+		18E6685C1E695D16005DA56E /* ChangePasswordTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChangePasswordTableViewController.h; sourceTree = "<group>"; };
+		18E6685D1E695D16005DA56E /* ChangePasswordTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChangePasswordTableViewController.m; sourceTree = "<group>"; };
+		30B613ED484120FA3468FDC0 /* libPods-WifiLocation.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-WifiLocation.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		4CC78A8E5A7DD8F7C0EC4CE1 /* Pods-WifiLocation.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WifiLocation.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WifiLocation/Pods-WifiLocation.debug.xcconfig"; sourceTree = "<group>"; };
+		8FCC9F60072EEB08B72250E6 /* Pods-WifiLocation.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WifiLocation.release.xcconfig"; path = "Pods/Target Support Files/Pods-WifiLocation/Pods-WifiLocation.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +117,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				93B8320B94D4BD4C670C1540 /* libPods-WifiLocation.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -113,6 +129,8 @@
 			children = (
 				183926C91E65C3CE00BED84F /* WifiLocation */,
 				183926C81E65C3CE00BED84F /* Products */,
+				958CCE5A698AE20A1CCC6718 /* Pods */,
+				84551FB2E353502FA96C03FB /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -127,12 +145,13 @@
 		183926C91E65C3CE00BED84F /* WifiLocation */ = {
 			isa = PBXGroup;
 			children = (
-				183926E21E65CCD800BED84F /* Model */,
-				183926E11E65CCCC00BED84F /* Controller */,
+				18E668581E684FEF005DA56E /* readme.h */,
 				183926CD1E65C3CE00BED84F /* AppDelegate.h */,
 				183926CE1E65C3CE00BED84F /* AppDelegate.m */,
 				183926D31E65C3CE00BED84F /* Main.storyboard */,
 				183926D81E65C3CE00BED84F /* LaunchScreen.storyboard */,
+				183926E21E65CCD800BED84F /* Model */,
+				183926E11E65CCCC00BED84F /* Controller */,
 				183927121E667CEB00BED84F /* Resources */,
 				183926CA1E65C3CE00BED84F /* Supporting Files */,
 			);
@@ -144,6 +163,8 @@
 			children = (
 				183926DB1E65C3CE00BED84F /* Info.plist */,
 				183926CB1E65C3CE00BED84F /* main.m */,
+				18E668591E68F415005DA56E /* Define.h */,
+				18E6685A1E68F518005DA56E /* PrefixHeader.pch */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -296,8 +317,9 @@
 			children = (
 				183927221E66AE3500BED84F /* map_info.plist */,
 				183927311E67142E00BED84F /* ap_info.plist */,
+				18E668531E6812CC005DA56E /* fp_info.plist */,
 			);
-			name = Plists;
+			path = Plists;
 			sourceTree = "<group>";
 		};
 		183927291E670B9200BED84F /* MyInfoSub */ = {
@@ -305,6 +327,8 @@
 			children = (
 				1839272A1E670BC300BED84F /* ChangeNameTableViewController.h */,
 				1839272B1E670BC300BED84F /* ChangeNameTableViewController.m */,
+				18E6685C1E695D16005DA56E /* ChangePasswordTableViewController.h */,
+				18E6685D1E695D16005DA56E /* ChangePasswordTableViewController.m */,
 			);
 			path = MyInfoSub;
 			sourceTree = "<group>";
@@ -314,6 +338,8 @@
 			children = (
 				1839272E1E670F7A00BED84F /* APTableViewCell.h */,
 				1839272F1E670F7A00BED84F /* APTableViewCell.m */,
+				18E668551E681429005DA56E /* FPTableViewCell.h */,
+				18E668561E681429005DA56E /* FPTableViewCell.m */,
 			);
 			name = Cell;
 			sourceTree = "<group>";
@@ -336,6 +362,23 @@
 			path = EditAP;
 			sourceTree = "<group>";
 		};
+		84551FB2E353502FA96C03FB /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				30B613ED484120FA3468FDC0 /* libPods-WifiLocation.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		958CCE5A698AE20A1CCC6718 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				4CC78A8E5A7DD8F7C0EC4CE1 /* Pods-WifiLocation.debug.xcconfig */,
+				8FCC9F60072EEB08B72250E6 /* Pods-WifiLocation.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -343,9 +386,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 183926DE1E65C3CE00BED84F /* Build configuration list for PBXNativeTarget "WifiLocation" */;
 			buildPhases = (
+				AF75F19AFD1D483CBC906F39 /* [CP] Check Pods Manifest.lock */,
 				183926C31E65C3CE00BED84F /* Sources */,
 				183926C41E65C3CE00BED84F /* Frameworks */,
 				183926C51E65C3CE00BED84F /* Resources */,
+				DD3DC4211EB158124495BEE1 /* [CP] Embed Pods Frameworks */,
+				DF9517B3EA7167B1D216A0FE /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -406,18 +452,69 @@
 				183927281E66F9EC00BED84F /* iTunesArtwork.png in Resources */,
 				183927201E668A7B00BED84F /* tabbar_settingHL@2x.png in Resources */,
 				183926D51E65C3CE00BED84F /* Main.storyboard in Resources */,
+				18E668541E6812CC005DA56E /* fp_info.plist in Resources */,
 				183927321E67142E00BED84F /* ap_info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		AF75F19AFD1D483CBC906F39 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		DD3DC4211EB158124495BEE1 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-WifiLocation/Pods-WifiLocation-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DF9517B3EA7167B1D216A0FE /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-WifiLocation/Pods-WifiLocation-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		183926C31E65C3CE00BED84F /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				18E6685E1E695D16005DA56E /* ChangePasswordTableViewController.m in Sources */,
 				183927031E66657100BED84F /* ConfigTableViewController.m in Sources */,
+				18E668571E681429005DA56E /* FPTableViewCell.m in Sources */,
 				183926F01E664DA100BED84F /* AboutViewController.m in Sources */,
 				183927071E66658500BED84F /* AddTableViewController.m in Sources */,
 				183926FC1E66588B00BED84F /* MapsTableViewController.m in Sources */,
@@ -552,9 +649,12 @@
 		};
 		183926DF1E65C3CE00BED84F /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4CC78A8E5A7DD8F7C0EC4CE1 /* Pods-WifiLocation.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = J4YMYJUA3G;
+				GCC_INCREASE_PRECOMPILED_HEADER_SHARING = NO;
+				GCC_PREFIX_HEADER = WifiLocation/PrefixHeader.pch;
 				INFOPLIST_FILE = WifiLocation/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = LEY.WifiLocation;
@@ -565,9 +665,12 @@
 		};
 		183926E01E65C3CE00BED84F /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8FCC9F60072EEB08B72250E6 /* Pods-WifiLocation.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = J4YMYJUA3G;
+				GCC_INCREASE_PRECOMPILED_HEADER_SHARING = NO;
+				GCC_PREFIX_HEADER = WifiLocation/PrefixHeader.pch;
 				INFOPLIST_FILE = WifiLocation/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = LEY.WifiLocation;

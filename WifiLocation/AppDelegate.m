@@ -7,6 +7,9 @@
 //
 
 #import "AppDelegate.h"
+#import "MapsTableViewController.h"
+
+#import "MineTableViewController.h"
 
 @interface AppDelegate ()
 
@@ -24,6 +27,21 @@
    return YES;
 }
 
+// 3D Touch ShorCut事件处理
+- (void)application:(UIApplication *)application performActionForShortcutItem:(UIApplicationShortcutItem *)shortcutItem completionHandler:(void(^)(BOOL succeeded))completionHandler{
+   if([shortcutItem.type isEqualToString:@"map"]) {
+//      MapsTableViewController *vc = [[MapsTableViewController alloc] init];
+//      [self.window.rootViewController presentViewController:vc animated:YES completion:^{ }];
+   }
+   else if([shortcutItem.type isEqualToString:@"manage"]) {
+//      UIViewController *vc = [[UIViewController alloc] init];
+//      [self.window.rootViewController presentViewController:vc animated:YES completion:^{ }];
+   }
+   else if([shortcutItem.type isEqualToString:@"me"]) {
+//      MineTableViewController *vc = [[MineTableViewController alloc] init];
+//      [self.window.rootViewController presentViewController:vc animated:YES completion:^{ }];
+   }
+}
 
 - (void)applicationWillResignActive:(UIApplication *)application {
    // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.

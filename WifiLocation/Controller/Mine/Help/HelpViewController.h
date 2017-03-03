@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface HelpViewController : UIViewController <UIWebViewDelegate>
+@interface HelpViewController : UIViewController <UIWebViewDelegate, UIActionSheetDelegate>
 @property (weak, nonatomic) IBOutlet UIWebView *webView;
 
 - (IBAction)Share:(id)sender;

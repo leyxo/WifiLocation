@@ -11,6 +11,7 @@
 @interface AboutViewController : UIViewController <UIAlertViewDelegate> {
    int goodFontSize;
    int awfulFontSize;
+   bool hasClickedAwful;
 }
 @property (weak, nonatomic) IBOutlet UIButton *GoodButton;
 @property (weak, nonatomic) IBOutlet UIButton *AwfulButton;

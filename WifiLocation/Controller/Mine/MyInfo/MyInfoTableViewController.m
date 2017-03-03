@@ -16,17 +16,10 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
-    
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 #pragma mark - Table view data source
@@ -53,39 +46,12 @@
 }
 */
 
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+   // 选取头像
+   if(indexPath.section == 0 && indexPath.row == 0) {
+      [self callActionSheetFunc];
+   }
 }
-*/
-
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
 
 /*
 #pragma mark - Navigation
@@ -96,5 +62,71 @@
     // Pass the selected object to the new view controller.
 }
 */
+
+
+/**
+ @ 调用ActionSheet
+ */
+- (void)callActionSheetFunc{
+   UIActionSheet *actionSheet;
+   
+   if([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]){
+      actionSheet = [[UIActionSheet alloc] initWithTitle:@"选择图像" delegate:self cancelButtonTitle:@"取消" destructiveButtonTitle:nil otherButtonTitles:@"拍照", @"从相册选择", nil];
+   }else{
+      actionSheet = [[UIActionSheet alloc] initWithTitle:@"选择图像" delegate:self cancelButtonTitle:@"取消"destructiveButtonTitle:nil otherButtonTitles:@"从相册选择", nil];
+   }
+   
+   actionSheet.tag = 1000;
+   [actionSheet showInView:self.view];
+}
+
+// Called when a button is clicked. The view will be automatically dismissed after this call returns
+- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex{
+   if (actionSheet.tag == 1000) {
+      NSUInteger sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+
+      // 判断是否支持相机
+      if([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
+         switch (buttonIndex) {
+            case 0:
+               //来源:相机
+               sourceType = UIImagePickerControllerSourceTypeCamera;
+               break;
+            case 1:
+               //来源:相册
+               sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+               break;
+            case 2:
+               return;
+         }
+      }
+      else switch (buttonIndex) {
+         case 0:
+            //来源:相册
+            sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+            break;
+         case 1:
+            return;
+      }
+      
+      // 跳转到相机或相册页面
+      UIImagePickerController *imagePickerController = [[UIImagePickerController alloc] init];
+      imagePickerController.delegate = self;
+      imagePickerController.allowsEditing = YES;
+      imagePickerController.sourceType = sourceType;
+
+      [self presentViewController:imagePickerController animated:YES completion:^{ }];
+   }
+}
+
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
+{
+   [picker dismissViewControllerAnimated:YES completion:^{
+      
+   }];
+   
+   UIImage *image = [info objectForKey:UIImagePickerControllerOriginalImage];
+   self.HeadImage.image = image;
+}
 
 @end

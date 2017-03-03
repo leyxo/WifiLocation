@@ -2,39 +2,10 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>UIApplicationShortcutItems</key>
-	<array>
-		<dict>
-			<key>UIApplicationShortcutItemType</key>
-			<string>map</string>
-			<key>UIApplicationShortcutItemTitle</key>
-			<string>地图</string>
-			<key>UIApplicationShortcutItemIconType</key>
-			<string>UIApplicationShortcutIconTypeBookmark</string>
-			<key>UIApplicationShortcutUserInfo</key>
-			<dict/>
-		</dict>
-		<dict>
-			<key>UIApplicationShortcutItemType</key>
-			<string>manage</string>
-			<key>UIApplicationShortcutItemTitle</key>
-			<string>管理</string>
-			<key>UIApplicationShortcutItemIconType</key>
-			<string>UIApplicationShortcutIconTypeCompose</string>
-			<key>UIApplicationShortcutUserInfo</key>
-			<dict/>
-		</dict>
-		<dict>
-			<key>UIApplicationShortcutItemType</key>
-			<string>me</string>
-			<key>UIApplicationShortcutItemTitle</key>
-			<string>用户</string>
-			<key>UIApplicationShortcutItemIconType</key>
-			<string>UIApplicationShortcutIconTypeContact</string>
-			<key>UIApplicationShortcutUserInfo</key>
-			<dict/>
-		</dict>
-	</array>
+	<key>NSCameraUsageDescription</key>
+	<string>来来来，让叔叔用下你的摄像头~</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>来来来，让叔叔看看你的照片~</string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
 	<key>CFBundleDisplayName</key>
@@ -51,6 +22,17 @@
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
 	<string>1.0</string>
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>Prefs</string>
+			</array>
+		</dict>
+	</array>
 	<key>CFBundleVersion</key>
 	<string>1</string>
 	<key>LSRequiresIPhoneOS</key>
@@ -60,6 +42,39 @@
 		<key>NSAllowsArbitraryLoads</key>
 		<true/>
 	</dict>
+	<key>UIApplicationShortcutItems</key>
+	<array>
+		<dict>
+			<key>UIApplicationShortcutItemIconType</key>
+			<string>UIApplicationShortcutIconTypeBookmark</string>
+			<key>UIApplicationShortcutItemTitle</key>
+			<string>地图</string>
+			<key>UIApplicationShortcutItemType</key>
+			<string>map</string>
+			<key>UIApplicationShortcutUserInfo</key>
+			<dict/>
+		</dict>
+		<dict>
+			<key>UIApplicationShortcutItemIconType</key>
+			<string>UIApplicationShortcutIconTypeCompose</string>
+			<key>UIApplicationShortcutItemTitle</key>
+			<string>管理</string>
+			<key>UIApplicationShortcutItemType</key>
+			<string>manage</string>
+			<key>UIApplicationShortcutUserInfo</key>
+			<dict/>
+		</dict>
+		<dict>
+			<key>UIApplicationShortcutItemIconType</key>
+			<string>UIApplicationShortcutIconTypeContact</string>
+			<key>UIApplicationShortcutItemTitle</key>
+			<string>用户</string>
+			<key>UIApplicationShortcutItemType</key>
+			<string>me</string>
+			<key>UIApplicationShortcutUserInfo</key>
+			<dict/>
+		</dict>
+	</array>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>
