@@ -130,6 +130,12 @@
     <Compile Include="Register.Designer.cs">
       <DependentUpon>Register.cs</DependentUpon>
     </Compile>
+    <Compile Include="ServerSetting.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ServerSetting.Designer.cs">
+      <DependentUpon>ServerSetting.cs</DependentUpon>
+    </Compile>
     <Compile Include="Settings.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -169,6 +175,9 @@
     </Compile>
     <EmbeddedResource Include="Register.resx">
       <DependentUpon>Register.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ServerSetting.resx">
+      <DependentUpon>ServerSetting.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Settings.resx">
       <DependentUpon>Settings.cs</DependentUpon>
@@ -232,6 +241,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\button_export.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Button_Round.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

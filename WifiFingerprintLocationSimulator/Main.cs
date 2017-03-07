@@ -46,5 +46,10 @@ namespace WifiFingerprintLocationSimulator
             login.ShowDialog();
         }
 
+        private void ToolStripMenuItem_ServerSetting_Click(object sender, EventArgs e)
+        {
+            ServerSetting serversetting = new ServerSetting();
+            serversetting.ShowDialog();
+        }
     }
 }

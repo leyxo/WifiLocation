@@ -79,7 +79,7 @@ namespace WifiFingerprintLocationSimulator
                 string sql = "select user_id, user_name, user_type, reg_date, user_email from user_info";
 
                 // DataRead Process
-                MySqlConnection conn = new MySqlConnection(MySqlHelper.Conn);
+                MySqlConnection conn = new MySqlConnection(MySqlHelper.getConn());
                 conn.Open();
                 MySqlCommand cmd = conn.CreateCommand();
                 cmd.CommandText = sql;
@@ -138,7 +138,7 @@ namespace WifiFingerprintLocationSimulator
                 string sql = "delete from user_info where user_name = '" + UserName + "'";
                 
                 // DataRead Process
-                MySqlConnection conn = new MySqlConnection(MySqlHelper.Conn);
+                MySqlConnection conn = new MySqlConnection(MySqlHelper.getConn());
                 conn.Open();
                 MySqlCommand cmd = new MySqlCommand(sql, conn);
 

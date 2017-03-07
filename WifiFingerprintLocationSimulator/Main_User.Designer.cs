@@ -171,6 +171,7 @@
             this.button_simu_refresh = new System.Windows.Forms.Button();
             this.button_simu_add = new System.Windows.Forms.Button();
             this.tabPage6 = new System.Windows.Forms.TabPage();
+            this.label_simu_algorithmInfo = new System.Windows.Forms.Label();
             this.label_simu_info = new System.Windows.Forms.Label();
             this.comboBox_simu_k = new System.Windows.Forms.ComboBox();
             this.label_simu_k = new System.Windows.Forms.Label();
@@ -178,6 +179,7 @@
             this.button_simu_start = new System.Windows.Forms.Button();
             this.comboBox_simu_algorithm = new System.Windows.Forms.ComboBox();
             this.label_simu_algorithm = new System.Windows.Forms.Label();
+            this.toolTip_AlgorithmInfo = new System.Windows.Forms.ToolTip(this.components);
             this.statusStrip1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.panel_EnvironmentSettings.SuspendLayout();
@@ -1489,6 +1491,7 @@
             // 
             // tabPage6
             // 
+            this.tabPage6.Controls.Add(this.label_simu_algorithmInfo);
             this.tabPage6.Controls.Add(this.label_simu_info);
             this.tabPage6.Controls.Add(this.comboBox_simu_k);
             this.tabPage6.Controls.Add(this.label_simu_k);
@@ -1503,6 +1506,17 @@
             this.tabPage6.TabIndex = 1;
             this.tabPage6.Text = "仿真实验";
             this.tabPage6.UseVisualStyleBackColor = true;
+            // 
+            // label_simu_algorithmInfo
+            // 
+            this.label_simu_algorithmInfo.AutoSize = true;
+            this.label_simu_algorithmInfo.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.label_simu_algorithmInfo.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.label_simu_algorithmInfo.Location = new System.Drawing.Point(262, 93);
+            this.label_simu_algorithmInfo.Name = "label_simu_algorithmInfo";
+            this.label_simu_algorithmInfo.Size = new System.Drawing.Size(29, 12);
+            this.label_simu_algorithmInfo.TabIndex = 40;
+            this.label_simu_algorithmInfo.Text = "说明";
             // 
             // label_simu_info
             // 
@@ -1590,6 +1604,16 @@
             this.label_simu_algorithm.Size = new System.Drawing.Size(65, 12);
             this.label_simu_algorithm.TabIndex = 33;
             this.label_simu_algorithm.Text = "选择算法：";
+            // 
+            // toolTip_AlgorithmInfo
+            // 
+            this.toolTip_AlgorithmInfo.AutomaticDelay = 0;
+            this.toolTip_AlgorithmInfo.AutoPopDelay = 14400;
+            this.toolTip_AlgorithmInfo.InitialDelay = 1;
+            this.toolTip_AlgorithmInfo.IsBalloon = true;
+            this.toolTip_AlgorithmInfo.ReshowDelay = 0;
+            this.toolTip_AlgorithmInfo.ToolTipIcon = System.Windows.Forms.ToolTipIcon.Info;
+            this.toolTip_AlgorithmInfo.ToolTipTitle = "算法说明";
             // 
             // Main_User
             // 
@@ -1784,5 +1808,7 @@
         private System.Windows.Forms.ComboBox comboBox_simu_k;
         private System.Windows.Forms.Label label_simu_k;
         private System.Windows.Forms.Panel panel_Graph;
+        private System.Windows.Forms.Label label_simu_algorithmInfo;
+        private System.Windows.Forms.ToolTip toolTip_AlgorithmInfo;
     }
 }

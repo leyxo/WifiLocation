@@ -203,6 +203,16 @@ namespace WifiFingerprintLocationSimulator.Properties {
         /// <summary>
         ///   查找 System.Drawing.Bitmap 类型的本地化资源。
         /// </summary>
+        internal static System.Drawing.Bitmap Button_Round {
+            get {
+                object obj = ResourceManager.GetObject("Button_Round", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
         internal static System.Drawing.Bitmap button_start {
             get {
                 object obj = ResourceManager.GetObject("button_start", resourceCulture);

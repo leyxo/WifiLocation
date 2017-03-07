@@ -39,7 +39,7 @@
             // 
             // button_Save
             // 
-            this.button_Save.Location = new System.Drawing.Point(160, 158);
+            this.button_Save.Location = new System.Drawing.Point(179, 156);
             this.button_Save.Name = "button_Save";
             this.button_Save.Size = new System.Drawing.Size(75, 23);
             this.button_Save.TabIndex = 8;
@@ -50,7 +50,7 @@
             // button_cancel
             // 
             this.button_cancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.button_cancel.Location = new System.Drawing.Point(53, 158);
+            this.button_cancel.Location = new System.Drawing.Point(72, 156);
             this.button_cancel.Name = "button_cancel";
             this.button_cancel.Size = new System.Drawing.Size(75, 23);
             this.button_cancel.TabIndex = 9;
@@ -82,7 +82,7 @@
             // 
             this.groupBox1.Controls.Add(this.checkBox_showAPRadio);
             this.groupBox1.Controls.Add(this.checkBox_showCoord);
-            this.groupBox1.Location = new System.Drawing.Point(12, 12);
+            this.groupBox1.Location = new System.Drawing.Point(31, 24);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(270, 87);
             this.groupBox1.TabIndex = 13;
@@ -95,15 +95,15 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.button_cancel;
-            this.ClientSize = new System.Drawing.Size(294, 204);
+            this.ClientSize = new System.Drawing.Size(334, 204);
             this.ControlBox = false;
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.button_Save);
             this.Controls.Add(this.button_cancel);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.KeyPreview = true;
-            this.MaximumSize = new System.Drawing.Size(310, 320);
-            this.MinimumSize = new System.Drawing.Size(310, 220);
+            this.MaximumSize = new System.Drawing.Size(350, 320);
+            this.MinimumSize = new System.Drawing.Size(350, 220);
             this.Name = "Settings";
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

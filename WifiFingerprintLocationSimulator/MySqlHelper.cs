@@ -10,10 +10,32 @@ namespace WifiFingerprintLocationSimulator
     /// </summary>
     public abstract class MySqlHelper
     {
+        // 数据库信息
+        public static string    ConnStatus  =   "local"; // 连接状态(在线(非'local')或本地数据库('local'))，用以确定动画效果等一些数据库信息获取的频率
+        public static string    datasource1 =   "127";
+        public static string    datasource2 =   "0";
+        public static string    datasource3 =   "0";
+        public static string    datasource4 =   "1";
+        public static string    database    =   "test";
+        public static string    userid      =   "root";
+        public static string    password    =   "951006";
+        public static string    charset     =   "utf8";
+        public static string    pooling     =   "true";
+
+
+
         //数据库连接字符串
-        public static string Conn = "Database='test';Data Source='127.0.0.1';User Id='root';Password='951006';charset='utf8';pooling=true";
+        //public static string Conn = "Database='test';Data Source='127.0.0.1';User Id='root';Password='951006';charset='utf8';pooling=true";
         //public static string Conn = "Database='wifilocation';Data Source='107.174.66.67';User Id='leyxo';Password='951006';charset='utf8';pooling=true";
-        public static string ConnStatus = "local"; // 连接状态(在线(非'local')或本地数据库('local'))，用以确定动画效果等一些数据库信息获取的频率
+
+
+        /// <summary>
+        ///  返回数据库连接字符串
+        /// </summary>
+        public static string getConn()
+        {
+            return "Database='" + database + "';Data Source='" + datasource1 + "." + datasource2 + "." + datasource3 + "." + datasource4 + "';User Id='" + userid + "';Password='" + password + "';charset='"+ charset +"';pooling=" + pooling;
+        }
 
         // 用于缓存参数的HASH表
         private static Hashtable parmCache = Hashtable.Synchronized(new Hashtable());

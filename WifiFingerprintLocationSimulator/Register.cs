@@ -62,8 +62,8 @@ namespace WifiFingerprintLocationSimulator
                     string sql_check = "select * from user_info where user_name = '" + textBox_UserName.Text + "'";
 
                     // DataRead Process
-                    MySqlConnection conn = new MySqlConnection(MySqlHelper.Conn);
-                    MySqlConnection conn_check = new MySqlConnection(MySqlHelper.Conn);
+                    MySqlConnection conn = new MySqlConnection(MySqlHelper.getConn());
+                    MySqlConnection conn_check = new MySqlConnection(MySqlHelper.getConn());
                     conn.Open();
                     conn_check.Open();
                     MySqlCommand cmd = new MySqlCommand(sql, conn);

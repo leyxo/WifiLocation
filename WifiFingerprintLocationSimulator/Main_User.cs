@@ -38,6 +38,7 @@ namespace WifiFingerprintLocationSimulator
 
             // 控件提示弹窗初始化
             toolTip_Graph.SetToolTip(panel_Graph, "点击以切换大图模式");
+            toolTip_AlgorithmInfo.SetToolTip(label_simu_algorithmInfo, "算法说明");
 
             // CurrentUserInfo初始化
             CurrentUserInfo.Panel = "EnvironmentSettings";
@@ -510,7 +511,7 @@ namespace WifiFingerprintLocationSimulator
                 string sql = "select ap_isrefer, ap_x, ap_y from ap_info where map_id ='" + CurrentUserInfo.MapID + "'";
 
                 // DataRead Process
-                MySqlConnection conn = new MySqlConnection(MySqlHelper.Conn);
+                MySqlConnection conn = new MySqlConnection(MySqlHelper.getConn());
                 conn.Open();
                 MySqlCommand cmd = conn.CreateCommand();
                 cmd.CommandText = sql;
@@ -618,7 +619,7 @@ namespace WifiFingerprintLocationSimulator
                 string sql = "select fp_x, fp_y from fp_info where map_id ='" + CurrentUserInfo.MapID + "'";
 
                 // DataRead Process
-                MySqlConnection conn = new MySqlConnection(MySqlHelper.Conn);
+                MySqlConnection conn = new MySqlConnection(MySqlHelper.getConn());
                 conn.Open();
                 MySqlCommand cmd = conn.CreateCommand();
                 cmd.CommandText = sql;
@@ -706,7 +707,7 @@ namespace WifiFingerprintLocationSimulator
                 string sql = "select real_x, real_y from simu_info where map_id ='" + CurrentUserInfo.MapID + "'";
 
                 // DataRead Process
-                MySqlConnection conn = new MySqlConnection(MySqlHelper.Conn);
+                MySqlConnection conn = new MySqlConnection(MySqlHelper.getConn());
                 conn.Open();
                 MySqlCommand cmd = conn.CreateCommand();
                 cmd.CommandText = sql;
@@ -832,7 +833,7 @@ namespace WifiFingerprintLocationSimulator
                 string sql = "select map_id, map_name, map_width, map_height, map_info, reg_date from map_info where user_id = " + CurrentUserInfo.Id;
 
                 // DataRead Process
-                MySqlConnection conn = new MySqlConnection(MySqlHelper.Conn);
+                MySqlConnection conn = new MySqlConnection(MySqlHelper.getConn());
                 conn.Open();
                 MySqlCommand cmd = conn.CreateCommand();
                 cmd.CommandText = sql;
@@ -900,7 +901,7 @@ namespace WifiFingerprintLocationSimulator
                 string sql = "delete from map_info where map_name = '" + MapName + "' and user_id = " + CurrentUserInfo.Id;
 
                 // DataRead Process
-                MySqlConnection conn = new MySqlConnection(MySqlHelper.Conn);
+                MySqlConnection conn = new MySqlConnection(MySqlHelper.getConn());
                 conn.Open();
                 MySqlCommand cmd = new MySqlCommand(sql, conn);
 
@@ -975,7 +976,7 @@ namespace WifiFingerprintLocationSimulator
                 string sql = "select * from map_info where map_name = '" + textBox_map_name.Text + "' and user_id = " + CurrentUserInfo.Id;
                
                 // DataRead Process
-                MySqlConnection conn = new MySqlConnection(MySqlHelper.Conn);
+                MySqlConnection conn = new MySqlConnection(MySqlHelper.getConn());
                 conn.Open();
                 MySqlCommand cmd = new MySqlCommand(sql, conn);
                 
@@ -1039,8 +1040,8 @@ namespace WifiFingerprintLocationSimulator
                     string sql_check = "select * from map_info where map_name = '" + textBox_map_name.Text + "' and user_id = " + CurrentUserInfo.Id;
 
                     // DataRead Process
-                    MySqlConnection conn = new MySqlConnection(MySqlHelper.Conn);
-                    MySqlConnection conn_check = new MySqlConnection(MySqlHelper.Conn);
+                    MySqlConnection conn = new MySqlConnection(MySqlHelper.getConn());
+                    MySqlConnection conn_check = new MySqlConnection(MySqlHelper.getConn());
                     conn.Open();
                     conn_check.Open();
                     MySqlCommand cmd = new MySqlCommand(sql, conn);
@@ -1098,7 +1099,7 @@ namespace WifiFingerprintLocationSimulator
                 string sql = "update map_info set map_width = " + textBox_map_width.Text + ", map_height = " + textBox_map_height.Text + ", map_info ='" + textBox_map_note.Text + "', reg_date = '" + DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss") + "' where map_name = '" + textBox_map_name.Text + "'";
 
                 // DataRead Process
-                MySqlConnection conn = new MySqlConnection(MySqlHelper.Conn);
+                MySqlConnection conn = new MySqlConnection(MySqlHelper.getConn());
                 conn.Open();
                 MySqlCommand cmd = new MySqlCommand(sql, conn);
 
@@ -1172,7 +1173,7 @@ namespace WifiFingerprintLocationSimulator
                     string sql = "select * from ap_info where map_id ='" + CurrentUserInfo.MapID + "'";
 
                     // DataRead Process
-                    MySqlConnection conn = new MySqlConnection(MySqlHelper.Conn);
+                    MySqlConnection conn = new MySqlConnection(MySqlHelper.getConn());
                     conn.Open();
                     MySqlCommand cmd = conn.CreateCommand();
                     cmd.CommandText = sql;
@@ -1325,8 +1326,8 @@ namespace WifiFingerprintLocationSimulator
                         string sql_check = "select * from ap_info where map_id = '" + CurrentUserInfo.MapID + "' and ap_isrefer = '" + "是" + "'";
 
                         // DataRead Process
-                        MySqlConnection conn = new MySqlConnection(MySqlHelper.Conn);
-                        MySqlConnection conn_check = new MySqlConnection(MySqlHelper.Conn);
+                        MySqlConnection conn = new MySqlConnection(MySqlHelper.getConn());
+                        MySqlConnection conn_check = new MySqlConnection(MySqlHelper.getConn());
                         conn.Open();
                         conn_check.Open();
                         MySqlCommand cmd = new MySqlCommand(sql, conn);
@@ -1371,7 +1372,7 @@ namespace WifiFingerprintLocationSimulator
                         string sql = "insert into ap_info (map_id, ap_x, ap_y, ap_sendpower, ap_sendgain, ap_receiverefer, reg_date) values('" + CurrentUserInfo.MapID + "','" + textBox_ap_x.Text + "','" + textBox_ap_y.Text + "','" + textBox_ap_sendpower.Text + "','" + textBox_ap_sendgain.Text + "','" + textBox_ap_receiverefer.Text + "','" + DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss") + "')";
 
                         // DataRead Process
-                        MySqlConnection conn = new MySqlConnection(MySqlHelper.Conn);
+                        MySqlConnection conn = new MySqlConnection(MySqlHelper.getConn());
                         conn.Open();
                         MySqlCommand cmd = new MySqlCommand(sql, conn);
                         int i = 0;
@@ -1410,7 +1411,7 @@ namespace WifiFingerprintLocationSimulator
                 string sql = "delete from ap_info where map_id = '" + CurrentUserInfo.MapID + "'";
 
                 // DataRead Process
-                MySqlConnection conn = new MySqlConnection(MySqlHelper.Conn);
+                MySqlConnection conn = new MySqlConnection(MySqlHelper.getConn());
                 conn.Open();
                 MySqlCommand cmd = new MySqlCommand(sql, conn);
 
@@ -1441,7 +1442,7 @@ namespace WifiFingerprintLocationSimulator
                 string sql = "delete from ap_info where ap_id = '" + listView_ap.SelectedItems[0].SubItems[0].Text + "'";
 
                 // DataRead Process
-                MySqlConnection conn = new MySqlConnection(MySqlHelper.Conn);
+                MySqlConnection conn = new MySqlConnection(MySqlHelper.getConn());
                 conn.Open();
                 MySqlCommand cmd = new MySqlCommand(sql, conn);
 
@@ -1485,7 +1486,7 @@ namespace WifiFingerprintLocationSimulator
                 string sql = "update ap_info set ap_x = " + textBox_ap_x.Text + ", ap_y = " + textBox_ap_y.Text + ", ap_sendpower =" + textBox_ap_sendpower.Text + ", ap_sendgain =" + textBox_ap_sendgain.Text + ", reg_date = '" + DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss") + "' where ap_id = '" + CurrentUserInfo.ApID + "'";
 
                 // DataRead Process
-                MySqlConnection conn = new MySqlConnection(MySqlHelper.Conn);
+                MySqlConnection conn = new MySqlConnection(MySqlHelper.getConn());
                 conn.Open();
                 MySqlCommand cmd = new MySqlCommand(sql, conn);
 
@@ -1544,7 +1545,7 @@ namespace WifiFingerprintLocationSimulator
                     string sql = "select * from fp_info where map_id ='" + CurrentUserInfo.MapID + "'";
 
                     // DataRead Process
-                    MySqlConnection conn = new MySqlConnection(MySqlHelper.Conn);
+                    MySqlConnection conn = new MySqlConnection(MySqlHelper.getConn());
                     conn.Open();
                     MySqlCommand cmd = conn.CreateCommand();
                     cmd.CommandText = sql;
@@ -1617,7 +1618,7 @@ namespace WifiFingerprintLocationSimulator
                             string sql = "insert into fp_info (map_id, fp_x, fp_y, fp_receivegain, reg_date) values('" + CurrentUserInfo.MapID + "'," + i + "," + j + ",'" + textBox_fp_receivegain.Text + "','" + DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss") + "')";
 
                             // DataRead Process
-                            MySqlConnection conn = new MySqlConnection(MySqlHelper.Conn);
+                            MySqlConnection conn = new MySqlConnection(MySqlHelper.getConn());
                             conn.Open();
                             MySqlCommand cmd = new MySqlCommand(sql, conn);
                             int k = 0;
@@ -1657,7 +1658,7 @@ namespace WifiFingerprintLocationSimulator
                 string sql = "delete from fp_info where map_id = '" + CurrentUserInfo.MapID + "'";
 
                 // DataRead Process
-                MySqlConnection conn = new MySqlConnection(MySqlHelper.Conn);
+                MySqlConnection conn = new MySqlConnection(MySqlHelper.getConn());
                 conn.Open();
                 MySqlCommand cmd = new MySqlCommand(sql, conn);
                 cmd.ExecuteNonQuery();
@@ -1689,7 +1690,7 @@ namespace WifiFingerprintLocationSimulator
                     string sql = "select * from rss_info where map_id ='" + CurrentUserInfo.MapID + "'";
 
                     // DataRead Process
-                    MySqlConnection conn = new MySqlConnection(MySqlHelper.Conn);
+                    MySqlConnection conn = new MySqlConnection(MySqlHelper.getConn());
                     conn.Open();
                     MySqlCommand cmd = conn.CreateCommand();
                     cmd.CommandText = sql;
@@ -1752,7 +1753,7 @@ namespace WifiFingerprintLocationSimulator
                 string sql = "delete from rss_info where map_id = '" + CurrentUserInfo.MapID + "'";
 
                 // DataRead Process
-                MySqlConnection conn = new MySqlConnection(MySqlHelper.Conn);
+                MySqlConnection conn = new MySqlConnection(MySqlHelper.getConn());
                 conn.Open();
                 MySqlCommand cmd = new MySqlCommand(sql, conn);
                 cmd.ExecuteNonQuery();
@@ -1831,7 +1832,7 @@ namespace WifiFingerprintLocationSimulator
                             string sql = "insert into simu_info (map_id, real_x, real_y, reg_date) values('" + CurrentUserInfo.MapID + "'," + x_new + "," + y_new + ",'" + DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss") + "')";
 
                             // DataRead Process
-                            MySqlConnection conn = new MySqlConnection(MySqlHelper.Conn);
+                            MySqlConnection conn = new MySqlConnection(MySqlHelper.getConn());
                             conn.Open();
                             MySqlCommand cmd = new MySqlCommand(sql, conn);
                             int k = 0;
@@ -1858,7 +1859,7 @@ namespace WifiFingerprintLocationSimulator
                         string sql = "insert into simu_info (map_id, real_x, real_y, reg_date) values('" + CurrentUserInfo.MapID + "','" + textBox_simu_point_x.Text + "','" + textBox_simu_point_y.Text + "','" + DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss") + "')";
 
                         // DataRead Process
-                        MySqlConnection conn = new MySqlConnection(MySqlHelper.Conn);
+                        MySqlConnection conn = new MySqlConnection(MySqlHelper.getConn());
                         conn.Open();
                         MySqlCommand cmd = new MySqlCommand(sql, conn);
                         int i = 0;
@@ -1901,7 +1902,7 @@ namespace WifiFingerprintLocationSimulator
                 string sql = "delete from simu_info where map_id = '" + CurrentUserInfo.MapID + "'";
 
                 // DataRead Process
-                MySqlConnection conn = new MySqlConnection(MySqlHelper.Conn);
+                MySqlConnection conn = new MySqlConnection(MySqlHelper.getConn());
                 conn.Open();
                 MySqlCommand cmd = new MySqlCommand(sql, conn);
 
@@ -1955,7 +1956,7 @@ namespace WifiFingerprintLocationSimulator
                     string sql = "select * from simu_info where map_id ='" + CurrentUserInfo.MapID + "'";
 
                     // DataRead Process
-                    MySqlConnection conn = new MySqlConnection(MySqlHelper.Conn);
+                    MySqlConnection conn = new MySqlConnection(MySqlHelper.getConn());
                     conn.Open();
                     MySqlCommand cmd = conn.CreateCommand();
                     cmd.CommandText = sql;
@@ -2270,7 +2271,5 @@ namespace WifiFingerprintLocationSimulator
                 }
             }
         }
-
-        
     }
 }

@@ -33,9 +33,11 @@
             this.ToolStripMenuItem_Menu_System = new System.Windows.Forms.ToolStripMenuItem();
             this.ToolStripMenuItem_Login = new System.Windows.Forms.ToolStripMenuItem();
             this.ToolStripMenuItem_Registe = new System.Windows.Forms.ToolStripMenuItem();
+            this.ToolStripMenuItem_ServerSetting = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.ToolStripMenuItem_Exit = new System.Windows.Forms.ToolStripMenuItem();
             this.ToolStripMenuItem_Menu_Message = new System.Windows.Forms.ToolStripMenuItem();
+            this.暂无消息ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ToolStripMenuItem_Menu_Help = new System.Windows.Forms.ToolStripMenuItem();
             this.ToolStripMenuItem_Help = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
@@ -43,7 +45,6 @@
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel_DateLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusLabel_Date = new System.Windows.Forms.ToolStripStatusLabel();
-            this.暂无消息ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -65,6 +66,7 @@
             this.ToolStripMenuItem_Menu_System.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.ToolStripMenuItem_Login,
             this.ToolStripMenuItem_Registe,
+            this.ToolStripMenuItem_ServerSetting,
             this.toolStripSeparator1,
             this.ToolStripMenuItem_Exit});
             this.ToolStripMenuItem_Menu_System.Name = "ToolStripMenuItem_Menu_System";
@@ -85,6 +87,13 @@
             this.ToolStripMenuItem_Registe.Text = "新用户注册...";
             this.ToolStripMenuItem_Registe.Click += new System.EventHandler(this.ToolStripMenuItem_Registe_Click);
             // 
+            // ToolStripMenuItem_ServerSetting
+            // 
+            this.ToolStripMenuItem_ServerSetting.Name = "ToolStripMenuItem_ServerSetting";
+            this.ToolStripMenuItem_ServerSetting.Size = new System.Drawing.Size(152, 22);
+            this.ToolStripMenuItem_ServerSetting.Text = "服务器设置...";
+            this.ToolStripMenuItem_ServerSetting.Click += new System.EventHandler(this.ToolStripMenuItem_ServerSetting_Click);
+            // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
@@ -104,6 +113,13 @@
             this.ToolStripMenuItem_Menu_Message.Name = "ToolStripMenuItem_Menu_Message";
             this.ToolStripMenuItem_Menu_Message.Size = new System.Drawing.Size(64, 21);
             this.ToolStripMenuItem_Menu_Message.Text = "消息(M)";
+            // 
+            // 暂无消息ToolStripMenuItem
+            // 
+            this.暂无消息ToolStripMenuItem.Enabled = false;
+            this.暂无消息ToolStripMenuItem.Name = "暂无消息ToolStripMenuItem";
+            this.暂无消息ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
+            this.暂无消息ToolStripMenuItem.Text = "暂无消息";
             // 
             // ToolStripMenuItem_Menu_Help
             // 
@@ -158,13 +174,6 @@
             this.toolStripStatusLabel_Date.Size = new System.Drawing.Size(35, 17);
             this.toolStripStatusLabel_Date.Text = "Date";
             // 
-            // 暂无消息ToolStripMenuItem
-            // 
-            this.暂无消息ToolStripMenuItem.Enabled = false;
-            this.暂无消息ToolStripMenuItem.Name = "暂无消息ToolStripMenuItem";
-            this.暂无消息ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.暂无消息ToolStripMenuItem.Text = "暂无消息";
-            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -208,6 +217,7 @@
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel_Date;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel_DateLabel;
         private System.Windows.Forms.ToolStripMenuItem 暂无消息ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem ToolStripMenuItem_ServerSetting;
     }
 }
 
