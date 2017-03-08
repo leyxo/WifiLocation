@@ -19,4 +19,7 @@
 - (IBAction)Clear:(id)sender;
 - (IBAction)Add:(id)sender;
 
+// 接收segue传值
+@property (nonatomic) int map_id;
+
 @end

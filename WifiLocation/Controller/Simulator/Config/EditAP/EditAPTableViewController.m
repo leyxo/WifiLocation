@@ -15,25 +15,26 @@
 @implementation EditAPTableViewController
 @synthesize isreferSwitch, receiverefer, x, y, sendpower, sendgain;
 @synthesize receivereferCell;
-@synthesize ap_id;
-@synthesize segueIsreferSwitch, segueReceiverefer, segueX, segueY, segueSendpower, segueSendgain;
+@synthesize ap;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
    
-   self.navigationItem.prompt = [[NSString alloc] initWithFormat:@"节点%d", ap_id];
+   self.navigationItem.prompt = [[NSString alloc] initWithFormat:@"节点%d", self.ap.ap_id];
    
    isreferSwitch.enabled = NO;
-   isreferSwitch.on = segueIsreferSwitch;
+   if([@"是" isEqual: self.ap.ap_isrefer]) {
+      isreferSwitch.on = YES;
+   }
    if(isreferSwitch.on == YES) {
       [receivereferCell setHidden:YES];
    }
 
-   x.text = [[NSString alloc] initWithFormat:@"%d", segueX];
-   y.text = [[NSString alloc] initWithFormat:@"%d", segueY];
-   sendpower.text = [[NSString alloc] initWithFormat:@"%d", segueSendpower];
-   sendgain.text = [[NSString alloc] initWithFormat:@"%d", segueSendgain];
-   receiverefer.text = [[NSString alloc] initWithFormat:@"%d", segueReceiverefer];
+   x.text = [[NSString alloc] initWithFormat:@"%d", self.ap.ap_x];
+   y.text = [[NSString alloc] initWithFormat:@"%d", self.ap.ap_x];
+   sendpower.text = [[NSString alloc] initWithFormat:@"%d", self.ap.ap_sendpower];
+   sendgain.text = [[NSString alloc] initWithFormat:@"%d", self.ap.ap_sendgain];
+   receiverefer.text = [[NSString alloc] initWithFormat:@"%d", self.ap.ap_receiverefer];
 }
 
 - (void)didReceiveMemoryWarning {

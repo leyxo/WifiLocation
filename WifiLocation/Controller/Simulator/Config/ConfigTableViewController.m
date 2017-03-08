@@ -7,45 +7,42 @@
 //
 
 #import "ConfigTableViewController.h"
-
-@interface ConfigTableViewController ()
-
-@end
+#import "APViewController.h"
+#import "FPViewController.h"
 
 @implementation ConfigTableViewController
-@synthesize segueMapNname, segueMapInfo, segueMapWidth, segueMapHeight;
 @synthesize APNotSetup, FPNotSetup, RouteNotSetup;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
    
    // 通过StoryBoard Segue传值修改title,详见MapsTableViewController.m
-   self.navigationItem.title = segueMapNname;
-   
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
-    
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+   self.navigationItem.title = self.map.map_name;
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
-/*
+
 #pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
+   UIViewController *receive = segue.destinationViewController;
+   if ([segue.identifier isEqualToString:@"APDetail"]) {
+      APViewController *receive = segue.destinationViewController;
 
+      receive.map_id = self.map.map_id;
+   }
+   else if ([segue.identifier isEqualToString:@"FPDetail"]) {
+      FPViewController *receive = segue.destinationViewController;
+      
+      receive.map_id = self.map.map_id;
+   }
+}
+
+#pragma mark - Button
 - (IBAction)Clear:(id)sender {
-   NSString *str =[[NSString alloc] initWithFormat:@"确定要清空地图%@的所有数据?", segueMapNname];
+   NSString *str =[[NSString alloc] initWithFormat:@"确定要清空地图%@的所有数据?", self.map.map_name];
    
    UIActionSheet * sheet = [[UIActionSheet alloc] initWithTitle:str  delegate:self cancelButtonTitle:@"取消" destructiveButtonTitle:@"清空数据" otherButtonTitles:nil];
    [sheet showInView:self.view];

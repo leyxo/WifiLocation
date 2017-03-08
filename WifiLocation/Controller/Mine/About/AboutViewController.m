@@ -24,7 +24,10 @@
    hasClickedAwful = NO;
    
    // 测试AFNetworking
-   // [self obtainData];
+   NSLog(@"***************************************************************");
+//    [self obtainData];
+   NSLog(@"***************************************************************");
+   [self downLoad];
    
    self.navigationItem.hidesBackButton = YES;
     // Do any additional setup after loading the view.
@@ -155,29 +158,57 @@
    [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
    
    //前面写服务器给的域名,后面拼接上需要提交的参数，假如参数是key＝1
-   NSString *domainStr = @"http://music.163.com/api/song/detail/?id=29744810&ids=%5B29744810%5D&csrf_token=";
+   NSString *domainStr = @"http://music.163.com/api/song/detail/?id=29744810&ids=%5B29744810%5D";
    
-   AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-   manager.responseSerializer = [AFHTTPResponseSerializer serializer];
+   NSString *baiduStr = @"http://www.baidu.com";
    
-   //以get的形式提交，只需要将上面的请求地址给GET做参数就可以
-   [manager GET:domainStr parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
-      // 隐藏系统风火轮
-      [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
-      
-      //json解析
-      NSDictionary *resultDic = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableLeaves error:nil];
-      
-      NSLog(@"---获取到的json格式的字典--%@",resultDic);
-      
-   } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-      
-      // 解析失败隐藏系统风火轮(可以打印error.userInfo查看错误信息)
-      [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
-      
+   NSURL *URL = [NSURL URLWithString:domainStr];
+   AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+//   manager.requestSerializer = [AFHTTPRequestSerializer serializer];
+   
+   [manager GET:URL.absoluteString parameters:nil success:^(NSURLSessionTask *task, id responseObject) {
+      NSLog(@"JSON: %@", responseObject);
+   } failure:^(NSURLSessionTask *operation, NSError *error) {
+      NSLog(@"Error: %@", error);
    }];
+   
+   [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
 }
 
-
+- (void)downLoad{
+   
+   //1.创建管理者对象
+   AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+   //2.确定请求的URL地址
+   NSURL *url = [NSURL URLWithString:@"https://ss0.bdstatic.com/5aV1bjqh_Q23odCf/static/superman/img/logo/bd_logo1_31bdc765.png"];
+   
+   //3.创建请求对象
+   NSURLRequest *request = [NSURLRequest requestWithURL:url];
+   
+   //下载任务
+   NSURLSessionDownloadTask *task = [manager downloadTaskWithRequest:request progress:^(NSProgress * _Nonnull downloadProgress) {
+      //打印下下载进度
+      NSLog(@"%lf",1.0 * downloadProgress.completedUnitCount / downloadProgress.totalUnitCount);
+      
+   } destination:^NSURL * _Nonnull(NSURL * _Nonnull targetPath, NSURLResponse * _Nonnull response) {
+      //下载地址
+      NSLog(@"默认下载地址:%@",targetPath);
+      
+      //设置下载路径，通过沙盒获取缓存地址，最后返回NSURL对象
+      NSString *filePath = [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES)lastObject];
+      return [NSURL fileURLWithPath:filePath];
+      
+      
+   } completionHandler:^(NSURLResponse * _Nonnull response, NSURL * _Nullable filePath, NSError * _Nullable error) {
+      
+      //下载完成调用的方法
+      
+      NSLog(@"下载完成：");
+      NSLog(@"%@--%@",response,filePath);
+   }];
+   
+   //开始启动任务
+   [task resume];
+}
 
 @end

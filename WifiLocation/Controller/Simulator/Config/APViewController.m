@@ -20,28 +20,28 @@
 @synthesize tableview;
 
 - (void)viewDidLoad {
-    [super viewDidLoad];
+   [super viewDidLoad];
+   [self setupRefresh];
    
-   [self initData];
+   [self loadData];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
-#pragma mark 加载数据
--(void)initData{
+
+#pragma mark - 加载数据
+-(void)loadData{
+   // 打开数据库连接
+   sqliteHelper = [[SQLiteHelper alloc] init];
+   [sqliteHelper openSqliteWithFileName:@"wifilocation.sqlite"];
    
-   // 防止反复加载
-   if(listData == nil) {
-      // 初始化listView数据源数据
-      NSBundle * bundle = [NSBundle mainBundle];
-      NSString * filePath = [bundle pathForResource:@"ap_info" ofType:@"plist"];
-      NSMutableArray * data = [[NSMutableArray alloc] initWithContentsOfFile:filePath];
-      
-      listData = data;
-   }
+   // 读取ap_info信息
+   NSMutableArray *array = [[NSMutableArray alloc] init];
+   array =  [sqliteHelper selectFromAPInfo:self.map_id];
+   
+   listData = array;
 }
 
 
@@ -59,15 +59,18 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
    APTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"APCell"];
    
-   cell.ap_id.text = [[[listData objectAtIndex:[indexPath row]] objectForKey:@"ap_id"] description];
-   cell.ap_x.text = [[[listData objectAtIndex:[indexPath row]] objectForKey:@"ap_x"] description];
-   cell.ap_y.text = [[[listData objectAtIndex:[indexPath row]] objectForKey:@"ap_y"] description];
-   cell.ap_sendpower.text = [[[listData objectAtIndex:[indexPath row]] objectForKey:@"ap_sendpower"] description];
-   cell.ap_sendgain.text = [[[listData objectAtIndex:[indexPath row]] objectForKey:@"ap_sendgain"] description];
-   cell.ap_receiverefer.text = [[[listData objectAtIndex:[indexPath row]] objectForKey:@"ap_receiverefer"] description];
+   self.ap = [listData objectAtIndex:[indexPath row]];
+   cell.ap_id.text = [NSString stringWithFormat:@"%d",self.ap.ap_id];
+   cell.ap_x.text = [NSString stringWithFormat:@"%d",self.ap.ap_x];
+   cell.ap_y.text = [NSString stringWithFormat:@"%d",self.ap.ap_y];
+   cell.ap_sendpower.text = [NSString stringWithFormat:@"%d",self.ap.ap_sendpower];
+   cell.ap_sendgain.text = [NSString stringWithFormat:@"%d",self.ap.ap_sendgain];
+   cell.ap_receiverefer.text = [NSString stringWithFormat:@"%d",self.ap.ap_receiverefer];
    
-   if([@"是" isEqual: [[[listData objectAtIndex:[indexPath row]] objectForKey:@"ap_isrefer"] description]]) {
+   
+   if([@"是" isEqual: self.ap.ap_isrefer]) {
       cell.ap_isrefer.text = @"⭐️";
+      cell.ap_receiverefer.text = @"";
    }
    else {
       cell.ap_isrefer.text = @"";
@@ -107,50 +110,35 @@
     }   
 }
 
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
-
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-   
-   // segue.identifier：获取连线的ID
    if ([segue.identifier isEqualToString:@"EditAP"]) {
-      // segue.destinationViewController：获取连线时所指的界面（VC）
       EditAPTableViewController *receive = segue.destinationViewController;
-      
       NSIndexPath *indexPath = [self.tableview indexPathForSelectedRow];
-      
-      if([@"是" isEqual: [[[listData objectAtIndex:[indexPath row]] objectForKey:@"ap_isrefer"] description]]) {
-         receive.segueIsreferSwitch = YES;
-      }
-      else {
-         receive.segueIsreferSwitch = NO;
-      }
+      self.ap = [listData objectAtIndex:[indexPath row]];
 
-      receive.segueReceiverefer = [[[listData objectAtIndex:[indexPath row]] objectForKey:@"ap_receiverefer"] intValue];
-      receive.segueX = [[[listData objectAtIndex:[indexPath row]] objectForKey:@"ap_x"] intValue];
-      receive.segueY = [[[listData objectAtIndex:[indexPath row]] objectForKey:@"ap_y"] intValue];
-      receive.segueSendpower = [[[listData objectAtIndex:[indexPath row]] objectForKey:@"ap_sendpower"] intValue];
-      receive.segueSendgain = [[[listData objectAtIndex:[indexPath row]] objectForKey:@"ap_sendgain"] intValue];
-      receive.ap_id = [[[listData objectAtIndex:[indexPath row]] objectForKey:@"ap_id"] intValue];
+      receive.ap = self.ap;
    }
 }
 
+#pragma mark - 下拉刷新实现
+// 下拉刷新
+- (void)setupRefresh {
+   UIRefreshControl *refreshControl = [[UIRefreshControl alloc] init];
+   [refreshControl addTarget:self action:@selector(refreshClick:) forControlEvents:UIControlEventValueChanged];
+   [self.tableview addSubview:refreshControl];
+   //   [refreshControl beginRefreshing];
+   //   [self refreshClick:refreshControl];
+}
+// 下拉刷新触发，在此获取数据
+- (void)refreshClick:(UIRefreshControl *)refreshControl {
+   // 此处添加刷新tableView数据的代码
+   [self loadData];
+   
+   [refreshControl endRefreshing];
+   [self.tableview reloadData];
+}
 
 @end

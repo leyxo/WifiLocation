@@ -39,6 +39,13 @@
 		183927361E679C4B00BED84F /* Route_demo.png in Resources */ = {isa = PBXBuildFile; fileRef = 183927341E679C4B00BED84F /* Route_demo.png */; };
 		184A8E7C1E67F24B00CC066C /* EditMapTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 184A8E7B1E67F24B00CC066C /* EditMapTableViewController.m */; };
 		184A8E801E67FD4500CC066C /* EditAPTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 184A8E7F1E67FD4500CC066C /* EditAPTableViewController.m */; };
+		185D06D81E6FDFEC003F8CA0 /* SQLiteHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 185D06D71E6FDFEC003F8CA0 /* SQLiteHelper.m */; };
+		185D06DA1E6FE013003F8CA0 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 185D06D91E6FE013003F8CA0 /* libsqlite3.tbd */; };
+		185D06DD1E6FFD09003F8CA0 /* MapModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 185D06DC1E6FFD09003F8CA0 /* MapModel.m */; };
+		185D06E01E701ED8003F8CA0 /* APModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 185D06DF1E701ED8003F8CA0 /* APModel.m */; };
+		185D06E31E701EE6003F8CA0 /* FPModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 185D06E21E701EE6003F8CA0 /* FPModel.m */; };
+		185D06E61E701EFD003F8CA0 /* SimuModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 185D06E51E701EFD003F8CA0 /* SimuModel.m */; };
+		185D06E81E704D66003F8CA0 /* wifilocation.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 185D06E71E704D66003F8CA0 /* wifilocation.sqlite */; };
 		18E668541E6812CC005DA56E /* fp_info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 18E668531E6812CC005DA56E /* fp_info.plist */; };
 		18E668571E681429005DA56E /* FPTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 18E668561E681429005DA56E /* FPTableViewCell.m */; };
 		18E6685E1E695D16005DA56E /* ChangePasswordTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18E6685D1E695D16005DA56E /* ChangePasswordTableViewController.m */; };
@@ -99,6 +106,18 @@
 		184A8E7B1E67F24B00CC066C /* EditMapTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditMapTableViewController.m; sourceTree = "<group>"; };
 		184A8E7E1E67FD4500CC066C /* EditAPTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditAPTableViewController.h; sourceTree = "<group>"; };
 		184A8E7F1E67FD4500CC066C /* EditAPTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditAPTableViewController.m; sourceTree = "<group>"; };
+		185D06D61E6FDFEC003F8CA0 /* SQLiteHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SQLiteHelper.h; sourceTree = "<group>"; };
+		185D06D71E6FDFEC003F8CA0 /* SQLiteHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SQLiteHelper.m; sourceTree = "<group>"; };
+		185D06D91E6FE013003F8CA0 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
+		185D06DB1E6FFD09003F8CA0 /* MapModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapModel.h; sourceTree = "<group>"; };
+		185D06DC1E6FFD09003F8CA0 /* MapModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapModel.m; sourceTree = "<group>"; };
+		185D06DE1E701ED8003F8CA0 /* APModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APModel.h; sourceTree = "<group>"; };
+		185D06DF1E701ED8003F8CA0 /* APModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APModel.m; sourceTree = "<group>"; };
+		185D06E11E701EE6003F8CA0 /* FPModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FPModel.h; sourceTree = "<group>"; };
+		185D06E21E701EE6003F8CA0 /* FPModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FPModel.m; sourceTree = "<group>"; };
+		185D06E41E701EFD003F8CA0 /* SimuModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SimuModel.h; sourceTree = "<group>"; };
+		185D06E51E701EFD003F8CA0 /* SimuModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SimuModel.m; sourceTree = "<group>"; };
+		185D06E71E704D66003F8CA0 /* wifilocation.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = wifilocation.sqlite; sourceTree = "<group>"; };
 		18E668531E6812CC005DA56E /* fp_info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = fp_info.plist; sourceTree = "<group>"; };
 		18E668551E681429005DA56E /* FPTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FPTableViewCell.h; sourceTree = "<group>"; };
 		18E668561E681429005DA56E /* FPTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FPTableViewCell.m; sourceTree = "<group>"; };
@@ -117,6 +136,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				185D06DA1E6FE013003F8CA0 /* libsqlite3.tbd in Frameworks */,
 				93B8320B94D4BD4C670C1540 /* libPods-WifiLocation.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -151,6 +171,7 @@
 				183926D31E65C3CE00BED84F /* Main.storyboard */,
 				183926D81E65C3CE00BED84F /* LaunchScreen.storyboard */,
 				183926E21E65CCD800BED84F /* Model */,
+				185D06D51E6FDF20003F8CA0 /* Utilities */,
 				183926E11E65CCCC00BED84F /* Controller */,
 				183927121E667CEB00BED84F /* Resources */,
 				183926CA1E65C3CE00BED84F /* Supporting Files */,
@@ -185,6 +206,14 @@
 		183926E21E65CCD800BED84F /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				185D06DB1E6FFD09003F8CA0 /* MapModel.h */,
+				185D06DC1E6FFD09003F8CA0 /* MapModel.m */,
+				185D06DE1E701ED8003F8CA0 /* APModel.h */,
+				185D06DF1E701ED8003F8CA0 /* APModel.m */,
+				185D06E11E701EE6003F8CA0 /* FPModel.h */,
+				185D06E21E701EE6003F8CA0 /* FPModel.m */,
+				185D06E41E701EFD003F8CA0 /* SimuModel.h */,
+				185D06E51E701EFD003F8CA0 /* SimuModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -274,6 +303,7 @@
 		183927121E667CEB00BED84F /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				185D06E71E704D66003F8CA0 /* wifilocation.sqlite */,
 				183927211E66AE2400BED84F /* Plists */,
 				183927131E667CF300BED84F /* Images */,
 			);
@@ -362,9 +392,19 @@
 			path = EditAP;
 			sourceTree = "<group>";
 		};
+		185D06D51E6FDF20003F8CA0 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				185D06D61E6FDFEC003F8CA0 /* SQLiteHelper.h */,
+				185D06D71E6FDFEC003F8CA0 /* SQLiteHelper.m */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
 		84551FB2E353502FA96C03FB /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				185D06D91E6FE013003F8CA0 /* libsqlite3.tbd */,
 				30B613ED484120FA3468FDC0 /* libPods-WifiLocation.a */,
 			);
 			name = Frameworks;
@@ -450,6 +490,7 @@
 				183926D71E65C3CE00BED84F /* Assets.xcassets in Resources */,
 				1839271F1E668A7B00BED84F /* tabbar_meHL@2x.png in Resources */,
 				183927281E66F9EC00BED84F /* iTunesArtwork.png in Resources */,
+				185D06E81E704D66003F8CA0 /* wifilocation.sqlite in Resources */,
 				183927201E668A7B00BED84F /* tabbar_settingHL@2x.png in Resources */,
 				183926D51E65C3CE00BED84F /* Main.storyboard in Resources */,
 				18E668541E6812CC005DA56E /* fp_info.plist in Resources */,
@@ -513,16 +554,21 @@
 			buildActionMask = 2147483647;
 			files = (
 				18E6685E1E695D16005DA56E /* ChangePasswordTableViewController.m in Sources */,
+				185D06E61E701EFD003F8CA0 /* SimuModel.m in Sources */,
+				185D06E01E701ED8003F8CA0 /* APModel.m in Sources */,
 				183927031E66657100BED84F /* ConfigTableViewController.m in Sources */,
+				185D06E31E701EE6003F8CA0 /* FPModel.m in Sources */,
 				18E668571E681429005DA56E /* FPTableViewCell.m in Sources */,
 				183926F01E664DA100BED84F /* AboutViewController.m in Sources */,
 				183927071E66658500BED84F /* AddTableViewController.m in Sources */,
 				183926FC1E66588B00BED84F /* MapsTableViewController.m in Sources */,
 				184A8E7C1E67F24B00CC066C /* EditMapTableViewController.m in Sources */,
+				185D06D81E6FDFEC003F8CA0 /* SQLiteHelper.m in Sources */,
 				183926F91E6652D300BED84F /* MainTabBarController.m in Sources */,
 				183927191E66801200BED84F /* AddAPTableViewController.m in Sources */,
 				183926FF1E66628600BED84F /* BaseNavigationController.m in Sources */,
 				183926CF1E65C3CE00BED84F /* AppDelegate.m in Sources */,
+				185D06DD1E6FFD09003F8CA0 /* MapModel.m in Sources */,
 				183927301E670F7A00BED84F /* APTableViewCell.m in Sources */,
 				183926EA1E664D5100BED84F /* MineTableViewController.m in Sources */,
 				183926F31E664E0E00BED84F /* HelpViewController.m in Sources */,

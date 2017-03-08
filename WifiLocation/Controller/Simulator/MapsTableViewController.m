@@ -20,15 +20,27 @@
 @synthesize selectIndexPath;
 
 - (void)viewDidLoad {
-    [super viewDidLoad];
+   [super viewDidLoad];
+   [self setupRefresh];
    
-   [self initData];
+#pragma mark FMDB方法
+//   //1.获得数据库文件的路径
+//   NSString *doc =[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,NSUserDomainMask, YES)  lastObject];
+//   NSString *fileName = [doc stringByAppendingPathComponent:@"wifilocation.sqlite"];
+//   //2.获得数据库
+//   FMDatabase *db = [FMDatabase databaseWithPath:fileName];
+//   [db open];
+//   
+//   FMResultSet *resultSet = [db executeQuery:@"select * from map_info"];
    
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
-    
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.leftBarButtonItem = self.editButtonItem;
+#pragma mark SQLiteHelper方法
+   [self loadData];
+
+   
+   // 测试一下更新数据库
+//   NSString *updateDemoStr = [NSString stringWithFormat:@"update map_info set map_info = 'Perfect!!' where map_id = 12"];
+//   [sql updataWithString:updateDemoStr];
+
 }
 
 -(void)viewWillAppear:(BOOL)animated {
@@ -37,21 +49,19 @@
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
-#pragma mark 加载数据
--(void)initData{
+#pragma mark - 加载数据
+-(void)loadData{
+   // 打开数据库连接
+   sqliteHelper = [[SQLiteHelper alloc] init];
+   [sqliteHelper openSqliteWithFileName:@"wifilocation.sqlite"];
    
-   // 防止反复加载
-   if(listData == nil) {
-      // 初始化listView数据源数据
-      NSBundle * bundle = [NSBundle mainBundle];
-      NSString * filePath = [bundle pathForResource:@"map_info" ofType:@"plist"];
-      NSMutableArray * data = [[NSMutableArray alloc] initWithContentsOfFile:filePath];
-      
-      listData = data;
-   }
+   // 读取map_info信息
+   NSMutableArray *array = [[NSMutableArray alloc] init];
+   array =  [sqliteHelper selectFromMapInfo];
+  
+   listData = array;
 }
 
 #pragma mark - Table view data source
@@ -66,11 +76,14 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
    MapTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"MapCell"];
    
-   cell.map_name.text = [[listData objectAtIndex:[indexPath row]] objectForKey:@"map_name"];
-   cell.map_info.text = [[listData objectAtIndex:[indexPath row]] objectForKey:@"map_info"];
-   cell.map_width.text = [[[listData objectAtIndex:[indexPath row]] objectForKey:@"map_width"] description];
-   cell.map_height.text = [[[listData objectAtIndex:[indexPath row]] objectForKey:@"map_height"] description];
-   
+   self.map = [listData objectAtIndex:[indexPath row]];
+   cell.map_name.text = self.map.map_name;
+   cell.map_info.text = self.map.map_info;
+   NSString *map_width = [NSString stringWithFormat:@"%d",self.map.map_width];
+   NSString *map_height = [NSString stringWithFormat:@"%d",self.map.map_height];
+   cell.map_width.text = map_width;
+   cell.map_height.text = map_height;
+
    return cell;
 }
 
@@ -97,19 +110,6 @@
 }
  */
 
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
 
 
 // 手动添加的协议，点击i详细信息按钮，通过segue跳转至编辑地图页
@@ -117,27 +117,17 @@
 {
    // 临时存储变量
    selectIndexPath = indexPath;
-   
+
    [self performSegueWithIdentifier:@"EditMap" sender:self];
 }
 
 #pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-   
-   
    // segue.identifier：获取连线的ID
-   // if ([segue.identifier isEqualToString:@"About"]) {
    // segue.destinationViewController：获取连线时所指的界面（VC）
    UIViewController *receive = segue.destinationViewController;
-   
    // 隐藏TabBar
    receive.hidesBottomBarWhenPushed = YES;
-   // }
-   
    
    // segue.identifier：获取连线的ID
    if ([segue.identifier isEqualToString:@"MapDetail"]) {
@@ -145,11 +135,10 @@
       ConfigTableViewController *receive = segue.destinationViewController;
       
       NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
-      receive.segueMapNname = [[listData objectAtIndex:[indexPath row]] objectForKey:@"map_name"];
-      receive.segueMapInfo = [[listData objectAtIndex:[indexPath row]] objectForKey:@"map_info"];
-      receive.segueMapWidth = [[[listData objectAtIndex:[indexPath row]] objectForKey:@"map_width"] intValue];
-      receive.segueMapHeight = [[[listData objectAtIndex:[indexPath row]] objectForKey:@"map_height"] intValue];
       
+      self.map = [listData objectAtIndex:[indexPath row]];
+      receive.map = self.map;
+
       // 这里不需要指定跳转了，因为在按扭的事件里已经有跳转的代码
       // [self.navigationController pushViewController:receive animated:YES];
    }
@@ -158,12 +147,27 @@
       EditMapTableViewController *receive = segue.destinationViewController;
       
       NSIndexPath *indexPath = selectIndexPath;
-      receive.segueMapNname = [[listData objectAtIndex:[indexPath row]] objectForKey:@"map_name"];
-      receive.segueMapInfo = [[listData objectAtIndex:[indexPath row]] objectForKey:@"map_info"];
-      receive.segueMapWidth = [[[listData objectAtIndex:[indexPath row]] objectForKey:@"map_width"] intValue];
-      receive.segueMapHeight = [[[listData objectAtIndex:[indexPath row]] objectForKey:@"map_height"] intValue];
+      self.map = [listData objectAtIndex:[indexPath row]];
+      receive.map = self.map;
    }
 }
 
+#pragma mark - 下拉刷新实现
+// 下拉刷新
+- (void)setupRefresh {
+   UIRefreshControl *refreshControl = [[UIRefreshControl alloc] init];
+   [refreshControl addTarget:self action:@selector(refreshClick:) forControlEvents:UIControlEventValueChanged];
+   [self.tableView addSubview:refreshControl];
+//   [refreshControl beginRefreshing];
+//   [self refreshClick:refreshControl];
+}
+// 下拉刷新触发，在此获取数据
+- (void)refreshClick:(UIRefreshControl *)refreshControl {
+   // 此处添加刷新tableView数据的代码
+   [self loadData];
+   
+   [refreshControl endRefreshing];
+   [self.tableView reloadData];
+}
 
 @end

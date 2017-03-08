@@ -14,17 +14,16 @@
 
 @implementation EditMapTableViewController
 @synthesize map_name, map_info, map_width, map_height;
-@synthesize segueMapNname, segueMapInfo, segueMapWidth, segueMapHeight;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
    
-   self.navigationItem.prompt = segueMapNname;
+   self.navigationItem.prompt = [NSString stringWithFormat:@"地图ID %d", self.map.map_id];
    
-   map_name.text = segueMapNname;
-   map_info.text = segueMapInfo;
-   map_width.text = [[NSString alloc] initWithFormat:@"%d", segueMapWidth];
-   map_height.text = [[NSString alloc] initWithFormat:@"%d", segueMapHeight];
+   map_name.text = self.map.map_name;
+   map_info.text = self.map.map_info;
+   map_width.text = [[NSString alloc] initWithFormat:@"%d", self.map.map_width];
+   map_height.text = [[NSString alloc] initWithFormat:@"%d", self.map.map_height];
 }
 
 - (void)didReceiveMemoryWarning {

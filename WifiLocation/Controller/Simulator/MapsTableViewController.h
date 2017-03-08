@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "MapModel.h"
 
 @interface MapsTableViewController : UITableViewController
 
@@ -14,5 +15,7 @@
 
 // 临时存储选择的indexPath
 @property (nonatomic, retain) NSIndexPath * selectIndexPath;
+// 临时存储一个Map
+@property (nonatomic) MapModel * map;
 
 @end

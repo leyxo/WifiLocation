@@ -42,13 +42,21 @@
 // 在 AboutViewCOntroller.m 中进行了网络测试(AFNetworking.h)
 //
 //
+// 如果有自定义高度的NavigationBar和TabBar，可设置tableView的Inset区域，使Bar们下面磨砂
+// self.tableview.contentInset = UIEdgeInsetsMake(44, 0, 56, 0);
+//
+//
+// // 修改导航栏高度
+// CGRect rect = self.navigationController.navigationBar.frame;
+// self.navigationController.navigationBar.frame = CGRectMake(rect.origin.x, rect.origin.y, rect.size.width, 84);
+// // title位置调高
+// [self.navigationController.navigationBar setTitleVerticalPositionAdjustment:-40.0 forBarMetrics:UIBarMetricsDefault];
+// // rightBarButtonItem
+// [self.navigationItem.rightBarButtonItem setBackgroundVerticalPositionAdjustment:-40.0 forBarMetrics:UIBarMetricsDefault];
 //
 //
 //
-
-
-
-
+//
 
 
 

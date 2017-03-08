@@ -15,6 +15,7 @@
 }
 @property (weak, nonatomic) IBOutlet UIButton *GoodButton;
 @property (weak, nonatomic) IBOutlet UIButton *AwfulButton;
+@property (weak, nonatomic) IBOutlet UIImageView *imageView;
 
 - (IBAction)GoodOnClick:(id)sender;
 - (IBAction)AwfulOnClick:(id)sender;

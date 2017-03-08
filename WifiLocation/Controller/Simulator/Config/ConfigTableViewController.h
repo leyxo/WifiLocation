@@ -7,18 +7,16 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "MapModel.h"
 
 @interface ConfigTableViewController : UITableViewController <UIActionSheetDelegate>
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *APNotSetup;
 @property (weak, nonatomic) IBOutlet UILabel *FPNotSetup;
 @property (weak, nonatomic) IBOutlet UILabel *RouteNotSetup;
 
-// 接收segue传值
-@property (nonatomic, retain) NSString    * segueMapNname;
-@property (nonatomic, retain) NSString    * segueMapInfo;
-@property (nonatomic)         int         segueMapWidth;
-@property (nonatomic)         int         segueMapHeight;
-
 - (IBAction)Clear:(id)sender;
+
+// 接收segue传值
+@property (nonatomic) MapModel *map;
 
 @end

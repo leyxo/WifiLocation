@@ -18,10 +18,21 @@
    NSURL * url = [NSURL URLWithString:@"http://leyxo.site"];
    NSURLRequest * request = [NSURLRequest requestWithURL:url];
    [webView loadRequest:request];
+
+//   // 设置内容Inset
+//   webView.scrollView.contentInset = UIEdgeInsetsMake(44+20, 0, 44, 0);
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+   // 页面消失时取消活动指示器
+   [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
 }
 
 - (void)webViewDidStartLoad:(UIWebView *)webView {
@@ -32,7 +43,7 @@
    [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
    
    // 屏蔽连接
-   [self.webView stringByEvaluatingJavaScriptFromString:@"\"$(document).ready(function(){$(\"#re_verify_code a\").click(function(event){event.preventDefault();});});"];
+//   [self.webView stringByEvaluatingJavaScriptFromString:@"\"$(document).ready(function(){$(\"#re_verify_code a\").click(function(event){event.preventDefault();});});"];
    
    // 去除长按后出现的文本选取框
    [self.webView stringByEvaluatingJavaScriptFromString:@"document.documentElement.style.webkitUserSelect='none';"];
