@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "MapModel.h"
 
-@interface MapsTableViewController : UITableViewController
+@interface MapsTableViewController : UITableViewController <UIActionSheetDelegate>
 
 @property (nonatomic, retain) NSMutableArray * listData;
 

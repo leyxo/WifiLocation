@@ -9,27 +9,32 @@
 #import "APViewController.h"
 #import "APTableViewCell.h"
 #import "EditAPTableViewController.h"
-
-@interface APViewController ()
-
-@end
+#import "AddAPTableViewController.h"
 
 @implementation APViewController
 @synthesize imageView;
 @synthesize listData;
 @synthesize tableview;
+@synthesize drawView;
 
 - (void)viewDidLoad {
    [super viewDidLoad];
    [self setupRefresh];
-   
-   [self loadData];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+   [self loadData];
+   [self.tableview reloadData];
+}
+
+// 点击View空白区域收起键盘
+-(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{
+   [self.view endEditing:YES];
+}
 
 #pragma mark - 加载数据
 -(void)loadData{
@@ -39,9 +44,21 @@
    
    // 读取ap_info信息
    NSMutableArray *array = [[NSMutableArray alloc] init];
-   array =  [sqliteHelper selectFromAPInfo:self.map_id];
+   array =  [sqliteHelper selectFromAPInfo:self.map.map_id];
    
    listData = array;
+   
+   // 传参并调用drawRect()
+   drawView.map = self.map;
+   
+   // 在新的RunLoop里进行刷新图像 http://m.blog.csdn.net/article/details?id=50899435
+   dispatch_async(dispatch_get_global_queue(QOS_CLASS_USER_INITIATED, 0), ^{
+      //更新变量
+      dispatch_async(dispatch_get_main_queue(), ^{
+         //更新动画
+         [self.drawView setNeedsDisplay];
+      });
+   });
 }
 
 
@@ -104,7 +121,31 @@
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+       self.ap = [listData objectAtIndex:[indexPath row]];
+       [listData removeObjectAtIndex:[indexPath row]];
+       [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+       
+       // 打开数据库连接
+       sqliteHelper = [[SQLiteHelper alloc] init];
+       [sqliteHelper openSqliteWithFileName:@"wifilocation.sqlite"];
+       
+       // 删除数据
+       [sqliteHelper deleteWithString:[NSString stringWithFormat:@"delete from ap_info where ap_id = '%d'", self.ap.ap_id]];
+       
+       // 刷新AP列表
+       MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view.window animated:YES];
+       hud.labelText = @"载入中...";
+       dispatch_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_LOW, 0), ^{
+          // Do something...
+          
+          [self loadData];
+          [self.tableview reloadData];
+
+          
+          dispatch_async(dispatch_get_main_queue(), ^{
+             [hud hide:YES afterDelay:0.0];
+          });
+       });
     } else if (editingStyle == UITableViewCellEditingStyleInsert) {
         // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
     }   
@@ -121,6 +162,18 @@
 
       receive.ap = self.ap;
    }
+   else if ([segue.identifier isEqualToString:@"AddAP"]) {
+      AddAPTableViewController *receive = segue.destinationViewController;
+
+      receive.map_id = self.map.map_id;
+   }
+}
+
+
+#pragma mark - 屏幕旋转触发刷新
+// 手动添加的，带有动画的屏幕旋转发生时的动作
+- (void)willAnimateRotationToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration {
+   [self loadData];
 }
 
 #pragma mark - 下拉刷新实现
@@ -129,16 +182,25 @@
    UIRefreshControl *refreshControl = [[UIRefreshControl alloc] init];
    [refreshControl addTarget:self action:@selector(refreshClick:) forControlEvents:UIControlEventValueChanged];
    [self.tableview addSubview:refreshControl];
-   //   [refreshControl beginRefreshing];
-   //   [self refreshClick:refreshControl];
 }
 // 下拉刷新触发，在此获取数据
 - (void)refreshClick:(UIRefreshControl *)refreshControl {
    // 此处添加刷新tableView数据的代码
-   [self loadData];
-   
-   [refreshControl endRefreshing];
-   [self.tableview reloadData];
+   MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view.window animated:YES];
+   hud.labelText = @"正在加载AP节点...";
+   dispatch_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_LOW, 0), ^{
+      // Do something...
+      
+      [self loadData];
+      
+      [refreshControl endRefreshing];
+      [self.tableview reloadData];
+      
+      dispatch_async(dispatch_get_main_queue(), ^{
+         [hud hide:YES afterDelay:0.0];
+         //         [MBProgressHUD hideHUDForView:self.view.window animated:YES];
+      });
+   });
 }
 
 @end

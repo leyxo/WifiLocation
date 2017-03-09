@@ -30,14 +30,14 @@
    
    
    
-   //*********** 强行写入/Document/wifilocation.sqlite **********************
-   NSString
-   *sqldocPath = [[NSBundle mainBundle] pathForResource:@"wifilocation" ofType:@"sqlite"];
-   NSFileManager * mng = [[NSFileManager alloc] init];
-   // 把资源文件拷贝到/Document
-   [mng removeItemAtPath:strPath error:nil];
-   [mng copyItemAtPath:sqldocPath toPath:strPath error:nil];
-   //***********************************************************************
+//   //*********** 强行写入/Document/wifilocation.sqlite **********************
+//   NSString
+//   *sqldocPath = [[NSBundle mainBundle] pathForResource:@"wifilocation" ofType:@"sqlite"];
+//   NSFileManager * mng = [[NSFileManager alloc] init];
+//   // 把资源文件拷贝到/Document
+//   [mng removeItemAtPath:strPath error:nil];
+//   [mng copyItemAtPath:sqldocPath toPath:strPath error:nil];
+//   //***********************************************************************
    
    
    
@@ -71,9 +71,8 @@
 
 //修改数据
 - (void)updataWithString:(NSString *)sqlite {
-   //1.sqlite语句
-//   NSString *sqlite = [NSString stringWithFormat:@"update student set name = '%@',sex = '%@',age = '%ld' where number = '%ld'",stu.name,stu.sex,stu.age,stu.number];
-   //2.执行sqlite语句
+//   NSString *sqlite = [NSString stringWithFormat:@"update map_info set name = '%@',sex = '%@',age = '%ld' where number = '%ld'",stu.name,stu.sex,stu.age,stu.number];
+
    char *error = NULL; // 执行sqlite语句失败的时候,会把失败的原因存储到里面
    int result = sqlite3_exec(db, [sqlite UTF8String], nil, nil, &error);
    if (result == SQLITE_OK) {
@@ -85,15 +84,27 @@
 
 //添加数据
 - (void)insertWithString:(NSString *)sqlite {
-   //1.准备sqlite语句
-//   NSString *sqlite = [NSString stringWithFormat:@"insert into student(number,name,age,sex) values ('%d','%@','%@','%d')", 201109, @"Mike Liang", @"男", 22];
-   //2.执行sqlite语句
+//   NSString *sqlite = [NSString stringWithFormat:@"insert into map_info(number,name,age,sex) values ('%d','%@','%@','%d')", 201109, @"Mike Liang", @"男", 22];
+
    char *error = NULL;//执行sqlite语句失败的时候,会把失败的原因存储到里面
    int result = sqlite3_exec(db, [sqlite UTF8String], nil, nil, &error);
    if (result == SQLITE_OK) {
       NSLog(@"添加数据成功");
    } else {
       NSLog(@"添加数据失败");
+   }
+}
+
+//删除数据
+- (void)deleteWithString:(NSString *)sqlite {
+   //   NSString *sqlite = [NSString stringWithFormat:@"delete from map_info where number = '%ld'",stu.number];
+   
+   char *error = NULL;//执行sqlite语句失败的时候,会把失败的原因存储到里面
+   int result = sqlite3_exec(db, [sqlite UTF8String], nil, nil, &error);
+   if (result == SQLITE_OK) {
+      NSLog(@"删除数据成功");
+   } else {
+      NSLog(@"删除数据失败");
    }
 }
 
@@ -179,6 +190,30 @@
    return array;
 }
 
+// 查询仿真路径数据
+- (NSMutableArray*)selectFromSimuInfo:(int)mapid {
+   NSMutableArray *array = [[NSMutableArray alloc] init];
+   NSString *sqlite = [NSString stringWithFormat:@"select * from simu_info where map_id = %d", mapid];
+   sqlite3_stmt *stmt = NULL;
+   int result = sqlite3_prepare(db, sqlite.UTF8String, -1, &stmt, NULL);
+   if (result == SQLITE_OK) {
+      NSLog(@"查询仿真路径成功");
+      while (sqlite3_step(stmt) == SQLITE_ROW) {
+         SimuModel *simuInfo = [[SimuModel alloc] init];
+         simuInfo.simu_id = sqlite3_column_int(stmt, 0);
+         simuInfo.map_id = sqlite3_column_int(stmt, 1);
+         simuInfo.real_x = sqlite3_column_int(stmt, 2);
+         simuInfo.real_y = sqlite3_column_int(stmt, 3);
+         simuInfo.simu_x = sqlite3_column_int(stmt, 4);
+         simuInfo.simu_y = sqlite3_column_int(stmt, 5);
+         [array addObject:simuInfo];
+      }
+   } else {
+      NSLog(@"查询仿真路径失败");
+   }
+   sqlite3_finalize(stmt);
+   return array;
+}
 
 #pragma mark - 关闭数据库
 - (void)closeSqlite {

@@ -15,6 +15,7 @@
 - (void)createTableWithString:(NSString *)sqlite;
 - (void)updataWithString:(NSString *)sqlite;
 - (void)insertWithString:(NSString *)sqlite;
+- (void)deleteWithString:(NSString *)sqlite;
 - (NSMutableArray*)selectFromMapInfo;
 - (NSMutableArray*)selectFromAPInfo:(int)mapid;
 - (NSMutableArray*)selectFromFPInfo:(int)mapid;

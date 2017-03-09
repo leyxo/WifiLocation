@@ -9,26 +9,31 @@
 #import "FPViewController.h"
 #import "FPTableViewCell.h"
 
-@interface FPViewController ()
-
-@end
-
 @implementation FPViewController
 @synthesize imageView;
 @synthesize listData;
 @synthesize tableview;
+@synthesize drawView;
+@synthesize distance, receivegain;
 
 - (void)viewDidLoad {
    [super viewDidLoad];
    [self setupRefresh];
-   
-   [self loadData];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+   [self loadData];
+   [self.tableview reloadData];
+}
+
+// 点击View空白区域收起键盘
+-(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{
+   [self.view endEditing:YES];
+}
 
 #pragma mark - 加载数据
 -(void)loadData{
@@ -38,9 +43,21 @@
    
    // 读取fp_info信息
    NSMutableArray *array = [[NSMutableArray alloc] init];
-   array =  [sqliteHelper selectFromFPInfo:self.map_id];
+   array =  [sqliteHelper selectFromFPInfo:self.map.map_id];
    
    listData = array;
+   
+   // 传参并调用drawRect()
+   drawView.map = self.map;
+   
+   // 在新的RunLoop里进行刷新图像 http://m.blog.csdn.net/article/details?id=50899435
+   dispatch_async(dispatch_get_global_queue(QOS_CLASS_USER_INITIATED, 0), ^{
+      //更新变量
+      dispatch_async(dispatch_get_main_queue(), ^{
+         //更新动画
+         [self.drawView setNeedsDisplay];
+      });
+   });
 }
 
 #pragma mark - Table view data source
@@ -91,6 +108,72 @@
 
 #pragma mark - Button
 - (IBAction)Generate:(id)sender {
+   // 收起键盘
+   [self.view endEditing:YES];
+   
+   if ([distance.text isEqual: @""])
+   {
+      UIAlertView * alert = [[UIAlertView alloc] initWithTitle:@"请输入节点间距" message:@"" delegate:nil cancelButtonTitle:@"好的" otherButtonTitles:nil];
+      [alert show];
+   }
+   else if ([receivegain.text isEqual: @""])
+   {
+      UIAlertView * alert = [[UIAlertView alloc] initWithTitle:@"请输入接收增益" message:@"" delegate:nil cancelButtonTitle:@"好的" otherButtonTitles:nil];
+      [alert show];
+   }
+   else if (self.map.map_height > self.map.map_width ? [distance.text intValue] > self.map.map_width / 2 : [distance.text intValue] > self.map.map_height / 2)
+   {
+      UIAlertView * alert = [[UIAlertView alloc] initWithTitle:@"所选节点间距过大" message:@"间距过大会影响实验结果" delegate:nil cancelButtonTitle:@"好的" otherButtonTitles:nil];
+      [alert show];
+
+   }
+   else if (self.map.map_height > self.map.map_width ? [distance.text intValue] < self.map.map_width / 100 : [distance.text intValue] < self.map.map_height / 100)
+   {
+      UIAlertView * alert = [[UIAlertView alloc] initWithTitle:@"所选节点间距过小" message:@"间距过小会影响系统性能" delegate:nil cancelButtonTitle:@"好的" otherButtonTitles:nil];
+      [alert show];
+   }
+   else
+   {
+      // 打开数据库连接
+      sqliteHelper = [[SQLiteHelper alloc] init];
+      [sqliteHelper openSqliteWithFileName:@"wifilocation.sqlite"];
+   
+      // 删除数据
+      [sqliteHelper deleteWithString:[NSString stringWithFormat:@"delete from fp_info where map_id = '%d'", self.map.map_id]];
+   
+      // 生成数据
+      for(int i = [distance.text intValue]; i < self.map.map_width; i += [distance.text intValue])
+         for(int j = [distance.text intValue]; j < self.map.map_height; j += [distance.text intValue])
+         {
+            [sqliteHelper insertWithString:[NSString stringWithFormat:@"insert into fp_info (map_id,fp_x,fp_y,fp_receivegain) values ('%d','%d','%d','%d')", self.map.map_id, i, j, [receivegain.text intValue]]];
+         }
+   
+      // 刷新FP列表
+      [self loadData];
+      [self.tableview reloadData];
+   
+      MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view.window animated:YES];
+      hud.labelText = @"已生成指纹节点";
+      hud.mode = MBProgressHUDModeText;
+      dispatch_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_LOW, 0), ^{
+         // Do something...
+      
+         dispatch_async(dispatch_get_main_queue(), ^{
+            [hud hide:YES afterDelay:0.6];
+         });
+      });
+   
+      // 清空控件
+      distance.text = @"";
+      receivegain.text = @"";
+   }
+}
+
+
+#pragma mark - 屏幕旋转触发刷新
+// 手动添加的，带有动画的屏幕旋转发生时的动作
+- (void)willAnimateRotationToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration {
+   [self loadData];
 }
 
 
@@ -100,15 +183,25 @@
    UIRefreshControl *refreshControl = [[UIRefreshControl alloc] init];
    [refreshControl addTarget:self action:@selector(refreshClick:) forControlEvents:UIControlEventValueChanged];
    [self.tableview addSubview:refreshControl];
-   //   [refreshControl beginRefreshing];
-   //   [self refreshClick:refreshControl];
 }
 // 下拉刷新触发，在此获取数据
 - (void)refreshClick:(UIRefreshControl *)refreshControl {
    // 此处添加刷新tableView数据的代码
-   [self loadData];
-   
-   [refreshControl endRefreshing];
-   [self.tableview reloadData];
+   MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view.window animated:YES];
+   hud.labelText = @"正在加载指纹节点...";
+   dispatch_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_LOW, 0), ^{
+      // Do something...
+      
+      [self loadData];
+      
+      [refreshControl endRefreshing];
+      [self.tableview reloadData];
+      
+      dispatch_async(dispatch_get_main_queue(), ^{
+         [hud hide:YES afterDelay:0.0];
+         //         [MBProgressHUD hideHUDForView:self.view.window animated:YES];
+      });
+   });
 }
+
 @end

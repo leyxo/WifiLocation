@@ -12,5 +12,6 @@
 #import "Define.h"
 #import "SQLiteHelper.h"
 #import <FMDatabase.h>
+#import <MBProgressHUD.h>
 
 #endif /* PrefixHeader_pch */

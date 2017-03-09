@@ -16,20 +16,14 @@
 @synthesize isrefer;
 @synthesize receivereferCell;
 @synthesize receiverefer, x, y, sendpower, sendgain;
+@synthesize map_id;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
-    
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 /*
@@ -58,6 +52,20 @@
 }
 
 - (IBAction)Save:(id)sender {
+   // 打开数据库连接
+   sqliteHelper = [[SQLiteHelper alloc] init];
+   [sqliteHelper openSqliteWithFileName:@"wifilocation.sqlite"];
+   
+   // 修改数据
+   // 是参考节点
+   if(isrefer.on == YES) {
+      [sqliteHelper insertWithString:[NSString stringWithFormat:@"insert into ap_info (ap_isrefer,map_id,ap_x, ap_y, ap_sendpower, ap_sendgain) values ('%@','%d','%d','%d','%d','%d')", @"是", self.map_id, [x.text intValue], [y.text intValue], [sendpower.text intValue], [sendgain.text intValue]]];
+   }
+   // 非参考节点
+   else {
+      [sqliteHelper insertWithString:[NSString stringWithFormat:@"insert into ap_info (ap_isrefer,ap_receiverefer,map_id,ap_x, ap_y, ap_sendpower, ap_sendgain) values ('%@','%d','%d','%d','%d','%d','%d')", @"", [receiverefer.text intValue], self.map_id, [x.text intValue], [y.text intValue], [sendpower.text intValue], [sendgain.text intValue]]];
+   }
+
    [self.navigationController popViewControllerAnimated:YES];
 }
 

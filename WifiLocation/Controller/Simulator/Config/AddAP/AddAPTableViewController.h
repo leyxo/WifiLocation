@@ -22,4 +22,7 @@
 - (IBAction)Save:(id)sender;
 - (IBAction)isreferSwitch:(id)sender;
 
+// 接收segue传值
+@property (nonatomic) int map_id;
+
 @end

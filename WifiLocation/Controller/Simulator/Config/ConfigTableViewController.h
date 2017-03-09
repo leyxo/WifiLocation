@@ -10,9 +10,13 @@
 #import "MapModel.h"
 
 @interface ConfigTableViewController : UITableViewController <UIActionSheetDelegate>
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *APNotSetup;
+
+@property (weak, nonatomic) IBOutlet UILabel *APNotSetup;
 @property (weak, nonatomic) IBOutlet UILabel *FPNotSetup;
 @property (weak, nonatomic) IBOutlet UILabel *RouteNotSetup;
+
+@property (weak, nonatomic) IBOutlet UILabel *StartLabel;
+@property (weak, nonatomic) IBOutlet UILabel *CDFLabel;
 
 - (IBAction)Clear:(id)sender;
 

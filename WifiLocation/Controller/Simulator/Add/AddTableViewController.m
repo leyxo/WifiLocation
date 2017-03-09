@@ -54,6 +54,13 @@
 }
 
 - (IBAction)Save:(id)sender {
+   // 打开数据库连接
+   sqliteHelper = [[SQLiteHelper alloc] init];
+   [sqliteHelper openSqliteWithFileName:@"wifilocation.sqlite"];
+   
+   // 写入数据
+   [sqliteHelper insertWithString:[NSString stringWithFormat:@"insert into map_info(map_name,map_width,map_height,map_info) values ('%@','%d','%d','%@')", map_name.text, [map_width.text intValue], [map_height.text intValue], map_info.text]];
+   
    [self.navigationController popViewControllerAnimated:YES];
 }
 

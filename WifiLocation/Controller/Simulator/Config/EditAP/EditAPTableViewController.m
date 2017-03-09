@@ -31,7 +31,7 @@
    }
 
    x.text = [[NSString alloc] initWithFormat:@"%d", self.ap.ap_x];
-   y.text = [[NSString alloc] initWithFormat:@"%d", self.ap.ap_x];
+   y.text = [[NSString alloc] initWithFormat:@"%d", self.ap.ap_y];
    sendpower.text = [[NSString alloc] initWithFormat:@"%d", self.ap.ap_sendpower];
    sendgain.text = [[NSString alloc] initWithFormat:@"%d", self.ap.ap_sendgain];
    receiverefer.text = [[NSString alloc] initWithFormat:@"%d", self.ap.ap_receiverefer];
@@ -72,6 +72,20 @@
 }
 
 - (IBAction)Save:(id)sender {
+   // 打开数据库连接
+   sqliteHelper = [[SQLiteHelper alloc] init];
+   [sqliteHelper openSqliteWithFileName:@"wifilocation.sqlite"];
+   
+   // 修改数据
+   // 是参考节点
+   if(isreferSwitch.on == YES) {
+   [sqliteHelper updataWithString:[NSString stringWithFormat:@"update ap_info set ap_x = '%d',ap_y = '%d',ap_sendpower = '%d',ap_sendgain = '%d' where ap_id = '%d'", [x.text intValue], [y.text intValue], [sendpower.text intValue], [sendgain.text intValue], self.ap.ap_id]];
+   }
+   // 非参考节点
+   else {
+      [sqliteHelper updataWithString:[NSString stringWithFormat:@"update ap_info set ap_x = '%d',ap_y = '%d',ap_sendpower = '%d',ap_sendgain = '%d',ap_receiverefer = '%d' where ap_id = '%d'", [x.text intValue], [y.text intValue], [sendpower.text intValue], [sendgain.text intValue], [receiverefer.text intValue], self.ap.ap_id]];
+   }
+   
    [self.navigationController popViewControllerAnimated:YES];
 }
 
