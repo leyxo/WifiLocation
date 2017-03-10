@@ -11,6 +11,9 @@
 #import "FPViewController.h"
 #import "RouteViewController.h"
 
+#import "StartViewController.h"
+#import "CDFViewController.h"
+
 @implementation ConfigTableViewController
 @synthesize APNotSetup, FPNotSetup, RouteNotSetup;
 @synthesize StartLabel, CDFLabel;
@@ -92,6 +95,12 @@
             });
          });
       }
+      else
+      {
+         UIActionSheet * sheet = [[UIActionSheet alloc] initWithTitle:@"选择算法"  delegate:self cancelButtonTitle:@"取消" destructiveButtonTitle:nil otherButtonTitles:@"所有算法", @"NN", @"KNN", @"WKNN", @"贝叶斯算法", nil];
+         sheet.tag = 1;
+         [sheet showInView:self.view];
+      }
    }
    else if(indexPath.section == 2 && indexPath.row == 1) {
       // 生成CDF曲线
@@ -100,11 +109,16 @@
          hud.labelText = @"木有配置完呢，别闹...";
          hud.mode = MBProgressHUDModeText;
          dispatch_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_LOW, 0), ^{
-            // Do something...
             dispatch_async(dispatch_get_main_queue(), ^{
                [hud hide:YES afterDelay:0.6];
             });
          });
+      }
+      else
+      {
+         UIActionSheet * sheet = [[UIActionSheet alloc] initWithTitle:@"选择算法"  delegate:self cancelButtonTitle:@"取消" destructiveButtonTitle:nil otherButtonTitles:@"所有算法", @"NN", @"KNN", @"WKNN", @"贝叶斯算法", nil];
+         sheet.tag = 2;
+         [sheet showInView:self.view];
       }
    }
 }
@@ -136,38 +150,82 @@
    NSString *str =[[NSString alloc] initWithFormat:@"确定要清空地图%@的所有数据?", self.map.map_name];
    
    UIActionSheet * sheet = [[UIActionSheet alloc] initWithTitle:str  delegate:self cancelButtonTitle:@"取消" destructiveButtonTitle:@"清空数据" otherButtonTitles:nil];
+   sheet.tag = 0;
    [sheet showInView:self.view];
 }
 
-// 实现<UIActionSheetDelegate>的actionSHeet协议
-- (void)actionSheet:(UIActionSheet *)actionSheet didDismissWithButtonIndex:(NSInteger)buttonIndex {
-   if (buttonIndex == 0) {
-      // 打开数据库连接
-      sqliteHelper = [[SQLiteHelper alloc] init];
-      [sqliteHelper openSqliteWithFileName:@"wifilocation.sqlite"];
-      
-      // 删除数据
-      [sqliteHelper deleteWithString:[NSString stringWithFormat:@"delete from simu_info where map_id = '%d'", self.map.map_id]];
-      [sqliteHelper deleteWithString:[NSString stringWithFormat:@"delete from ap_info where map_id = '%d'", self.map.map_id]];
-      [sqliteHelper deleteWithString:[NSString stringWithFormat:@"delete from fp_info where map_id = '%d'", self.map.map_id]];
-      
-      // 刷新配置状态
-      [self loadData];
-      
-      MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view.window animated:YES];
-      hud.labelText = @"已清空所有实验数据";
-      hud.mode = MBProgressHUDModeText;
-      dispatch_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_LOW, 0), ^{
-         // Do something...
-         
-         dispatch_async(dispatch_get_main_queue(), ^{
-            [hud hide:YES afterDelay:0.6];
-         });
-      });
 
-      NSLog(@"数据已清空");
+#pragma mark - 实现<UIActionSheetDelegate>的actionSHeet协议
+- (void)actionSheet:(UIActionSheet *)actionSheet didDismissWithButtonIndex:(NSInteger)buttonIndex {
+   // 清空按钮的ActionSheet
+   if(actionSheet.tag == 0)
+   {
+      if (buttonIndex == 0) {
+         // 打开数据库连接
+         sqliteHelper = [[SQLiteHelper alloc] init];
+         [sqliteHelper openSqliteWithFileName:@"wifilocation.sqlite"];
+      
+         // 删除数据
+         [sqliteHelper deleteWithString:[NSString stringWithFormat:@"delete from simu_info where map_id = '%d'", self.map.map_id]];
+         [sqliteHelper deleteWithString:[NSString stringWithFormat:@"delete from ap_info where map_id = '%d'", self.map.map_id]];
+         [sqliteHelper deleteWithString:[NSString stringWithFormat:@"delete from fp_info where map_id = '%d'", self.map.map_id]];
+      
+         // 刷新配置状态
+         [self loadData];
+      
+         MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view.window animated:YES];
+         hud.labelText = @"已清空所有实验数据";
+         hud.mode = MBProgressHUDModeText;
+         dispatch_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_LOW, 0), ^{
+            // Do something...
+         
+            dispatch_async(dispatch_get_main_queue(), ^{
+               [hud hide:YES afterDelay:0.6];
+            });
+         });
+
+         NSLog(@"数据已清空");
+      }
+      else if (buttonIndex == 1) {
+      }
    }
-   else if (buttonIndex == 1) {
+   // 开始仿真实验的ActionSheet
+   else if(actionSheet.tag == 1)
+   {
+      // 取消
+      if (buttonIndex == 5) {
+      }
+      // 选择了算法
+      else
+      {
+         StartViewController * startViewController = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"StartViewController"];
+         // 通用传值
+         startViewController.map = self.map;
+         // 0:所有算法 1:NN 2:KNN 3:WKNN 4:贝叶斯
+         // 算法编号正好是buttonIndex，直接传就可以啦O(∩_∩)O~
+         startViewController.algo = (int)buttonIndex;
+         
+         [self.navigationController pushViewController:startViewController animated:YES];
+      }
+   }
+   // 生成CDF曲线的ActionSheet
+   else if(actionSheet.tag == 2)
+   {
+      // 取消
+      if (buttonIndex == 5) {
+      }
+      // 选择了算法
+      else
+      {
+         CDFViewController * cdfViewController = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"CDFViewController"];
+         // 通用传值
+         cdfViewController.map = self.map;
+         // 0:所有算法 1:NN 2:KNN 3:WKNN 4:贝叶斯
+         // 算法编号正好是buttonIndex，直接传就可以啦O(∩_∩)O~
+         cdfViewController.algo = (int)buttonIndex;
+         
+         [self.navigationController pushViewController:cdfViewController animated:YES];
+      }
    }
 }
 @end

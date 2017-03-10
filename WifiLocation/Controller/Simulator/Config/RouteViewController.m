@@ -170,7 +170,15 @@
    
    if ([PointX.text isEqual: @""] || [PointY.text isEqual: @""])
    {
-      UIAlertView * alert = [[UIAlertView alloc] initWithTitle:@"请输入完整顶点信息" message:@"" delegate:nil cancelButtonTitle:@"好的" otherButtonTitles:nil];
+      MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view.window animated:YES];
+      hud.labelText = @"请输入完整顶点信息";
+      hud.mode = MBProgressHUDModeText;
+      dispatch_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_LOW, 0), ^{ dispatch_async(dispatch_get_main_queue(), ^{ [hud hide:YES afterDelay:0.6]; }); });
+   }
+   else if ([PointX.text intValue] < 0 || [PointY.text intValue] < 0 || [PointX.text intValue] > self.map.map_width || [PointY.text intValue] > self.map.map_height)
+   {
+      NSString *str = [NSString stringWithFormat:@"地图大小:(%d*%d)",self.map.map_width, self.map.map_height];
+      UIAlertView * alert = [[UIAlertView alloc] initWithTitle:@"顶点超出地图范围" message:str delegate:nil cancelButtonTitle:@"好的" otherButtonTitles:nil];
       [alert show];
    }
    else

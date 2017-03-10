@@ -9,7 +9,7 @@
 #import "SimuDrawView.h"
 
 @implementation SimuDrawView
-@synthesize map, simu;
+@synthesize map, fp, simu;
 
 // Only override drawRect: if you perform custom drawing.
 // An empty implementation adversely affects performance during animation.
@@ -90,9 +90,33 @@
    
    
    
-   // 绘制仿真路径节点
+   // 绘制FP节点
    sqliteHelper = [[SQLiteHelper alloc] init];
    [sqliteHelper openSqliteWithFileName:@"wifilocation.sqlite"];
+   NSMutableArray *FPArray = [[NSMutableArray alloc] init];
+   FPArray =  [sqliteHelper selectFromFPInfo:self.map.map_id];
+   for(int i = 0; i < FPArray.count; i ++) {
+      fp = [FPArray objectAtIndex:i];
+      float fp_x = fp.fp_x;
+      float fp_y = fp.fp_y;
+      
+      // 计算点实际坐标
+      x = fp_x * (x2 - x1) / map.map_width + x1;
+      y = fp_y * (y3 - y2) / map.map_height + y1;
+      
+      // 绘制FP节点
+      CGContextSetRGBStrokeColor(context,0.3,0.3,0.3,1.0);//画笔线的颜色
+      CGContextSetLineWidth(context,1.0);//线的宽度
+      CGContextAddArc(context,x,y,1,0,2*3.14,0);//添加一个圆点
+      CGContextDrawPath(context,kCGPathStroke);//绘制路径
+   }
+
+   
+   
+   
+   // 绘制仿真路径节点
+//   sqliteHelper = [[SQLiteHelper alloc] init];
+//   [sqliteHelper openSqliteWithFileName:@"wifilocation.sqlite"];
    NSMutableArray *SimuArray = [[NSMutableArray alloc] init];
    SimuArray =  [sqliteHelper selectFromSimuInfo:self.map.map_id];
    

@@ -49,6 +49,11 @@
 		185D06EB1E70EBC3003F8CA0 /* SimuTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 185D06EA1E70EBC3003F8CA0 /* SimuTableViewCell.m */; };
 		185D06F21E7140AB003F8CA0 /* APDrawView.m in Sources */ = {isa = PBXBuildFile; fileRef = 185D06F11E7140AB003F8CA0 /* APDrawView.m */; };
 		185D06F51E7185E2003F8CA0 /* SimuDrawView.m in Sources */ = {isa = PBXBuildFile; fileRef = 185D06F41E7185E2003F8CA0 /* SimuDrawView.m */; };
+		185D06F81E721F78003F8CA0 /* StartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 185D06F71E721F78003F8CA0 /* StartViewController.m */; };
+		185D06FB1E721F89003F8CA0 /* CDFViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 185D06FA1E721F89003F8CA0 /* CDFViewController.m */; };
+		185D06FF1E725627003F8CA0 /* StartDrawView.m in Sources */ = {isa = PBXBuildFile; fileRef = 185D06FE1E725627003F8CA0 /* StartDrawView.m */; };
+		185D07021E7274F0003F8CA0 /* CDFDrawView.m in Sources */ = {isa = PBXBuildFile; fileRef = 185D07011E7274F0003F8CA0 /* CDFDrawView.m */; };
+		185D07061E72E310003F8CA0 /* Example.png in Resources */ = {isa = PBXBuildFile; fileRef = 185D07051E72E310003F8CA0 /* Example.png */; };
 		18E668541E6812CC005DA56E /* fp_info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 18E668531E6812CC005DA56E /* fp_info.plist */; };
 		18E668571E681429005DA56E /* FPTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 18E668561E681429005DA56E /* FPTableViewCell.m */; };
 		18E6685E1E695D16005DA56E /* ChangePasswordTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18E6685D1E695D16005DA56E /* ChangePasswordTableViewController.m */; };
@@ -127,6 +132,15 @@
 		185D06F11E7140AB003F8CA0 /* APDrawView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APDrawView.m; sourceTree = "<group>"; };
 		185D06F31E7185E2003F8CA0 /* SimuDrawView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SimuDrawView.h; sourceTree = "<group>"; };
 		185D06F41E7185E2003F8CA0 /* SimuDrawView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SimuDrawView.m; sourceTree = "<group>"; };
+		185D06F61E721F78003F8CA0 /* StartViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StartViewController.h; sourceTree = "<group>"; };
+		185D06F71E721F78003F8CA0 /* StartViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StartViewController.m; sourceTree = "<group>"; };
+		185D06F91E721F89003F8CA0 /* CDFViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDFViewController.h; sourceTree = "<group>"; };
+		185D06FA1E721F89003F8CA0 /* CDFViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDFViewController.m; sourceTree = "<group>"; };
+		185D06FD1E725627003F8CA0 /* StartDrawView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StartDrawView.h; sourceTree = "<group>"; };
+		185D06FE1E725627003F8CA0 /* StartDrawView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StartDrawView.m; sourceTree = "<group>"; };
+		185D07001E7274F0003F8CA0 /* CDFDrawView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDFDrawView.h; sourceTree = "<group>"; };
+		185D07011E7274F0003F8CA0 /* CDFDrawView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDFDrawView.m; sourceTree = "<group>"; };
+		185D07051E72E310003F8CA0 /* Example.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Example.png; sourceTree = "<group>"; };
 		18E668531E6812CC005DA56E /* fp_info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = fp_info.plist; sourceTree = "<group>"; };
 		18E668551E681429005DA56E /* FPTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FPTableViewCell.h; sourceTree = "<group>"; };
 		18E668561E681429005DA56E /* FPTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FPTableViewCell.m; sourceTree = "<group>"; };
@@ -297,6 +311,11 @@
 				184A8E7D1E67FD2000CC066C /* EditAP */,
 				1839272D1E670F5500BED84F /* Cell */,
 				185D06EC1E713C4C003F8CA0 /* ImageView */,
+				185D06FC1E7255DA003F8CA0 /* StartImageView */,
+				185D06F61E721F78003F8CA0 /* StartViewController.h */,
+				185D06F71E721F78003F8CA0 /* StartViewController.m */,
+				185D06F91E721F89003F8CA0 /* CDFViewController.h */,
+				185D06FA1E721F89003F8CA0 /* CDFViewController.m */,
 			);
 			path = Config;
 			sourceTree = "<group>";
@@ -323,6 +342,7 @@
 		183927131E667CF300BED84F /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				185D07051E72E310003F8CA0 /* Example.png */,
 				183927331E679C4B00BED84F /* AP_demo.png */,
 				183927341E679C4B00BED84F /* Route_demo.png */,
 				183927271E66F9EC00BED84F /* iTunesArtwork.png */,
@@ -424,6 +444,17 @@
 			path = ImageView;
 			sourceTree = "<group>";
 		};
+		185D06FC1E7255DA003F8CA0 /* StartImageView */ = {
+			isa = PBXGroup;
+			children = (
+				185D06FD1E725627003F8CA0 /* StartDrawView.h */,
+				185D06FE1E725627003F8CA0 /* StartDrawView.m */,
+				185D07001E7274F0003F8CA0 /* CDFDrawView.h */,
+				185D07011E7274F0003F8CA0 /* CDFDrawView.m */,
+			);
+			path = StartImageView;
+			sourceTree = "<group>";
+		};
 		84551FB2E353502FA96C03FB /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -516,6 +547,7 @@
 				185D06E81E704D66003F8CA0 /* wifilocation.sqlite in Resources */,
 				183927201E668A7B00BED84F /* tabbar_settingHL@2x.png in Resources */,
 				183926D51E65C3CE00BED84F /* Main.storyboard in Resources */,
+				185D07061E72E310003F8CA0 /* Example.png in Resources */,
 				18E668541E6812CC005DA56E /* fp_info.plist in Resources */,
 				183927321E67142E00BED84F /* ap_info.plist in Resources */,
 			);
@@ -590,6 +622,7 @@
 				183926F91E6652D300BED84F /* MainTabBarController.m in Sources */,
 				185D06F51E7185E2003F8CA0 /* SimuDrawView.m in Sources */,
 				183927191E66801200BED84F /* AddAPTableViewController.m in Sources */,
+				185D07021E7274F0003F8CA0 /* CDFDrawView.m in Sources */,
 				183926FF1E66628600BED84F /* BaseNavigationController.m in Sources */,
 				183926CF1E65C3CE00BED84F /* AppDelegate.m in Sources */,
 				185D06DD1E6FFD09003F8CA0 /* MapModel.m in Sources */,
@@ -601,7 +634,10 @@
 				1839270A1E666C5300BED84F /* APViewController.m in Sources */,
 				183926CC1E65C3CE00BED84F /* main.m in Sources */,
 				183926F61E664E2900BED84F /* MyInfoTableViewController.m in Sources */,
+				185D06FF1E725627003F8CA0 /* StartDrawView.m in Sources */,
 				183927261E66B30000BED84F /* MapTableViewCell.m in Sources */,
+				185D06FB1E721F89003F8CA0 /* CDFViewController.m in Sources */,
+				185D06F81E721F78003F8CA0 /* StartViewController.m in Sources */,
 				1839270E1E666C7400BED84F /* FPViewController.m in Sources */,
 				185D06F21E7140AB003F8CA0 /* APDrawView.m in Sources */,
 				1839272C1E670BC300BED84F /* ChangeNameTableViewController.m in Sources */,

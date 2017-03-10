@@ -113,25 +113,31 @@
    
    if ([distance.text isEqual: @""])
    {
-      UIAlertView * alert = [[UIAlertView alloc] initWithTitle:@"请输入节点间距" message:@"" delegate:nil cancelButtonTitle:@"好的" otherButtonTitles:nil];
-      [alert show];
+      MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view.window animated:YES];
+      hud.labelText = @"请输入节点间距";
+      hud.mode = MBProgressHUDModeText;
+      dispatch_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_LOW, 0), ^{ dispatch_async(dispatch_get_main_queue(), ^{ [hud hide:YES afterDelay:0.6]; }); });
    }
    else if ([receivegain.text isEqual: @""])
    {
-      UIAlertView * alert = [[UIAlertView alloc] initWithTitle:@"请输入接收增益" message:@"" delegate:nil cancelButtonTitle:@"好的" otherButtonTitles:nil];
-      [alert show];
+      MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view.window animated:YES];
+      hud.labelText = @"请输入接收增益";
+      hud.mode = MBProgressHUDModeText;
+      dispatch_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_LOW, 0), ^{ dispatch_async(dispatch_get_main_queue(), ^{ [hud hide:YES afterDelay:0.6]; }); });
    }
-   else if (self.map.map_height > self.map.map_width ? [distance.text intValue] > self.map.map_width / 2 : [distance.text intValue] > self.map.map_height / 2)
+   else if (self.map.map_height > self.map.map_width ? [distance.text intValue] > (self.map.map_width / 2) : [distance.text intValue] > (self.map.map_height / 2))
    {
-      UIAlertView * alert = [[UIAlertView alloc] initWithTitle:@"所选节点间距过大" message:@"间距过大会影响实验结果" delegate:nil cancelButtonTitle:@"好的" otherButtonTitles:nil];
-      [alert show];
-
+      MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view.window animated:YES];
+      hud.labelText = @"所选节点间距过大";
+      hud.mode = MBProgressHUDModeText;
+      dispatch_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_LOW, 0), ^{ dispatch_async(dispatch_get_main_queue(), ^{ [hud hide:YES afterDelay:0.6]; }); });
    }
-   else if (self.map.map_height > self.map.map_width ? [distance.text intValue] < self.map.map_width / 100 : [distance.text intValue] < self.map.map_height / 100)
+   else if (self.map.map_height > self.map.map_width ? [distance.text intValue] < (self.map.map_width / 100) : [distance.text intValue] < (self.map.map_height / 100))
    {
-      UIAlertView * alert = [[UIAlertView alloc] initWithTitle:@"所选节点间距过小" message:@"间距过小会影响系统性能" delegate:nil cancelButtonTitle:@"好的" otherButtonTitles:nil];
-      [alert show];
-   }
+      MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view.window animated:YES];
+      hud.labelText = @"所选节点间距过小";
+      hud.mode = MBProgressHUDModeText;
+      dispatch_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_LOW, 0), ^{ dispatch_async(dispatch_get_main_queue(), ^{ [hud hide:YES afterDelay:0.6]; }); });   }
    else
    {
       // 打开数据库连接
