@@ -9,6 +9,8 @@
 #import "MineTableViewController.h"
 #import "AboutViewController.h"
 
+#import "LoginViewController.h"
+
 @interface MineTableViewController ()
 
 @end
@@ -17,6 +19,10 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+   
+   // 测试登录页面，需要删掉
+   LoginViewController * loginViewController = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"loginViewController"];
+   [self.navigationController presentViewController:loginViewController animated:YES completion:nil];
 }
 
 - (void)didReceiveMemoryWarning {

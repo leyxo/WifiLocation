@@ -10,7 +10,7 @@
 #import "MapModel.h"
 #import "StartDrawView.h"
 
-@interface StartViewController : UIViewController <UIActionSheetDelegate>
+@interface StartViewController : UIViewController <UIActionSheetDelegate, UIGestureRecognizerDelegate>
 
 @property (weak, nonatomic) IBOutlet StartDrawView *drawView;
 

@@ -248,7 +248,7 @@
    for (NSUInteger i=0; i<fp_num; i++)
    {
       // 用作fp_power的内层嵌套数组
-      NSMutableArray * ap = [[NSMutableArray alloc] initWithCapacity:ap_num];
+      NSMutableArray * ap_temp = [[NSMutableArray alloc] initWithCapacity:ap_num];
       for (NSUInteger j=0; j<ap_num; j++)
       {
          double dis=sqrt(
@@ -261,9 +261,9 @@
          int loss_dx=loss_d1+10*N*log10(dis)+FAF;
          
          int v=[[ap_power objectAtIndex:j] intValue] + [[ap_gain objectAtIndex:j] intValue] + fp_gain - loss_dx;
-         [ap addObject: [NSNumber numberWithInt:v]];
+         [ap_temp addObject: [NSNumber numberWithInt:v]];
       }
-      [fp_power addObject:ap];
+      [fp_power addObject:ap_temp];
    }
    return fp_power;
 }

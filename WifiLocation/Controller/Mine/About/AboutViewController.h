@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface AboutViewController : UIViewController <UIAlertViewDelegate> {
+@interface AboutViewController : UIViewController <UIAlertViewDelegate, UIGestureRecognizerDelegate> {
    int goodFontSize;
    int awfulFontSize;
    bool hasClickedAwful;
@@ -19,4 +19,5 @@
 
 - (IBAction)GoodOnClick:(id)sender;
 - (IBAction)AwfulOnClick:(id)sender;
+
 @end

@@ -62,6 +62,11 @@
    [sqliteHelper insertWithString:[NSString stringWithFormat:@"insert into map_info(map_name,map_width,map_height,map_info) values ('%@','%d','%d','%@')", map_name.text, [map_width.text intValue], [map_height.text intValue], map_info.text]];
    
    [self.navigationController popViewControllerAnimated:YES];
+   
+   MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view.window animated:YES];
+   hud.labelText = [NSString stringWithFormat:@"添加成功"];
+   hud.mode = MBProgressHUDModeText;
+   dispatch_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_LOW, 0), ^{ dispatch_async(dispatch_get_main_queue(), ^{ [hud hide:YES afterDelay:0.6]; }); });
 }
 
 @end

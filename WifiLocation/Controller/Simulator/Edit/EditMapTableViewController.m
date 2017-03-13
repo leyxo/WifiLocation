@@ -69,6 +69,11 @@
    [sqliteHelper updataWithString:[NSString stringWithFormat:@"update map_info set map_name = '%@',map_width = '%d',map_height = '%d',map_info = '%@' where map_id = '%d'",map_name.text, [map_width.text intValue], [map_height.text intValue], map_info.text, self.map.map_id]];
    
    [self.navigationController popViewControllerAnimated:YES];
+   
+   MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view.window animated:YES];
+   hud.labelText = [NSString stringWithFormat:@"修改成功"];
+   hud.mode = MBProgressHUDModeText;
+   dispatch_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_LOW, 0), ^{ dispatch_async(dispatch_get_main_queue(), ^{ [hud hide:YES afterDelay:0.6]; }); });
 }
 
 @end

@@ -87,6 +87,11 @@
    }
    
    [self.navigationController popViewControllerAnimated:YES];
+   
+   MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view.window animated:YES];
+   hud.labelText = [NSString stringWithFormat:@"修改成功"];
+   hud.mode = MBProgressHUDModeText;
+   dispatch_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_LOW, 0), ^{ dispatch_async(dispatch_get_main_queue(), ^{ [hud hide:YES afterDelay:0.6]; }); });
 }
 
 @end

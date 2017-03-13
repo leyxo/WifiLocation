@@ -12,7 +12,9 @@
 @synthesize drawView;
 
 - (void)viewDidLoad {
-    [super viewDidLoad];
+   [super viewDidLoad];
+   
+   [self initGesture];
    
    self.navigationItem.title = self.map.map_name;
    self.navigationItem.hidesBackButton = YES;
@@ -29,7 +31,7 @@
    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view.window animated:YES];
    hud.labelText = [NSString stringWithFormat:@"算法: %@", name];
    hud.mode = MBProgressHUDModeIndeterminate;
-   dispatch_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_LOW, 0), ^{ dispatch_async(dispatch_get_main_queue(), ^{ [hud hide:YES afterDelay:1.0]; }); });
+   dispatch_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_LOW, 0), ^{ dispatch_async(dispatch_get_main_queue(), ^{ [hud hide:YES afterDelay:0]; }); });
    
    // 开始实验
    [self loadData];
@@ -53,6 +55,22 @@
 }
 
 
+#pragma mark - 手势操作初始化
+- (void)initGesture{
+   // 拖拽事件
+   UIPanGestureRecognizer *pan=[[UIPanGestureRecognizer alloc]init];
+   [self.drawView addGestureRecognizer:pan];
+   [pan addTarget:self action:@selector(panView:)];
+   // 缩放
+   UIPinchGestureRecognizer *pinch=[[UIPinchGestureRecognizer alloc]init];
+   [self.drawView addGestureRecognizer:pinch];
+   [pinch addTarget:self action:@selector(pinchView:)];
+   
+   // 使用代理，以同时响应多个手势
+   pan.delegate=self;
+   pinch.delegate=self;
+}
+
 #pragma mark - 屏幕旋转触发刷新
 // 手动添加的，带有动画的屏幕旋转发生时的动作
 - (void)willAnimateRotationToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration {
@@ -62,7 +80,7 @@
    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view.window animated:YES];
    hud.labelText = [NSString stringWithFormat:@"算法: %@", name];
    hud.mode = MBProgressHUDModeIndeterminate;
-   dispatch_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_LOW, 0), ^{ dispatch_async(dispatch_get_main_queue(), ^{ [hud hide:YES afterDelay:1.0]; }); });
+   dispatch_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_LOW, 0), ^{ dispatch_async(dispatch_get_main_queue(), ^{ [hud hide:YES afterDelay:0]; }); });
    
    [self loadData];
 }
@@ -107,6 +125,34 @@
    }
    else if (buttonIndex == 1) {
    }
+}
+
+
+#pragma mark - 手势操作
+-(void)panView:(UIPanGestureRecognizer*)pan
+{
+   //以控制器上的view的左上角为坐标原点
+   CGPoint point1=[pan translationInView:pan.view];
+   
+   //手指拖动，让自定义的view也跟着手指移动
+   CGPoint temp=self.drawView.center;
+   temp.x+=point1.x;
+   temp.y+=point1.y;
+   self.drawView.center=temp;
+
+   [pan setTranslation:CGPointZero inView:pan.view];
+}
+
+-(void)pinchView:( UIPinchGestureRecognizer* )pinch
+{
+   self.drawView.transform=CGAffineTransformScale(self.drawView.transform, pinch.scale, pinch.scale);
+   pinch.scale=1.0;
+}
+
+//实现代理方法
+-(BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer
+{
+   return YES;
 }
 
 @end

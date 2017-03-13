@@ -16,6 +16,7 @@
 
 @implementation AboutViewController
 @synthesize GoodButton, AwfulButton;
+@synthesize imageView;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -23,6 +24,7 @@
    awfulFontSize = 15;
    hasClickedAwful = NO;
    
+#pragma mark AFNetworking
    // 测试AFNetworking
    NSLog(@"***************************************************************");
 //    [self obtainData];
@@ -30,6 +32,26 @@
    [self downLoad];
    
    self.navigationItem.hidesBackButton = YES;
+   
+#pragma mark 手势操作
+   // 拖拽事件
+   UIPanGestureRecognizer *pan=[[UIPanGestureRecognizer alloc]init];
+   [self.imageView addGestureRecognizer:pan];
+   [pan addTarget:self action:@selector(panView:)];
+   // 旋转
+   UIRotationGestureRecognizer *rotate=[[UIRotationGestureRecognizer alloc]init];
+   [self.imageView addGestureRecognizer:rotate];
+   [rotate addTarget:self action:@selector(rotateView:)];
+   // 缩放
+   UIPinchGestureRecognizer *pinch=[[UIPinchGestureRecognizer alloc]init];
+   [self.imageView addGestureRecognizer:pinch];
+   [pinch addTarget:self action:@selector(pinchView:)];
+   
+   // 使用代理，以同时响应多个手势
+   pan.delegate=self;
+   rotate.delegate=self;
+   pinch.delegate=self;
+   
 }
 
 - (void)didReceiveMemoryWarning {
@@ -46,7 +68,7 @@
 
 
 
-#pragma 摇动彩蛋
+// 使view可以实现响应Shake手势
 -(BOOL)canBecomeFirstResponder
 {
    return YES;
@@ -55,6 +77,7 @@
 -(void)viewDidAppear:(BOOL)animated
 {
    [super viewDidAppear:animated];
+   // 使view响应Shake手势
    [self becomeFirstResponder];
 }
 
@@ -64,10 +87,13 @@
 //   [self.navigationController setNavigationBarHidden:NO animated:YES];
    self.navigationController.tabBarController.hidesBottomBarWhenPushed=NO;
    
+   // 使view放弃响应Shake手势
    [self resignFirstResponder];
    [super viewWillDisappear:animated];
 }
 
+
+#pragma mark - Shake手势
 - (void)motionBegan:(UIEventSubtype)motion withEvent:(UIEvent *)event
 {
    if (event.type == UIEventSubtypeMotionShake)
@@ -94,6 +120,8 @@
       NSLog(@"Shake Cancelled");
    }
 }
+
+
 /*
 #pragma mark - Navigation
 
@@ -104,6 +132,8 @@
 }
 */
 
+
+#pragma mark - Button
 - (IBAction)GoodOnClick:(id)sender {
    UIAlertView * alert = [[UIAlertView alloc] initWithTitle:@"谢谢支持!" message:@"良心软件" delegate:self cancelButtonTitle:@"好的" otherButtonTitles:nil];
    [alert setTag:2];
@@ -149,7 +179,7 @@
    }
 }
 
-#pragma 测试AFNetworking
+#pragma mark - 测试AFNetworking
 -(void)obtainData
 {
    // 启动系统风火轮
@@ -207,6 +237,65 @@
    
    //开始启动任务
    [task resume];
+}
+
+
+#pragma mark - 手势操作
+-(void)panView:(UIPanGestureRecognizer*)pan
+{
+   //以控制器上的view的左上角为坐标原点
+   CGPoint point=[pan locationInView:pan.view];
+//   NSLog(@"拖拽事件");
+//   NSLog(@"获取到的触摸点的位置为:%@",NSStringFromCGPoint(point));
+   CGPoint point1=[pan translationInView:pan.view];
+   //   NSLog(@"拖拽事件");
+   //   NSLog(@"获取到的触摸点的位置为:%@",NSStringFromCGPoint(point));
+
+   //手指拖动，让自定义的view也跟着手指移动
+   CGPoint temp=self.imageView.center;
+   temp.x+=point1.x;
+   temp.y+=point1.y;
+   self.imageView.center=temp;
+
+   //清空
+   [pan setTranslation:CGPointZero inView:pan.view];
+}
+
+-(void)rotateView:(UIRotationGestureRecognizer*)gesture
+{
+   //旋转的弧度：gesture.rotation
+//   NSLog(@"旋转事件，旋转的弧度为:%1f",gesture.rotation);
+
+   //让图片跟随手指一起旋转
+   //每次从最初的位置开始
+//   self.iconView.transform=CGAffineTransformMakeRotation(gesture.rotation);
+
+   //在传入的transform的基础上旋转
+   //在之前的基础上，让图片跟随一起旋转（去掉自动布局）
+   //注意问题：以风火轮的速度旋转
+   self.imageView.transform=CGAffineTransformRotate(self.imageView.transform, gesture.rotation);
+   //将旋转的弧度清零
+   //（注意不是将图片旋转的弧度清零，而是将当前手指旋转的弧度清零）
+   gesture.rotation=0;
+}
+
+-(void)pinchView:( UIPinchGestureRecognizer* )pinch
+{
+   //缩放的比例    pinch.scale;
+//   NSLog(@"缩放：%f",pinch.scale);
+   //对图片进行缩放
+//   self.iconView.transform=CGAffineTransformMakeScale(pinch.scale,pinch.scale);
+   //在已有的基础上对图片进行缩放
+   self.imageView.transform=CGAffineTransformScale(self.imageView.transform, pinch.scale, pinch.scale);
+   //清零
+   pinch.scale=1.0;
+}
+
+//实现代理方法
+-(BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer
+{
+   //默认为NO,这里设置为YES
+   return YES;
 }
 
 @end

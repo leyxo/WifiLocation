@@ -19,6 +19,7 @@
 
    UIColor *tabColor = [UIColor darkGrayColor];
    [self.tabBar setTintColor:tabColor];
+   
 }
 
 - (void)didReceiveMemoryWarning {

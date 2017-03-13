@@ -132,7 +132,7 @@
       hud.mode = MBProgressHUDModeText;
       dispatch_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_LOW, 0), ^{ dispatch_async(dispatch_get_main_queue(), ^{ [hud hide:YES afterDelay:0.6]; }); });
    }
-   else if (self.map.map_height > self.map.map_width ? [distance.text intValue] < (self.map.map_width / 100) : [distance.text intValue] < (self.map.map_height / 100))
+   else if (self.map.map_height > self.map.map_width ? [distance.text intValue] <= (self.map.map_width / 100) : [distance.text intValue] <= (self.map.map_height / 100))
    {
       MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view.window animated:YES];
       hud.labelText = @"所选节点间距过小";

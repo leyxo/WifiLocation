@@ -54,6 +54,14 @@
 		185D06FF1E725627003F8CA0 /* StartDrawView.m in Sources */ = {isa = PBXBuildFile; fileRef = 185D06FE1E725627003F8CA0 /* StartDrawView.m */; };
 		185D07021E7274F0003F8CA0 /* CDFDrawView.m in Sources */ = {isa = PBXBuildFile; fileRef = 185D07011E7274F0003F8CA0 /* CDFDrawView.m */; };
 		185D07061E72E310003F8CA0 /* Example.png in Resources */ = {isa = PBXBuildFile; fileRef = 185D07051E72E310003F8CA0 /* Example.png */; };
+		185D070F1E758E76003F8CA0 /* account_snslogin_icon_1@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 185D07081E758E76003F8CA0 /* account_snslogin_icon_1@2x.png */; };
+		185D07101E758E76003F8CA0 /* account_snslogin_icon_3@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 185D07091E758E76003F8CA0 /* account_snslogin_icon_3@2x.png */; };
+		185D07111E758E76003F8CA0 /* home_page_line_vertical@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 185D070A1E758E76003F8CA0 /* home_page_line_vertical@2x.png */; };
+		185D07121E758E76003F8CA0 /* login_button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 185D070B1E758E76003F8CA0 /* login_button@2x.png */; };
+		185D07131E758E76003F8CA0 /* login_forgot_button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 185D070C1E758E76003F8CA0 /* login_forgot_button@2x.png */; };
+		185D07141E758E76003F8CA0 /* login_password_icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 185D070D1E758E76003F8CA0 /* login_password_icon@2x.png */; };
+		185D07151E758E76003F8CA0 /* login_username_icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 185D070E1E758E76003F8CA0 /* login_username_icon@2x.png */; };
+		185D07191E75905D003F8CA0 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 185D07181E75905D003F8CA0 /* LoginViewController.m */; };
 		18E668541E6812CC005DA56E /* fp_info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 18E668531E6812CC005DA56E /* fp_info.plist */; };
 		18E668571E681429005DA56E /* FPTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 18E668561E681429005DA56E /* FPTableViewCell.m */; };
 		18E6685E1E695D16005DA56E /* ChangePasswordTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18E6685D1E695D16005DA56E /* ChangePasswordTableViewController.m */; };
@@ -141,6 +149,15 @@
 		185D07001E7274F0003F8CA0 /* CDFDrawView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDFDrawView.h; sourceTree = "<group>"; };
 		185D07011E7274F0003F8CA0 /* CDFDrawView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDFDrawView.m; sourceTree = "<group>"; };
 		185D07051E72E310003F8CA0 /* Example.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Example.png; sourceTree = "<group>"; };
+		185D07081E758E76003F8CA0 /* account_snslogin_icon_1@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "account_snslogin_icon_1@2x.png"; sourceTree = "<group>"; };
+		185D07091E758E76003F8CA0 /* account_snslogin_icon_3@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "account_snslogin_icon_3@2x.png"; sourceTree = "<group>"; };
+		185D070A1E758E76003F8CA0 /* home_page_line_vertical@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "home_page_line_vertical@2x.png"; sourceTree = "<group>"; };
+		185D070B1E758E76003F8CA0 /* login_button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "login_button@2x.png"; sourceTree = "<group>"; };
+		185D070C1E758E76003F8CA0 /* login_forgot_button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "login_forgot_button@2x.png"; sourceTree = "<group>"; };
+		185D070D1E758E76003F8CA0 /* login_password_icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "login_password_icon@2x.png"; sourceTree = "<group>"; };
+		185D070E1E758E76003F8CA0 /* login_username_icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "login_username_icon@2x.png"; sourceTree = "<group>"; };
+		185D07171E75905D003F8CA0 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
+		185D07181E75905D003F8CA0 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		18E668531E6812CC005DA56E /* fp_info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = fp_info.plist; sourceTree = "<group>"; };
 		18E668551E681429005DA56E /* FPTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FPTableViewCell.h; sourceTree = "<group>"; };
 		18E668561E681429005DA56E /* FPTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FPTableViewCell.m; sourceTree = "<group>"; };
@@ -222,6 +239,7 @@
 				183926FE1E66628600BED84F /* BaseNavigationController.m */,
 				183926E61E664D0400BED84F /* Simulatior */,
 				183926E71E664D1B00BED84F /* Mine */,
+				185D07161E75903A003F8CA0 /* Others */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -347,6 +365,7 @@
 				183927341E679C4B00BED84F /* Route_demo.png */,
 				183927271E66F9EC00BED84F /* iTunesArtwork.png */,
 				1839271A1E6689E800BED84F /* Tabbar */,
+				185D07071E758E4F003F8CA0 /* Login */,
 				183927141E667D6400BED84F /* Desktop.jpg */,
 				183926D61E65C3CE00BED84F /* Assets.xcassets */,
 			);
@@ -455,6 +474,29 @@
 			path = StartImageView;
 			sourceTree = "<group>";
 		};
+		185D07071E758E4F003F8CA0 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				185D07081E758E76003F8CA0 /* account_snslogin_icon_1@2x.png */,
+				185D07091E758E76003F8CA0 /* account_snslogin_icon_3@2x.png */,
+				185D070A1E758E76003F8CA0 /* home_page_line_vertical@2x.png */,
+				185D070B1E758E76003F8CA0 /* login_button@2x.png */,
+				185D070C1E758E76003F8CA0 /* login_forgot_button@2x.png */,
+				185D070D1E758E76003F8CA0 /* login_password_icon@2x.png */,
+				185D070E1E758E76003F8CA0 /* login_username_icon@2x.png */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		185D07161E75903A003F8CA0 /* Others */ = {
+			isa = PBXGroup;
+			children = (
+				185D07171E75905D003F8CA0 /* LoginViewController.h */,
+				185D07181E75905D003F8CA0 /* LoginViewController.m */,
+			);
+			path = Others;
+			sourceTree = "<group>";
+		};
 		84551FB2E353502FA96C03FB /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -542,14 +584,21 @@
 				183926DA1E65C3CE00BED84F /* LaunchScreen.storyboard in Resources */,
 				1839271C1E668A2200BED84F /* tabbar_mapHL@2x.png in Resources */,
 				183926D71E65C3CE00BED84F /* Assets.xcassets in Resources */,
+				185D07131E758E76003F8CA0 /* login_forgot_button@2x.png in Resources */,
+				185D07121E758E76003F8CA0 /* login_button@2x.png in Resources */,
 				1839271F1E668A7B00BED84F /* tabbar_meHL@2x.png in Resources */,
+				185D07111E758E76003F8CA0 /* home_page_line_vertical@2x.png in Resources */,
 				183927281E66F9EC00BED84F /* iTunesArtwork.png in Resources */,
 				185D06E81E704D66003F8CA0 /* wifilocation.sqlite in Resources */,
+				185D07151E758E76003F8CA0 /* login_username_icon@2x.png in Resources */,
 				183927201E668A7B00BED84F /* tabbar_settingHL@2x.png in Resources */,
 				183926D51E65C3CE00BED84F /* Main.storyboard in Resources */,
+				185D070F1E758E76003F8CA0 /* account_snslogin_icon_1@2x.png in Resources */,
+				185D07141E758E76003F8CA0 /* login_password_icon@2x.png in Resources */,
 				185D07061E72E310003F8CA0 /* Example.png in Resources */,
 				18E668541E6812CC005DA56E /* fp_info.plist in Resources */,
 				183927321E67142E00BED84F /* ap_info.plist in Resources */,
+				185D07101E758E76003F8CA0 /* account_snslogin_icon_3@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -612,6 +661,7 @@
 				185D06E61E701EFD003F8CA0 /* SimuModel.m in Sources */,
 				185D06E01E701ED8003F8CA0 /* APModel.m in Sources */,
 				183927031E66657100BED84F /* ConfigTableViewController.m in Sources */,
+				185D07191E75905D003F8CA0 /* LoginViewController.m in Sources */,
 				185D06E31E701EE6003F8CA0 /* FPModel.m in Sources */,
 				18E668571E681429005DA56E /* FPTableViewCell.m in Sources */,
 				183926F01E664DA100BED84F /* AboutViewController.m in Sources */,
