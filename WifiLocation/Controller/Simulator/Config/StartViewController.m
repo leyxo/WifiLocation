@@ -16,6 +16,8 @@
    
    [self initGesture];
    
+   NSMutableArray *nameArray = [NSMutableArray arrayWithObjects:@"所有算法", @"最近邻算法", @"K近邻算法", @"K加权近邻算法", @"贝叶斯概率算法", nil];
+   self.navigationItem.prompt = [nameArray objectAtIndex:self.algo];
    self.navigationItem.title = self.map.map_name;
    self.navigationItem.hidesBackButton = YES;
 }
@@ -26,10 +28,10 @@
 
 - (void)viewDidAppear:(BOOL)animated {
    // 算法名称
-   NSMutableArray *nameArray = [NSMutableArray arrayWithObjects:@"所有算法", @"NN", @"KNN", @"WKNN", @"贝叶斯算法", nil];
+   NSMutableArray *nameArray = [NSMutableArray arrayWithObjects:@"所有算法", @"最近邻算法", @"K近邻算法", @"K加权近邻算法", @"贝叶斯概率算法", nil];
    NSString *name = [nameArray objectAtIndex:self.algo];
    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view.window animated:YES];
-   hud.labelText = [NSString stringWithFormat:@"算法: %@", name];
+   hud.labelText = [NSString stringWithFormat:@"%@", name];
    hud.mode = MBProgressHUDModeIndeterminate;
    dispatch_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_LOW, 0), ^{ dispatch_async(dispatch_get_main_queue(), ^{ [hud hide:YES afterDelay:0]; }); });
    
@@ -78,9 +80,9 @@
    NSMutableArray *nameArray = [NSMutableArray arrayWithObjects:@"所有算法", @"NN", @"KNN", @"WKNN", @"贝叶斯算法", nil];
    NSString *name = [nameArray objectAtIndex:self.algo];
    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view.window animated:YES];
-   hud.labelText = [NSString stringWithFormat:@"算法: %@", name];
+   hud.labelText = [NSString stringWithFormat:@"%@", name];
    hud.mode = MBProgressHUDModeIndeterminate;
-   dispatch_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_LOW, 0), ^{ dispatch_async(dispatch_get_main_queue(), ^{ [hud hide:YES afterDelay:0]; }); });
+   dispatch_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_LOW, 0), ^{ dispatch_async(dispatch_get_main_queue(), ^{ [hud hide:YES afterDelay:1.0]; }); });
    
    [self loadData];
 }

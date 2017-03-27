@@ -37,7 +37,7 @@
    // 拖拽事件
    UIPanGestureRecognizer *pan=[[UIPanGestureRecognizer alloc]init];
    [self.imageView addGestureRecognizer:pan];
-   [pan addTarget:self action:@selector(panView:)];
+   [pan addTarget:self action:@selector(handlePan:)];
    // 旋转
    UIRotationGestureRecognizer *rotate=[[UIRotationGestureRecognizer alloc]init];
    [self.imageView addGestureRecognizer:rotate];
@@ -107,7 +107,7 @@
    if (event.type == UIEventSubtypeMotionShake)
    {
       NSLog(@"Shake End");
-      UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"" message:@"" delegate:self cancelButtonTitle:@"" otherButtonTitles:nil];
+      UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"???" message:@"" delegate:self cancelButtonTitle:@"" otherButtonTitles:nil];
       [alert setTag:0];
       [alert show];
    }
@@ -241,6 +241,38 @@
 
 
 #pragma mark - 手势操作
+// 惯性滚动拖拽
+- (void)handlePan:(UIPanGestureRecognizer *)recognizer {
+   //视图前置操作
+   [recognizer.view.superview bringSubviewToFront:recognizer.view];
+   CGPoint center = recognizer.view.center;
+   CGFloat cornerRadius = recognizer.view.frame.size.width / 2;
+   CGPoint translation = [recognizer translationInView:self.view];
+   // NSLog(@"%@", NSStringFromCGPoint(translation));
+   recognizer.view.center = CGPointMake(center.x + translation.x, center.y + translation.y);
+   [recognizer setTranslation:CGPointZero inView:self.view];
+   if (recognizer.state == UIGestureRecognizerStateEnded)
+   {
+      //计算速度向量的长度，当他小于200时，滑行会很短
+      CGPoint velocity = [recognizer velocityInView:self.view];
+      CGFloat magnitude = sqrtf((velocity.x * velocity.x) + (velocity.y * velocity.y));
+      CGFloat slideMult = magnitude / 800;
+      //NSLog(@"magnitude: %f, slideMult: %f", magnitude, slideMult);
+      //e.g. 397.973175, slideMult: 1.989866
+      //基于速度和速度因素计算一个终点
+      float slideFactor = 0.1 * slideMult;
+      CGPoint finalPoint = CGPointMake(center.x + (velocity.x * slideFactor),
+                                       center.y + (velocity.y * slideFactor));
+      //限制最小［cornerRadius］和最大边界值［self.view.bounds.size.width - cornerRadius］，以免拖动出屏幕界限
+      finalPoint.x = MIN(MAX(finalPoint.x, cornerRadius),
+      self.view.bounds.size.width - cornerRadius);
+      finalPoint.y = MIN(MAX(finalPoint.y, cornerRadius),
+                         self.view.bounds.size.height - cornerRadius);
+      //使用 UIView 动画使 view 滑行到终点
+      [UIView animateWithDuration:slideFactor*2 delay:0 options:UIViewAnimationOptionCurveEaseOut animations:^{ recognizer.view.center = finalPoint; } completion:nil];
+   }
+}
+
 -(void)panView:(UIPanGestureRecognizer*)pan
 {
    //以控制器上的view的左上角为坐标原点

@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "MapModel.h"
 
-@interface AddAPTableViewController : UITableViewController <UIActionSheetDelegate>
+@interface AddAPTableViewController : UITableViewController
 @property (weak, nonatomic) IBOutlet UISwitch *isrefer;
 @property (weak, nonatomic) IBOutlet UITextField *receiverefer;
 @property (weak, nonatomic) IBOutlet UITextField *x;
@@ -23,6 +24,6 @@
 - (IBAction)isreferSwitch:(id)sender;
 
 // 接收segue传值
-@property (nonatomic) int map_id;
+@property (nonatomic) MapModel *map;
 
 @end

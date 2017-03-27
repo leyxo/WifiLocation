@@ -86,7 +86,7 @@
       // 开始仿真实验
       if([APNotSetup.text isEqual: @"未配置"] || [FPNotSetup.text isEqual: @"未配置"] || [RouteNotSetup.text isEqual: @"未配置"]) {
          MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view.window animated:YES];
-         hud.labelText = @"木有配置完呢，别闹...";
+         hud.labelText = @"没配置完呢，别闹...";
          hud.mode = MBProgressHUDModeText;
          dispatch_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_LOW, 0), ^{
             // Do something...

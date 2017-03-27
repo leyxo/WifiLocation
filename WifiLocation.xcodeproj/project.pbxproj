@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		181CE8E91E77C8FD0092EBF5 /* ManageTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 181CE8E81E77C8FD0092EBF5 /* ManageTableViewController.m */; };
 		183926CC1E65C3CE00BED84F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 183926CB1E65C3CE00BED84F /* main.m */; };
 		183926CF1E65C3CE00BED84F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 183926CE1E65C3CE00BED84F /* AppDelegate.m */; };
 		183926D51E65C3CE00BED84F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 183926D31E65C3CE00BED84F /* Main.storyboard */; };
@@ -39,6 +40,12 @@
 		183927361E679C4B00BED84F /* Route_demo.png in Resources */ = {isa = PBXBuildFile; fileRef = 183927341E679C4B00BED84F /* Route_demo.png */; };
 		184A8E7C1E67F24B00CC066C /* EditMapTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 184A8E7B1E67F24B00CC066C /* EditMapTableViewController.m */; };
 		184A8E801E67FD4500CC066C /* EditAPTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 184A8E7F1E67FD4500CC066C /* EditAPTableViewController.m */; };
+		185121991E7FD98200C66422 /* Messages.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 185121981E7FD98200C66422 /* Messages.framework */; };
+		185121AF1E80F11B00C66422 /* Stickers.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 185121AE1E80F11B00C66422 /* Stickers.xcassets */; };
+		185121B31E80F11B00C66422 /* WifiLocationStickerPack.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 185121AC1E80F11A00C66422 /* WifiLocationStickerPack.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		185121BF1E80F7B200C66422 /* KeyboardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 185121BE1E80F7B200C66422 /* KeyboardViewController.m */; };
+		185121C31E80F7B200C66422 /* WifiLocationKeyBoard.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 185121BB1E80F7B200C66422 /* WifiLocationKeyBoard.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		185121CA1E80FD1700C66422 /* KeyboardView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 185121C91E80FD1700C66422 /* KeyboardView.xib */; };
 		185D06D81E6FDFEC003F8CA0 /* SQLiteHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 185D06D71E6FDFEC003F8CA0 /* SQLiteHelper.m */; };
 		185D06DA1E6FE013003F8CA0 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 185D06D91E6FE013003F8CA0 /* libsqlite3.tbd */; };
 		185D06DD1E6FFD09003F8CA0 /* MapModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 185D06DC1E6FFD09003F8CA0 /* MapModel.m */; };
@@ -62,13 +69,59 @@
 		185D07141E758E76003F8CA0 /* login_password_icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 185D070D1E758E76003F8CA0 /* login_password_icon@2x.png */; };
 		185D07151E758E76003F8CA0 /* login_username_icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 185D070E1E758E76003F8CA0 /* login_username_icon@2x.png */; };
 		185D07191E75905D003F8CA0 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 185D07181E75905D003F8CA0 /* LoginViewController.m */; };
+		185D07201E767B85003F8CA0 /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 185D071F1E767B85003F8CA0 /* NotificationCenter.framework */; };
+		185D07241E767B85003F8CA0 /* TodayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 185D07231E767B85003F8CA0 /* TodayViewController.m */; };
+		185D07271E767B85003F8CA0 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 185D07251E767B85003F8CA0 /* MainInterface.storyboard */; };
+		185D072B1E767B85003F8CA0 /* WifiLocationToday.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 185D071E1E767B85003F8CA0 /* WifiLocationToday.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		18E668541E6812CC005DA56E /* fp_info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 18E668531E6812CC005DA56E /* fp_info.plist */; };
 		18E668571E681429005DA56E /* FPTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 18E668561E681429005DA56E /* FPTableViewCell.m */; };
 		18E6685E1E695D16005DA56E /* ChangePasswordTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18E6685D1E695D16005DA56E /* ChangePasswordTableViewController.m */; };
 		93B8320B94D4BD4C670C1540 /* libPods-WifiLocation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 30B613ED484120FA3468FDC0 /* libPods-WifiLocation.a */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		185121B11E80F11B00C66422 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 183926BF1E65C3CE00BED84F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 185121AB1E80F11A00C66422;
+			remoteInfo = WifiLocationStickerPack;
+		};
+		185121C11E80F7B200C66422 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 183926BF1E65C3CE00BED84F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 185121BA1E80F7B200C66422;
+			remoteInfo = WifiLocationKeyBoard;
+		};
+		185D07291E767B85003F8CA0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 183926BF1E65C3CE00BED84F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 185D071D1E767B85003F8CA0;
+			remoteInfo = WifiLocationToday;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		185D072F1E767B85003F8CA0 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				185D072B1E767B85003F8CA0 /* WifiLocationToday.appex in Embed App Extensions */,
+				185121B31E80F11B00C66422 /* WifiLocationStickerPack.appex in Embed App Extensions */,
+				185121C31E80F7B200C66422 /* WifiLocationKeyBoard.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		181CE8E71E77C8FD0092EBF5 /* ManageTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ManageTableViewController.h; sourceTree = "<group>"; };
+		181CE8E81E77C8FD0092EBF5 /* ManageTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ManageTableViewController.m; sourceTree = "<group>"; };
 		183926C71E65C3CE00BED84F /* WifiLocation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WifiLocation.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		183926CB1E65C3CE00BED84F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		183926CD1E65C3CE00BED84F /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -122,6 +175,16 @@
 		184A8E7B1E67F24B00CC066C /* EditMapTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditMapTableViewController.m; sourceTree = "<group>"; };
 		184A8E7E1E67FD4500CC066C /* EditAPTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditAPTableViewController.h; sourceTree = "<group>"; };
 		184A8E7F1E67FD4500CC066C /* EditAPTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditAPTableViewController.m; sourceTree = "<group>"; };
+		185121971E7FD98100C66422 /* WifiLocationSticker.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = WifiLocationSticker.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		185121981E7FD98200C66422 /* Messages.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Messages.framework; path = System/Library/Frameworks/Messages.framework; sourceTree = SDKROOT; };
+		185121AC1E80F11A00C66422 /* WifiLocationStickerPack.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = WifiLocationStickerPack.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		185121AE1E80F11B00C66422 /* Stickers.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Stickers.xcassets; sourceTree = "<group>"; };
+		185121B01E80F11B00C66422 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		185121BB1E80F7B200C66422 /* WifiLocationKeyBoard.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = WifiLocationKeyBoard.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		185121BD1E80F7B200C66422 /* KeyboardViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KeyboardViewController.h; sourceTree = "<group>"; };
+		185121BE1E80F7B200C66422 /* KeyboardViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KeyboardViewController.m; sourceTree = "<group>"; };
+		185121C01E80F7B200C66422 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		185121C91E80FD1700C66422 /* KeyboardView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = KeyboardView.xib; sourceTree = "<group>"; };
 		185D06D61E6FDFEC003F8CA0 /* SQLiteHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SQLiteHelper.h; sourceTree = "<group>"; };
 		185D06D71E6FDFEC003F8CA0 /* SQLiteHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SQLiteHelper.m; sourceTree = "<group>"; };
 		185D06D91E6FE013003F8CA0 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
@@ -158,6 +221,12 @@
 		185D070E1E758E76003F8CA0 /* login_username_icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "login_username_icon@2x.png"; sourceTree = "<group>"; };
 		185D07171E75905D003F8CA0 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		185D07181E75905D003F8CA0 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
+		185D071E1E767B85003F8CA0 /* WifiLocationToday.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = WifiLocationToday.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		185D071F1E767B85003F8CA0 /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
+		185D07221E767B85003F8CA0 /* TodayViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TodayViewController.h; sourceTree = "<group>"; };
+		185D07231E767B85003F8CA0 /* TodayViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TodayViewController.m; sourceTree = "<group>"; };
+		185D07261E767B85003F8CA0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
+		185D07281E767B85003F8CA0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		18E668531E6812CC005DA56E /* fp_info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = fp_info.plist; sourceTree = "<group>"; };
 		18E668551E681429005DA56E /* FPTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FPTableViewCell.h; sourceTree = "<group>"; };
 		18E668561E681429005DA56E /* FPTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FPTableViewCell.m; sourceTree = "<group>"; };
@@ -181,13 +250,48 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		185121941E7FD98100C66422 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				185121991E7FD98200C66422 /* Messages.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		185121B81E80F7B200C66422 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		185D071B1E767B85003F8CA0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				185D07201E767B85003F8CA0 /* NotificationCenter.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		181CE8E61E77C8A10092EBF5 /* Manage */ = {
+			isa = PBXGroup;
+			children = (
+				181CE8E71E77C8FD0092EBF5 /* ManageTableViewController.h */,
+				181CE8E81E77C8FD0092EBF5 /* ManageTableViewController.m */,
+			);
+			path = Manage;
+			sourceTree = "<group>";
+		};
 		183926BE1E65C3CE00BED84F = {
 			isa = PBXGroup;
 			children = (
 				183926C91E65C3CE00BED84F /* WifiLocation */,
+				185D07211E767B85003F8CA0 /* WifiLocationToday */,
+				185121AD1E80F11B00C66422 /* WifiLocationStickerPack */,
+				185121BC1E80F7B200C66422 /* WifiLocationKeyBoard */,
 				183926C81E65C3CE00BED84F /* Products */,
 				958CCE5A698AE20A1CCC6718 /* Pods */,
 				84551FB2E353502FA96C03FB /* Frameworks */,
@@ -198,6 +302,10 @@
 			isa = PBXGroup;
 			children = (
 				183926C71E65C3CE00BED84F /* WifiLocation.app */,
+				185D071E1E767B85003F8CA0 /* WifiLocationToday.appex */,
+				185121971E7FD98100C66422 /* WifiLocationSticker.appex */,
+				185121AC1E80F11A00C66422 /* WifiLocationStickerPack.appex */,
+				185121BB1E80F7B200C66422 /* WifiLocationKeyBoard.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -238,6 +346,7 @@
 				183926FD1E66628600BED84F /* BaseNavigationController.h */,
 				183926FE1E66628600BED84F /* BaseNavigationController.m */,
 				183926E61E664D0400BED84F /* Simulatior */,
+				181CE8E61E77C8A10092EBF5 /* Manage */,
 				183926E71E664D1B00BED84F /* Mine */,
 				185D07161E75903A003F8CA0 /* Others */,
 			);
@@ -443,6 +552,26 @@
 			path = EditAP;
 			sourceTree = "<group>";
 		};
+		185121AD1E80F11B00C66422 /* WifiLocationStickerPack */ = {
+			isa = PBXGroup;
+			children = (
+				185121AE1E80F11B00C66422 /* Stickers.xcassets */,
+				185121B01E80F11B00C66422 /* Info.plist */,
+			);
+			path = WifiLocationStickerPack;
+			sourceTree = "<group>";
+		};
+		185121BC1E80F7B200C66422 /* WifiLocationKeyBoard */ = {
+			isa = PBXGroup;
+			children = (
+				185121BD1E80F7B200C66422 /* KeyboardViewController.h */,
+				185121BE1E80F7B200C66422 /* KeyboardViewController.m */,
+				185121C01E80F7B200C66422 /* Info.plist */,
+				185121C91E80FD1700C66422 /* KeyboardView.xib */,
+			);
+			path = WifiLocationKeyBoard;
+			sourceTree = "<group>";
+		};
 		185D06D51E6FDF20003F8CA0 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
@@ -497,11 +626,24 @@
 			path = Others;
 			sourceTree = "<group>";
 		};
+		185D07211E767B85003F8CA0 /* WifiLocationToday */ = {
+			isa = PBXGroup;
+			children = (
+				185D07221E767B85003F8CA0 /* TodayViewController.h */,
+				185D07231E767B85003F8CA0 /* TodayViewController.m */,
+				185D07251E767B85003F8CA0 /* MainInterface.storyboard */,
+				185D07281E767B85003F8CA0 /* Info.plist */,
+			);
+			path = WifiLocationToday;
+			sourceTree = "<group>";
+		};
 		84551FB2E353502FA96C03FB /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
 				185D06D91E6FE013003F8CA0 /* libsqlite3.tbd */,
 				30B613ED484120FA3468FDC0 /* libPods-WifiLocation.a */,
+				185D071F1E767B85003F8CA0 /* NotificationCenter.framework */,
+				185121981E7FD98200C66422 /* Messages.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -528,15 +670,85 @@
 				183926C51E65C3CE00BED84F /* Resources */,
 				DD3DC4211EB158124495BEE1 /* [CP] Embed Pods Frameworks */,
 				DF9517B3EA7167B1D216A0FE /* [CP] Copy Pods Resources */,
+				185D072F1E767B85003F8CA0 /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				185D072A1E767B85003F8CA0 /* PBXTargetDependency */,
+				185121B21E80F11B00C66422 /* PBXTargetDependency */,
+				185121C21E80F7B200C66422 /* PBXTargetDependency */,
 			);
 			name = WifiLocation;
 			productName = WifiLocation;
 			productReference = 183926C71E65C3CE00BED84F /* WifiLocation.app */;
 			productType = "com.apple.product-type.application";
+		};
+		185121961E7FD98100C66422 /* WifiLocationSticker */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 185121A91E7FD98200C66422 /* Build configuration list for PBXNativeTarget "WifiLocationSticker" */;
+			buildPhases = (
+				185121931E7FD98100C66422 /* Sources */,
+				185121941E7FD98100C66422 /* Frameworks */,
+				185121951E7FD98100C66422 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = WifiLocationSticker;
+			productName = WifiLocationSticker;
+			productReference = 185121971E7FD98100C66422 /* WifiLocationSticker.appex */;
+			productType = "com.apple.product-type.app-extension.messages";
+		};
+		185121AB1E80F11A00C66422 /* WifiLocationStickerPack */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 185121B41E80F11B00C66422 /* Build configuration list for PBXNativeTarget "WifiLocationStickerPack" */;
+			buildPhases = (
+				185121AA1E80F11A00C66422 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = WifiLocationStickerPack;
+			productName = WifiLocationStickerPack;
+			productReference = 185121AC1E80F11A00C66422 /* WifiLocationStickerPack.appex */;
+			productType = "com.apple.product-type.app-extension.messages-sticker-pack";
+		};
+		185121BA1E80F7B200C66422 /* WifiLocationKeyBoard */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 185121C41E80F7B200C66422 /* Build configuration list for PBXNativeTarget "WifiLocationKeyBoard" */;
+			buildPhases = (
+				185121B71E80F7B200C66422 /* Sources */,
+				185121B81E80F7B200C66422 /* Frameworks */,
+				185121B91E80F7B200C66422 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = WifiLocationKeyBoard;
+			productName = WifiLocationKeyBoard;
+			productReference = 185121BB1E80F7B200C66422 /* WifiLocationKeyBoard.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
+		185D071D1E767B85003F8CA0 /* WifiLocationToday */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 185D072C1E767B85003F8CA0 /* Build configuration list for PBXNativeTarget "WifiLocationToday" */;
+			buildPhases = (
+				185D071A1E767B85003F8CA0 /* Sources */,
+				185D071B1E767B85003F8CA0 /* Frameworks */,
+				185D071C1E767B85003F8CA0 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = WifiLocationToday;
+			productName = WifiLocationToday;
+			productReference = 185D071E1E767B85003F8CA0 /* WifiLocationToday.appex */;
+			productType = "com.apple.product-type.app-extension";
 		};
 /* End PBXNativeTarget section */
 
@@ -548,6 +760,26 @@
 				ORGANIZATIONNAME = "LEY's MacBook";
 				TargetAttributes = {
 					183926C61E65C3CE00BED84F = {
+						CreatedOnToolsVersion = 8.2;
+						DevelopmentTeam = J4YMYJUA3G;
+						ProvisioningStyle = Automatic;
+					};
+					185121961E7FD98100C66422 = {
+						CreatedOnToolsVersion = 8.2;
+						DevelopmentTeam = J4YMYJUA3G;
+						ProvisioningStyle = Automatic;
+					};
+					185121AB1E80F11A00C66422 = {
+						CreatedOnToolsVersion = 8.2;
+						DevelopmentTeam = J4YMYJUA3G;
+						ProvisioningStyle = Automatic;
+					};
+					185121BA1E80F7B200C66422 = {
+						CreatedOnToolsVersion = 8.2;
+						DevelopmentTeam = J4YMYJUA3G;
+						ProvisioningStyle = Automatic;
+					};
+					185D071D1E767B85003F8CA0 = {
 						CreatedOnToolsVersion = 8.2;
 						DevelopmentTeam = J4YMYJUA3G;
 						ProvisioningStyle = Automatic;
@@ -568,6 +800,10 @@
 			projectRoot = "";
 			targets = (
 				183926C61E65C3CE00BED84F /* WifiLocation */,
+				185D071D1E767B85003F8CA0 /* WifiLocationToday */,
+				185121961E7FD98100C66422 /* WifiLocationSticker */,
+				185121AB1E80F11A00C66422 /* WifiLocationStickerPack */,
+				185121BA1E80F7B200C66422 /* WifiLocationKeyBoard */,
 			);
 		};
 /* End PBXProject section */
@@ -599,6 +835,37 @@
 				18E668541E6812CC005DA56E /* fp_info.plist in Resources */,
 				183927321E67142E00BED84F /* ap_info.plist in Resources */,
 				185D07101E758E76003F8CA0 /* account_snslogin_icon_3@2x.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		185121951E7FD98100C66422 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		185121AA1E80F11A00C66422 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				185121AF1E80F11B00C66422 /* Stickers.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		185121B91E80F7B200C66422 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				185121CA1E80FD1700C66422 /* KeyboardView.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		185D071C1E767B85003F8CA0 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				185D07271E767B85003F8CA0 /* MainInterface.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -671,6 +938,7 @@
 				185D06D81E6FDFEC003F8CA0 /* SQLiteHelper.m in Sources */,
 				183926F91E6652D300BED84F /* MainTabBarController.m in Sources */,
 				185D06F51E7185E2003F8CA0 /* SimuDrawView.m in Sources */,
+				181CE8E91E77C8FD0092EBF5 /* ManageTableViewController.m in Sources */,
 				183927191E66801200BED84F /* AddAPTableViewController.m in Sources */,
 				185D07021E7274F0003F8CA0 /* CDFDrawView.m in Sources */,
 				183926FF1E66628600BED84F /* BaseNavigationController.m in Sources */,
@@ -695,7 +963,48 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		185121931E7FD98100C66422 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		185121B71E80F7B200C66422 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				185121BF1E80F7B200C66422 /* KeyboardViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		185D071A1E767B85003F8CA0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				185D07241E767B85003F8CA0 /* TodayViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		185121B21E80F11B00C66422 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 185121AB1E80F11A00C66422 /* WifiLocationStickerPack */;
+			targetProxy = 185121B11E80F11B00C66422 /* PBXContainerItemProxy */;
+		};
+		185121C21E80F7B200C66422 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 185121BA1E80F7B200C66422 /* WifiLocationKeyBoard */;
+			targetProxy = 185121C11E80F7B200C66422 /* PBXContainerItemProxy */;
+		};
+		185D072A1E767B85003F8CA0 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 185D071D1E767B85003F8CA0 /* WifiLocationToday */;
+			targetProxy = 185D07291E767B85003F8CA0 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		183926D31E65C3CE00BED84F /* Main.storyboard */ = {
@@ -712,6 +1021,14 @@
 				183926D91E65C3CE00BED84F /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		185D07251E767B85003F8CA0 /* MainInterface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				185D07261E767B85003F8CA0 /* Base */,
+			);
+			name = MainInterface.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -837,6 +1154,104 @@
 			};
 			name = Release;
 		};
+		185121A71E7FD98200C66422 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = "iMessage App Icon";
+				DEVELOPMENT_TEAM = J4YMYJUA3G;
+				INFOPLIST_FILE = WifiLocationSticker/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = LEY.WifiLocation.WifiLocationSticker;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		185121A81E7FD98200C66422 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = "iMessage App Icon";
+				DEVELOPMENT_TEAM = J4YMYJUA3G;
+				INFOPLIST_FILE = WifiLocationSticker/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = LEY.WifiLocation.WifiLocationSticker;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		185121B51E80F11B00C66422 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = "iMessage App Icon";
+				DEVELOPMENT_TEAM = J4YMYJUA3G;
+				INFOPLIST_FILE = WifiLocationStickerPack/Info.plist;
+				PRODUCT_BUNDLE_IDENTIFIER = LEY.WifiLocation.WifiLocationStickerPack;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		185121B61E80F11B00C66422 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = "iMessage App Icon";
+				DEVELOPMENT_TEAM = J4YMYJUA3G;
+				INFOPLIST_FILE = WifiLocationStickerPack/Info.plist;
+				PRODUCT_BUNDLE_IDENTIFIER = LEY.WifiLocation.WifiLocationStickerPack;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		185121C51E80F7B200C66422 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEVELOPMENT_TEAM = J4YMYJUA3G;
+				INFOPLIST_FILE = WifiLocationKeyBoard/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = LEY.WifiLocation.WifiLocationKeyBoard;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		185121C61E80F7B200C66422 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEVELOPMENT_TEAM = J4YMYJUA3G;
+				INFOPLIST_FILE = WifiLocationKeyBoard/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = LEY.WifiLocation.WifiLocationKeyBoard;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		185D072D1E767B85003F8CA0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEVELOPMENT_TEAM = J4YMYJUA3G;
+				INFOPLIST_FILE = WifiLocationToday/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = LEY.WifiLocation.WifiLocationToday;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		185D072E1E767B85003F8CA0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEVELOPMENT_TEAM = J4YMYJUA3G;
+				INFOPLIST_FILE = WifiLocationToday/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = LEY.WifiLocation.WifiLocationToday;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -854,6 +1269,40 @@
 			buildConfigurations = (
 				183926DF1E65C3CE00BED84F /* Debug */,
 				183926E01E65C3CE00BED84F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		185121A91E7FD98200C66422 /* Build configuration list for PBXNativeTarget "WifiLocationSticker" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				185121A71E7FD98200C66422 /* Debug */,
+				185121A81E7FD98200C66422 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		185121B41E80F11B00C66422 /* Build configuration list for PBXNativeTarget "WifiLocationStickerPack" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				185121B51E80F11B00C66422 /* Debug */,
+				185121B61E80F11B00C66422 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		185121C41E80F7B200C66422 /* Build configuration list for PBXNativeTarget "WifiLocationKeyBoard" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				185121C51E80F7B200C66422 /* Debug */,
+				185121C61E80F7B200C66422 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		185D072C1E767B85003F8CA0 /* Build configuration list for PBXNativeTarget "WifiLocationToday" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				185D072D1E767B85003F8CA0 /* Debug */,
+				185D072E1E767B85003F8CA0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

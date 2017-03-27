@@ -9,10 +9,45 @@
 			<key>orderHint</key>
 			<integer>0</integer>
 		</dict>
+		<key>WifiLocationKeyBoard.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>8</integer>
+		</dict>
+		<key>WifiLocationStickerPack.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>7</integer>
+		</dict>
+		<key>WifiLocationToday.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>1</integer>
+		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
 		<key>183926C61E65C3CE00BED84F</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>185121961E7FD98100C66422</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>185121AB1E80F11A00C66422</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>185121BA1E80F7B200C66422</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>185D071D1E767B85003F8CA0</key>
 		<dict>
 			<key>primary</key>
 			<true/>

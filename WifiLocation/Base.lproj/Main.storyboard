@@ -26,7 +26,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="yow-T6-SSN">
-                                <rect key="frame" x="37" y="285" width="300" height="30"/>
+                                <rect key="frame" x="37.5" y="285" width="300" height="30"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="login_username_icon.png" translatesAutoresizingMaskIntoConstraints="NO" id="iYX-3j-z3Y">
                                         <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
@@ -43,13 +43,13 @@
                                 </constraints>
                             </stackView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="home_page_line_vertical.png" translatesAutoresizingMaskIntoConstraints="NO" id="Xzg-VC-WGo">
-                                <rect key="frame" x="37" y="378" width="300" height="1"/>
+                                <rect key="frame" x="37.5" y="378" width="300" height="1"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="home_page_line_vertical.png" translatesAutoresizingMaskIntoConstraints="NO" id="7zD-7s-Vv9">
-                                <rect key="frame" x="37" y="323" width="300" height="1"/>
+                                <rect key="frame" x="37.5" y="323" width="300" height="1"/>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="PBe-m5-Otq">
-                                <rect key="frame" x="37" y="340" width="300" height="30"/>
+                                <rect key="frame" x="37.5" y="340" width="300" height="30"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="login_password_icon.png" translatesAutoresizingMaskIntoConstraints="NO" id="tom-VO-nWm">
                                         <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
@@ -90,7 +90,7 @@
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="iTunesArtwork.png" translatesAutoresizingMaskIntoConstraints="NO" id="sdq-bB-m6m">
-                                <rect key="frame" x="137" y="150" width="100" height="100"/>
+                                <rect key="frame" x="137.5" y="150" width="100" height="100"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="lessThanOrEqual" constant="100" id="kYA-YD-CYs"/>
                                     <constraint firstAttribute="width" secondItem="sdq-bB-m6m" secondAttribute="height" multiplier="1:1" id="qWB-rg-x7a"/>
@@ -146,7 +146,7 @@
         <!--地图-->
         <scene sceneID="hOp-Nm-D66">
             <objects>
-                <tableViewController title="地图" id="iaH-uh-enZ" customClass="MapsTableViewController" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="MapsTableViewController" title="地图" id="iaH-uh-enZ" customClass="MapsTableViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="80" sectionHeaderHeight="18" sectionFooterHeight="18" id="gJH-f7-GL5">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -226,10 +226,7 @@
                                     <outlet property="map_info" destination="6EC-Tw-27s" id="iOM-Ra-cRe"/>
                                     <outlet property="map_name" destination="0he-vS-RLa" id="b2M-Fa-eud"/>
                                     <outlet property="map_width" destination="IaS-lZ-4DG" id="1pU-dz-Wje"/>
-                                    <segue destination="Vu8-PX-kMs" kind="push" identifier="MapDetail" id="sjl-co-b2z">
-                                        <segue key="commit" inheritsFrom="parent" id="FZQ-CE-Q8R"/>
-                                        <segue key="preview" inheritsFrom="commit" id="tKq-cu-YDA"/>
-                                    </segue>
+                                    <segue destination="Vu8-PX-kMs" kind="push" identifier="MapDetail" id="sjl-co-b2z"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -918,7 +915,7 @@
         <!--管理-->
         <scene sceneID="XiW-wj-jd2">
             <objects>
-                <tableViewController id="kNE-kz-4WK" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="ManageTableViewController" id="kNE-kz-4WK" customClass="ManageTableViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="CjD-AH-pxF">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1083,7 +1080,13 @@
                         </connections>
                     </tableView>
                     <tabBarItem key="tabBarItem" title="管理" image="tabbar_settingHL.png" id="quD-aU-lm8"/>
-                    <navigationItem key="navigationItem" title="管理" id="dDG-pw-hIy"/>
+                    <navigationItem key="navigationItem" title="管理" id="dDG-pw-hIy">
+                        <barButtonItem key="leftBarButtonItem" systemItem="compose" id="7Ap-HP-YJ8">
+                            <connections>
+                                <action selector="Edit:" destination="kNE-kz-4WK" id="1tS-Ko-Tqd"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FEf-V5-8qf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1109,7 +1112,7 @@
         <!--我的-->
         <scene sceneID="k6Q-BF-ncO">
             <objects>
-                <tableViewController title="我的" id="yis-MV-h8l" customClass="MineTableViewController" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="MineTableViewController" title="我的" id="yis-MV-h8l" customClass="MineTableViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="Lbn-82-gp4">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1666,26 +1669,26 @@
                             </constraint>
                             <constraint firstItem="NjK-Uk-r8R" firstAttribute="centerX" secondItem="Ag3-ex-o5A" secondAttribute="centerX" id="MLJ-Gm-rml"/>
                             <constraint firstItem="kf5-Gi-6mh" firstAttribute="top" secondItem="0fV-q5-Gv9" secondAttribute="bottom" constant="32" id="OiY-Ux-0VY">
-                                <variation key="heightClass=compact" constant="24"/>
+                                <variation key="heightClass=compact" constant="12"/>
                             </constraint>
                             <constraint firstItem="kf5-Gi-6mh" firstAttribute="centerX" secondItem="Ag3-ex-o5A" secondAttribute="centerX" constant="40" id="SbX-jA-9hw"/>
                             <constraint firstItem="TNg-wS-0lf" firstAttribute="top" secondItem="0fV-q5-Gv9" secondAttribute="bottom" constant="32" id="TVo-aK-GfF">
-                                <variation key="heightClass=compact" constant="24"/>
+                                <variation key="heightClass=compact" constant="12"/>
                             </constraint>
                             <constraint firstItem="0fV-q5-Gv9" firstAttribute="top" secondItem="NjK-Uk-r8R" secondAttribute="bottom" constant="8" id="UxP-Xw-fex"/>
                             <constraint firstItem="GsQ-wm-o7r" firstAttribute="centerY" secondItem="Ag3-ex-o5A" secondAttribute="centerY" constant="-80" id="c6W-pn-KlB">
-                                <variation key="heightClass=compact" constant="-60"/>
+                                <variation key="heightClass=compact" constant="-70"/>
                             </constraint>
                             <constraint firstAttribute="bottomMargin" secondItem="Ia1-F3-Qay" secondAttribute="bottom" constant="16" id="heW-YP-yt8"/>
                             <constraint firstItem="NjK-Uk-r8R" firstAttribute="centerY" secondItem="Ag3-ex-o5A" secondAttribute="centerY" constant="70" id="jXl-fS-Id9">
-                                <variation key="heightClass=compact" constant="30"/>
+                                <variation key="heightClass=compact" constant="50"/>
                             </constraint>
                             <constraint firstItem="GsQ-wm-o7r" firstAttribute="centerX" secondItem="Ag3-ex-o5A" secondAttribute="centerX" id="opG-m9-his"/>
                             <constraint firstItem="WNS-Zz-KPF" firstAttribute="width" secondItem="GrL-QV-4OW" secondAttribute="width" id="opK-jr-Vrt"/>
                             <constraint firstItem="WNS-Zz-KPF" firstAttribute="centerX" secondItem="Ag3-ex-o5A" secondAttribute="centerX" id="w6Y-jb-BDC"/>
                             <constraint firstItem="0fV-q5-Gv9" firstAttribute="centerX" secondItem="Ag3-ex-o5A" secondAttribute="centerX" id="wLX-Td-hsv"/>
                             <constraint firstItem="WNS-Zz-KPF" firstAttribute="top" secondItem="GrL-QV-4OW" secondAttribute="bottom" constant="2" id="zw8-29-ZiP">
-                                <variation key="heightClass=compact" constant="8"/>
+                                <variation key="heightClass=compact" constant="24"/>
                             </constraint>
                         </constraints>
                     </view>
@@ -2340,7 +2343,7 @@
                                 <rect key="frame" x="0.0" y="286.5" width="375" height="20"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="     上一顶点: (" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0oY-qz-Dvr">
-                                        <rect key="frame" x="0.0" y="3" width="74" height="13.5"/>
+                                        <rect key="frame" x="0.0" y="3.5" width="74" height="13.5"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="74" id="rcB-f5-YFq"/>
                                         </constraints>
@@ -2358,7 +2361,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="," textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e7E-bd-Me1">
-                                        <rect key="frame" x="108" y="3" width="5" height="13.5"/>
+                                        <rect key="frame" x="108" y="3.5" width="5" height="13.5"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="5" id="xUX-yL-XUl"/>
                                         </constraints>
@@ -2376,7 +2379,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=")" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="imG-Uv-E4a">
-                                        <rect key="frame" x="147" y="3" width="228" height="13.5"/>
+                                        <rect key="frame" x="147" y="3.5" width="228" height="13.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                         <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
@@ -3226,12 +3229,11 @@
         <image name="tabbar_settingHL.png" width="25" height="25"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="sjl-co-b2z"/>
-        <segue reference="FUV-r3-hKz"/>
-        <segue reference="4vO-jo-Hj4"/>
-        <segue reference="ziq-y2-dFd"/>
-        <segue reference="fS5-0D-sS3"/>
         <segue reference="vde-81-H03"/>
+        <segue reference="ziq-y2-dFd"/>
+        <segue reference="4vO-jo-Hj4"/>
+        <segue reference="FUV-r3-hKz"/>
+        <segue reference="fS5-0D-sS3"/>
         <segue reference="LzW-Bh-aaN"/>
     </inferredMetricsTieBreakers>
 </document>

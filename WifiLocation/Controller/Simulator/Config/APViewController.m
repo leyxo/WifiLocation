@@ -165,7 +165,7 @@
    else if ([segue.identifier isEqualToString:@"AddAP"]) {
       AddAPTableViewController *receive = segue.destinationViewController;
 
-      receive.map_id = self.map.map_id;
+      receive.map = self.map;
    }
 }
 
