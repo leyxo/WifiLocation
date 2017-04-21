@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ManageTableViewController : UITableViewController <UIPopoverPresentationControllerDelegate>
+@interface ManageTableViewController : UITableViewController <UIPopoverPresentationControllerDelegate, UIActionSheetDelegate>
 
 - (IBAction)Edit:(id)sender;
 

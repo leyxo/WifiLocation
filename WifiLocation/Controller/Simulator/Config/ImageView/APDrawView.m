@@ -152,6 +152,15 @@
       CGContextAddArc(context,x,y,1,0,2*3.14,0);//添加一个圆点
       CGContextDrawPath(context,kCGPathStroke);//绘制路径
    }
+    
+   // 绘制坐标
+   CGContextSetLineWidth(context, 1.0);
+   CGContextSetRGBFillColor (context, 0.5, 0.5, 0.5, 0.5);
+   UIFont *font = [UIFont systemFontOfSize:12.0];
+   NSString * mapSizeStr = [[NSString alloc] initWithFormat:@"(%d,%d)", map.map_width, map.map_height];
+   [mapSizeStr drawInRect:CGRectMake(6, 6, 120, 12) withFont:font];
+    
+    
 }
 
 

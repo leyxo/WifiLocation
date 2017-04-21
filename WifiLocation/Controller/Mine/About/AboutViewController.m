@@ -20,6 +20,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self.navigationController setNavigationBarHidden:NO animated:YES];
+    
    goodFontSize = 15;
    awfulFontSize = 15;
    hasClickedAwful = NO;

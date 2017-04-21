@@ -13,6 +13,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self.navigationController setNavigationBarHidden:NO animated:YES];
    
    webView.delegate = self;
    NSURL * url = [NSURL URLWithString:@"http://leyxo.site"];

@@ -86,7 +86,6 @@
    CGContextStrokePath(context);
    
    
-   
    // 绘制AP节点
    sqliteHelper = [[SQLiteHelper alloc] init];
    [sqliteHelper openSqliteWithFileName:@"wifilocation.sqlite"];

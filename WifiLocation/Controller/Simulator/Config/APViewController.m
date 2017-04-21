@@ -101,7 +101,7 @@
 {
    switch (section) {
       case 0:
-         return @"AP节点数据";
+         return @"无线接入节点数据";
          break;
       default:
          break;
@@ -187,7 +187,7 @@
 - (void)refreshClick:(UIRefreshControl *)refreshControl {
    // 此处添加刷新tableView数据的代码
    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view.window animated:YES];
-   hud.labelText = @"正在加载AP节点...";
+   hud.labelText = @"正在加载接入节点...";
    dispatch_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_LOW, 0), ^{
       // Do something...
       
