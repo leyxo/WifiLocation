@@ -17,6 +17,11 @@ At present, indoor positioning technology has attracted the attention of more an
 A set of desktop client simulation platform based on location fingerprint indoor positioning algorithm is implemented in C# language. It can realize user registration and login, background management function; configuration modification function of AP node and fingerprint node information; configuration display function of simulation scene; simulation line configuration display, positioning simulation result display function; fingerprint library management function; simulation result CDF analysis Features.
 
 
+Demo:
+https://youtu.be/49lXgRh5lLE
+https://youtu.be/IRI9dwUFkNg (iOS Version)
+
+
 
 
 # 基于C#的室内定位仿真平台设计
