@@ -18,7 +18,9 @@ A set of desktop client simulation platform based on location fingerprint indoor
 
 
 Demo:
+
 https://youtu.be/49lXgRh5lLE
+
 https://youtu.be/IRI9dwUFkNg (iOS Version)
 
 
