@@ -1,4 +1,4 @@
-# C#-based indoor positioning simulation platform design
+# Indoor positioning simulation platform
 
 ### Background and purpose:
 
@@ -26,7 +26,7 @@ https://youtu.be/IRI9dwUFkNg (iOS Version)
 
 
 
-# 基于C#的室内定位仿真平台设计
+# 室内定位仿真平台
 
 ### 背景和目的：
 
