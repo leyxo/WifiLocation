@@ -24,7 +24,14 @@
 - (void)viewDidLoad {
    [super viewDidLoad];
    [self setupRefresh];
-   
+    // iOS11导航栏样式
+    if (@available(iOS 11.0, *)) {
+        self.navigationController.navigationBar.prefersLargeTitles = TRUE;
+    } else {
+        // Fallback on earlier versions
+    }
+    
+
 #pragma mark FMDB方法
 //   //1.获得数据库文件的路径
 //   NSString *doc =[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,NSUserDomainMask, YES)  lastObject];

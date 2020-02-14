@@ -21,6 +21,13 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    // iOS11导航栏样式
+    if (@available(iOS 11.0, *)) {
+        self.navigationController.navigationBar.prefersLargeTitles = TRUE;
+    } else {
+        // Fallback on earlier versions
+    }
+    
     // 创建imageView
     imageView = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, kScreenWidth, pictureHeight)];
     [imageView setImage:[UIImage imageNamed:@"Desktop.jpg"]];
@@ -94,5 +101,38 @@
 //        self.navigationController.navigationBar.barTintColor = naviColor;
     }
 }
+
+
+#pragma mark - Shake手势
+- (void)motionBegan:(UIEventSubtype)motion withEvent:(UIEvent *)event
+{
+    if (event.type == UIEventSubtypeMotionShake)
+    {
+        NSLog(@"Shake Began");
+    }
+}
+
+-(void)motionEnded:(UIEventSubtype)motion withEvent:(UIEvent *)event
+{
+    if (event.type == UIEventSubtypeMotionShake)
+    {
+        NSLog(@"Shake End");
+        LoginViewController * loginViewController = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"loginViewController"];
+        
+        self.definesPresentationContext = YES; //self is presenting view controller
+        loginViewController.modalPresentationStyle = UIModalPresentationOverCurrentContext;
+        
+        [self.navigationController presentViewController:loginViewController animated:YES completion:nil];
+    }
+}
+
+-(void)motionCancelled:(UIEventSubtype)motion withEvent:(UIEvent *)event
+{
+    if (event.type == UIEventSubtypeMotionShake)
+    {
+        NSLog(@"Shake Cancelled");
+    }
+}
+
 
 @end

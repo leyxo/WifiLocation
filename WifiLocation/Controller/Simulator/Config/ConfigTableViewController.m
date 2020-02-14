@@ -73,7 +73,7 @@
    }
    else {
       StartLabel.textColor = self.view.tintColor;
-      CDFLabel.textColor = self.view.tintColor;
+      CDFLabel.textColor = [UIColor grayColor];
    }
 }
 
@@ -86,7 +86,7 @@
       // 开始仿真实验
       if([APNotSetup.text isEqual: @"未配置"] || [FPNotSetup.text isEqual: @"未配置"] || [RouteNotSetup.text isEqual: @"未配置"]) {
          MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view.window animated:YES];
-         hud.labelText = @"没配置完呢，别闹...";
+         hud.labelText = @"请先完成环境配置";
          hud.mode = MBProgressHUDModeText;
          dispatch_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_LOW, 0), ^{
             // Do something...
@@ -104,22 +104,32 @@
    }
    else if(indexPath.section == 2 && indexPath.row == 1) {
       // 生成CDF曲线
-      if([APNotSetup.text isEqual: @"未配置"] || [FPNotSetup.text isEqual: @"未配置"] || [RouteNotSetup.text isEqual: @"未配置"]) {
-         MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view.window animated:YES];
-         hud.labelText = @"没配置完呢，别闹...";
-         hud.mode = MBProgressHUDModeText;
-         dispatch_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_LOW, 0), ^{
-            dispatch_async(dispatch_get_main_queue(), ^{
+       MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view.window animated:YES];
+       hud.labelText = @"此功能尚未开放";
+       hud.mode = MBProgressHUDModeText;
+       dispatch_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_LOW, 0), ^{
+           dispatch_async(dispatch_get_main_queue(), ^{
                [hud hide:YES afterDelay:0.6];
-            });
-         });
-      }
-      else
-      {
-         UIActionSheet * sheet = [[UIActionSheet alloc] initWithTitle:@"选择算法"  delegate:self cancelButtonTitle:@"取消" destructiveButtonTitle:nil otherButtonTitles:@"所有算法", @"NN", @"KNN", @"WKNN", @"贝叶斯算法", nil];
-         sheet.tag = 2;
-         [sheet showInView:self.view];
-      }
+           });
+       });
+
+       
+//      if([APNotSetup.text isEqual: @"未配置"] || [FPNotSetup.text isEqual: @"未配置"] || [RouteNotSetup.text isEqual: @"未配置"]) {
+//         MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view.window animated:YES];
+//         hud.labelText = @"没配置完呢，别闹...";
+//         hud.mode = MBProgressHUDModeText;
+//         dispatch_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_LOW, 0), ^{
+//            dispatch_async(dispatch_get_main_queue(), ^{
+//               [hud hide:YES afterDelay:0.6];
+//            });
+//         });
+//      }
+//      else
+//      {
+//         UIActionSheet * sheet = [[UIActionSheet alloc] initWithTitle:@"选择算法"  delegate:self cancelButtonTitle:@"取消" destructiveButtonTitle:nil otherButtonTitles:@"所有算法", @"NN", @"KNN", @"WKNN", @"贝叶斯算法", nil];
+//         sheet.tag = 2;
+//         [sheet showInView:self.view];
+//      }
    }
 }
 

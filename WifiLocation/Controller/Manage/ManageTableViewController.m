@@ -16,6 +16,13 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    // iOS11导航栏样式
+    if (@available(iOS 11.0, *)) {
+        self.navigationController.navigationBar.prefersLargeTitles = TRUE;
+    } else {
+        // Fallback on earlier versions
+    }
 }
 
 - (void)didReceiveMemoryWarning {

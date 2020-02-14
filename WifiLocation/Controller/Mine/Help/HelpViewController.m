@@ -16,7 +16,7 @@
     [self.navigationController setNavigationBarHidden:NO animated:YES];
    
    webView.delegate = self;
-   NSURL * url = [NSURL URLWithString:@"http://leyxo.site"];
+   NSURL * url = [NSURL URLWithString:HELP_PAGE_URL];
    NSURLRequest * request = [NSURLRequest requestWithURL:url];
    [webView loadRequest:request];
 

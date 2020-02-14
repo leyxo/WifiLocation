@@ -16,11 +16,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-
-   UIColor *naviColor = [UIColor colorWithRed:(float)26/255 green:(float)26/255 blue:(float)26/255 alpha:1];
-   [self.navigationBar setBarTintColor:naviColor];
-   [self.navigationBar setTintColor:[UIColor whiteColor]];
-   [self.navigationBar setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIColor whiteColor],UITextAttributeTextColor,nil]];
 }
 
 - (void)didReceiveMemoryWarning {

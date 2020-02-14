@@ -41,13 +41,15 @@
 //   UIActionSheet * sheet = [[UIActionSheet alloc] initWithTitle:@"确定要放弃编辑?" delegate:self cancelButtonTitle:@"取消" destructiveButtonTitle:@"放弃" otherButtonTitles:nil];
 //   [sheet showInView:self.view];
    
-   [self.navigationController popViewControllerAnimated:YES];
+//   [self.navigationController popViewControllerAnimated:YES];
+   [self.navigationController dismissModalViewControllerAnimated:YES];
 }
 
 // 实现<UIActionSheetDelegate>的actionSHeet协议
 - (void)actionSheet:(UIActionSheet *)actionSheet didDismissWithButtonIndex:(NSInteger)buttonIndex {
    if (buttonIndex == 0) {
-      [self.navigationController popViewControllerAnimated:YES];
+//      [self.navigationController popViewControllerAnimated:YES];
+      [self.navigationController dismissModalViewControllerAnimated:YES];
    }
    else if (buttonIndex == 1) {
    }
@@ -61,7 +63,8 @@
    // 写入数据
    [sqliteHelper insertWithString:[NSString stringWithFormat:@"insert into map_info(map_name,map_width,map_height,map_info) values ('%@','%d','%d','%@')", map_name.text, [map_width.text intValue], [map_height.text intValue], map_info.text]];
    
-   [self.navigationController popViewControllerAnimated:YES];
+//   [self.navigationController popViewControllerAnimated:YES];
+   [self.navigationController dismissModalViewControllerAnimated:YES];
    
    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view.window animated:YES];
    hud.labelText = [NSString stringWithFormat:@"添加成功"];

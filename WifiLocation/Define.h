@@ -9,6 +9,6 @@
 #ifndef Define_h
 #define Define_h
 
-#define HELP_PAGE_URL @"http://leyxo.site"
+#define HELP_PAGE_URL @"http://eryueliang.site/wordpress/?p=39"
 
 #endif /* Define_h */

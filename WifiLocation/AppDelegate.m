@@ -48,16 +48,6 @@
 
 @implementation AppDelegate
 
-
-- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-   // 白色状态栏文字
-   [application setStatusBarStyle:UIStatusBarStyleLightContent];
-   
-   self.window.backgroundColor = [UIColor whiteColor];
-   
-   return YES;
-}
-
 // 3D Touch ShorCut事件处理
 - (void)application:(UIApplication *)application performActionForShortcutItem:(UIApplicationShortcutItem *)shortcutItem completionHandler:(void(^)(BOOL succeeded))completionHandler{
    if([shortcutItem.type isEqualToString:@"map"]) {

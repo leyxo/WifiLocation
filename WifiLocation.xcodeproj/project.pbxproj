@@ -225,7 +225,7 @@
 		18E668531E6812CC005DA56E /* fp_info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = fp_info.plist; sourceTree = "<group>"; };
 		18E668551E681429005DA56E /* FPTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FPTableViewCell.h; sourceTree = "<group>"; };
 		18E668561E681429005DA56E /* FPTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FPTableViewCell.m; sourceTree = "<group>"; };
-		18E668581E684FEF005DA56E /* readme.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = readme.h; sourceTree = "<group>"; };
+		18E668581E684FEF005DA56E /* readme.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = readme.md; sourceTree = "<group>"; };
 		18E668591E68F415005DA56E /* Define.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Define.h; sourceTree = "<group>"; };
 		18E6685A1E68F518005DA56E /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		18E6685C1E695D16005DA56E /* ChangePasswordTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChangePasswordTableViewController.h; sourceTree = "<group>"; };
@@ -301,7 +301,7 @@
 		183926C91E65C3CE00BED84F /* WifiLocation */ = {
 			isa = PBXGroup;
 			children = (
-				18E668581E684FEF005DA56E /* readme.h */,
+				18E668581E684FEF005DA56E /* readme.md */,
 				183926CD1E65C3CE00BED84F /* AppDelegate.h */,
 				183926CE1E65C3CE00BED84F /* AppDelegate.m */,
 				183926D31E65C3CE00BED84F /* Main.storyboard */,

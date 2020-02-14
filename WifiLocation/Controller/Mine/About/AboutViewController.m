@@ -25,6 +25,9 @@
    goodFontSize = 15;
    awfulFontSize = 15;
    hasClickedAwful = NO;
+    
+    // 获取Wifi信号强度
+//    [self getSignalStrength];
    
 #pragma mark AFNetworking
    // 测试AFNetworking
@@ -55,6 +58,9 @@
    pinch.delegate=self;
    
 }
+
+
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -95,6 +101,25 @@
 }
 
 
+#pragma mark - 获取Wifi信号强度值
+- (void)getSignalStrength{
+    UIApplication *app = [UIApplication sharedApplication];
+    NSArray *subviews = [[[app valueForKey:@"statusBar"] valueForKey:@"foregroundView"] subviews];
+    NSString *dataNetworkItemView = nil;
+    
+    for (id subview in subviews) {
+        if([subview isKindOfClass:[NSClassFromString(@"UIStatusBarSignalStrengthItemView") class]]) {
+            dataNetworkItemView = subview;
+            break;
+        }
+    }
+    
+    int signalStrength = [[dataNetworkItemView valueForKey:@"_signalStrengthBars"] intValue];
+    
+    NSLog(@"*** signal %d ***", signalStrength);
+    
+}
+
 #pragma mark - Shake手势
 - (void)motionBegan:(UIEventSubtype)motion withEvent:(UIEvent *)event
 {
@@ -112,6 +137,7 @@
       UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"???" message:@"" delegate:self cancelButtonTitle:@"" otherButtonTitles:nil];
       [alert setTag:0];
       [alert show];
+       
    }
 }
 
