@@ -47,12 +47,16 @@
     [self.navigationController presentViewController:loginViewController animated:YES completion:nil];
 }
 
-- (void)viewWillAppear:(BOOL)animated{
-    [self.navigationController setNavigationBarHidden:YES animated:YES];
-}
+//- (void)viewWillAppear:(BOOL)animated{
+//    [self.navigationController setNavigationBarHidden:YES animated:YES];
+//}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
 #pragma mark - Navigation
@@ -83,14 +87,14 @@
         CGFloat factor = ABS(yOffset)+200;
         CGRect f = CGRectMake(-([[UIScreen mainScreen] bounds].size.width*factor/200-[[UIScreen mainScreen] bounds].size.width)/2,-ABS(yOffset), [[UIScreen mainScreen] bounds].size.width*factor/200, factor);
         imageView.frame = f;
-        [self.navigationController setNavigationBarHidden:YES animated:NO];
+//        [self.navigationController setNavigationBarHidden:YES animated:NO];
     }
     else {
         CGRect f = headerView.frame;
         f.origin.y = 0;
         headerView.frame = f;
         imageView.frame = CGRectMake(0, f.origin.y, [[UIScreen mainScreen] bounds].size.width, 200);
-        [self.navigationController setNavigationBarHidden:NO animated:NO];
+//        [self.navigationController setNavigationBarHidden:NO animated:NO];
         
         // 渐变navigationBar
         CGFloat alpha = yOffset / 100;

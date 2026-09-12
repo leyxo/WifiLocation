@@ -32,4 +32,22 @@
 }
 */
 
+#pragma mark - 键盘快捷键实现
+- (BOOL)canBecomeFirstResponder {
+    return YES;
+}
+
+- (NSArray<UIKeyCommand *>*)keyCommands {
+    return @[
+        [UIKeyCommand keyCommandWithInput:@"1" modifierFlags:UIKeyModifierCommand action:@selector(selectTab:) discoverabilityTitle:@"地图"],
+        [UIKeyCommand keyCommandWithInput:@"2" modifierFlags:UIKeyModifierCommand action:@selector(selectTab:) discoverabilityTitle:@"管理"],
+        [UIKeyCommand keyCommandWithInput:@"3" modifierFlags:UIKeyModifierCommand action:@selector(selectTab:) discoverabilityTitle:@"用户"],
+    ];
+}
+
+- (void)selectTab:(UIKeyCommand *)sender {
+    NSString *selectedTab = sender.input;
+    self.selectedIndex = selectedTab.intValue - 1;
+}
+
 @end

@@ -10,14 +10,18 @@
 
 @interface SettingsTableViewController ()
 
+@property(nonatomic, assign)BOOL isHiddenItem;
+
 @end
 
 @implementation SettingsTableViewController
 @synthesize charsetLabel, poolLabel;
+@synthesize isLocalServer;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+
+    self.isHiddenItem = YES;
     charsetList = [[NSArray alloc] initWithObjects:@"utf-8", @"GB2312", @"GBK", nil];
 }
 
@@ -89,8 +93,6 @@
     }
 }
 
-
-
 /*
 #pragma mark - Navigation
 
@@ -101,4 +103,24 @@
 }
 */
 
+// 处理隐藏cell
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (indexPath.section == 2 && indexPath.row == 4) {
+        return 118;
+    }
+    if (indexPath.section == 1 && indexPath.row == 1 && self.isHiddenItem) {
+        return 0;
+    }
+    return 44;
+}
+
+- (IBAction)isLocalServerSwitch:(id)sender {
+   if(isLocalServer.on == YES) {
+      self.isHiddenItem = YES;
+   }
+   else {
+      self.isHiddenItem = NO;
+   }
+   [self.tableView reloadData];
+}
 @end

@@ -77,7 +77,8 @@
    APTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"APCell"];
    
    self.ap = [listData objectAtIndex:[indexPath row]];
-   cell.ap_id.text = [NSString stringWithFormat:@"%d",self.ap.ap_id];
+//   cell.ap_id.text = [NSString stringWithFormat:@"%d",self.ap.ap_id];
+   cell.ap_id.text = [NSString stringWithFormat:@"%d",[indexPath row] + 1];
    cell.ap_x.text = [NSString stringWithFormat:@"%d",self.ap.ap_x];
    cell.ap_y.text = [NSString stringWithFormat:@"%d",self.ap.ap_y];
    cell.ap_sendpower.text = [NSString stringWithFormat:@"%d",self.ap.ap_sendpower];
@@ -86,7 +87,7 @@
    
    
    if([@"是" isEqual: self.ap.ap_isrefer]) {
-      cell.ap_isrefer.text = @"⭐️";
+      cell.ap_isrefer.text = @"☆";
       cell.ap_receiverefer.text = @"";
    }
    else {
@@ -201,6 +202,22 @@
          //         [MBProgressHUD hideHUDForView:self.view.window animated:YES];
       });
    });
+}
+
+#pragma mark - 键盘快捷键实现
+- (BOOL)canBecomeFirstResponder {
+    return YES;
+}
+
+- (NSArray<UIKeyCommand *>*)keyCommands {
+    return @[
+        [UIKeyCommand keyCommandWithInput:UIKeyInputLeftArrow modifierFlags:UIKeyModifierCommand action:@selector(selectTab:) discoverabilityTitle:@"返回"],
+
+    ];
+}
+
+- (void)selectTab:(UIKeyCommand *)sender {
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 @end

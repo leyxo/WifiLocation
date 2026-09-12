@@ -7,8 +7,6 @@
 //
 
 #import "AboutViewController.h"
-#import <AFNetworking.h> //主要用于网络请求方法
-#import <UIKit+AFNetworking.h> //里面有异步加载图片的方法
 
 @interface AboutViewController ()
 
@@ -25,6 +23,10 @@
    goodFontSize = 15;
    awfulFontSize = 15;
    hasClickedAwful = NO;
+   
+//   // 测试iOS13 Context Menu
+//   UIContextMenuInteraction *interaction=[[UIContextMenuInteraction alloc]initWithDelegate:self];
+//   [self.imageView addInteraction:interaction];
     
     // 获取Wifi信号强度
 //    [self getSignalStrength];
@@ -219,43 +221,33 @@
    NSString *baiduStr = @"http://www.baidu.com";
    
    NSURL *URL = [NSURL URLWithString:domainStr];
-   AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
-//   manager.requestSerializer = [AFHTTPRequestSerializer serializer];
-   
-   [manager GET:URL.absoluteString parameters:nil success:^(NSURLSessionTask *task, id responseObject) {
-      NSLog(@"JSON: %@", responseObject);
-   } failure:^(NSURLSessionTask *operation, NSError *error) {
-      NSLog(@"Error: %@", error);
-   }];
+   NSURLSessionDataTask *task = [[NSURLSession sharedSession]
+      dataTaskWithURL:URL
+      completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+         if (error) {
+            NSLog(@"Error: %@", error);
+            return;
+         }
+         id responseObject = data ? [NSJSONSerialization JSONObjectWithData:data options:0 error:nil] : nil;
+         NSLog(@"JSON: %@", responseObject);
+      }];
+   [task resume];
    
    [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
 }
 
 - (void)downLoad{
    
-   //1.创建管理者对象
-   AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
-   //2.确定请求的URL地址
+   //1.确定请求的URL地址
    NSURL *url = [NSURL URLWithString:@"https://ss0.bdstatic.com/5aV1bjqh_Q23odCf/static/superman/img/logo/bd_logo1_31bdc765.png"];
    
    //3.创建请求对象
    NSURLRequest *request = [NSURLRequest requestWithURL:url];
    
    //下载任务
-   NSURLSessionDownloadTask *task = [manager downloadTaskWithRequest:request progress:^(NSProgress * _Nonnull downloadProgress) {
-      //打印下下载进度
-      NSLog(@"%lf",1.0 * downloadProgress.completedUnitCount / downloadProgress.totalUnitCount);
-      
-   } destination:^NSURL * _Nonnull(NSURL * _Nonnull targetPath, NSURLResponse * _Nonnull response) {
-      //下载地址
-      NSLog(@"默认下载地址:%@",targetPath);
-      
-      //设置下载路径，通过沙盒获取缓存地址，最后返回NSURL对象
-      NSString *filePath = [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES)lastObject];
-      return [NSURL fileURLWithPath:filePath];
-      
-      
-   } completionHandler:^(NSURLResponse * _Nonnull response, NSURL * _Nullable filePath, NSError * _Nullable error) {
+   NSURLSessionDownloadTask *task = [[NSURLSession sharedSession]
+      downloadTaskWithRequest:request
+      completionHandler:^(NSURL *filePath, NSURLResponse *response, NSError *error) {
       
       //下载完成调用的方法
       

@@ -38,6 +38,7 @@
 //                  不见满街漂亮妹，哪个归得程序员？
 
 #import "AppDelegate.h"
+#import "SceneDelegate.h"
 #import "MapsTableViewController.h"
 
 #import "MineTableViewController.h"
@@ -47,6 +48,24 @@
 @end
 
 @implementation AppDelegate
+
+- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+   // 最底层背景颜色 随Dark Mode更改为白色或黑色
+   self.window.backgroundColor = [UIColor groupTableViewBackgroundColor];
+   
+   return YES;
+}
+
+- (UISceneConfiguration *)application:(UIApplication *)application
+        configurationForConnectingSceneSession:(UISceneSession *)connectingSceneSession
+        options:(UISceneConnectionOptions *)options API_AVAILABLE(ios(13.0)) {
+   UISceneConfiguration *configuration = [[UISceneConfiguration alloc]
+      initWithName:@"Default Configuration"
+      sessionRole:connectingSceneSession.role];
+   configuration.delegateClass = [SceneDelegate class];
+   configuration.storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+   return configuration;
+}
 
 // 3D Touch ShorCut事件处理
 - (void)application:(UIApplication *)application performActionForShortcutItem:(UIApplicationShortcutItem *)shortcutItem completionHandler:(void(^)(BOOL succeeded))completionHandler{

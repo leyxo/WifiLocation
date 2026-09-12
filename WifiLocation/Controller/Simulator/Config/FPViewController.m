@@ -76,6 +76,7 @@
    
    self.fp = [listData objectAtIndex:[indexPath row]];
    cell.fp_id.text = [NSString stringWithFormat:@"%d",self.fp.fp_id];
+   cell.fp_id.text = [NSString stringWithFormat:@"%d",[indexPath row] + 1];
    cell.fp_x.text = [NSString stringWithFormat:@"%d",self.fp.fp_x];
    cell.fp_y.text = [NSString stringWithFormat:@"%d",self.fp.fp_y];
    cell.fp_receivegain.text = [NSString stringWithFormat:@"%d",self.fp.fp_receivegain];
@@ -208,6 +209,22 @@
          //         [MBProgressHUD hideHUDForView:self.view.window animated:YES];
       });
    });
+}
+
+#pragma mark - 键盘快捷键实现
+- (BOOL)canBecomeFirstResponder {
+    return YES;
+}
+
+- (NSArray<UIKeyCommand *>*)keyCommands {
+    return @[
+        [UIKeyCommand keyCommandWithInput:UIKeyInputLeftArrow modifierFlags:UIKeyModifierCommand action:@selector(selectTab:) discoverabilityTitle:@"返回"],
+
+    ];
+}
+
+- (void)selectTab:(UIKeyCommand *)sender {
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 @end

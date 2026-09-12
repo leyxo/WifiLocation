@@ -104,8 +104,8 @@
 - (IBAction)Examples:(id)sender {
    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view.window animated:YES];
    hud.mode = MBProgressHUDModeCustomView;
-   hud.customView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"Example.png"]];
-   dispatch_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_LOW, 0), ^{ dispatch_async(dispatch_get_main_queue(), ^{ [hud hide:YES afterDelay:5.0]; }); });
+   hud.customView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"Legend@2x.png"]];
+   dispatch_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_LOW, 0), ^{ dispatch_async(dispatch_get_main_queue(), ^{ [hud hide:YES afterDelay:3.0]; }); });
 }
 
 // 实现<UIActionSheetDelegate>的actionSHeet协议
@@ -134,8 +134,7 @@
 -(void)panView:(UIPanGestureRecognizer*)pan
 {
    //以控制器上的view的左上角为坐标原点
-   CGPoint point1=[pan translationInView:pan.view];
-   
+   CGPoint point1=[pan translationInView:pan.view.superview];
    //手指拖动，让自定义的view也跟着手指移动
    CGPoint temp=self.drawView.center;
    temp.x+=point1.x;

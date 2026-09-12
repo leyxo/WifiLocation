@@ -10,6 +10,8 @@
 
 @interface AddAPTableViewController ()
 
+@property(nonatomic, assign)BOOL isHiddenItem;
+
 @end
 
 @implementation AddAPTableViewController
@@ -21,8 +23,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
    
-   // 添加负号
-   receiverefer.text = @"-";
+    self.isHiddenItem = NO;
+
+    // 添加负号
+    receiverefer.text = @"-";
 
 }
 
@@ -40,8 +44,12 @@
 }
 */
 
-- (IBAction)Cancel:(id)sender {
-   [self.navigationController popViewControllerAnimated:YES];
+// 处理隐藏cell
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (indexPath.section == 0 && indexPath.row == 1 && self.isHiddenItem) {
+        return 0;
+    }
+    return 44;
 }
 
 - (IBAction)Save:(id)sender {
@@ -100,12 +108,34 @@
 
 - (IBAction)isreferSwitch:(id)sender {
    if(isrefer.on == YES) {
-      [receivereferCell setHidden:YES];
-      receiverefer.text = @"";
+//      [receivereferCell setHidden:YES];
+//      receiverefer.text = @"";
+      self.isHiddenItem = YES;
    }
    else {
-      [receivereferCell setHidden:NO];
+//      [receivereferCell setHidden:NO];
+      self.isHiddenItem = NO;
    }
+   
+   // 刷新cell
+   [self.tableView reloadData];
+
+}
+
+#pragma mark - 键盘快捷键实现
+- (BOOL)canBecomeFirstResponder {
+    return YES;
+}
+
+- (NSArray<UIKeyCommand *>*)keyCommands {
+    return @[
+        [UIKeyCommand keyCommandWithInput:UIKeyInputLeftArrow modifierFlags:UIKeyModifierCommand action:@selector(back:) discoverabilityTitle:@"返回"],
+
+    ];
+}
+
+- (void)back:(UIKeyCommand *)sender {
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 @end

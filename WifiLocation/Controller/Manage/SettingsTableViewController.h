@@ -12,8 +12,14 @@
     NSArray *charsetList;
 }
 
+@property (strong, nonatomic) IBOutlet UITableView *tableView;
+
+@property (weak, nonatomic) IBOutlet UISwitch *isLocalServer;
+
 @property (weak, nonatomic) IBOutlet UIPickerView *charsetPickerView;
 
 @property (weak, nonatomic) IBOutlet UILabel *charsetLabel;
 @property (weak, nonatomic) IBOutlet UILabel *poolLabel;
+
+- (IBAction)isLocalServerSwitch:(id)sender;
 @end

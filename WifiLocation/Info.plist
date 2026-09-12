@@ -2,10 +2,6 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>NSCameraUsageDescription</key>
-	<string>来来来，让叔叔用下你的摄像头~</string>
-	<key>NSPhotoLibraryUsageDescription</key>
-	<string>来来来，让叔叔看看你的照片~</string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
 	<key>CFBundleDisplayName</key>
@@ -42,6 +38,12 @@
 		<key>NSAllowsArbitraryLoads</key>
 		<true/>
 	</dict>
+	<key>NSCameraUsageDescription</key>
+	<string>需要获取摄像头权限</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>需要获取照片图库权限</string>
+	<key>NSPhotoLibraryAddUsageDescription</key>
+	<string>需要写入系统相册权限</string>
 	<key>UIApplicationShortcutItems</key>
 	<array>
 		<dict>
@@ -88,6 +90,7 @@
 		<string>UIInterfaceOrientationPortrait</string>
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
+		<string>UIInterfaceOrientationPortraitUpsideDown</string>
 	</array>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>

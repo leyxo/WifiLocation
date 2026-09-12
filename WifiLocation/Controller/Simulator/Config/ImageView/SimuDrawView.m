@@ -70,7 +70,7 @@
    // 设置线条粗细宽度
    CGContextSetLineWidth(context, 2.0);
    // 设置颜色
-   CGContextSetRGBStrokeColor(context, 0.0, 0.0, 0.0, 1.0);
+   CGContextSetRGBStrokeColor(context,0.4,0.4,0.4,1.0);
    
    
    // 开始一个起始路径
@@ -122,7 +122,7 @@
    
    // ***画出路径***
    // 开始一个起始路径
-   CGContextSetRGBStrokeColor(context,0,0,0,1.0);//画笔线的颜色
+   CGContextSetRGBStrokeColor(context,0.4,0.4,0.4,1.0);//画笔线的颜色
    CGContextSetLineWidth(context,1.0);//线的宽度
    CGContextBeginPath(context);
    for(int i = 0; i < SimuArray.count; i ++) {
@@ -164,7 +164,7 @@
     
    // 绘制坐标
    CGContextSetLineWidth(context, 1.0);
-   CGContextSetRGBFillColor (context, 0.5, 0.5, 0.5, 0.5);
+   CGContextSetRGBFillColor (context, 0.6, 0.6, 0.6, 1.0);
    UIFont *font = [UIFont systemFontOfSize:12.0];
    NSString * mapSizeStr = [[NSString alloc] initWithFormat:@"(%d,%d)", map.map_width, map.map_height];
    [mapSizeStr drawInRect:CGRectMake(6, 6, 120, 12) withFont:font];

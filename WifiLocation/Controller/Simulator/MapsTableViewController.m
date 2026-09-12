@@ -19,6 +19,7 @@
 
 @implementation MapsTableViewController
 @synthesize listData;
+@synthesize searchListData;
 @synthesize selectIndexPath;
 
 - (void)viewDidLoad {
@@ -30,7 +31,13 @@
     } else {
         // Fallback on earlier versions
     }
-    
+   
+   self.searchController = [[UISearchController alloc] initWithSearchResultsController:nil];
+   self.searchController.searchResultsUpdater = self;
+   self.searchController.dimsBackgroundDuringPresentation = NO;
+   self.searchController.obscuresBackgroundDuringPresentation = NO;
+   self.navigationItem.hidesSearchBarWhenScrolling = true;
+   self.navigationItem.searchController = self.searchController;
 
 #pragma mark FMDB方法
 //   //1.获得数据库文件的路径
@@ -78,7 +85,10 @@
    NSMutableArray *array = [[NSMutableArray alloc] init];
    array =  [sqliteHelper selectFromMapInfo];
   
-   listData = array;
+   // 当搜索框被激活时阻止刷新
+   if (!self.searchController.active) {
+      listData = array;
+   }
 }
 
 #pragma mark - Table view data source
@@ -87,13 +97,25 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return listData.count;
+   if (self.searchController.active) {
+       return [searchListData count];
+   }
+   else{
+       return [listData count];
+   }
+//    return listData.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
    MapTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"MapCell"];
    
-   self.map = [listData objectAtIndex:[indexPath row]];
+   if (self.searchController.active) {
+      self.map = [searchListData objectAtIndex:[indexPath row]];
+   }
+   else{
+      self.map = [listData objectAtIndex:[indexPath row]];
+   }
+//   self.map = [listData objectAtIndex:[indexPath row]];
    cell.map_name.text = self.map.map_name;
    cell.map_info.text = self.map.map_info;
    NSString *map_width = [NSString stringWithFormat:@"%d",self.map.map_width];
@@ -236,6 +258,53 @@
       });
    });
    
+}
+
+
+#pragma mark - 搜索委托实现
+-(void)updateSearchResultsForSearchController:(UISearchController *)searchController {
+    //获取搜索框中用户输入的字符串
+    NSString *searchString = [self.searchController.searchBar text];
+    //指定过滤条件，SELF表示要查询集合中对象，contain[c]表示包含字符串，%@是字符串内容
+    NSPredicate *preicate = [NSPredicate predicateWithFormat:@"SELF.map_name CONTAINS[c] %@", searchString];
+    //如果搜索数组中存在对象，即上次搜索的结果，则清除这些对象
+    if (self.searchListData!= nil) {
+        [self.searchListData removeAllObjects];
+    }
+    //通过过滤条件过滤数据
+    self.searchListData= [NSMutableArray arrayWithArray:[self.listData filteredArrayUsingPredicate:preicate]];
+    //刷新表格
+    [self.tableView reloadData];
+}
+
+
+#pragma mark - 键盘快捷键实现
+- (BOOL)canBecomeFirstResponder {
+    return YES;
+}
+
+- (NSArray<UIKeyCommand *>*)keyCommands {
+    return @[
+        [UIKeyCommand keyCommandWithInput:@"n"
+                            modifierFlags:UIKeyModifierCommand
+                                   action:@selector(addCommand:)
+                     discoverabilityTitle:@"添加地图"],
+        [UIKeyCommand keyCommandWithInput:@"f"
+                            modifierFlags:UIKeyModifierCommand | UIKeyModifierAlternate
+                                   action:@selector(searchCommand:)
+                     discoverabilityTitle:@"查找…"]
+    ];
+}
+
+- (void)addCommand:(UIKeyCommand *)sender {
+   // 手动触发segue跳转
+   [self performSegueWithIdentifier:@"addMap" sender:self];
+}
+
+- (void)searchCommand:(UIKeyCommand *)sender {
+   // 激活搜索栏
+   [self.searchController.searchBar becomeFirstResponder];
+   [self.searchController setActive:TRUE];
 }
 
 @end

@@ -29,21 +29,25 @@
    NSLog(@"%@",strPath);
    
    
-   
-//   //*********** 强行写入/Document/wifilocation.sqlite **********************
-//   NSString
-//   *sqldocPath = [[NSBundle mainBundle] pathForResource:@"wifilocation" ofType:@"sqlite"];
-//   NSFileManager * mng = [[NSFileManager alloc] init];
-//   // 把资源文件拷贝到/Document
-//   [mng removeItemAtPath:strPath error:nil];
-//   [mng copyItemAtPath:sqldocPath toPath:strPath error:nil];
-//   //***********************************************************************
-   
-   
-   
    //打开数据库
    //如果数据库存在就打开,如果不存在就创建一个再打开
    int result = sqlite3_open([strPath UTF8String], &db);
+   
+   // 数据库为空时，用演示数据填充数据库
+   SQLiteHelper *sqliteHelper = [[SQLiteHelper alloc] init];
+   NSMutableArray *array = [sqliteHelper selectFromMapInfo];
+   NSLog(@"数量 %lu", (unsigned long)[array count]);
+   if ([array count] == 0) {
+      NSLog(@"用演示数据创建数据库");
+         //   //*********** 强行写入/Document/wifilocation.sqlite **********************
+         NSString
+         *sqldocPath = [[NSBundle mainBundle] pathForResource:@"wifilocation" ofType:@"sqlite"];
+         NSFileManager * mng = [[NSFileManager alloc] init];
+         // 把资源文件拷贝到/Document
+         [mng removeItemAtPath:strPath error:nil];
+         [mng copyItemAtPath:sqldocPath toPath:strPath error:nil];
+         //   //***********************************************************************
+   }
 
    if (result == SQLITE_OK) {
       NSLog(@"数据库打开成功");

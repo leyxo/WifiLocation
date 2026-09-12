@@ -70,6 +70,7 @@
    CGContextSetRGBStrokeColor(context, 0.0, 0.0, 0.0, 1.0);
    
    
+   CGContextSetRGBStrokeColor(context,0.4,0.4,0.4,1.0);
    // 开始一个起始路径
    CGContextBeginPath(context);
    // 起始点
@@ -159,7 +160,7 @@
    
    // ***画出路径***
    // 开始一个起始路径
-   CGContextSetRGBStrokeColor(context,0,0,0,1.0);//画笔线的颜色
+   CGContextSetRGBStrokeColor(context,0.4,0.4,0.4,1.0);//画笔线的颜色
    CGContextSetLineWidth(context,1.0);//线的宽度
    CGContextBeginPath(context);
    for(int i = 0; i < SimuArray.count; i ++) {

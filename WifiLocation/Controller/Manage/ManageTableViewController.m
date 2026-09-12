@@ -65,14 +65,14 @@
    // 一个NavigationController
    BaseNavigationController *navCon = [[BaseNavigationController alloc] init];
    
-   //将UIViewController封装成为Popover
+   // 将UIViewController封装成为Popover
    navCon.modalPresentationStyle = UIModalPresentationPopover;
    // 设置popoverPresentationController的button or barbtton
-   navCon.popoverPresentationController.barButtonItem = self.navigationItem.leftBarButtonItem;
+   navCon.popoverPresentationController.barButtonItem = self.navigationItem.rightBarButtonItem;
    // 设置代理，以修改适配 *****这和下面的代理方法重写是关键！！！
    navCon.popoverPresentationController.delegate = self;
    // 设置大小
-   navCon.preferredContentSize = CGSizeMake(320, 400);
+   navCon.preferredContentSize = CGSizeMake(364, 426);
    
    
    // 初始化MapsTableViewController
@@ -91,20 +91,16 @@
 #pragma mark - 实现<UIActionSheetDelegate>的actionSHeet协议
 - (void)actionSheet:(UIActionSheet *)actionSheet didDismissWithButtonIndex:(NSInteger)buttonIndex {
     // 清空数据
-    if(actionSheet.tag == 0)
-    {
+    if(actionSheet.tag == 0) {
         if (buttonIndex == 0) {
-
             NSLog(@"数据清空");
         }
         else if (buttonIndex == 1) {
         }
     }
     // 导出SQL文件
-    else if(actionSheet.tag == 1)
-    {
+    else if(actionSheet.tag == 1) {
         if (buttonIndex == 0) {
-            
             NSLog(@"正在导出SQL文件");
         }
         else if (buttonIndex == 1) {

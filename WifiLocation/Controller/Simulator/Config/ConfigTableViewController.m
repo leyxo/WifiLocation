@@ -238,4 +238,21 @@
       }
    }
 }
+
+#pragma mark - 键盘快捷键实现
+- (BOOL)canBecomeFirstResponder {
+    return YES;
+}
+
+- (NSArray<UIKeyCommand *>*)keyCommands {
+    return @[
+        [UIKeyCommand keyCommandWithInput:UIKeyInputLeftArrow modifierFlags:UIKeyModifierCommand action:@selector(selectTab:) discoverabilityTitle:@"返回"],
+
+    ];
+}
+
+- (void)selectTab:(UIKeyCommand *)sender {
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
 @end

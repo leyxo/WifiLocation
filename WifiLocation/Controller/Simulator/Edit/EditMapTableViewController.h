@@ -16,7 +16,6 @@
 @property (weak, nonatomic) IBOutlet UITextField *map_height;
 @property (weak, nonatomic) IBOutlet UITextView *map_info;
 
-- (IBAction)Cancel:(id)sender;
 - (IBAction)Save:(id)sender;
 
 // 接收segue传值

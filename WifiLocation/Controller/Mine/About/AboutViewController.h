@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface AboutViewController : UIViewController <UIAlertViewDelegate, UIGestureRecognizerDelegate> {
+@interface AboutViewController : UIViewController <UIAlertViewDelegate, UIGestureRecognizerDelegate, UIContextMenuInteractionDelegate> {
    int goodFontSize;
    int awfulFontSize;
    bool hasClickedAwful;

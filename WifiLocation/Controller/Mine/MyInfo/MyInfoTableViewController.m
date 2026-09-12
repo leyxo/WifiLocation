@@ -48,6 +48,7 @@
 */
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+   [tableView deselectRowAtIndexPath:indexPath animated:YES];
    // 选取头像
    if(indexPath.section == 0 && indexPath.row == 0) {
       [self callActionSheetFunc];
@@ -116,6 +117,9 @@
       imagePickerController.allowsEditing = YES;
       imagePickerController.sourceType = sourceType;
 
+      // 解决 Attempt to present <> on <MyInfoTableViewController> which is already presenting (null).
+      [self.presentedViewController dismissViewControllerAnimated:YES completion:nil];
+      
       [self presentViewController:imagePickerController animated:YES completion:^{ }];
    }
 }

@@ -45,11 +45,6 @@
 }
 */
 
-- (IBAction)Cancel:(id)sender {
-   UIActionSheet * sheet = [[UIActionSheet alloc] initWithTitle:@"确定要放弃编辑?" delegate:self cancelButtonTitle:@"取消" destructiveButtonTitle:@"放弃" otherButtonTitles:nil];
-   [sheet showInView:self.view];
-   
-}
 
 // 实现<UIActionSheetDelegate>的actionSHeet协议
 - (void)actionSheet:(UIActionSheet *)actionSheet didDismissWithButtonIndex:(NSInteger)buttonIndex {
@@ -74,6 +69,22 @@
    hud.labelText = [NSString stringWithFormat:@"修改成功"];
    hud.mode = MBProgressHUDModeText;
    dispatch_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_LOW, 0), ^{ dispatch_async(dispatch_get_main_queue(), ^{ [hud hide:YES afterDelay:0.6]; }); });
+}
+
+#pragma mark - 键盘快捷键实现
+- (BOOL)canBecomeFirstResponder {
+    return YES;
+}
+
+- (NSArray<UIKeyCommand *>*)keyCommands {
+    return @[
+        [UIKeyCommand keyCommandWithInput:UIKeyInputLeftArrow modifierFlags:UIKeyModifierCommand action:@selector(back:) discoverabilityTitle:@"返回"],
+
+    ];
+}
+
+- (void)back:(UIKeyCommand *)sender {
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 @end

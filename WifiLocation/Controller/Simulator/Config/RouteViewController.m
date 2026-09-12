@@ -91,7 +91,8 @@
    SimuTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"SimuCell"];
    
    self.simu = [listData objectAtIndex:[indexPath row]];
-   cell.simu_id.text = [NSString stringWithFormat:@"%d",self.simu.simu_id];
+//   cell.simu_id.text = [NSString stringWithFormat:@"%d",self.simu.simu_id];
+   cell.simu_id.text = [NSString stringWithFormat:@"%d",[indexPath row] + 1];
    cell.real_x.text = [NSString stringWithFormat:@"%d",self.simu.real_x];
    cell.real_y.text = [NSString stringWithFormat:@"%d",self.simu.real_y];
 
@@ -299,6 +300,22 @@
          //         [MBProgressHUD hideHUDForView:self.view.window animated:YES];
       });
    });
+}
+
+#pragma mark - 键盘快捷键实现
+- (BOOL)canBecomeFirstResponder {
+    return YES;
+}
+
+- (NSArray<UIKeyCommand *>*)keyCommands {
+    return @[
+        [UIKeyCommand keyCommandWithInput:UIKeyInputLeftArrow modifierFlags:UIKeyModifierCommand action:@selector(selectTab:) discoverabilityTitle:@"返回"],
+
+    ];
+}
+
+- (void)selectTab:(UIKeyCommand *)sender {
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 @end

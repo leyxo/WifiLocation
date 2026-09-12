@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 46;
+	objectVersion = 50;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -27,17 +27,12 @@
 		183927111E666C9000BED84F /* RouteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 183927101E666C9000BED84F /* RouteViewController.m */; };
 		183927151E667D6400BED84F /* Desktop.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 183927141E667D6400BED84F /* Desktop.jpg */; };
 		183927191E66801200BED84F /* AddAPTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 183927181E66801200BED84F /* AddAPTableViewController.m */; };
-		1839271C1E668A2200BED84F /* tabbar_mapHL@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1839271B1E668A2200BED84F /* tabbar_mapHL@2x.png */; };
-		1839271F1E668A7B00BED84F /* tabbar_meHL@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1839271D1E668A7B00BED84F /* tabbar_meHL@2x.png */; };
-		183927201E668A7B00BED84F /* tabbar_settingHL@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1839271E1E668A7B00BED84F /* tabbar_settingHL@2x.png */; };
 		183927231E66AE3500BED84F /* map_info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 183927221E66AE3500BED84F /* map_info.plist */; };
 		183927261E66B30000BED84F /* MapTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 183927251E66B30000BED84F /* MapTableViewCell.m */; };
 		183927281E66F9EC00BED84F /* iTunesArtwork.png in Resources */ = {isa = PBXBuildFile; fileRef = 183927271E66F9EC00BED84F /* iTunesArtwork.png */; };
 		1839272C1E670BC300BED84F /* ChangeNameTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1839272B1E670BC300BED84F /* ChangeNameTableViewController.m */; };
 		183927301E670F7A00BED84F /* APTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1839272F1E670F7A00BED84F /* APTableViewCell.m */; };
 		183927321E67142E00BED84F /* ap_info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 183927311E67142E00BED84F /* ap_info.plist */; };
-		183927351E679C4B00BED84F /* AP_demo.png in Resources */ = {isa = PBXBuildFile; fileRef = 183927331E679C4B00BED84F /* AP_demo.png */; };
-		183927361E679C4B00BED84F /* Route_demo.png in Resources */ = {isa = PBXBuildFile; fileRef = 183927341E679C4B00BED84F /* Route_demo.png */; };
 		184A8E7C1E67F24B00CC066C /* EditMapTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 184A8E7B1E67F24B00CC066C /* EditMapTableViewController.m */; };
 		184A8E801E67FD4500CC066C /* EditAPTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 184A8E7F1E67FD4500CC066C /* EditAPTableViewController.m */; };
 		185121BF1E80F7B200C66422 /* KeyboardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 185121BE1E80F7B200C66422 /* KeyboardViewController.m */; };
@@ -60,10 +55,7 @@
 		185D06FF1E725627003F8CA0 /* StartDrawView.m in Sources */ = {isa = PBXBuildFile; fileRef = 185D06FE1E725627003F8CA0 /* StartDrawView.m */; };
 		185D07021E7274F0003F8CA0 /* CDFDrawView.m in Sources */ = {isa = PBXBuildFile; fileRef = 185D07011E7274F0003F8CA0 /* CDFDrawView.m */; };
 		185D07061E72E310003F8CA0 /* Example.png in Resources */ = {isa = PBXBuildFile; fileRef = 185D07051E72E310003F8CA0 /* Example.png */; };
-		185D070F1E758E76003F8CA0 /* account_snslogin_icon_1@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 185D07081E758E76003F8CA0 /* account_snslogin_icon_1@2x.png */; };
-		185D07101E758E76003F8CA0 /* account_snslogin_icon_3@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 185D07091E758E76003F8CA0 /* account_snslogin_icon_3@2x.png */; };
 		185D07111E758E76003F8CA0 /* home_page_line_vertical@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 185D070A1E758E76003F8CA0 /* home_page_line_vertical@2x.png */; };
-		185D07121E758E76003F8CA0 /* login_button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 185D070B1E758E76003F8CA0 /* login_button@2x.png */; };
 		185D07131E758E76003F8CA0 /* login_forgot_button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 185D070C1E758E76003F8CA0 /* login_forgot_button@2x.png */; };
 		185D07141E758E76003F8CA0 /* login_password_icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 185D070D1E758E76003F8CA0 /* login_password_icon@2x.png */; };
 		185D07151E758E76003F8CA0 /* login_username_icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 185D070E1E758E76003F8CA0 /* login_username_icon@2x.png */; };
@@ -74,10 +66,13 @@
 		185D072B1E767B85003F8CA0 /* WifiLocationToday.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 185D071E1E767B85003F8CA0 /* WifiLocationToday.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		18D5661E1E9A484A00EE7AA5 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 18D5661D1E9A484A00EE7AA5 /* Images.xcassets */; };
 		18D566201E9A538700EE7AA5 /* cd_demo.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 18D5661F1E9A538700EE7AA5 /* cd_demo.jpg */; };
+		18DB823023F9027500219D23 /* Legend@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 18DB822F23F9027500219D23 /* Legend@2x.png */; };
+		18E2A67B3055E9650008CCAA /* MBProgressHUDImplementation.m in Sources */ = {isa = PBXBuildFile; fileRef = 18E2A67A3055E9650008CCAA /* MBProgressHUDImplementation.m */; };
+		18E2A67E3055EAA80008CCAA /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 18E2A67D3055EAA80008CCAA /* SceneDelegate.m */; };
+		18E2A6803055EDD50008CCAA /* AppIcon.icon in Resources */ = {isa = PBXBuildFile; fileRef = 18E2A67F3055EDD50008CCAA /* AppIcon.icon */; };
 		18E668541E6812CC005DA56E /* fp_info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 18E668531E6812CC005DA56E /* fp_info.plist */; };
 		18E668571E681429005DA56E /* FPTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 18E668561E681429005DA56E /* FPTableViewCell.m */; };
 		18E6685E1E695D16005DA56E /* ChangePasswordTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18E6685D1E695D16005DA56E /* ChangePasswordTableViewController.m */; };
-		93B8320B94D4BD4C670C1540 /* libPods-WifiLocation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 30B613ED484120FA3468FDC0 /* libPods-WifiLocation.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -150,9 +145,6 @@
 		183927141E667D6400BED84F /* Desktop.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Desktop.jpg; sourceTree = "<group>"; };
 		183927171E66801200BED84F /* AddAPTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddAPTableViewController.h; sourceTree = "<group>"; };
 		183927181E66801200BED84F /* AddAPTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddAPTableViewController.m; sourceTree = "<group>"; };
-		1839271B1E668A2200BED84F /* tabbar_mapHL@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tabbar_mapHL@2x.png"; sourceTree = "<group>"; };
-		1839271D1E668A7B00BED84F /* tabbar_meHL@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tabbar_meHL@2x.png"; sourceTree = "<group>"; };
-		1839271E1E668A7B00BED84F /* tabbar_settingHL@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tabbar_settingHL@2x.png"; sourceTree = "<group>"; };
 		183927221E66AE3500BED84F /* map_info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = map_info.plist; sourceTree = "<group>"; };
 		183927241E66B30000BED84F /* MapTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapTableViewCell.h; sourceTree = "<group>"; };
 		183927251E66B30000BED84F /* MapTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapTableViewCell.m; sourceTree = "<group>"; };
@@ -162,8 +154,6 @@
 		1839272E1E670F7A00BED84F /* APTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APTableViewCell.h; sourceTree = "<group>"; };
 		1839272F1E670F7A00BED84F /* APTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APTableViewCell.m; sourceTree = "<group>"; };
 		183927311E67142E00BED84F /* ap_info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = ap_info.plist; sourceTree = "<group>"; };
-		183927331E679C4B00BED84F /* AP_demo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = AP_demo.png; sourceTree = "<group>"; };
-		183927341E679C4B00BED84F /* Route_demo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Route_demo.png; sourceTree = "<group>"; };
 		184A8E7A1E67F24B00CC066C /* EditMapTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditMapTableViewController.h; sourceTree = "<group>"; };
 		184A8E7B1E67F24B00CC066C /* EditMapTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditMapTableViewController.m; sourceTree = "<group>"; };
 		184A8E7E1E67FD4500CC066C /* EditAPTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditAPTableViewController.h; sourceTree = "<group>"; };
@@ -205,10 +195,7 @@
 		185D07001E7274F0003F8CA0 /* CDFDrawView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDFDrawView.h; sourceTree = "<group>"; };
 		185D07011E7274F0003F8CA0 /* CDFDrawView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDFDrawView.m; sourceTree = "<group>"; };
 		185D07051E72E310003F8CA0 /* Example.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Example.png; sourceTree = "<group>"; };
-		185D07081E758E76003F8CA0 /* account_snslogin_icon_1@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "account_snslogin_icon_1@2x.png"; sourceTree = "<group>"; };
-		185D07091E758E76003F8CA0 /* account_snslogin_icon_3@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "account_snslogin_icon_3@2x.png"; sourceTree = "<group>"; };
 		185D070A1E758E76003F8CA0 /* home_page_line_vertical@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "home_page_line_vertical@2x.png"; sourceTree = "<group>"; };
-		185D070B1E758E76003F8CA0 /* login_button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "login_button@2x.png"; sourceTree = "<group>"; };
 		185D070C1E758E76003F8CA0 /* login_forgot_button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "login_forgot_button@2x.png"; sourceTree = "<group>"; };
 		185D070D1E758E76003F8CA0 /* login_password_icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "login_password_icon@2x.png"; sourceTree = "<group>"; };
 		185D070E1E758E76003F8CA0 /* login_username_icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "login_username_icon@2x.png"; sourceTree = "<group>"; };
@@ -222,6 +209,11 @@
 		185D07281E767B85003F8CA0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		18D5661D1E9A484A00EE7AA5 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		18D5661F1E9A538700EE7AA5 /* cd_demo.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = cd_demo.jpg; sourceTree = "<group>"; };
+		18DB822F23F9027500219D23 /* Legend@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Legend@2x.png"; sourceTree = "<group>"; };
+		18E2A67A3055E9650008CCAA /* MBProgressHUDImplementation.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUDImplementation.m; sourceTree = "<group>"; };
+		18E2A67C3055EAA80008CCAA /* SceneDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SceneDelegate.h; sourceTree = "<group>"; };
+		18E2A67D3055EAA80008CCAA /* SceneDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SceneDelegate.m; sourceTree = "<group>"; };
+		18E2A67F3055EDD50008CCAA /* AppIcon.icon */ = {isa = PBXFileReference; lastKnownFileType = folder.iconcomposer.icon; path = AppIcon.icon; sourceTree = "<group>"; };
 		18E668531E6812CC005DA56E /* fp_info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = fp_info.plist; sourceTree = "<group>"; };
 		18E668551E681429005DA56E /* FPTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FPTableViewCell.h; sourceTree = "<group>"; };
 		18E668561E681429005DA56E /* FPTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FPTableViewCell.m; sourceTree = "<group>"; };
@@ -230,7 +222,6 @@
 		18E6685A1E68F518005DA56E /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		18E6685C1E695D16005DA56E /* ChangePasswordTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChangePasswordTableViewController.h; sourceTree = "<group>"; };
 		18E6685D1E695D16005DA56E /* ChangePasswordTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChangePasswordTableViewController.m; sourceTree = "<group>"; };
-		30B613ED484120FA3468FDC0 /* libPods-WifiLocation.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-WifiLocation.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4CC78A8E5A7DD8F7C0EC4CE1 /* Pods-WifiLocation.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WifiLocation.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WifiLocation/Pods-WifiLocation.debug.xcconfig"; sourceTree = "<group>"; };
 		8FCC9F60072EEB08B72250E6 /* Pods-WifiLocation.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WifiLocation.release.xcconfig"; path = "Pods/Target Support Files/Pods-WifiLocation/Pods-WifiLocation.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -241,7 +232,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				185D06DA1E6FE013003F8CA0 /* libsqlite3.tbd in Frameworks */,
-				93B8320B94D4BD4C670C1540 /* libPods-WifiLocation.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -286,7 +276,9 @@
 				958CCE5A698AE20A1CCC6718 /* Pods */,
 				84551FB2E353502FA96C03FB /* Frameworks */,
 			);
+			indentWidth = 3;
 			sourceTree = "<group>";
+			tabWidth = 3;
 		};
 		183926C81E65C3CE00BED84F /* Products */ = {
 			isa = PBXGroup;
@@ -311,6 +303,9 @@
 				185D06D51E6FDF20003F8CA0 /* Utilities */,
 				183927121E667CEB00BED84F /* Resources */,
 				183926CA1E65C3CE00BED84F /* Supporting Files */,
+				18E2A67C3055EAA80008CCAA /* SceneDelegate.h */,
+				18E2A67D3055EAA80008CCAA /* SceneDelegate.m */,
+				18E2A67F3055EDD50008CCAA /* AppIcon.icon */,
 			);
 			path = WifiLocation;
 			sourceTree = "<group>";
@@ -459,10 +454,8 @@
 			children = (
 				18D5661C1E9A46F100EE7AA5 /* NowPlaying */,
 				185D07051E72E310003F8CA0 /* Example.png */,
-				183927331E679C4B00BED84F /* AP_demo.png */,
-				183927341E679C4B00BED84F /* Route_demo.png */,
+				18DB822F23F9027500219D23 /* Legend@2x.png */,
 				183927271E66F9EC00BED84F /* iTunesArtwork.png */,
-				1839271A1E6689E800BED84F /* Tabbar */,
 				185D07071E758E4F003F8CA0 /* Login */,
 				183927141E667D6400BED84F /* Desktop.jpg */,
 				183926D61E65C3CE00BED84F /* Assets.xcassets */,
@@ -478,16 +471,6 @@
 				183927181E66801200BED84F /* AddAPTableViewController.m */,
 			);
 			path = AddAP;
-			sourceTree = "<group>";
-		};
-		1839271A1E6689E800BED84F /* Tabbar */ = {
-			isa = PBXGroup;
-			children = (
-				1839271D1E668A7B00BED84F /* tabbar_meHL@2x.png */,
-				1839271E1E668A7B00BED84F /* tabbar_settingHL@2x.png */,
-				1839271B1E668A2200BED84F /* tabbar_mapHL@2x.png */,
-			);
-			path = Tabbar;
 			sourceTree = "<group>";
 		};
 		183927211E66AE2400BED84F /* Plists */ = {
@@ -558,6 +541,7 @@
 			children = (
 				185D06D61E6FDFEC003F8CA0 /* SQLiteHelper.h */,
 				185D06D71E6FDFEC003F8CA0 /* SQLiteHelper.m */,
+				18E2A67A3055E9650008CCAA /* MBProgressHUDImplementation.m */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -587,10 +571,7 @@
 		185D07071E758E4F003F8CA0 /* Login */ = {
 			isa = PBXGroup;
 			children = (
-				185D07081E758E76003F8CA0 /* account_snslogin_icon_1@2x.png */,
-				185D07091E758E76003F8CA0 /* account_snslogin_icon_3@2x.png */,
 				185D070A1E758E76003F8CA0 /* home_page_line_vertical@2x.png */,
-				185D070B1E758E76003F8CA0 /* login_button@2x.png */,
 				185D070C1E758E76003F8CA0 /* login_forgot_button@2x.png */,
 				185D070D1E758E76003F8CA0 /* login_password_icon@2x.png */,
 				185D070E1E758E76003F8CA0 /* login_username_icon@2x.png */,
@@ -630,7 +611,6 @@
 			isa = PBXGroup;
 			children = (
 				185D06D91E6FE013003F8CA0 /* libsqlite3.tbd */,
-				30B613ED484120FA3468FDC0 /* libPods-WifiLocation.a */,
 				185D071F1E767B85003F8CA0 /* NotificationCenter.framework */,
 				185121981E7FD98200C66422 /* Messages.framework */,
 			);
@@ -712,7 +692,7 @@
 		183926BF1E65C3CE00BED84F /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0820;
+				LastUpgradeCheck = 1220;
 				ORGANIZATIONNAME = "LEY's MacBook";
 				TargetAttributes = {
 					183926C61E65C3CE00BED84F = {
@@ -733,8 +713,8 @@
 				};
 			};
 			buildConfigurationList = 183926C21E65C3CE00BED84F /* Build configuration list for PBXProject "WifiLocation" */;
-			compatibilityVersion = "Xcode 3.2";
-			developmentRegion = English;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
@@ -757,30 +737,24 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				183927361E679C4B00BED84F /* Route_demo.png in Resources */,
 				18D5661E1E9A484A00EE7AA5 /* Images.xcassets in Resources */,
 				183927151E667D6400BED84F /* Desktop.jpg in Resources */,
-				183927351E679C4B00BED84F /* AP_demo.png in Resources */,
 				183927231E66AE3500BED84F /* map_info.plist in Resources */,
 				183926DA1E65C3CE00BED84F /* LaunchScreen.storyboard in Resources */,
-				1839271C1E668A2200BED84F /* tabbar_mapHL@2x.png in Resources */,
 				183926D71E65C3CE00BED84F /* Assets.xcassets in Resources */,
+				18DB823023F9027500219D23 /* Legend@2x.png in Resources */,
 				185D07131E758E76003F8CA0 /* login_forgot_button@2x.png in Resources */,
-				185D07121E758E76003F8CA0 /* login_button@2x.png in Resources */,
-				1839271F1E668A7B00BED84F /* tabbar_meHL@2x.png in Resources */,
 				185D07111E758E76003F8CA0 /* home_page_line_vertical@2x.png in Resources */,
 				183927281E66F9EC00BED84F /* iTunesArtwork.png in Resources */,
 				185D06E81E704D66003F8CA0 /* wifilocation.sqlite in Resources */,
 				185D07151E758E76003F8CA0 /* login_username_icon@2x.png in Resources */,
-				183927201E668A7B00BED84F /* tabbar_settingHL@2x.png in Resources */,
+				18E2A6803055EDD50008CCAA /* AppIcon.icon in Resources */,
 				183926D51E65C3CE00BED84F /* Main.storyboard in Resources */,
-				185D070F1E758E76003F8CA0 /* account_snslogin_icon_1@2x.png in Resources */,
 				185D07141E758E76003F8CA0 /* login_password_icon@2x.png in Resources */,
 				185D07061E72E310003F8CA0 /* Example.png in Resources */,
 				18E668541E6812CC005DA56E /* fp_info.plist in Resources */,
 				18D566201E9A538700EE7AA5 /* cd_demo.jpg in Resources */,
 				183927321E67142E00BED84F /* ap_info.plist in Resources */,
-				185D07101E758E76003F8CA0 /* account_snslogin_icon_3@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -882,6 +856,8 @@
 				184A8E801E67FD4500CC066C /* EditAPTableViewController.m in Sources */,
 				183927111E666C9000BED84F /* RouteViewController.m in Sources */,
 				1839270A1E666C5300BED84F /* APViewController.m in Sources */,
+				18E2A67E3055EAA80008CCAA /* SceneDelegate.m in Sources */,
+				18E2A67B3055E9650008CCAA /* MBProgressHUDImplementation.m in Sources */,
 				183926CC1E65C3CE00BED84F /* main.m in Sources */,
 				183926F61E664E2900BED84F /* MyInfoTableViewController.m in Sources */,
 				185D06FF1E725627003F8CA0 /* StartDrawView.m in Sources */,
@@ -959,20 +935,30 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -995,7 +981,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -1006,20 +992,30 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -1036,7 +1032,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
@@ -1052,7 +1048,15 @@
 				GCC_INCREASE_PRECOMPILED_HEADER_SHARING = NO;
 				GCC_PREFIX_HEADER = WifiLocation/PrefixHeader.pch;
 				INFOPLIST_FILE = WifiLocation/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.6;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-lsqlite3",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = LEY.WifiLocation;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1068,7 +1072,15 @@
 				GCC_INCREASE_PRECOMPILED_HEADER_SHARING = NO;
 				GCC_PREFIX_HEADER = WifiLocation/PrefixHeader.pch;
 				INFOPLIST_FILE = WifiLocation/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.6;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-lsqlite3",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = LEY.WifiLocation;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1080,7 +1092,12 @@
 			buildSettings = {
 				DEVELOPMENT_TEAM = J4YMYJUA3G;
 				INFOPLIST_FILE = WifiLocationKeyBoard/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.6;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = LEY.WifiLocation.WifiLocationKeyBoard;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -1092,7 +1109,12 @@
 			buildSettings = {
 				DEVELOPMENT_TEAM = J4YMYJUA3G;
 				INFOPLIST_FILE = WifiLocationKeyBoard/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.6;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = LEY.WifiLocation.WifiLocationKeyBoard;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -1104,7 +1126,12 @@
 			buildSettings = {
 				DEVELOPMENT_TEAM = J4YMYJUA3G;
 				INFOPLIST_FILE = WifiLocationToday/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.6;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = LEY.WifiLocation.WifiLocationToday;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -1116,7 +1143,12 @@
 			buildSettings = {
 				DEVELOPMENT_TEAM = J4YMYJUA3G;
 				INFOPLIST_FILE = WifiLocationToday/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.6;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = LEY.WifiLocation.WifiLocationToday;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
